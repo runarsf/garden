@@ -1,134 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="Digital Garden" property="og:site_name" />
-    <meta
-        content="A Jekyll theme for Obsidian users to build digital garden"
-        property="og:description">
-      <meta content="https://publish.runarsf.dev//about/" property="article:author">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-        rel="stylesheet"><meta content="Obsidian" property="og:title">
-      <meta content="article" property="og:type">
-      <meta content="https://publish.runarsf.dev//notes/Obsidian" property="og:url"><title>My Notebook</title>
-      <link rel="canonical" href="https://publish.runarsf.dev//notes/Obsidian" />
-      <link rel="apple-touch-icon" href="/assets/img/profile.png">
-      <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
-      <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
-      <link href="/assets/css/main.css" rel="stylesheet" media="all" class="default" />
-      <link href="/assets/css/Util.css" rel="stylesheet" media="all" class="default" />
-      <link href="/assets/css/vendor/Katex.css" rel="stylesheet" media="all" class="default" />
-      <!--[if IE]>
-        <link href="/assets/css/ie-target.css" rel="stylesheet" type="text/css"/>
-      <![endif]-->
-      <!--<link href="/assets/css/prism.css" rel="stylesheet" />-->
-      <link rel="alternate" type="application/rss+xml" href="https://publish.runarsf.dev//feed.xml">
-    </head>
-    <body><nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="../index.html">
-            <!-- <svg width="32" height="32" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M36.9477 13.7742C38.3043 11.4086 41.6957 11.4086 43.0523 13.7742L70.5226 61.6774C71.8791 64.043 70.1834 67 67.4703 67H12.5297C9.81658 67 8.12089 64.043 9.47744 61.6774L36.9477 13.7742ZM40 16.9677L13.7506 62.7419H66.2494L40 16.9677Z" fill="var(--text-main)"/>
-        </svg> -->
-            <h4>📖 My Notebook</h4>
-          </a>
-          <div class="navbar-item navbar-dark-mode__mobile is-hidden-tablet" onclick="modeSwitcher()">
-            <div class="buttons">
-              <a class="button is-text">
-                <span class="icon is-small">
-                  <img src="../assets/img/sun.svg" id="theme-toggle-img--mobile">
-                </span>
-              </a>
-            </div>
-          </div>
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a href="/about" class="navbar-item">
-              About
-            </a>
-            <a href="/notes" class="navbar-item">
-              Notes
-            </a>
-            <a href="/posts" class="navbar-item">
-              Posts
-            </a>
-            <a href="/tags" class="navbar-item">
-              Tags
-            </a>
-            <a href="/feed.xml" class="navbar-item">
-              RSS
-            </a>
-            <!-- <a href="https://github.com/runarsf" target="_blank" class="navbar-item">
-          My GitHub
-        </a> -->
-          </div>
-          <div class="navbar-end is-hidden-mobile" onclick="modeSwitcher()" >
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-text">
-                  <span class="icon is-small">
-                    <img src="../assets/img/sun.svg" id="theme-toggle-img">
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <script src="/assets/js/Hamburger.js"></script>
-      <!-- TODO  Fix inline mathjax styling -->
-      <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-           tex2jax: {
-               inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
-               displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
-               processEscapes: true
-                   }
-               });
-      </script>
-      <section class="section">
-        <div class="columns is-centered">
-          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
-          <div class="column is-three-fifths">
-            <main>
-              <div class="note-page-section">
-                <div class="buttons for-back-home"><a class="button is-text button__page-back" onclick="window.location.assign('/');"><span class="icon is-small">
-                      <svg width="12" height="20" viewBox="0 0 12 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M11.0309 0.468998C11.1007 0.538667 11.1561 0.62143 11.1939 0.712548C11.2318 0.803665 11.2512 0.901347 11.2512 0.999998C11.2512 1.09865 11.2318 1.19633 11.1939 1.28745C11.1561 1.37857 11.1007 1.46133 11.0309 1.531L2.56038 10L11.0309 18.469C11.1717 18.6098 11.2508 18.8008 11.2508 19C11.2508 19.1992 11.1717 19.3902 11.0309 19.531C10.89 19.6718 10.699 19.7509 10.4999 19.7509C10.3007 19.7509 10.1097 19.6718 9.96887 19.531L0.968875 10.531C0.899031 10.4613 0.843616 10.3786 0.805806 10.2874C0.767997 10.1963 0.748535 10.0986 0.748535 10C0.748535 9.90135 0.767997 9.80367 0.805806 9.71255C0.843616 9.62143 0.899031 9.53867 0.968875 9.469L9.96887 0.468998C10.0385 0.399153 10.1213 0.343739 10.2124 0.305929C10.3035 0.26812 10.4012 0.248657 10.4999 0.248657C10.5985 0.248657 10.6962 0.26812 10.7873 0.305929C10.8784 0.343739 10.9612 0.399153 11.0309 0.468998Z"
-                                        fill="var(--text-main)" />
-                      </svg>
-                    </span>
-                  </a>
-                </div>
-                <h1>Obsidian</h1>
-                <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
-                <div class="content">
-                  <h1 id="obsidian-customization">Obsidian customization</h1>
-                  <h2 id="settings">Settings</h2>
-                  <h3 id="editor">Editor</h3>
-                  <p><img src="https://i.runarsf.dev/runar/sUxiFUbi20.png/raw" alt="" /></p>
-                  <h3 id="files--links">Files &amp; Links</h3>
-                  <p><img src="https://i.runarsf.dev/runar/xUKujIXe26.png/raw" alt="" /></p>
-                  <h2 id="appearance">Appearance</h2>
-                  <p>I’ve tried pretty much every theme up to this point, but <a href="https://github.com/chetachiezikeuzor">Chetachi</a>’s <a href="https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme">Yin and Yang</a> theme (based off of California Coast) is by far the most <a href="#Style%20Settings">customizable</a> and best integrated (also updated frequently).</p>
-                  <p><a href="https://github.com/mgmeyers/obsidian-california-coast-theme">California Coast</a> and <a href="https://github.com/kepano/obsidian-minimal">Minimal</a> are also decent, but from my experience both have tiny problems that don’t appear in <a href="https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme">Yin and Yang</a>.</p>
-                  <h3 id="css-snippets">CSS Snippets</h3>
-                  <p>CSS snippets are placed in <code class="highlighter-rouge">&lt;VaultRoot&gt;/.obsidian/snippets/&lt;Snippet Name&gt;.css</code>.
-                    After adding the file, reload the snippets in obsidian and enable them.</p>
-                  <h4 id="folder-arrows-for-folder-notes">Folder Arrows for Folder Notes</h4>
-                  <div class="language-css highlighter-rouge">
-                    <div class="highlight">
-                      <pre class="highlight"><code><span class="c">/*
+<h1 id="obsidian-customization">Obsidian customization</h1>
+<h2 id="settings">Settings</h2>
+<h3 id="editor">Editor</h3>
+<p><img src="https://i.runarsf.dev/runar/sUxiFUbi20.png/raw" alt="" /></p>
+<h3 id="files--links">Files &amp; Links</h3>
+<p><img src="https://i.runarsf.dev/runar/xUKujIXe26.png/raw" alt="" /></p>
+<h2 id="appearance">Appearance</h2>
+<p>I’ve tried pretty much every theme up to this point, but <a href="https://github.com/chetachiezikeuzor">Chetachi</a>’s <a href="https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme">Yin and Yang</a> theme (based off of California Coast) is by far the most <a href="#Style%20Settings">customizable</a> and best integrated (also updated frequently).</p>
+<p><a href="https://github.com/mgmeyers/obsidian-california-coast-theme">California Coast</a> and <a href="https://github.com/kepano/obsidian-minimal">Minimal</a> are also decent, but from my experience both have tiny problems that don’t appear in <a href="https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme">Yin and Yang</a>.</p>
+<h3 id="css-snippets">CSS Snippets</h3>
+<p>CSS snippets are placed in <code class="highlighter-rouge">&lt;VaultRoot&gt;/.obsidian/snippets/&lt;Snippet Name&gt;.css</code>.
+  After adding the file, reload the snippets in obsidian and enable them.</p>
+<h4 id="folder-arrows-for-folder-notes">Folder Arrows for Folder Notes</h4>
+<div class="language-css highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><span class="c">/*
  * Show folder arrow (&gt;) only for folders with a folder note.
  */</span>
 <span class="nc">.nav-folder</span><span class="nd">:not</span><span class="o">(</span> <span class="nc">.alx-folder-with-note</span><span class="o">)</span> <span class="nc">.nav-folder-title</span> <span class="nc">.collapse-icon</span> <span class="p">{</span>
@@ -146,12 +31,12 @@
 <span class="p">}</span>
 
 </code></pre>
-                    </div>
-                  </div>
-                  <h4 id="settings-tweaks">Settings Tweaks</h4>
-                  <div class="language-css highlighter-rouge">
-                    <div class="highlight">
-                      <pre class="highlight"><code><span class="nc">.setting-item-description</span> <span class="p">{</span>
+  </div>
+</div>
+<h4 id="settings-tweaks">Settings Tweaks</h4>
+<div class="language-css highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><span class="nc">.setting-item-description</span> <span class="p">{</span>
   <span class="nl">max-height</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
   <span class="nl">transition</span><span class="p">:</span> <span class="n">max-height</span> <span class="m">0.25s</span> <span class="n">ease-out</span><span class="p">;</span>
   <span class="nl">overflow</span><span class="p">:</span> <span class="nb">hidden</span><span class="p">;</span>
@@ -177,243 +62,243 @@
   <span class="nl">height</span><span class="p">:</span> <span class="m">20%</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre>
-                    </div>
-                  </div>
-                  <h3 id="installing-and-updating-themes">Installing and updating themes</h3>
-                  <p>The installation/update procedure is the same, go to <code class="highlighter-rouge">Settings &gt; Appearance &gt; Community themes &gt; Browse</code>, look for the theme you want, and press <code class="highlighter-rouge">Use</code>.</p>
-                  <h3 id="customizing-themes">Customizing themes</h3>
-                  <p>Some themes (like <em>Yin and Yang</em>) are integrated into the <a href="#Style%20Settings">Style Settings</a> plugin, and some have their own plugin.</p>
-                  <h3 id="theming-obsidian-publish">Theming <a href="https://obsidian.md/publish">Obsidian Publish</a></h3>
-                  <p>The easiest way of theming Obsidian Publish is to simply copy your obsidian theme.
-                    Copy the theme css file to your vault and name it <code class="highlighter-rouge">publish.css</code>, then publish it using the in-app modal.
-                    For the Yin and Yang theme this would be <code class="highlighter-rouge">cp &lt;VaultRoot&gt;/.obsidian/themes/Yin\ and\ Yang.css &lt;VaultRoot&gt;/publish.css</code>.</p>
-                  <hr />
-                  <h2 id="other-things">Other things</h2>
-                  <h3 id="templates">Templates</h3>
-                  <ul>
-                    <li><a href="_templates/ABC%20Markup.md">_templates/ABC Markup</a> — EZ LaTeX and markdown formatting. Download the file and put it in <code class="highlighter-rouge">_templates</code>. Instructions are found in the template file. HIGHLY recommend the Hotkeys for Templates plugin to bind this template to a key.</li>
-                  </ul>
-                  <hr />
-                  <h2 id="plugins">Plugins</h2>
-                  <h3 id="core-plugins">Core plugins</h3>
-                  <ul class="task-list">
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />File explorer</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Search</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Quick switcher</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Graph view</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Backlinks</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Outgoing links</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Tag pane</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Page preview</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Daily notes</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Templates</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Note composer</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Command palette</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Starred</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Markdown formatter importer
-                      <ul>
-                        <li>Enable on-demand.</li>
-                      </ul>
-                    </li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Zettelkasten prefixer</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Random note</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Outline</li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Word count
-                      <ul>
-                        <li>Replaced by community plugin.</li>
-                      </ul>
-                    </li>
-                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Slides
-                      <ul>
-                        <li>Just bad.</li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <hr />
-                  <h3 id="community-plugins">Community plugins</h3>
-                  <p>To install community plugins, go to <code class="highlighter-rouge">Settings &gt; Community plugins &gt; Browse</code>.
-                    Make sure <em>Safe mode</em> is off.</p>
-                  <ul>
-                    <li><a href="#Advanced%20Tables">Advanced Tables</a></li>
-                    <li><a href="#AidenLx’s%20Folder%20Note">AidenLx’s Folder Note</a>
-                      <ul>
-                        <li><a href="#AidenLx’s%20Folder%20Note">Folder Note Core</a></li>
-                      </ul>
-                    </li>
-                    <li>Annotator</li>
-                    <li>Banner</li>
-                    <li>Better File Link</li>
-                    <li>Better footnote</li>
-                    <li>Better Word Count</li>
-                    <li>Block Reference Counter</li>
-                    <li>Buttons</li>
-                    <li><a href="#Calendar">Calendar</a></li>
-                    <li>Checklist</li>
-                    <li>Citations</li>
-                    <li>cMenu
-                      <ul>
-                        <li>Hide (bottom right).</li>
-                      </ul>
-                    </li>
-                    <li>Comments</li>
-                    <li><a href="#Consistent%20attachments%20and%20links">Consistent attachments and links</a></li>
-                    <li>Contextual Typography</li>
-                    <li>Copy Block Link</li>
-                    <li>CSV Editor</li>
-                    <li><a href="#Customizable%20Sidebar">Customizable Sidebar</a></li>
-                    <li>Dangling links</li>
-                    <li>Dataview</li>
-                    <li>Diagrams</li>
-                    <li><a href="#Dictionary">Dictionary</a></li>
-                    <li><a href="#Discord%20Rich%20Presence">Discord Rich Presence</a></li>
-                    <li><a href="https://github.com/paulbricman/dual-obsidian-client">Dual</a> (not in community plugin list)</li>
-                    <li>Editor Syntax Highlight</li>
-                    <li>Emoji Shortcodes</li>
-                    <li>Emoji Toolbar</li>
-                    <li><a href="#Excalidraw">Excalidraw</a></li>
-                    <li>Export To Tex</li>
-                    <li><a href="https://github.com/phibr0/obsidian-extended-context-menu">Extended Context Menu</a> (deprecated, not in community plugin list)</li>
-                    <li>Extended MathJax</li>
-                    <li><a href="#Extension%20Handler">Extension Handler</a> (not in community plugin list)</li>
-                    <li>Focus Mode</li>
-                    <li><a href="#Footlinks">Footlinks</a></li>
-                    <li>Footnote Shortcut</li>
-                    <li>Gist</li>
-                    <li>Go to Line</li>
-                    <li><a href="#Hide%20Sidebars%20When%20Narrow">Hide Sidebars When Narrow</a></li>
-                    <li>Hider (disabled)</li>
-                    <li>Hotkey Helper</li>
-                    <li>Hotkeys for templates</li>
-                    <li><a href="#Hotkeys">Hotkeys++</a></li>
-                    <li>Hover External Link Plugin</li>
-                    <li>Indentation Lines</li>
-                    <li>ini Editor</li>
-                    <li>Jupyter plugin</li>
-                    <li>Kanban</li>
-                    <li>LanguageTool Integeation</li>
-                    <li><a href="#Linter">Linter</a></li>
-                    <li><a href="#Maximise%20Active%20Pane">Maximise Active Pane</a></li>
-                    <li>MetaEdit</li>
-                    <li>Metatable</li>
-                    <li><a href="#Natural%20Language%20Dates">Natural Language Dates</a></li>
-                    <li><a href="#Note%20Refactor">Note Refactor</a></li>
-                    <li><a href="#Obsidian%20Git">Obsidian Git</a></li>
-                    <li>obsidian markmind</li>
-                    <li>Obsidian42 - Jump-to-Date</li>
-                    <li><a href="#Ozan's%20Image%20in%20Editor%20Plugin">Ozan's Image in Editor Plugin</a></li>
-                    <li>Pandoc Plugin</li>
-                    <li><a href="#Paste%20URL%20into%20selection">Paste URL into selection</a></li>
-                    <li>Plugin Changelogs</li>
-                    <li>Quick Explorer</li>
-                    <li>Quick Switcher++</li>
-                    <li>QuickAdd</li>
-                    <li>Recent Files</li>
-                    <li>Rich Links</li>
-                    <li><a href="#Search%20on%20Internet">Search on Internet</a></li>
-                    <li><a href="#Show%20Whitespace">Show Whitespace</a></li>
-                    <li><a href="#Sliding%20Panes%20Andy's%20Mode">Sliding Panes (Andy's Mode)</a></li>
-                    <li><a href="#Smart%20Typography">Smart Typography</a></li>
-                    <li>Tag Wrangler</li>
-                    <li>Taskbone OCR</li>
-                    <li><a href="#Tasks">Tasks</a></li>
-                    <li><a href="#Templater">Templater</a></li>
-                    <li><a href="#Text%20Snippets">Text Snippets</a></li>
-                    <li>Tidy Footnotes</li>
-                    <li>Todoist Plugin (for <a href="https://todoist.com/app/">todoist</a> users)</li>
-                    <li>Zoom</li>
-                    <li>Style Settings</li>
-                  </ul>
-                  <h4 id="advanced-tables">Advanced Tables</h4>
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Setting</th>
-                        <th>Value</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Bind enter to table navigation</td>
-                        <td><mark class="blue">true</mark></td>
-                      </tr>
-                      <tr>
-                        <td>Bind tab to table navigation</td>
-                        <td><mark class="blue">true</mark></td>
-                      </tr>
-                      <tr>
-                        <td>Pad cell width using spaces</td>
-                        <td><mark class="blue">true</mark></td>
-                      </tr>
-                      <tr>
-                        <td>Show icon in sidebar</td>
-                        <td><mark class="red">false</mark></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <h4 id="aidenlxs-folder-note">AidenLx’s Folder Note</h4>
-                  <blockquote>
-                    <p>ℹ️ Requires Folder Note Core</p>
-                  </blockquote>
-                  <p><img src="https://i.runarsf.dev/runar/FuxiGuwe67.png/raw" alt="" /></p>
-                  <h4 id="calendar">Calendar</h4>
-                  <p><img src="https://i.runarsf.dev/runar/cisuSaze91.png/raw" alt="" /></p>
-                  <h4 id="consistent-attachments-and-links">Consistent attachments and links</h4>
-                  <p><img src="https://i.runarsf.dev/runar/yAqUwUyo49.png/raw" alt="" /></p>
-                  <h4 id="customizable-sidebar">Customizable Sidebar</h4>
-                  <p><img src="https://i.runarsf.dev/runar/JemeboTo74.png/raw" alt="" /></p>
-                  <h4 id="dictionary">Dictionary</h4>
-                  <p><img src="https://i.runarsf.dev/runar/qeFudAkO63.png/raw" alt="" /></p>
-                  <h4 id="discord-rich-presence">Discord Rich Presence</h4>
-                  <p><img src="https://i.runarsf.dev/runar/xuJIRIBu29.png/raw" alt="" /></p>
-                  <h4 id="excalidraw">Excalidraw</h4>
-                  <p><img src="https://i.runarsf.dev/runar/ziFUSOcE81.png/raw" alt="" />
-                    <img src="https://i.runarsf.dev/runar/duJoDomu87.png/raw" alt="" /></p>
-                  <h4 id="extension-handler">Extension Handler</h4>
-                  <ol>
-                    <li>Follow install instructions from <a href="https://github.com/runarsf/obsidian-extension-handler#manual-installation">GitHub</a></li>
-                    <li>Reload obsidian extensions</li>
-                  </ol>
-                  <p><img src="https://i.runarsf.dev/runar/ZaBixIKe89.png/raw" alt="" /></p>
-                  <h4 id="footlinks">Footlinks</h4>
-                  <p><img src="https://i.runarsf.dev/runar/luvuPuFu52.png/raw" alt="" /></p>
-                  <h4 id="hide-sidebars-when-narrow">Hide Sidebars When Narrow</h4>
-                  <p><img src="https://i.runarsf.dev/runar/JulayOYi14.png/raw" alt="" /></p>
-                  <h4 id="hotkeys">Hotkeys++</h4>
-                  <p><img src="https://i.runarsf.dev/runar/sOQuVIfE32.png/raw" alt="" /></p>
-                  <h4 id="linter">Linter</h4>
-                  <p><img src="https://i.runarsf.dev/runar/huFOmeYu44.png/raw" alt="" /></p>
-                  <h4 id="maximise-active-pane">Maximise Active Pane</h4>
-                  <p><img src="https://i.runarsf.dev/runar/gEQIrIda22.png/raw" alt="" /></p>
-                  <h4 id="natural-language-dates">Natural Language Dates</h4>
-                  <p><img src="https://i.runarsf.dev/runar/dIhOJiHa19.png/raw" alt="" /></p>
-                  <h4 id="note-refactor">Note Refactor</h4>
-                  <p><img src="https://i.runarsf.dev/runar/FesofonU75.png/raw" alt="" /></p>
-                  <h4 id="obsidian-git">Obsidian Git</h4>
-                  <p><img src="https://i.runarsf.dev/runar/MICoYeSa37.png/raw" alt="" /></p>
-                  <h4 id="ozans-image-in-editor-plugin">Ozan's Image in Editor Plugin</h4>
-                  <p><img src="https://i.runarsf.dev/runar/sASUZulO28.png/raw" alt="" /></p>
-                  <h4 id="paste-url-into-selection">Paste URL into selection</h4>
-                  <p><img src="https://i.runarsf.dev/runar/VuviDAQi97.png/raw" alt="" /></p>
-                  <h4 id="search-on-internet">Search on Internet</h4>
-                  <p><img src="https://i.runarsf.dev/runar/FIKAKECe24.png/raw" alt="" /></p>
-                  <h4 id="show-whitespace">Show Whitespace</h4>
-                  <p><img src="https://i.runarsf.dev/runar/QIjUCaVI09.png/raw" alt="" /></p>
-                  <h4 id="sliding-panes-andys-mode">Sliding Panes (Andy's Mode)</h4>
-                  <p><img src="https://i.runarsf.dev/runar/xUWIVINu63.png/raw" alt="" /></p>
-                  <h4 id="smart-typography">Smart Typography</h4>
-                  <p><img src="https://i.runarsf.dev/runar/marazAYE56.png/raw" alt="" /></p>
-                  <h4 id="tasks">Tasks</h4>
-                  <p><img src="https://i.runarsf.dev/runar/dEzEQAJE47.png/raw" alt="" /></p>
-                  <h4 id="templater">Templater</h4>
-                  <p><img src="https://i.runarsf.dev/runar/ciRIMUJa53.png/raw" alt="" /></p>
-                  <h4 id="text-snippets">Text Snippets</h4>
-                  <p><img src="https://i.runarsf.dev/runar/pAYEXuzu11.png/raw" alt="" /></p>
-                  <h4 id="style-settings">Style Settings</h4>
-                  <p>Used to customize various plugins and themes.
-                    My current customizations (import after installing the <a href="#Installing%20and%20updating%20themes">Yin and Yang theme</a>, and <a href="#Buttons">Buttons</a>):</p>
-                  <div class="language-json highlighter-rouge">
-                    <div class="highlight">
-                      <pre class="highlight"><code><span class="p">{</span><span class="w">
+  </div>
+</div>
+<h3 id="installing-and-updating-themes">Installing and updating themes</h3>
+<p>The installation/update procedure is the same, go to <code class="highlighter-rouge">Settings &gt; Appearance &gt; Community themes &gt; Browse</code>, look for the theme you want, and press <code class="highlighter-rouge">Use</code>.</p>
+<h3 id="customizing-themes">Customizing themes</h3>
+<p>Some themes (like <em>Yin and Yang</em>) are integrated into the <a href="#Style%20Settings">Style Settings</a> plugin, and some have their own plugin.</p>
+<h3 id="theming-obsidian-publish">Theming <a href="https://obsidian.md/publish">Obsidian Publish</a></h3>
+<p>The easiest way of theming Obsidian Publish is to simply copy your obsidian theme.
+  Copy the theme css file to your vault and name it <code class="highlighter-rouge">publish.css</code>, then publish it using the in-app modal.
+  For the Yin and Yang theme this would be <code class="highlighter-rouge">cp &lt;VaultRoot&gt;/.obsidian/themes/Yin\ and\ Yang.css &lt;VaultRoot&gt;/publish.css</code>.</p>
+<hr />
+<h2 id="other-things">Other things</h2>
+<h3 id="templates">Templates</h3>
+<ul>
+  <li><a href="_templates/ABC%20Markup.md">_templates/ABC Markup</a> — EZ LaTeX and markdown formatting. Download the file and put it in <code class="highlighter-rouge">_templates</code>. Instructions are found in the template file. HIGHLY recommend the Hotkeys for Templates plugin to bind this template to a key.</li>
+</ul>
+<hr />
+<h2 id="plugins">Plugins</h2>
+<h3 id="core-plugins">Core plugins</h3>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />File explorer</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Search</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Quick switcher</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Graph view</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Backlinks</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Outgoing links</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Tag pane</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Page preview</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Daily notes</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Templates</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Note composer</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Command palette</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Starred</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Markdown formatter importer
+    <ul>
+      <li>Enable on-demand.</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Zettelkasten prefixer</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Random note</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Outline</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Word count
+    <ul>
+      <li>Replaced by community plugin.</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Slides
+    <ul>
+      <li>Just bad.</li>
+    </ul>
+  </li>
+</ul>
+<hr />
+<h3 id="community-plugins">Community plugins</h3>
+<p>To install community plugins, go to <code class="highlighter-rouge">Settings &gt; Community plugins &gt; Browse</code>.
+  Make sure <em>Safe mode</em> is off.</p>
+<ul>
+  <li><a href="#Advanced%20Tables">Advanced Tables</a></li>
+  <li><a href="#AidenLx’s%20Folder%20Note">AidenLx’s Folder Note</a>
+    <ul>
+      <li><a href="#AidenLx’s%20Folder%20Note">Folder Note Core</a></li>
+    </ul>
+  </li>
+  <li>Annotator</li>
+  <li>Banner</li>
+  <li>Better File Link</li>
+  <li>Better footnote</li>
+  <li>Better Word Count</li>
+  <li>Block Reference Counter</li>
+  <li>Buttons</li>
+  <li><a href="#Calendar">Calendar</a></li>
+  <li>Checklist</li>
+  <li>Citations</li>
+  <li>cMenu
+    <ul>
+      <li>Hide (bottom right).</li>
+    </ul>
+  </li>
+  <li>Comments</li>
+  <li><a href="#Consistent%20attachments%20and%20links">Consistent attachments and links</a></li>
+  <li>Contextual Typography</li>
+  <li>Copy Block Link</li>
+  <li>CSV Editor</li>
+  <li><a href="#Customizable%20Sidebar">Customizable Sidebar</a></li>
+  <li>Dangling links</li>
+  <li>Dataview</li>
+  <li>Diagrams</li>
+  <li><a href="#Dictionary">Dictionary</a></li>
+  <li><a href="#Discord%20Rich%20Presence">Discord Rich Presence</a></li>
+  <li><a href="https://github.com/paulbricman/dual-obsidian-client">Dual</a> (not in community plugin list)</li>
+  <li>Editor Syntax Highlight</li>
+  <li>Emoji Shortcodes</li>
+  <li>Emoji Toolbar</li>
+  <li><a href="#Excalidraw">Excalidraw</a></li>
+  <li>Export To Tex</li>
+  <li><a href="https://github.com/phibr0/obsidian-extended-context-menu">Extended Context Menu</a> (deprecated, not in community plugin list)</li>
+  <li>Extended MathJax</li>
+  <li><a href="#Extension%20Handler">Extension Handler</a> (not in community plugin list)</li>
+  <li>Focus Mode</li>
+  <li><a href="#Footlinks">Footlinks</a></li>
+  <li>Footnote Shortcut</li>
+  <li>Gist</li>
+  <li>Go to Line</li>
+  <li><a href="#Hide%20Sidebars%20When%20Narrow">Hide Sidebars When Narrow</a></li>
+  <li>Hider (disabled)</li>
+  <li>Hotkey Helper</li>
+  <li>Hotkeys for templates</li>
+  <li><a href="#Hotkeys">Hotkeys++</a></li>
+  <li>Hover External Link Plugin</li>
+  <li>Indentation Lines</li>
+  <li>ini Editor</li>
+  <li>Jupyter plugin</li>
+  <li>Kanban</li>
+  <li>LanguageTool Integeation</li>
+  <li><a href="#Linter">Linter</a></li>
+  <li><a href="#Maximise%20Active%20Pane">Maximise Active Pane</a></li>
+  <li>MetaEdit</li>
+  <li>Metatable</li>
+  <li><a href="#Natural%20Language%20Dates">Natural Language Dates</a></li>
+  <li><a href="#Note%20Refactor">Note Refactor</a></li>
+  <li><a href="#Obsidian%20Git">Obsidian Git</a></li>
+  <li>obsidian markmind</li>
+  <li>Obsidian42 - Jump-to-Date</li>
+  <li><a href="#Ozan's%20Image%20in%20Editor%20Plugin">Ozan's Image in Editor Plugin</a></li>
+  <li>Pandoc Plugin</li>
+  <li><a href="#Paste%20URL%20into%20selection">Paste URL into selection</a></li>
+  <li>Plugin Changelogs</li>
+  <li>Quick Explorer</li>
+  <li>Quick Switcher++</li>
+  <li>QuickAdd</li>
+  <li>Recent Files</li>
+  <li>Rich Links</li>
+  <li><a href="#Search%20on%20Internet">Search on Internet</a></li>
+  <li><a href="#Show%20Whitespace">Show Whitespace</a></li>
+  <li><a href="#Sliding%20Panes%20Andy's%20Mode">Sliding Panes (Andy's Mode)</a></li>
+  <li><a href="#Smart%20Typography">Smart Typography</a></li>
+  <li>Tag Wrangler</li>
+  <li>Taskbone OCR</li>
+  <li><a href="#Tasks">Tasks</a></li>
+  <li><a href="#Templater">Templater</a></li>
+  <li><a href="#Text%20Snippets">Text Snippets</a></li>
+  <li>Tidy Footnotes</li>
+  <li>Todoist Plugin (for <a href="https://todoist.com/app/">todoist</a> users)</li>
+  <li>Zoom</li>
+  <li>Style Settings</li>
+</ul>
+<h4 id="advanced-tables">Advanced Tables</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bind enter to table navigation</td>
+      <td><mark class="blue">true</mark></td>
+    </tr>
+    <tr>
+      <td>Bind tab to table navigation</td>
+      <td><mark class="blue">true</mark></td>
+    </tr>
+    <tr>
+      <td>Pad cell width using spaces</td>
+      <td><mark class="blue">true</mark></td>
+    </tr>
+    <tr>
+      <td>Show icon in sidebar</td>
+      <td><mark class="red">false</mark></td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="aidenlxs-folder-note">AidenLx’s Folder Note</h4>
+<blockquote>
+  <p>ℹ️ Requires Folder Note Core</p>
+</blockquote>
+<p><img src="https://i.runarsf.dev/runar/FuxiGuwe67.png/raw" alt="" /></p>
+<h4 id="calendar">Calendar</h4>
+<p><img src="https://i.runarsf.dev/runar/cisuSaze91.png/raw" alt="" /></p>
+<h4 id="consistent-attachments-and-links">Consistent attachments and links</h4>
+<p><img src="https://i.runarsf.dev/runar/yAqUwUyo49.png/raw" alt="" /></p>
+<h4 id="customizable-sidebar">Customizable Sidebar</h4>
+<p><img src="https://i.runarsf.dev/runar/JemeboTo74.png/raw" alt="" /></p>
+<h4 id="dictionary">Dictionary</h4>
+<p><img src="https://i.runarsf.dev/runar/qeFudAkO63.png/raw" alt="" /></p>
+<h4 id="discord-rich-presence">Discord Rich Presence</h4>
+<p><img src="https://i.runarsf.dev/runar/xuJIRIBu29.png/raw" alt="" /></p>
+<h4 id="excalidraw">Excalidraw</h4>
+<p><img src="https://i.runarsf.dev/runar/ziFUSOcE81.png/raw" alt="" />
+  <img src="https://i.runarsf.dev/runar/duJoDomu87.png/raw" alt="" /></p>
+<h4 id="extension-handler">Extension Handler</h4>
+<ol>
+  <li>Follow install instructions from <a href="https://github.com/runarsf/obsidian-extension-handler#manual-installation">GitHub</a></li>
+  <li>Reload obsidian extensions</li>
+</ol>
+<p><img src="https://i.runarsf.dev/runar/ZaBixIKe89.png/raw" alt="" /></p>
+<h4 id="footlinks">Footlinks</h4>
+<p><img src="https://i.runarsf.dev/runar/luvuPuFu52.png/raw" alt="" /></p>
+<h4 id="hide-sidebars-when-narrow">Hide Sidebars When Narrow</h4>
+<p><img src="https://i.runarsf.dev/runar/JulayOYi14.png/raw" alt="" /></p>
+<h4 id="hotkeys">Hotkeys++</h4>
+<p><img src="https://i.runarsf.dev/runar/sOQuVIfE32.png/raw" alt="" /></p>
+<h4 id="linter">Linter</h4>
+<p><img src="https://i.runarsf.dev/runar/huFOmeYu44.png/raw" alt="" /></p>
+<h4 id="maximise-active-pane">Maximise Active Pane</h4>
+<p><img src="https://i.runarsf.dev/runar/gEQIrIda22.png/raw" alt="" /></p>
+<h4 id="natural-language-dates">Natural Language Dates</h4>
+<p><img src="https://i.runarsf.dev/runar/dIhOJiHa19.png/raw" alt="" /></p>
+<h4 id="note-refactor">Note Refactor</h4>
+<p><img src="https://i.runarsf.dev/runar/FesofonU75.png/raw" alt="" /></p>
+<h4 id="obsidian-git">Obsidian Git</h4>
+<p><img src="https://i.runarsf.dev/runar/MICoYeSa37.png/raw" alt="" /></p>
+<h4 id="ozans-image-in-editor-plugin">Ozan's Image in Editor Plugin</h4>
+<p><img src="https://i.runarsf.dev/runar/sASUZulO28.png/raw" alt="" /></p>
+<h4 id="paste-url-into-selection">Paste URL into selection</h4>
+<p><img src="https://i.runarsf.dev/runar/VuviDAQi97.png/raw" alt="" /></p>
+<h4 id="search-on-internet">Search on Internet</h4>
+<p><img src="https://i.runarsf.dev/runar/FIKAKECe24.png/raw" alt="" /></p>
+<h4 id="show-whitespace">Show Whitespace</h4>
+<p><img src="https://i.runarsf.dev/runar/QIjUCaVI09.png/raw" alt="" /></p>
+<h4 id="sliding-panes-andys-mode">Sliding Panes (Andy's Mode)</h4>
+<p><img src="https://i.runarsf.dev/runar/xUWIVINu63.png/raw" alt="" /></p>
+<h4 id="smart-typography">Smart Typography</h4>
+<p><img src="https://i.runarsf.dev/runar/marazAYE56.png/raw" alt="" /></p>
+<h4 id="tasks">Tasks</h4>
+<p><img src="https://i.runarsf.dev/runar/dEzEQAJE47.png/raw" alt="" /></p>
+<h4 id="templater">Templater</h4>
+<p><img src="https://i.runarsf.dev/runar/ciRIMUJa53.png/raw" alt="" /></p>
+<h4 id="text-snippets">Text Snippets</h4>
+<p><img src="https://i.runarsf.dev/runar/pAYEXuzu11.png/raw" alt="" /></p>
+<h4 id="style-settings">Style Settings</h4>
+<p>Used to customize various plugins and themes.
+  My current customizations (import after installing the <a href="#Installing%20and%20updating%20themes">Yin and Yang theme</a>, and <a href="#Buttons">Buttons</a>):</p>
+<div class="language-json highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"obsidian-california-coast-theme@@accent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#306998"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"obsidian-california-coast-theme@@cc-seamless-embed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"obsidian-california-coast-theme@@cc-pretty-preview"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -474,20 +359,6 @@
   </span><span class="nl">"Yin and Yang@@base-d"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-                    </div>
-                  </div>
-                  <hr />
-                </div>
-                <!-- Add backlinks to the current page --></div>
-              <div id="copyright">
-                <p>
-                  <a href="https://github.com/runarsf">Runar Fredagsvik</a>
-                </p>
-                <p>Except where otherwise <a href="https://creativecommons.org/policies#license">noted</a>, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.</p>
-              </div>
-              <script src="/assets/js/modeswitcher.js"></script></main>
-          </div>
-          <!--- CASE 3 : Static Page --><!--- CASE 4 :  Blog Listing page --><!--- CASE 5 :  Notes Listing page --></div>
-      </section>
-    </body>
-  </html>
+  </div>
+</div>
+<hr />
