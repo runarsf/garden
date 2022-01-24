@@ -1,0 +1,30 @@
+name: Build and deploy Jekyll site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  # schedule:
+  #   - cron: "0 0 * * *"
+
+# https://stackoverflow.com/questions/64407333/using-github-actions-to-automatically-update-the-repos-submodules
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.SECRET_TOKEN }}
+          submodules: recursive
+
+      - name: Update submodules
+        run: |
+          git submodule update --remote --init --recursive
+          git submodule status
+
+      - name: Jekyll
+        uses: helaili/jekyll-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
