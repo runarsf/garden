@@ -51,11 +51,20 @@
         </div>
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a href="/notes"  class="navbar-item">
+            <a href="/about" class="navbar-item">
+              About
+            </a>
+            <a href="/notes" class="navbar-item">
               Notes
             </a>
-            <a href="/posts"  class="navbar-item">
+            <a href="/posts" class="navbar-item">
               Posts
+            </a>
+            <a href="/tags" class="navbar-item">
+              Tags
+            </a>
+            <a href="/feed.xml" class="navbar-item">
+              RSS
             </a>
             <!-- <a href="https://github.com/runarsf" target="_blank" class="navbar-item">
           My GitHub
@@ -75,14 +84,15 @@
         </div>
       </nav>
       <script src="/assets/js/Hamburger.js"></script>
+      <!-- TODO  Fix inline mathjax styling -->
       <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
-                displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
-                processEscapes: true
-                    }
-                });
+           tex2jax: {
+               inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+               displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+               processEscapes: true
+                   }
+               });
       </script>
       <section class="section">
         <div class="columns is-centered">
@@ -101,7 +111,7 @@
           <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
           <script src="/assets/js/Search.js"></script><!-- feed with filter-->
           <div id="copyright">
-            <p id="copyright-notice">Runar Fredagsvik. 2022, powered by <a href="https://github.com/Jekyll-Garden/jekyll-garden.github.io">Jekyll Garden</a></p>
+            <p id="copyright-notice">Runar Fredagsvik. 2022.</p>
           </div>
           <script src="/assets/js/modeswitcher.js"></script></div>
         <!---CASE 2 : Notes & Blog Page-->
@@ -138,7 +148,7 @@
               </div>
               <!-- Add backlinks to the current page --></div>
             <div id="copyright">
-              <p id="copyright-notice">Runar Fredagsvik. 2022, powered by <a href="https://github.com/Jekyll-Garden/jekyll-garden.github.io">Jekyll Garden</a></p>
+              <p id="copyright-notice">Runar Fredagsvik. 2022.</p>
             </div>
             <script src="/assets/js/modeswitcher.js"></script></main>
         </div>

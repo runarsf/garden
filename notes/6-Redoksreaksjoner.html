@@ -51,11 +51,20 @@
         </div>
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a href="/notes"  class="navbar-item">
+            <a href="/about" class="navbar-item">
+              About
+            </a>
+            <a href="/notes" class="navbar-item">
               Notes
             </a>
-            <a href="/posts"  class="navbar-item">
+            <a href="/posts" class="navbar-item">
               Posts
+            </a>
+            <a href="/tags" class="navbar-item">
+              Tags
+            </a>
+            <a href="/feed.xml" class="navbar-item">
+              RSS
             </a>
             <!-- <a href="https://github.com/runarsf" target="_blank" class="navbar-item">
           My GitHub
@@ -75,14 +84,15 @@
         </div>
       </nav>
       <script src="/assets/js/Hamburger.js"></script>
+      <!-- TODO  Fix inline mathjax styling -->
       <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
-                displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
-                processEscapes: true
-                    }
-                });
+           tex2jax: {
+               inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+               displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+               processEscapes: true
+                   }
+               });
       </script>
       <section class="section">
         <div class="columns is-centered">
@@ -198,7 +208,7 @@
                     $Li$ (Lithium) har veldig lyst til å gi fra seg elektroner og bli oksidert. Metaller som ikke har lyst til å bli oksidert kalles edelmetaller, som gull, sølv o.l.
                     Vi kan rangere metallene etter hvor lyst de har til å avgi elektroner, denne rangeringen kalles for ==spenningsrekka==:</p>
                   <h3 id="spenningsrekka">Spenningsrekka</h3>
-                  <p><span class="kdmath">$Li\ Na\ Mg\ Al\ Zn\ Fe\ Ni\ Sn\ Pb\ \textbf{H}\ Cu\ Ag\ Hg\ Au\ Pt$</span></p>
+                  <p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>i</mi><mtext> </mtext><mi>N</mi><mi>a</mi><mtext> </mtext><mi>M</mi><mi>g</mi><mtext> </mtext><mi>A</mi><mi>l</mi><mtext> </mtext><mi>Z</mi><mi>n</mi><mtext> </mtext><mi>F</mi><mi>e</mi><mtext> </mtext><mi>N</mi><mi>i</mi><mtext> </mtext><mi>S</mi><mi>n</mi><mtext> </mtext><mi>P</mi><mi>b</mi><mtext> </mtext><mtext mathvariant="bold">H</mtext><mtext> </mtext><mi>C</mi><mi>u</mi><mtext> </mtext><mi>A</mi><mi>g</mi><mtext> </mtext><mi>H</mi><mi>g</mi><mtext> </mtext><mi>A</mi><mi>u</mi><mtext> </mtext><mi>P</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">Li\ Na\ Mg\ Al\ Zn\ Fe\ Ni\ Sn\ Pb\ \textbf{H}\ Cu\ Ag\ Hg\ Au\ Pt</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal">i</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord mathnormal">a</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace"> </span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mord mathnormal">n</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal">e</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord mathnormal">i</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">n</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">b</span><span class="mspace"> </span><span class="mord text"><span class="mord textbf">H</span></span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">u</span><span class="mspace"> </span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace"> </span><span class="mord mathnormal">A</span><span class="mord mathnormal">u</span><span class="mspace"> </span><span class="mord mathnormal">Pt</span></span></span></span></p>
                   <p>Lengst til venstre i spenningsrekka står de reaksjonsvillige metallene som har lett for å avgi elektroner og danne ioner. Til høyre for Hydrogen står edelmetallene, som er stabile og ikke så lett avgir elektroner.</p>
                   <p>Ioner av edelmetallene har lett for å ta imot elektroner fra metallene som står til venstre i spenningsrekka.</p>
                   <p>De som står på venstresiden vil alltid kunne gi elektroner til de som står mer til høyre.</p>
@@ -244,9 +254,7 @@
                   <h2 id="66-brenselceller">6.6 Brenselceller</h2>
                   <p>En brenselcelle er en form for et galvanisk element med gasselektroder. Vi får strøn når elektroner går fra for eksempel hydrogen til oksygen.
                     Henter ut energi fra hydrogen.</p>
-                  <div class="kdmath">$$
-                    2H_2+O_2 \rightarrow 2H_2O + Energi
-                    $$</div>
+                  <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>2</mn><msub><mi>H</mi><mn>2</mn></msub><mo>+</mo><msub><mi>O</mi><mn>2</mn></msub><mo>→</mo><mn>2</mn><msub><mi>H</mi><mn>2</mn></msub><mi>O</mi><mo>+</mo><mi>E</mi><mi>n</mi><mi>e</mi><mi>r</mi><mi>g</mi><mi>i</mi></mrow><annotation encoding="application/x-tex">2H_2+O_2 \rightarrow 2H_2O + Energi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord">2</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.08125em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord">2</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.08125em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">i</span></span></span></span></span>
                   <ol>
                     <li>
                       <p>Ta utgangspunk i en brenselcelle, forklar virkemåten til en PEM-brenselcelle. Forklar hvorfor denne prosessen er en redoksreasksjon.</p>
@@ -387,7 +395,7 @@
                     $Li$ (Lithium) har veldig lyst til å gi fra seg elektroner og bli oksidert. Metaller som ikke har lyst til å bli oksidert kalles edelmetaller, som gull, sølv o.l.
                     Vi kan rangere metallene etter hvor lyst de har til å avgi elektroner, denne rangeringen kalles for ==spenningsrekka==:</p>
                   <h3 id="spenningsrekka-1">Spenningsrekka</h3>
-                  <p><span class="kdmath">$Li\ Na\ Mg\ Al\ Zn\ Fe\ Ni\ Sn\ Pb\ \textbf{H}\ Cu\ Ag\ Hg\ Au\ Pt$</span></p>
+                  <p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>i</mi><mtext> </mtext><mi>N</mi><mi>a</mi><mtext> </mtext><mi>M</mi><mi>g</mi><mtext> </mtext><mi>A</mi><mi>l</mi><mtext> </mtext><mi>Z</mi><mi>n</mi><mtext> </mtext><mi>F</mi><mi>e</mi><mtext> </mtext><mi>N</mi><mi>i</mi><mtext> </mtext><mi>S</mi><mi>n</mi><mtext> </mtext><mi>P</mi><mi>b</mi><mtext> </mtext><mtext mathvariant="bold">H</mtext><mtext> </mtext><mi>C</mi><mi>u</mi><mtext> </mtext><mi>A</mi><mi>g</mi><mtext> </mtext><mi>H</mi><mi>g</mi><mtext> </mtext><mi>A</mi><mi>u</mi><mtext> </mtext><mi>P</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">Li\ Na\ Mg\ Al\ Zn\ Fe\ Ni\ Sn\ Pb\ \textbf{H}\ Cu\ Ag\ Hg\ Au\ Pt</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal">i</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord mathnormal">a</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace"> </span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mord mathnormal">n</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal">e</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mord mathnormal">i</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal">n</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">b</span><span class="mspace"> </span><span class="mord text"><span class="mord textbf">H</span></span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">u</span><span class="mspace"> </span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace"> </span><span class="mord mathnormal">A</span><span class="mord mathnormal">u</span><span class="mspace"> </span><span class="mord mathnormal">Pt</span></span></span></span></p>
                   <p>Lengst til venstre i spenningsrekka står de reaksjonsvillige metallene som har lett for å avgi elektroner og danne ioner. Til høyre for Hydrogen står edelmetallene, som er stabile og ikke så lett avgir elektroner.</p>
                   <p>Ioner av edelmetallene har lett for å ta imot elektroner fra metallene som står til venstre i spenningsrekka.</p>
                   <p>De som står på venstresiden vil alltid kunne gi elektroner til de som står mer til høyre.</p>
@@ -433,9 +441,7 @@
                   <h2 id="66-brenselceller-1">6.6 Brenselceller</h2>
                   <p>En brenselcelle er en form for et galvanisk element med gasselektroder. Vi får strøn når elektroner går fra for eksempel hydrogen til oksygen.
                     Henter ut energi fra hydrogen.</p>
-                  <div class="kdmath">$$
-                    2H_2+O_2 \rightarrow 2H_2O + Energi
-                    $$</div>
+                  <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>2</mn><msub><mi>H</mi><mn>2</mn></msub><mo>+</mo><msub><mi>O</mi><mn>2</mn></msub><mo>→</mo><mn>2</mn><msub><mi>H</mi><mn>2</mn></msub><mi>O</mi><mo>+</mo><mi>E</mi><mi>n</mi><mi>e</mi><mi>r</mi><mi>g</mi><mi>i</mi></mrow><annotation encoding="application/x-tex">2H_2+O_2 \rightarrow 2H_2O + Energi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord">2</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.08125em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord">2</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.08125em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">i</span></span></span></span></span>
                   <ol>
                     <li>
                       <p>Ta utgangspunk i en brenselcelle, forklar virkemåten til en PEM-brenselcelle. Forklar hvorfor denne prosessen er en redoksreasksjon.</p>
@@ -479,7 +485,7 @@
                 </div>
                 <!-- Add backlinks to the current page --></div>
               <div id="copyright">
-                <p id="copyright-notice">Runar Fredagsvik. 2022, powered by <a href="https://github.com/Jekyll-Garden/jekyll-garden.github.io">Jekyll Garden</a></p>
+                <p id="copyright-notice">Runar Fredagsvik. 2022.</p>
               </div>
               <script src="/assets/js/modeswitcher.js"></script></main>
           </div>

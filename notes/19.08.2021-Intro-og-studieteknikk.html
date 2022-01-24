@@ -51,11 +51,20 @@
         </div>
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a href="/notes"  class="navbar-item">
+            <a href="/about" class="navbar-item">
+              About
+            </a>
+            <a href="/notes" class="navbar-item">
               Notes
             </a>
-            <a href="/posts"  class="navbar-item">
+            <a href="/posts" class="navbar-item">
               Posts
+            </a>
+            <a href="/tags" class="navbar-item">
+              Tags
+            </a>
+            <a href="/feed.xml" class="navbar-item">
+              RSS
             </a>
             <!-- <a href="https://github.com/runarsf" target="_blank" class="navbar-item">
           My GitHub
@@ -75,14 +84,15 @@
         </div>
       </nav>
       <script src="/assets/js/Hamburger.js"></script>
+      <!-- TODO  Fix inline mathjax styling -->
       <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
-                displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
-                processEscapes: true
-                    }
-                });
+           tex2jax: {
+               inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+               displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+               processEscapes: true
+                   }
+               });
       </script>
       <section class="section">
         <div class="columns is-centered">
@@ -329,27 +339,19 @@
                     <li>Flytter seg 0.8m i negativ retning i løpet av 4s.</li>
                   </ul>
                   <h4 id="gjennomsnittsfart">Gjennomsnittsfart</h4>
-                  <div class="kdmath">$$
-                    \text{Gjennomsnittsfart} = \dfrac{\text{Forflytning}}{\text{Tidsendring}}
-                    \overline{v} = \dfrac{\Delta s}{t}
-                    $$</div>
+                  <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Gjennomsnittsfart</mtext><mo>=</mo><mfrac><mtext>Forflytning</mtext><mtext>Tidsendring</mtext></mfrac><mover accent="true"><mi>v</mi><mo stretchy="true">‾</mo></mover><mo>=</mo><mfrac><mrow><mi mathvariant="normal">Δ</mi><mi>s</mi></mrow><mi>t</mi></mfrac></mrow><annotation encoding="application/x-tex">\text{Gjennomsnittsfart} = \dfrac{\text{Forflytning}}{\text{Tidsendring}}
+                              \overline{v} = \dfrac{\Delta s}{t}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord">Gjennomsnittsfart</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.25188em;vertical-align:-0.8804400000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714399999999998em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Tidsendring</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Forflytning</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.63056em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span><span style="top:-3.55056em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">t</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">Δ</span><span class="mord mathnormal">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>
                   <h4 id="momentanfart">Momentanfart</h4>
                   <p>Fart på et tidspunkt.</p>
                   <p>Lim: limit
                     Gjennomsnittsfart over en veldig veldig kort tid vil være det samme.</p>
-                  <div class="kdmath">$$
-                    v = ^{lim}t \rightarrow 0 \dfrac{\Delta s}{t}
-                    $$</div>
+                  <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>v</mi><msup><mo>=</mo><mrow><mi>l</mi><mi>i</mi><mi>m</mi></mrow></msup><mi>t</mi><mo>→</mo><mn>0</mn><mfrac><mrow><mi mathvariant="normal">Δ</mi><mi>s</mi></mrow><mi>t</mi></mfrac></mrow><annotation encoding="application/x-tex">v = ^{lim}t \rightarrow 0 \dfrac{\Delta s}{t}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8991079999999999em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel"><span class="mrel">=</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">im</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord">0</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">t</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">Δ</span><span class="mord mathnormal">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>
                   <hr />
                   <p><img src="https://i.runarsf.dev/runar/sEneDayE55.png/raw" alt="" /></p>
                   <p>Hva er gjennomsnittsfarten i tidsrommet mellom t = 1s og t = 5s?</p>
-                  <div class="kdmath">$$
-                    \overline{v} = \dfrac{\Delta s}{\Delta t} = \dfrac{s_1 - s_0}{t_1 - t_0} = \dfrac{1.4m - 0.4m}{5s - 1s} = \dfrac{1m}{4s} = \underline{\underline}
-                    $$</div>
+                  <span class="katex-error" title="ParseError: KaTeX parse error: Unexpected end of input in a macro argument, expected &#x27;}&#x27; at position 145: …line{\underline}̲" style="color:#cc0000">\overline{v} = \dfrac{\Delta s}{\Delta t} = \dfrac{s_1 - s_0}{t_1 - t_0} = \dfrac{1.4m - 0.4m}{5s - 1s} = \dfrac{1m}{4s} = \underline{\underline}</span>
                   <p>Hva er gjennomsnittsfarten i tidsrommet mellom t = 2s og t = t = 9s.</p>
-                  <div class="kdmath">$$
-                    \overline{v} = \dfrac{\Delta s}{\Delta t} = \dfrac{s_1 - s_0}{t_1 - t_0} = \dfrac{0.6m - 0.9m}{9s - 2s} = \dfrac{-0.3m}{7s} = \underline{\underline}
-                    $$</div>
+                  <span class="katex-error" title="ParseError: KaTeX parse error: Unexpected end of input in a macro argument, expected &#x27;}&#x27; at position 148: …line{\underline}̲" style="color:#cc0000">\overline{v} = \dfrac{\Delta s}{\Delta t} = \dfrac{s_1 - s_0}{t_1 - t_0} = \dfrac{0.6m - 0.9m}{9s - 2s} = \dfrac{-0.3m}{7s} = \underline{\underline}</span>
                   <p>Farten er 0.043m/s i negativ retning.</p>
                   <p>NB! Fortegn for størrelser som fart, posisjon og akselerasjon forteller hvilken retning det er.</p>
                   <p><img src="https://i.runarsf.dev/runar/zERiToVi22.png/raw" alt="" /></p>
@@ -357,7 +359,7 @@
                 </div>
                 <!-- Add backlinks to the current page --></div>
               <div id="copyright">
-                <p id="copyright-notice">Runar Fredagsvik. 2022, powered by <a href="https://github.com/Jekyll-Garden/jekyll-garden.github.io">Jekyll Garden</a></p>
+                <p id="copyright-notice">Runar Fredagsvik. 2022.</p>
               </div>
               <script src="/assets/js/modeswitcher.js"></script></main>
           </div>
