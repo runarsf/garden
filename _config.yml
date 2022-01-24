@@ -89,7 +89,7 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-tidy
-  - jekyll-toc
+  # - jekyll-toc # TODO Can be found in nnl
 
 collections:
     notes:
