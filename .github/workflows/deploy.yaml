@@ -37,7 +37,7 @@ jobs:
         uses: limjh16/jekyll-action-ts@v2
         with:
           ## Enable caching, similar to https://github.com/actions/cache
-          enable_cache: true
+          enable_cache: false
           #
           ## Use prettier to format jekyll output HTML.
           # format_output: true
