@@ -1334,9 +1334,11 @@ label.srs-toggle {
 
 #copyright {
     margin-left: 20px;
+}
 
+#copyright p {
     font-size: 0.7rem;
-    font-weight: 700;
+    /* font-weight: 700; */
     text-align: center;
 }
 

@@ -1,7 +1,8 @@
 {%- if site.copyright.owner != nil and site.copyright.owner != empty and site.copyright.owner != null -%}
 <div id="copyright">
+  <!-- TODO Fix link styling like in nnl -->
   <p>
-    <a href="{{ site.copyright.url }}">{{ site.copyright.owner }}</a>
+  <a href="{{ site.copyright.url }}"><b>{{ site.copyright.owner }}</b></a>
     {% if page.license %}
       | This page is licensed under <a href="{{ page.license_url }}">{{ page.license }}</a>.
     {% endif %}
