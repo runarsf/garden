@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Digital Garden" property="og:site_name" />
+    <meta
+        content="A Jekyll theme for Obsidian users to build digital garden"
+        property="og:description">
+      <meta content="https://publish.runarsf.dev//about/" property="article:author">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet"><meta content="Nynorsk grammatikk" property="og:title">
+      <meta content="article" property="og:type">
+      <meta content="https://publish.runarsf.dev//notes/Nynorsk-grammatikk" property="og:url"><title>My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev//notes/Nynorsk-grammatikk" />
+      <link rel="apple-touch-icon" href="/assets/img/profile.png">
+      <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
+      <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/main.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/Util.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/vendor/Katex.css" rel="stylesheet" media="all" class="default" />
+      <!--[if IE]>
+        <link href="/assets/css/ie-target.css" rel="stylesheet" type="text/css"/>
+      <![endif]-->
+      <!--<link href="/assets/css/prism.css" rel="stylesheet" />-->
+      <link rel="alternate" type="application/rss+xml" href="https://publish.runarsf.dev//feed.xml">
+    </head>
+    <body><nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="../index.html">
+            <!-- <svg width="32" height="32" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M36.9477 13.7742C38.3043 11.4086 41.6957 11.4086 43.0523 13.7742L70.5226 61.6774C71.8791 64.043 70.1834 67 67.4703 67H12.5297C9.81658 67 8.12089 64.043 9.47744 61.6774L36.9477 13.7742ZM40 16.9677L13.7506 62.7419H66.2494L40 16.9677Z" fill="var(--text-main)"/>
+        </svg> -->
+            <h4>📖 My Notebook</h4>
+          </a>
+          <div class="navbar-item navbar-dark-mode__mobile is-hidden-tablet" onclick="modeSwitcher()">
+            <div class="buttons">
+              <a class="button is-text">
+                <span class="icon is-small">
+                  <img src="../assets/img/sun.svg" id="theme-toggle-img--mobile">
+                </span>
+              </a>
+            </div>
+          </div>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="/notes"  class="navbar-item">
+              Notes
+            </a>
+            <a href="/posts"  class="navbar-item">
+              Posts
+            </a>
+            <!-- <a href="https://github.com/runarsf" target="_blank" class="navbar-item">
+          My GitHub
+        </a> -->
+          </div>
+          <div class="navbar-end is-hidden-mobile" onclick="modeSwitcher()" >
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-text">
+                  <span class="icon is-small">
+                    <img src="../assets/img/sun.svg" id="theme-toggle-img">
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script src="/assets/js/Hamburger.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+                displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+                processEscapes: true
+                    }
+                });
+      </script>
+      <section class="section">
+        <div class="columns is-centered">
+          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
+          <div class="column is-three-fifths">
+            <main>
+              <div class="note-page-section">
+                <div class="buttons for-back-home"><a class="button is-text button__page-back" onclick="window.location.assign('/');"><span class="icon is-small">
+                      <svg width="12" height="20" viewBox="0 0 12 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M11.0309 0.468998C11.1007 0.538667 11.1561 0.62143 11.1939 0.712548C11.2318 0.803665 11.2512 0.901347 11.2512 0.999998C11.2512 1.09865 11.2318 1.19633 11.1939 1.28745C11.1561 1.37857 11.1007 1.46133 11.0309 1.531L2.56038 10L11.0309 18.469C11.1717 18.6098 11.2508 18.8008 11.2508 19C11.2508 19.1992 11.1717 19.3902 11.0309 19.531C10.89 19.6718 10.699 19.7509 10.4999 19.7509C10.3007 19.7509 10.1097 19.6718 9.96887 19.531L0.968875 10.531C0.899031 10.4613 0.843616 10.3786 0.805806 10.2874C0.767997 10.1963 0.748535 10.0986 0.748535 10C0.748535 9.90135 0.767997 9.80367 0.805806 9.71255C0.843616 9.62143 0.899031 9.53867 0.968875 9.469L9.96887 0.468998C10.0385 0.399153 10.1213 0.343739 10.2124 0.305929C10.3035 0.26812 10.4012 0.248657 10.4999 0.248657C10.5985 0.248657 10.6962 0.26812 10.7873 0.305929C10.8784 0.343739 10.9612 0.399153 11.0309 0.468998Z"
+                                        fill="var(--text-main)" />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+                <h1>Nynorsk grammatikk</h1>
+                <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
+                <div class="content">
+                  <h1 id="nynorsk-grammatikk">Nynorsk grammatikk</h1>
+                  <h2 id="diktatord-">Diktatord: [[]]</h2>
+                  <h2 id="ordklassar">Ordklassar</h2>
+                  <h3 id="substantiv-card">Substantiv #card</h3>
+                  <p>Namneord, nanm på ting eller personar.
+                    Substantiva bøyast etter tal (eintal, fleirtal) og etter bestemtheit (bestemt, ubestemt).
+                    Ofte ord ein kan set ein, ei eller eit foran.</p>
+                  <ul>
+                    <li>Egennavn — Donald, Dolly</li>
+                    <li>Fellesnavn — Bil, hus</li>
+                    <li>En, ei eller et (ein, ei eller eit)</li>
+                  </ul>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th> </th>
+                        <th><strong>Eintal</strong></th>
+                        <th><strong>Fleirtal</strong></th>
+                        <th> </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Ubestemt</strong></td>
+                        <td><strong>Bestemt</strong></td>
+                        <td><strong>Ubestemt</strong></td>
+                        <td><strong>Bestemt</strong></td>
+                      </tr>
+                      <tr>
+                        <td>ein hatt</td>
+                        <td>hatt<strong>en</strong></td>
+                        <td>fleire hatt<strong>ar</strong></td>
+                        <td>alle hatt<strong>ane</strong></td>
+                      </tr>
+                      <tr>
+                        <td>ei hand</td>
+                        <td>hand<strong>a</strong></td>
+                        <td>fleire hend<strong>er</strong></td>
+                        <td>alle hend<strong>ene</strong></td>
+                      </tr>
+                      <tr>
+                        <td>eit land</td>
+                        <td>land<strong>et</strong></td>
+                        <td>fleire land_</td>
+                        <td>alle land<strong>a</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr />
+                  <p>^1616661429445</p>
+                  <h3 id="verb-card">Verb #card</h3>
+                  <p>Handlingsord, noko ein kan gjere.
+                    Verba bøyast etter korleis tid de står i.</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th><strong>Infinitiv</strong></th>
+                        <th><strong>Presens</strong> (no)</th>
+                        <th><strong>Preteritum</strong> (i går)</th>
+                        <th><strong>Perfektum</strong> (eg har)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>å vere</td>
+                        <td>er</td>
+                        <td>var</td>
+                        <td>har vore</td>
+                      </tr>
+                      <tr>
+                        <td>å krype</td>
+                        <td>kryp</td>
+                        <td>kraup</td>
+                        <td>har krope/kropi</td>
+                      </tr>
+                      <tr>
+                        <td>å puste</td>
+                        <td>pustar</td>
+                        <td>pusta</td>
+                        <td>har pusta</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <ul>
+                    <li>Hjelpeverb — ville, ha, måtte, bli</li>
+                    <li>Hovedverb — tenke, smile, gi</li>
+                  </ul>
+                  <h4 id="kortverb">Kortverb</h4>
+                  <h4 id="svake-verb">Svake verb</h4>
+                  <p>Svake verb er verb som følger reglene for bøying.
+                    De får eding i <a href="presens">presens</a> (eg ryddar, eg tenker, eg bur) og ending i <a href="notes/_archive/4PBA/Norsk/notes/Archive/4PBA/Norsk/preteritum">notes/_archive/4PBA/Norsk/notes/Archive/4PBA/Norsk/preteritum</a> (eg rydda, eg tenkte, eg budde).
+                    Eksempel på sterke verb: "å finne", "å skrive"</p>
+                  <h4 id="sterke-verb">Sterke verb</h4>
+                  <p>Sterke verb er verb som <em>ikke</em> følger bøyingsreglene</p>
+                  <hr />
+                  <p>^1616661429453</p>
+                  <h3 id="pronomen-og-determinativ-card">Pronomen og determinativ #card</h3>
+                  <ul>
+                    <li>Personlig pronomen.
+                      <ul>
+                        <li>Jeg, meg, vi, oss</li>
+                      </ul>
+                    </li>
+                    <li>Seg, seg selv</li>
+                    <li>Hverandre</li>
+                    <li>Spørreord som hvem, hva hvor</li>
+                    <li>Man, en</li>
+                    <li>
+                      <h2 id="min-din-vår-deres-dden-alle-fem">Min, din vår, deres, dden, alle, fem</h2>
+                      <p>^1616661429461</p>
+                    </li>
+                  </ul>
+                  <h3 id="adjektiv-card">Adjektiv #card</h3>
+                  <p>Beskriver <a href="notes/_archive/4PBA/Norsk/notes/Archive/4PBA/Norsk/Nynorsk%20grammatikk#Substantiv%20card">substantivet</a>.
+                    Adjektiva bøyast  etter substantivet dei står med: det tilpassar seg substantivet ogbøyast derfor etter kjønn (hankjønn, hokjønn, inkjekjønn) og tal (eintal, fleirtal).</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th> </th>
+                        <th>Eintal</th>
+                        <th>Fleirtal</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Hankjønn</strong></td>
+                        <td>ein <strong>søt</strong> <em>gut</em></td>
+                        <td>fleire <strong>søt<em>e</em></strong> <em>gutar</em></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Hokjønn</strong></td>
+                        <td>ei <strong>stygg</strong> <em>ku</em></td>
+                        <td>fleire <strong>stygg<em>e</em></strong> <em>kyr</em></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Inkjekjønn</strong></td>
+                        <td>eit <strong>vått</strong> <em>teppe</em></td>
+                        <td>fleire <strong>våt<em>e</em></strong> <em>teppe</em></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>Adjektiva bøyast også etter kor stor grad det er: det gradbøyast</p>
+                  <p>Dette kan skje på to måtar; enten så får adjektivet ei ny bøyingsending, eller så sett ein <em>meir</em> og <em>mest</em> framom. Dette gjer ein berre med lange ord med mange stavingar.</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Positiv</th>
+                        <th>Komparativ</th>
+                        <th>Superlativ</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>søt</td>
+                        <td>søt<strong>are</strong></td>
+                        <td>søt<strong>ast</strong></td>
+                      </tr>
+                      <tr>
+                        <td>stygg</td>
+                        <td>stygg<strong>are</strong></td>
+                        <td>stygg<strong>ast</strong></td>
+                      </tr>
+                      <tr>
+                        <td>forferdeleg</td>
+                        <td><strong>meir</strong> forferdeleg</td>
+                        <td><strong>mest</strong> forferdeleg</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr />
+                  <p>^1616661429470</p>
+                  <h3 id="adverb-card">Adverb #card</h3>
+                  <blockquote>
+                    <p>Sier noe om verbet.</p>
+                    <ul>
+                      <li>
+                        <h2 id="der-dit-borte-kanskje-aldri">Der, dit, borte, kanskje, aldri</h2>
+                        <p>^1616661429479</p>
+                      </li>
+                    </ul>
+                  </blockquote>
+                  <h3 id="preposisjoner-card">Preposisjoner #card</h3>
+                  <ul>
+                    <li>
+                      <h2 id="over-under-gjennom">Over, under, gjennom</h2>
+                      <p>^1616661429487</p>
+                    </li>
+                  </ul>
+                  <h3 id="konjunksjoner--bindeord-card">Konjunksjoner — bindeord #card</h3>
+                  <ul>
+                    <li>
+                      <h2 id="og-eller-men-for">Og, eller, men, for</h2>
+                      <p>^1616661429497</p>
+                    </li>
+                  </ul>
+                  <h3 id="interjeksjoner-card">Interjeksjoner #card</h3>
+                  <ul>
+                    <li>
+                      <h2 id="au-uff-huff-fillern">Au, uff, huff, fillern</h2>
+                      <p>^1616661429505</p>
+                    </li>
+                  </ul>
+                  <h3 id="genitiv-s">Genitiv S</h3>
+                  <h2 id="bøyning">Bøyning</h2>
+                  <h3 id="infinitiv">Infinitiv</h3>
+                  <hr />
+                  <h3 id="lyrikk">Lyrikk</h3>
+                  <hr />
+                  <h2 id="modernisme">Modernisme</h2>
+                  <hr />
+                  <h2 id="5-er-paragraf">5-er paragraf</h2>
+                  <hr />
+                  <p>diktatord
+                    nynorske venner (eg, dei, fleire etc.)
+                    skal forklare a-verb og e-verb med egne ord
+                    de/dykk
+                    nokon/nokre
+                    log - lav
+                    dobbel bestemming</p>
+                  <p>presens og preteritum
+                    komparativ og superlativ</p>
+                  <p>på hankjøn er det ar og ane</p>
+                  <p>han hun inkje
+                    ar og ane er og ene ingen ending a
+                    —
+                    cards-deck: Grammatikk
+                    tags: [ "norsk", "nynorsk" ]
+                    published: true
+                    —</p>
+                  <h1 id="nynorsk-grammatikk-1">Nynorsk grammatikk</h1>
+                  <h2 id="diktatord--1">Diktatord: [[]]</h2>
+                  <h2 id="ordklassar-1">Ordklassar</h2>
+                  <h3 id="substantiv-card-1">Substantiv #card</h3>
+                  <p>Namneord, nanm på ting eller personar.
+                    Substantiva bøyast etter tal (eintal, fleirtal) og etter bestemtheit (bestemt, ubestemt).
+                    Ofte ord ein kan set ein, ei eller eit foran.</p>
+                  <ul>
+                    <li>Egennavn — Donald, Dolly</li>
+                    <li>Fellesnavn — Bil, hus</li>
+                    <li>En, ei eller et (ein, ei eller eit)</li>
+                  </ul>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th> </th>
+                        <th><strong>Eintal</strong></th>
+                        <th><strong>Fleirtal</strong></th>
+                        <th> </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Ubestemt</strong></td>
+                        <td><strong>Bestemt</strong></td>
+                        <td><strong>Ubestemt</strong></td>
+                        <td><strong>Bestemt</strong></td>
+                      </tr>
+                      <tr>
+                        <td>ein hatt</td>
+                        <td>hatt<strong>en</strong></td>
+                        <td>fleire hatt<strong>ar</strong></td>
+                        <td>alle hatt<strong>ane</strong></td>
+                      </tr>
+                      <tr>
+                        <td>ei hand</td>
+                        <td>hand<strong>a</strong></td>
+                        <td>fleire hend<strong>er</strong></td>
+                        <td>alle hend<strong>ene</strong></td>
+                      </tr>
+                      <tr>
+                        <td>eit land</td>
+                        <td>land<strong>et</strong></td>
+                        <td>fleire land_</td>
+                        <td>alle land<strong>a</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr />
+                  <p>^1616661429445</p>
+                  <h3 id="verb-card-1">Verb #card</h3>
+                  <p>Handlingsord, noko ein kan gjere.
+                    Verba bøyast etter korleis tid de står i.</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th><strong>Infinitiv</strong></th>
+                        <th><strong>Presens</strong> (no)</th>
+                        <th><strong>Preteritum</strong> (i går)</th>
+                        <th><strong>Perfektum</strong> (eg har)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>å vere</td>
+                        <td>er</td>
+                        <td>var</td>
+                        <td>har vore</td>
+                      </tr>
+                      <tr>
+                        <td>å krype</td>
+                        <td>kryp</td>
+                        <td>kraup</td>
+                        <td>har krope/kropi</td>
+                      </tr>
+                      <tr>
+                        <td>å puste</td>
+                        <td>pustar</td>
+                        <td>pusta</td>
+                        <td>har pusta</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <ul>
+                    <li>Hjelpeverb — ville, ha, måtte, bli</li>
+                    <li>Hovedverb — tenke, smile, gi</li>
+                  </ul>
+                  <h4 id="kortverb-1">Kortverb</h4>
+                  <h4 id="svake-verb-1">Svake verb</h4>
+                  <p>Svake verb er verb som følger reglene for bøying.
+                    De får eding i <a href="presens">presens</a> (eg ryddar, eg tenker, eg bur) og ending i <a href="notes/_archive/4PBA/Norsk/notes/Archive/4PBA/Norsk/preteritum">notes/_archive/4PBA/Norsk/notes/Archive/4PBA/Norsk/preteritum</a> (eg rydda, eg tenkte, eg budde).
+                    Eksempel på sterke verb: "å finne", "å skrive"</p>
+                  <h4 id="sterke-verb-1">Sterke verb</h4>
+                  <p>Sterke verb er verb som <em>ikke</em> følger bøyingsreglene</p>
+                  <hr />
+                  <p>^1616661429453</p>
+                  <h3 id="pronomen-og-determinativ-card-1">Pronomen og determinativ #card</h3>
+                  <ul>
+                    <li>Personlig pronomen.
+                      <ul>
+                        <li>Jeg, meg, vi, oss</li>
+                      </ul>
+                    </li>
+                    <li>Seg, seg selv</li>
+                    <li>Hverandre</li>
+                    <li>Spørreord som hvem, hva hvor</li>
+                    <li>Man, en</li>
+                    <li>
+                      <h2 id="min-din-vår-deres-dden-alle-fem-1">Min, din vår, deres, dden, alle, fem</h2>
+                      <p>^1616661429461</p>
+                    </li>
+                  </ul>
+                  <h3 id="adjektiv-card-1">Adjektiv #card</h3>
+                  <p>Beskriver <a href="notes/_archive/4PBA/Norsk/notes/Archive/4PBA/Norsk/Nynorsk%20grammatikk#Substantiv%20card">substantivet</a>.
+                    Adjektiva bøyast  etter substantivet dei står med: det tilpassar seg substantivet ogbøyast derfor etter kjønn (hankjønn, hokjønn, inkjekjønn) og tal (eintal, fleirtal).</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th> </th>
+                        <th>Eintal</th>
+                        <th>Fleirtal</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Hankjønn</strong></td>
+                        <td>ein <strong>søt</strong> <em>gut</em></td>
+                        <td>fleire <strong>søt<em>e</em></strong> <em>gutar</em></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Hokjønn</strong></td>
+                        <td>ei <strong>stygg</strong> <em>ku</em></td>
+                        <td>fleire <strong>stygg<em>e</em></strong> <em>kyr</em></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Inkjekjønn</strong></td>
+                        <td>eit <strong>vått</strong> <em>teppe</em></td>
+                        <td>fleire <strong>våt<em>e</em></strong> <em>teppe</em></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>Adjektiva bøyast også etter kor stor grad det er: det gradbøyast</p>
+                  <p>Dette kan skje på to måtar; enten så får adjektivet ei ny bøyingsending, eller så sett ein <em>meir</em> og <em>mest</em> framom. Dette gjer ein berre med lange ord med mange stavingar.</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Positiv</th>
+                        <th>Komparativ</th>
+                        <th>Superlativ</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>søt</td>
+                        <td>søt<strong>are</strong></td>
+                        <td>søt<strong>ast</strong></td>
+                      </tr>
+                      <tr>
+                        <td>stygg</td>
+                        <td>stygg<strong>are</strong></td>
+                        <td>stygg<strong>ast</strong></td>
+                      </tr>
+                      <tr>
+                        <td>forferdeleg</td>
+                        <td><strong>meir</strong> forferdeleg</td>
+                        <td><strong>mest</strong> forferdeleg</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr />
+                  <p>^1616661429470</p>
+                  <h3 id="adverb-card-1">Adverb #card</h3>
+                  <blockquote>
+                    <p>Sier noe om verbet.</p>
+                    <ul>
+                      <li>
+                        <h2 id="der-dit-borte-kanskje-aldri-1">Der, dit, borte, kanskje, aldri</h2>
+                        <p>^1616661429479</p>
+                      </li>
+                    </ul>
+                  </blockquote>
+                  <h3 id="preposisjoner-card-1">Preposisjoner #card</h3>
+                  <ul>
+                    <li>
+                      <h2 id="over-under-gjennom-1">Over, under, gjennom</h2>
+                      <p>^1616661429487</p>
+                    </li>
+                  </ul>
+                  <h3 id="konjunksjoner--bindeord-card-1">Konjunksjoner — bindeord #card</h3>
+                  <ul>
+                    <li>
+                      <h2 id="og-eller-men-for-1">Og, eller, men, for</h2>
+                      <p>^1616661429497</p>
+                    </li>
+                  </ul>
+                  <h3 id="interjeksjoner-card-1">Interjeksjoner #card</h3>
+                  <ul>
+                    <li>
+                      <h2 id="au-uff-huff-fillern-1">Au, uff, huff, fillern</h2>
+                      <p>^1616661429505</p>
+                    </li>
+                  </ul>
+                  <h3 id="genitiv-s-1">Genitiv S</h3>
+                  <h2 id="bøyning-1">Bøyning</h2>
+                  <h3 id="infinitiv-1">Infinitiv</h3>
+                  <hr />
+                  <h3 id="lyrikk-1">Lyrikk</h3>
+                  <hr />
+                  <h2 id="modernisme-1">Modernisme</h2>
+                  <hr />
+                  <h2 id="5-er-paragraf-1">5-er paragraf</h2>
+                  <hr />
+                  <p>diktatord
+                    nynorske venner (eg, dei, fleire etc.)
+                    skal forklare a-verb og e-verb med egne ord
+                    de/dykk
+                    nokon/nokre
+                    log - lav
+                    dobbel bestemming</p>
+                  <p>presens og preteritum
+                    komparativ og superlativ</p>
+                  <p>på hankjøn er det ar og ane</p>
+                  <p>han hun inkje
+                    ar og ane er og ene ingen ending a</p>
+                </div>
+                <!-- Add backlinks to the current page --></div>
+              <div id="copyright">
+                <p id="copyright-notice">Runar Fredagsvik. 2022, powered by <a href="https://github.com/Jekyll-Garden/jekyll-garden.github.io">Jekyll Garden</a></p>
+              </div>
+              <script src="/assets/js/modeswitcher.js"></script></main>
+          </div>
+          <!--- CASE 3 : Static Page --><!--- CASE 4 :  Blog Listing page --><!--- CASE 5 :  Notes Listing page --></div>
+      </section>
+    </body>
+  </html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Digital Garden" property="og:site_name" />
+    <meta
+        content="A Jekyll theme for Obsidian users to build digital garden"
+        property="og:description">
+      <meta content="https://publish.runarsf.dev//about/" property="article:author">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet"><meta content="Andre verdenskrig" property="og:title">
+      <meta content="article" property="og:type">
+      <meta content="https://publish.runarsf.dev//notes/Andre-verdenskrig" property="og:url"><title>My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev//notes/Andre-verdenskrig" />
+      <link rel="apple-touch-icon" href="/assets/img/profile.png">
+      <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
+      <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/main.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/Util.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/vendor/Katex.css" rel="stylesheet" media="all" class="default" />
+      <!--[if IE]>
+        <link href="/assets/css/ie-target.css" rel="stylesheet" type="text/css"/>
+      <![endif]-->
+      <!--<link href="/assets/css/prism.css" rel="stylesheet" />-->
+      <link rel="alternate" type="application/rss+xml" href="https://publish.runarsf.dev//feed.xml">
+    </head>
+    <body><nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="../index.html">
+            <!-- <svg width="32" height="32" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M36.9477 13.7742C38.3043 11.4086 41.6957 11.4086 43.0523 13.7742L70.5226 61.6774C71.8791 64.043 70.1834 67 67.4703 67H12.5297C9.81658 67 8.12089 64.043 9.47744 61.6774L36.9477 13.7742ZM40 16.9677L13.7506 62.7419H66.2494L40 16.9677Z" fill="var(--text-main)"/>
+        </svg> -->
+            <h4>📖 My Notebook</h4>
+          </a>
+          <div class="navbar-item navbar-dark-mode__mobile is-hidden-tablet" onclick="modeSwitcher()">
+            <div class="buttons">
+              <a class="button is-text">
+                <span class="icon is-small">
+                  <img src="../assets/img/sun.svg" id="theme-toggle-img--mobile">
+                </span>
+              </a>
+            </div>
+          </div>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="/notes"  class="navbar-item">
+              Notes
+            </a>
+            <a href="/posts"  class="navbar-item">
+              Posts
+            </a>
+            <!-- <a href="https://github.com/runarsf" target="_blank" class="navbar-item">
+          My GitHub
+        </a> -->
+          </div>
+          <div class="navbar-end is-hidden-mobile" onclick="modeSwitcher()" >
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-text">
+                  <span class="icon is-small">
+                    <img src="../assets/img/sun.svg" id="theme-toggle-img">
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script src="/assets/js/Hamburger.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+                displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+                processEscapes: true
+                    }
+                });
+      </script>
+      <section class="section">
+        <div class="columns is-centered">
+          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
+          <div class="column is-three-fifths">
+            <main>
+              <div class="note-page-section">
+                <div class="buttons for-back-home"><a class="button is-text button__page-back" onclick="window.location.assign('/');"><span class="icon is-small">
+                      <svg width="12" height="20" viewBox="0 0 12 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M11.0309 0.468998C11.1007 0.538667 11.1561 0.62143 11.1939 0.712548C11.2318 0.803665 11.2512 0.901347 11.2512 0.999998C11.2512 1.09865 11.2318 1.19633 11.1939 1.28745C11.1561 1.37857 11.1007 1.46133 11.0309 1.531L2.56038 10L11.0309 18.469C11.1717 18.6098 11.2508 18.8008 11.2508 19C11.2508 19.1992 11.1717 19.3902 11.0309 19.531C10.89 19.6718 10.699 19.7509 10.4999 19.7509C10.3007 19.7509 10.1097 19.6718 9.96887 19.531L0.968875 10.531C0.899031 10.4613 0.843616 10.3786 0.805806 10.2874C0.767997 10.1963 0.748535 10.0986 0.748535 10C0.748535 9.90135 0.767997 9.80367 0.805806 9.71255C0.843616 9.62143 0.899031 9.53867 0.968875 9.469L9.96887 0.468998C10.0385 0.399153 10.1213 0.343739 10.2124 0.305929C10.3035 0.26812 10.4012 0.248657 10.4999 0.248657C10.5985 0.248657 10.6962 0.26812 10.7873 0.305929C10.8784 0.343739 10.9612 0.399153 11.0309 0.468998Z"
+                                        fill="var(--text-main)" />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+                <h1>Andre verdenskrig</h1>
+                <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
+                <div class="content">
+                  <h1 id="første-del-19391942">Første del (1939–1942)</h1>
+                  <ul>
+                    <li>Krigens omfang og betydning</li>
+                    <li>Lære noen forklaringer på hvorfor det ble krig</li>
+                    <li>Kjenne til forløpet</li>
+                  </ul>
+                  <p><mark class="blue">Starten på andre verdenskrig</mark>: Japan invaderte Kina i 1937, og man kan si krigen startet globalt da. I Norge startet krigen i 1939. Tyskland angriper Polen i 1939, Frankrike og Storbritannia sier nei.
+                    <mark class="blue">Blitzkrieg</mark>. Mye raskere operasjoner med fly og tanks, ikke langsomme angrep.
+                    Lebensraum. Hitler hadde i mange år sagt at det langsiktige målet deres var å ta store deler av russisk land.</p>
+                  <h2 id="noen-harde-fakta">Noen harde fakta</h2>
+                  <ul>
+                    <li>Andre verdenskrig er den mest brutale krigen noensinne.</li>
+                    <li>60 millioner mennesker døde. Flesteparten sivile.</li>
+                    <li>Krigen ble utkjempet mellom de allierte (USA, Storbritannia, Frankrike og Sovjetunionen m.fl.) og aksemaktene (Tyskland, Italia og Japan). Demokratiske og kommunistiske stater vs. Fascistiske stater (Nazismen). <mark class="blue">Hva skjedde med Marxismen og kommunismen etter mellomkrigstiden?</mark></li>
+                    <li>Nye og enda mer dødelige våpen enn i den første verdenskrigen.</li>
+                  </ul>
+                  <h4 id="mer-dødelige-våpen">Mer dødelige våpen</h4>
+                  <p>Første og siste gang atomvåpen ble brukt for krigføring.
+                    Gasskammer — ganske lite på slagmarka, men mye mot folk som ikke kunne forsvare seg.
+                    Bombing. En total krig, de går ikke bare etter militæret, men går for mest skade.</p>
+                  <h2 id="først-okkupering-av-rhinland-og-annektering-av-østerrike-anschluss-1936-og-1938">Først; okkupering av Rhinland, og annektering av Østerrike “anschluss”. 1936 og 1938.</h2>
+                  <p>I Versailles-traktaten ble det sagt at Tyskland ikke fikk ha militære styrker i Rhinland (den rikeste delen av Tyskland, som ligger ved Frankrike).
+                    Hitler sender hæren til Rhinland og blir ikke stoppet, og de får re-militarisert Rhinland.
+                    De fleste av beboerne i Østerrike var tyskere, Hitler hadde sagt at alle som er tysk skulle få bo i Tyskland.  Får <em>innlemmet</em> Østerrike i Tyskklan — <em>anschluss</em> er en betegnelse på at Tyskland overtok Østerrike, som ble sett på som en "halv"-demokratisk handling. I store deler (bortsett fra i hovedstaden) av Østerrike var det stor beundring for Hitler og Tyskland.</p>
+                  <h2 id="tsjekkoslovakia-1938--münchen-avtalen">Tsjekkoslovakia 1938 — “München-avtalen”</h2>
+                  <p>Czechoslovakia var en av statene som dukket opp etter første verdenskrig. <mark class="blue">Sudetenland</mark>.
+                    Fact check: Tyskland vil forsvare Czechoslovakia, om nødvendig med makt.
+                    Sovjetunionen vil backe Czechoslovakia om Frankrike også gjør det. Det er ikke Frankrike og Storbritannia ikke interessert i — de er redd for at det skal bli en til krig, og prøver å forhindre det for enhver pris.
+                    For at Russland skal komme seg til Cz må de gå gjennom Polen, som sier nei. Istedenfor kaller de inn en konferanse i München uten Soviet og Cz og vedtar at Tyskland skal få områdene som er tyske i Cz. Det var et kompromiss — om Tyskland får de områdene skal Tyskland la Cz være.
+                    Fascismen er ikke en fornuftig ideologi, og Tyskland bryter løftet sitt og tar året etter over Cz. Tyskland får da Europas beste våpenstat.
+                    Sovjetunionen liker ikke dette, og tilliten blir veldig lav.</p>
+                  <h2 id="den-spanske-borgerkrigen-1936-39">Den spanske borgerkrigen (1936-39)</h2>
+                  <ul>
+                    <li>I juli 1936 gjør de spanske styrkene i Marokko opprør mot regjeringa.</li>
+                    <li>General Franco blir raskt en lederskikkelse for de fascistiske opprørerne.</li>
+                    <li>Opprørerne får støtte av Tyskland og Italia — republikken får støtte av Sovjetunionen.</li>
+                    <li>Regjeringen herjes dessuten av store splittelser — blant tannet på grunn av en anarkistisk utbryterrepublikk i Katalonia.</li>
+                    <li>Til slutt faller Republikken og Spania blir et diktatur.</li>
+                  </ul>
+                  <p>Storbritannia og Frankrike er ikke med — de fleste demokratiske land finner raskt ut at de ikke vil blande seg inn.
+                    Tyskland og Italia kommer med bombefly og tanks.
+                    “Bombingen av Guernica” — Picasso — Bombing bare for terror, sivil bombing.
+                    Sosialdemokratiske og sosiolistiske</p>
+                  <h2 id="ikke-angrepspakten-med-sovjetunionen-august-1939">Ikke-angrepspakten med Sovjetunionen (August 1939)</h2>
+                  <ul>
+                    <li>Stalin blir livredd</li>
+                    <li>Han skjønner at landet hans vil bli nødt til å møte Hitler alene.</li>
+                    <li>Storbritannia og Frankrike er ikke interessert i å lage noen allianse med Sovjetunionen.</li>
+                    <li>Stalin føler seg tvunget til å inngå en “ikke-angrepspakt” med Hitler</li>
+                  </ul>
+                  <h2 id="to-uker-senere-1-september-1939">To uker senere, 1. September 1939</h2>
+                  <ul>
+                    <li>Hitler invaderer Polen</li>
+                    <li>Frankrike og Storbritannia erklærer Tyskland krig</li>
+                    <li>Sovjetunionen okkuperer de østlige delene av Polen + Baltikum-landene</li>
+                    <li>Polen ble raskt knust og delt mellom Tyskland og Sovjetunionen.</li>
+                  </ul>
+                  <p>Første gang vi ser blitzkrieg. Krigen er i gang mellom stormaktene.</p>
+                  <h2 id="angrep-på-danmark-og-norge-9-april-1940">Angrep på Danmark og Norge (9. April 1940)</h2>
+                  <ul>
+                    <li>Tyskland angriper Norge for å sikre jernmalmeksporten fra Narvik.</li>
+                    <li>Danmark blir med som et ledd i planen.</li>
+                    <li>Nore må overgi sg etter 2 måneder i Danmark etter 1 dag.</li>
+                    <li>Frankrike og Storbritannia forsøker å hjelpe.</li>
+                  </ul>
+                  <h2 id="så-kommer-turen-til-frankrike-10-mai-1940">Så kommer turen til Frankrike… (10. Mai 1940)</h2>
+                  <ul>
+                    <li>Frankrike må også gi seg etter noen få uker</li>
+                    <li>Planen om å gjemme seg bak forsvarsverkene i Maginot-Linjen funka dårlig</li>
+                    <li>Halve Frankrike okkuperes, andre halvdel styrt av en fransk nazist-regjering</li>
+                    <li>Storbritannia står nå alene</li>
+                  </ul>
+                  <h2 id="battle-og-britain-høsten-1940">Battle og Britain (Høsten 1940)</h2>
+                  <p>Royal air force forsvarer England i flere måneder, og vinner til slutt over Tyskland.
+                    Neville Chamberlain.</p>
+                  <h2 id="hitler-angriper-sovjet-21-juni-1941">Hitler angriper Sovjet (21. juni 1941)</h2>
+                  <p>Det finnes én regel i krig som er allmenngyldig… <mark class="blue">Ikke angrip Russland</mark> — det går som regel dårlig når de sloss på hjemmebane.</p>
+                  <h2 id="oppsummert">Oppsummert:</h2>
+                  <ul>
+                    <li>Hitler blir ikke stanset i begynnelsen. Man unnlot å grupe inn da han samla makt.</li>
+                    <li>Da han fikk på plass avtalen med Sovjet, var det for seint å stanse ham.</li>
+                    <li>…</li>
+                  </ul>
+                  <h2 id="oppgaver">Oppgaver</h2>
+                  <p>1) <strong>Er det mulig å forklare starten på andre verdenskrig med det vi vet om slutten på <a href="notes/_archive/4PBA/Historie/notes/Archive/4PBA/Historie/Første%20verdenskrig">notes/_archive/4PBA/Historie/notes/Archive/4PBA/Historie/Første verdenskrig</a>?</strong>
+                    I slutten av første verdenskrig ble Versailles-traktaten innført, og Tyskland måtte gi opp landeområder og militære styrker.
+                    Tyskland ble nektet å ha militære styrker i Rhinland, den rikeste delen av Tyskland.
+                    Czechoslovakia.
+                    Dette ødela mye av økonomien til Tyskland. 
+                    De ulike ideologiene som vokser fram i første verdenskrig skaper splittelse mellom de ulike partene.
+                    Reformen av Russland. Russland sitt forhold til andre land i starten av andre verdenskrig? I norge var man redd for Russland og kommunismen før andre verdenskrig.</p>
+                  <p>2) <strong>Hva gikk “<a href="#Tsjekkoslovakia%201938%20—%20“München-avtalen”">München-avtalen</a>” ut på?</strong>
+                    <em>Sudetenland</em> i Czechoslovakia var "okkupert"/bebodd av tyskere, og Tyskland mente det var rett at alle tyskere skulle få bo i Tyskland. Storbritannia og Frankrike lagde en avtale om å gi bort deler av Czechoslovakia til tyskland <em>uten</em> å involvere Czechoslovakia.
+                    De ville “bare” ha delen av Czechoslovakia der det bodde tyskere.</p>
+                  <p>3) <strong>Hvorfor angrep Hitler Norge?</strong>
+                    Hitler angrep Norge (og Danmark) for å få kontroll på jernmalm-produksjonen som kom fra Narvik.</p>
+                  <p>4) <strong>Hvorfor ble ikke Hitler stanset lenge før?</strong>
+                    Ingen så på ham som en trussel eller leder tidligere og det var mange som støttet han, fordi han ønsket revansj for nederlaget etter Versailles-traktaten. 
+                    Storbritannia og Frankrike var lei av krigføring. De inngikk en ikke-angrepspakt. Mange mente også at Tyskland hadde blitt straffet for hardt og behandlet dårlig.</p>
+                  <p>5) <strong>Når burde de eventuelt ha stanset ham? Hvordan?</strong>
+                    Burde blitt stoppet innad i Tyskland.</p>
+                  <p>6) <strong>Hvorfor var ikke Storbritannia og Frankrike villige til å gå i allianse med Sovjetunionen?</strong></p>
+                  <p>7) <strong>Hvor mange nordmenn deltok i Den spanske borgerkrigen? Hvem var de, og hva skjedde med dem?</strong>
+                    Nordahl Grieg. 200, 110 kom tilbake.
+                    Norge hadde en ikke-intervensjons-politikk, men når folk kom tilbake ble de hedret selv om det var forbudt. De var fra arbeiderbevegelsen, så de hadde en ideologisk mening om at de måtte rundt i verden og hjelpe.
+                    Mange av de som overlevde var motstandere av tyskere. De ble drivende i kampen mot Hitler i Norge. Mange sloss ikke direkte, men hjalp med mat, drikke o.l.</p>
+                  <h1 id="andre-del-19421945">Andre del (1942–1945)</h1>
+                  <p>USA var en joker som i første verdenskrig.</p>
+                  <ul>
+                    <li>USA ønsket ikke å bli med i enda en krig for å “ordne opp” i Europa.</li>
+                    <li>Sterke “isolasjonistiske” tendenser i landet.</li>
+                    <li>Likevel; verdens største økonomi — har stort potensial.</li>
+                    <li>Har foreløpig støtta de allierte med pengelån og gamle skip.</li>
+                  </ul>
+                  <h2 id="japan-angriper-pearl-harbor">Japan angriper Pearl Harbor</h2>
+                  <ul>
+                    <li>Japan trenger oljeforsyninger fra Indonesia.</li>
+                    <li>USAs store marine kan bli et problem; best å ta den først.</li>
+                    <li>Japan angriper USAs marinebase på Hawaii uten først å erklære krig.</li>
+                    <li>USAerklærer krig japan krig.</li>
+                    <li>Hitler erklærer også USA krig… ikke lurt Adolf…</li>
+                    <li>Nå kan vi — virkelig — snakke om “verdenskrig”.
+                      Oljen de ønsket lå ned i Indonesia, Bali.
+                      Det Japan tenker da, om de da angriper Pearl Harbor fort vil de til slutt få en fredserklæring.</li>
+                  </ul>
+                  <h2 id="slaget-om-stalingrad-august-1942februar-1943">Slaget om Stalingrad (August 1942–Februar 1943)</h2>
+                  <ul>
+                    <li>Hitler ga opp å ta Moskva.</li>
+                    <li>Vendte seg heller mot oljefeltene ved Svartehavet.</li>
+                    <li>Her måtte de forbi byen Stalingrad.</li>
+                    <li>Sovjet forsvarte denne iherdig, blant annet med styrker de henta fra Sibir da Japan angrep USA.</li>
+                    <li>Verdenshistoriens mest blodige slag — nesten to millioner døde.</li>
+                    <li>91.000 tyskere tas til gange bare 5.000 vender hjem — resten dør i fangeleirer eller underveis.</li>
+                  </ul>
+                  <p>Etter Stalingrad har Russland kommet seg på fote igjen, produserer våpen og tanks. De siste to årene av krigen går fort. Den røde arme frigjør.
+                    I 1944 delvis frigjør de ett land — Norge. Berlevåg, Finnmark.</p>
+                  <h2 id="d-dagen-6-juni-1944">D-dagen (6. Juni 1944)</h2>
+                  <ul>
+                    <li>Den største militære landgangen i verdenshistoria</li>
+                    <li>156.000 allierte tropper — først og fremst amerikanske, britiske og kanadiske, går i land i Normandie i Frankrike.</li>
+                    <li>Motstanden er hard. 5.000 dør allerede første dagen.</li>
+                    <li>Likevel vinner man — og klarer etter hvert å erobre tilbake Frankrike.</li>
+                  </ul>
+                  <h2 id="slaget-om-berlin-april-1945">Slaget om Berlin (April 1945)</h2>
+                  <h2 id="oppsummert-1">Oppsummert</h2>
+                  <ul>
+                    <li>Krigen snur når tyskerne ikke klarer å ta Stalingrad.</li>
+                    <li>Den røde armé klarer å prese tyskerne tilbake.</li>
+                    <li>Etter D-dagen i juni 1944 får tyskerne motstand både i øst og vest.</li>
+                    <li>Nå Berlin inntas er Tyskland slått, Hitler begår selvmord og krigen i Europa er over.</li>
+                  </ul>
+                  <h2 id="oppgaver-1">Oppgaver</h2>
+                  <hr />
+                  <p>1) Hvorfor angrep Hitler Sovjetunionen?</p>
+                  <p>Hitler angrep først Moskva fordi ha nså på de som en stor trussel, men ga etter hvert opp. Da vendte han blikket mot oljeressursene i svartehavet, og måtte forbi Stalingrad.
+                    Russland er stort, det er mye å hente der — Hitler hadde idéen om Lebensraum.
+                    <mark class="blue">Ekspansjonspolitikk</mark> — imperialisme. Utvide sitt land på bekostning av andre.</p>
+                  <hr />
+                  <p>2) Hvor mange nordmenn deltok på Hitlers side i kampen mot Sovjetunionen? Hvorfor?</p>
+                  <p>Rundt 15.000 nordmenn skal ha prøvd å verve seg til tysk tjeneste, og i overkant av 5.000 av disse kom gjennom nåløyet og var i aktiv fronttjeneste på tysk side i løpet av krigen. 781 av dem falt eller forsvant på Østfronten. Etter krigen fikk frontkjemperne harde straffer som landssvikere. Disse benyttet tyske uniformer med varierende kjennemerker, blant annet norske kjennetegn.
+                    De ville egentlig hjelpe Finland.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+                  <hr />
+                  <p>3) Hvor mange sovjetiske borgere dør i andre verdenskrig? Hvor mange amerikanere og engelskmenn blir drept?</p>
+                  <p>Av totalt 5,7 millioner sovjetiske krigsfanger døde om lag 3 millioner, langt de fleste mellom oktober 1941 og mai 1942. Fangene døde av sult, kulde og sykdommer under leirforhold som dels skyldtes en vanskelig forsyningssituasjon, men som i hovedsak må tilskrives tysk politikk.<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>
+                    I Storbritannia var det 482.600 militære og 67.800 sivile dødsfall.
+                    27 millioner Sovjeter. 500.000 fra amerika, 518.000 fra england.</p>
+                  <hr />
+                  <p>4) Hvilket av landene på bildet nedenfor har mest rett?
+                    <img src="notes/_archive/4PBA/Historie/notes/Archive/4PBA/Historie/nazidefeat.jpeg" alt="" /></p>
+                  <p>Tyskland, fordi de har satt russerne med høyest prosent.
+                    Spørreundersøkesen er fra 2018, så den kunne blitt påvirket av hollywood o.l.</p>
+                  <hr />
+                  <h2 id="holocaust">Holocaust</h2>
+                  <p>Bunnpunktet i moderne sivilisasjon.
+                    Mer enn <mark class="orange">seks millioner jøder</mark> ble drept under Holocaust. 200.000 romanifolk (sigøynere). 200.000 funksjonshemmede mennesker.
+                    Konsentrasjonsleirer med gasskamre hvor jøder ble tvunget inn i — Auswitch (Polen).
+                    Industrialiserte massemord.
+                    Et mindretall av jødene som døde under Holucaust døde i konsentrasjonsleirer.
+                    Ghettoer — fattige strøk hvor jøder ble tvangsflyttet. Dårlig tilgang på ressurser. En avstengt del.
+                    Etisk rensing.
+                    Folkemord.
+                    Flere grupper enn bare jøder — alle de Hitler ikke likte.
+                    Josef Mengele — en av legene i Auswitch som drev med eksperimentere på fangene.
+                    Utnyttet jernbaner for effektivitet.</p>
+                  <p>1933–39 — forfølgelser, andre undertrykkende lover.
+                    1939 — Eutanasiprogrammet. I dag er eutanasi synonymt med aktiv dødshjelp.</p>
+                  <ul>
+                    <li>Folk med lidelser skulle dø, fordi de var en byrde for samfunnet.</li>
+                    <li>Rekker å ta livet av ca. 100.000 før det stoppes, før det igjen begynner på og en nye 100.000 blir drept.
+                      1941 — Hitler hadde tanker om å sende jødene til Madagascar og Sibir. Det flrste man gjør er å plassere de i ghettoer i <em>det okkuperte Polen</em>. Invaderer Sovjetunionen, hvor det bor veldig mange jøder.</li>
+                    <li>Masseskytinger.</li>
+                    <li>Sovjetiske krigsfanger.</li>
+                    <li>Hensyn til de som skjøt, de ville ha avstand mellom seg og ofrene.</li>
+                    <li>Gassvogner, ikke effektivt og sjåførene likte det ikke
+                      1944 — Dødsleirer. Auswitch er den mest kjente.</li>
+                  </ul>
+                  <p>## Japan under andre verdenskrig</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>USAs begrunnelse</th>
+                        <th>Motargumenter</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>USA var klar til å innvadere Japan, og mente det ville redde livene til mange amerikanske soldater om de fikk avsluttet krigen med bombene.</td>
+                        <td>USA holdte Sovjet “skjult”. Passer på at Japan ikke finner ut at Russland vil involvere seg til krigen, da ville de gitt seg mye kjappere.</td>
+                      </tr>
+                      <tr>
+                        <td>Vinne krigen på amerikanske premisser. Japan måtte overgi seg til USA slik at de fikk kontroll, og ikke Russland.</td>
+                        <td>Store konsekvenser om de er de første til å bruke et så farlig våpen. -&gt; Kan fører til våpenkappløp.</td>
+                      </tr>
+                      <tr>
+                        <td>Viser styrke overfor Russland.Truman ville gjøre USA til den ultimate supermakten lsik at de kunne regjere.</td>
+                        <td>En atomkrig kan ødelegge betingelsene for menneskelig liv på jorden.</td>
+                      </tr>
+                      <tr>
+                        <td>USA stiller ett krav til både Tyskland og Japan — betingelsesløs kapitulasjon (unconditional surrender). USA vil ikke diskutere en mellomløsning for Japan og USA, de vil bestemme alt.</td>
+                        <td>Japan var allerede på vei til å overgi seg — så lenge de fikk beholde keiseren.</td>
+                      </tr>
+                      <tr>
+                        <td>De ville ha hevn fra Pearl Harbor.</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>Finn ut hvordan boka dekker det. Dekker boka den mest kritiske siden eller den mer amerikanske.</p>
+                  <p>USA valgte å bombe Japan for å stoppe invasjonen til japan av amerikanske soldater, og mente det ville redde livene til mange amerikanske soldater.
+                    Japan fikk beholde keiseren sin.</p>
+                  <p>tags: [ "historie" ]
+                    published: true
+                    season: summer
+                    —</p>
+                  <h1 id="første-del-19391942-1">Første del (1939–1942)</h1>
+                  <ul>
+                    <li>Krigens omfang og betydning</li>
+                    <li>Lære noen forklaringer på hvorfor det ble krig</li>
+                    <li>Kjenne til forløpet</li>
+                  </ul>
+                  <p><mark class="blue">Starten på andre verdenskrig</mark>: Japan invaderte Kina i 1937, og man kan si krigen startet globalt da. I Norge startet krigen i 1939. Tyskland angriper Polen i 1939, Frankrike og Storbritannia sier nei.
+                    <mark class="blue">Blitzkrieg</mark>. Mye raskere operasjoner med fly og tanks, ikke langsomme angrep.
+                    Lebensraum. Hitler hadde i mange år sagt at det langsiktige målet deres var å ta store deler av russisk land.</p>
+                  <h2 id="noen-harde-fakta-1">Noen harde fakta</h2>
+                  <ul>
+                    <li>Andre verdenskrig er den mest brutale krigen noensinne.</li>
+                    <li>60 millioner mennesker døde. Flesteparten sivile.</li>
+                    <li>Krigen ble utkjempet mellom de allierte (USA, Storbritannia, Frankrike og Sovjetunionen m.fl.) og aksemaktene (Tyskland, Italia og Japan). Demokratiske og kommunistiske stater vs. Fascistiske stater (Nazismen). <mark class="blue">Hva skjedde med Marxismen og kommunismen etter mellomkrigstiden?</mark></li>
+                    <li>Nye og enda mer dødelige våpen enn i den første verdenskrigen.</li>
+                  </ul>
+                  <h4 id="mer-dødelige-våpen-1">Mer dødelige våpen</h4>
+                  <p>Første og siste gang atomvåpen ble brukt for krigføring.
+                    Gasskammer — ganske lite på slagmarka, men mye mot folk som ikke kunne forsvare seg.
+                    Bombing. En total krig, de går ikke bare etter militæret, men går for mest skade.</p>
+                  <h2 id="først-okkupering-av-rhinland-og-annektering-av-østerrike-anschluss-1936-og-1938-1">Først; okkupering av Rhinland, og annektering av Østerrike “anschluss”. 1936 og 1938.</h2>
+                  <p>I Versailles-traktaten ble det sagt at Tyskland ikke fikk ha militære styrker i Rhinland (den rikeste delen av Tyskland, som ligger ved Frankrike).
+                    Hitler sender hæren til Rhinland og blir ikke stoppet, og de får re-militarisert Rhinland.
+                    De fleste av beboerne i Østerrike var tyskere, Hitler hadde sagt at alle som er tysk skulle få bo i Tyskland.  Får <em>innlemmet</em> Østerrike i Tyskklan — <em>anschluss</em> er en betegnelse på at Tyskland overtok Østerrike, som ble sett på som en "halv"-demokratisk handling. I store deler (bortsett fra i hovedstaden) av Østerrike var det stor beundring for Hitler og Tyskland.</p>
+                  <h2 id="tsjekkoslovakia-1938--münchen-avtalen-1">Tsjekkoslovakia 1938 — “München-avtalen”</h2>
+                  <p>Czechoslovakia var en av statene som dukket opp etter første verdenskrig. <mark class="blue">Sudetenland</mark>.
+                    Fact check: Tyskland vil forsvare Czechoslovakia, om nødvendig med makt.
+                    Sovjetunionen vil backe Czechoslovakia om Frankrike også gjør det. Det er ikke Frankrike og Storbritannia ikke interessert i — de er redd for at det skal bli en til krig, og prøver å forhindre det for enhver pris.
+                    For at Russland skal komme seg til Cz må de gå gjennom Polen, som sier nei. Istedenfor kaller de inn en konferanse i München uten Soviet og Cz og vedtar at Tyskland skal få områdene som er tyske i Cz. Det var et kompromiss — om Tyskland får de områdene skal Tyskland la Cz være.
+                    Fascismen er ikke en fornuftig ideologi, og Tyskland bryter løftet sitt og tar året etter over Cz. Tyskland får da Europas beste våpenstat.
+                    Sovjetunionen liker ikke dette, og tilliten blir veldig lav.</p>
+                  <h2 id="den-spanske-borgerkrigen-1936-39-1">Den spanske borgerkrigen (1936-39)</h2>
+                  <ul>
+                    <li>I juli 1936 gjør de spanske styrkene i Marokko opprør mot regjeringa.</li>
+                    <li>General Franco blir raskt en lederskikkelse for de fascistiske opprørerne.</li>
+                    <li>Opprørerne får støtte av Tyskland og Italia — republikken får støtte av Sovjetunionen.</li>
+                    <li>Regjeringen herjes dessuten av store splittelser — blant tannet på grunn av en anarkistisk utbryterrepublikk i Katalonia.</li>
+                    <li>Til slutt faller Republikken og Spania blir et diktatur.</li>
+                  </ul>
+                  <p>Storbritannia og Frankrike er ikke med — de fleste demokratiske land finner raskt ut at de ikke vil blande seg inn.
+                    Tyskland og Italia kommer med bombefly og tanks.
+                    “Bombingen av Guernica” — Picasso — Bombing bare for terror, sivil bombing.
+                    Sosialdemokratiske og sosiolistiske</p>
+                  <h2 id="ikke-angrepspakten-med-sovjetunionen-august-1939-1">Ikke-angrepspakten med Sovjetunionen (August 1939)</h2>
+                  <ul>
+                    <li>Stalin blir livredd</li>
+                    <li>Han skjønner at landet hans vil bli nødt til å møte Hitler alene.</li>
+                    <li>Storbritannia og Frankrike er ikke interessert i å lage noen allianse med Sovjetunionen.</li>
+                    <li>Stalin føler seg tvunget til å inngå en “ikke-angrepspakt” med Hitler</li>
+                  </ul>
+                  <h2 id="to-uker-senere-1-september-1939-1">To uker senere, 1. September 1939</h2>
+                  <ul>
+                    <li>Hitler invaderer Polen</li>
+                    <li>Frankrike og Storbritannia erklærer Tyskland krig</li>
+                    <li>Sovjetunionen okkuperer de østlige delene av Polen + Baltikum-landene</li>
+                    <li>Polen ble raskt knust og delt mellom Tyskland og Sovjetunionen.</li>
+                  </ul>
+                  <p>Første gang vi ser blitzkrieg. Krigen er i gang mellom stormaktene.</p>
+                  <h2 id="angrep-på-danmark-og-norge-9-april-1940-1">Angrep på Danmark og Norge (9. April 1940)</h2>
+                  <ul>
+                    <li>Tyskland angriper Norge for å sikre jernmalmeksporten fra Narvik.</li>
+                    <li>Danmark blir med som et ledd i planen.</li>
+                    <li>Nore må overgi sg etter 2 måneder i Danmark etter 1 dag.</li>
+                    <li>Frankrike og Storbritannia forsøker å hjelpe.</li>
+                  </ul>
+                  <h2 id="så-kommer-turen-til-frankrike-10-mai-1940-1">Så kommer turen til Frankrike… (10. Mai 1940)</h2>
+                  <ul>
+                    <li>Frankrike må også gi seg etter noen få uker</li>
+                    <li>Planen om å gjemme seg bak forsvarsverkene i Maginot-Linjen funka dårlig</li>
+                    <li>Halve Frankrike okkuperes, andre halvdel styrt av en fransk nazist-regjering</li>
+                    <li>Storbritannia står nå alene</li>
+                  </ul>
+                  <h2 id="battle-og-britain-høsten-1940-1">Battle og Britain (Høsten 1940)</h2>
+                  <p>Royal air force forsvarer England i flere måneder, og vinner til slutt over Tyskland.
+                    Neville Chamberlain.</p>
+                  <h2 id="hitler-angriper-sovjet-21-juni-1941-1">Hitler angriper Sovjet (21. juni 1941)</h2>
+                  <p>Det finnes én regel i krig som er allmenngyldig… <mark class="blue">Ikke angrip Russland</mark> — det går som regel dårlig når de sloss på hjemmebane.</p>
+                  <h2 id="oppsummert-2">Oppsummert:</h2>
+                  <ul>
+                    <li>Hitler blir ikke stanset i begynnelsen. Man unnlot å grupe inn da han samla makt.</li>
+                    <li>Da han fikk på plass avtalen med Sovjet, var det for seint å stanse ham.</li>
+                    <li>…</li>
+                  </ul>
+                  <h2 id="oppgaver-2">Oppgaver</h2>
+                  <p>1) <strong>Er det mulig å forklare starten på andre verdenskrig med det vi vet om slutten på <a href="notes/_archive/4PBA/Historie/notes/Archive/4PBA/Historie/Første%20verdenskrig">notes/_archive/4PBA/Historie/notes/Archive/4PBA/Historie/Første verdenskrig</a>?</strong>
+                    I slutten av første verdenskrig ble Versailles-traktaten innført, og Tyskland måtte gi opp landeområder og militære styrker.
+                    Tyskland ble nektet å ha militære styrker i Rhinland, den rikeste delen av Tyskland.
+                    Czechoslovakia.
+                    Dette ødela mye av økonomien til Tyskland. 
+                    De ulike ideologiene som vokser fram i første verdenskrig skaper splittelse mellom de ulike partene.
+                    Reformen av Russland. Russland sitt forhold til andre land i starten av andre verdenskrig? I norge var man redd for Russland og kommunismen før andre verdenskrig.</p>
+                  <p>2) <strong>Hva gikk “<a href="#Tsjekkoslovakia%201938%20—%20“München-avtalen”">München-avtalen</a>” ut på?</strong>
+                    <em>Sudetenland</em> i Czechoslovakia var "okkupert"/bebodd av tyskere, og Tyskland mente det var rett at alle tyskere skulle få bo i Tyskland. Storbritannia og Frankrike lagde en avtale om å gi bort deler av Czechoslovakia til tyskland <em>uten</em> å involvere Czechoslovakia.
+                    De ville “bare” ha delen av Czechoslovakia der det bodde tyskere.</p>
+                  <p>3) <strong>Hvorfor angrep Hitler Norge?</strong>
+                    Hitler angrep Norge (og Danmark) for å få kontroll på jernmalm-produksjonen som kom fra Narvik.</p>
+                  <p>4) <strong>Hvorfor ble ikke Hitler stanset lenge før?</strong>
+                    Ingen så på ham som en trussel eller leder tidligere og det var mange som støttet han, fordi han ønsket revansj for nederlaget etter Versailles-traktaten. 
+                    Storbritannia og Frankrike var lei av krigføring. De inngikk en ikke-angrepspakt. Mange mente også at Tyskland hadde blitt straffet for hardt og behandlet dårlig.</p>
+                  <p>5) <strong>Når burde de eventuelt ha stanset ham? Hvordan?</strong>
+                    Burde blitt stoppet innad i Tyskland.</p>
+                  <p>6) <strong>Hvorfor var ikke Storbritannia og Frankrike villige til å gå i allianse med Sovjetunionen?</strong></p>
+                  <p>7) <strong>Hvor mange nordmenn deltok i Den spanske borgerkrigen? Hvem var de, og hva skjedde med dem?</strong>
+                    Nordahl Grieg. 200, 110 kom tilbake.
+                    Norge hadde en ikke-intervensjons-politikk, men når folk kom tilbake ble de hedret selv om det var forbudt. De var fra arbeiderbevegelsen, så de hadde en ideologisk mening om at de måtte rundt i verden og hjelpe.
+                    Mange av de som overlevde var motstandere av tyskere. De ble drivende i kampen mot Hitler i Norge. Mange sloss ikke direkte, men hjalp med mat, drikke o.l.</p>
+                  <h1 id="andre-del-19421945-1">Andre del (1942–1945)</h1>
+                  <p>USA var en joker som i første verdenskrig.</p>
+                  <ul>
+                    <li>USA ønsket ikke å bli med i enda en krig for å “ordne opp” i Europa.</li>
+                    <li>Sterke “isolasjonistiske” tendenser i landet.</li>
+                    <li>Likevel; verdens største økonomi — har stort potensial.</li>
+                    <li>Har foreløpig støtta de allierte med pengelån og gamle skip.</li>
+                  </ul>
+                  <h2 id="japan-angriper-pearl-harbor-1">Japan angriper Pearl Harbor</h2>
+                  <ul>
+                    <li>Japan trenger oljeforsyninger fra Indonesia.</li>
+                    <li>USAs store marine kan bli et problem; best å ta den først.</li>
+                    <li>Japan angriper USAs marinebase på Hawaii uten først å erklære krig.</li>
+                    <li>USAerklærer krig japan krig.</li>
+                    <li>Hitler erklærer også USA krig… ikke lurt Adolf…</li>
+                    <li>Nå kan vi — virkelig — snakke om “verdenskrig”.
+                      Oljen de ønsket lå ned i Indonesia, Bali.
+                      Det Japan tenker da, om de da angriper Pearl Harbor fort vil de til slutt få en fredserklæring.</li>
+                  </ul>
+                  <h2 id="slaget-om-stalingrad-august-1942februar-1943-1">Slaget om Stalingrad (August 1942–Februar 1943)</h2>
+                  <ul>
+                    <li>Hitler ga opp å ta Moskva.</li>
+                    <li>Vendte seg heller mot oljefeltene ved Svartehavet.</li>
+                    <li>Her måtte de forbi byen Stalingrad.</li>
+                    <li>Sovjet forsvarte denne iherdig, blant annet med styrker de henta fra Sibir da Japan angrep USA.</li>
+                    <li>Verdenshistoriens mest blodige slag — nesten to millioner døde.</li>
+                    <li>91.000 tyskere tas til gange bare 5.000 vender hjem — resten dør i fangeleirer eller underveis.</li>
+                  </ul>
+                  <p>Etter Stalingrad har Russland kommet seg på fote igjen, produserer våpen og tanks. De siste to årene av krigen går fort. Den røde arme frigjør.
+                    I 1944 delvis frigjør de ett land — Norge. Berlevåg, Finnmark.</p>
+                  <h2 id="d-dagen-6-juni-1944-1">D-dagen (6. Juni 1944)</h2>
+                  <ul>
+                    <li>Den største militære landgangen i verdenshistoria</li>
+                    <li>156.000 allierte tropper — først og fremst amerikanske, britiske og kanadiske, går i land i Normandie i Frankrike.</li>
+                    <li>Motstanden er hard. 5.000 dør allerede første dagen.</li>
+                    <li>Likevel vinner man — og klarer etter hvert å erobre tilbake Frankrike.</li>
+                  </ul>
+                  <h2 id="slaget-om-berlin-april-1945-1">Slaget om Berlin (April 1945)</h2>
+                  <h2 id="oppsummert-3">Oppsummert</h2>
+                  <ul>
+                    <li>Krigen snur når tyskerne ikke klarer å ta Stalingrad.</li>
+                    <li>Den røde armé klarer å prese tyskerne tilbake.</li>
+                    <li>Etter D-dagen i juni 1944 får tyskerne motstand både i øst og vest.</li>
+                    <li>Nå Berlin inntas er Tyskland slått, Hitler begår selvmord og krigen i Europa er over.</li>
+                  </ul>
+                  <h2 id="oppgaver-3">Oppgaver</h2>
+                  <hr />
+                  <p>1) Hvorfor angrep Hitler Sovjetunionen?</p>
+                  <p>Hitler angrep først Moskva fordi ha nså på de som en stor trussel, men ga etter hvert opp. Da vendte han blikket mot oljeressursene i svartehavet, og måtte forbi Stalingrad.
+                    Russland er stort, det er mye å hente der — Hitler hadde idéen om Lebensraum.
+                    <mark class="blue">Ekspansjonspolitikk</mark> — imperialisme. Utvide sitt land på bekostning av andre.</p>
+                  <hr />
+                  <p>2) Hvor mange nordmenn deltok på Hitlers side i kampen mot Sovjetunionen? Hvorfor?</p>
+                  <p>Rundt 15.000 nordmenn skal ha prøvd å verve seg til tysk tjeneste, og i overkant av 5.000 av disse kom gjennom nåløyet og var i aktiv fronttjeneste på tysk side i løpet av krigen. 781 av dem falt eller forsvant på Østfronten. Etter krigen fikk frontkjemperne harde straffer som landssvikere. Disse benyttet tyske uniformer med varierende kjennemerker, blant annet norske kjennetegn.
+                    De ville egentlig hjelpe Finland.<sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+                  <hr />
+                  <p>3) Hvor mange sovjetiske borgere dør i andre verdenskrig? Hvor mange amerikanere og engelskmenn blir drept?</p>
+                  <p>Av totalt 5,7 millioner sovjetiske krigsfanger døde om lag 3 millioner, langt de fleste mellom oktober 1941 og mai 1942. Fangene døde av sult, kulde og sykdommer under leirforhold som dels skyldtes en vanskelig forsyningssituasjon, men som i hovedsak må tilskrives tysk politikk.<sup id="fnref:2:1" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>
+                    I Storbritannia var det 482.600 militære og 67.800 sivile dødsfall.
+                    27 millioner Sovjeter. 500.000 fra amerika, 518.000 fra england.</p>
+                  <hr />
+                  <p>4) Hvilket av landene på bildet nedenfor har mest rett?
+                    <img src="notes/_archive/4PBA/Historie/notes/Archive/4PBA/Historie/nazidefeat.jpeg" alt="" /></p>
+                  <p>Tyskland, fordi de har satt russerne med høyest prosent.
+                    Spørreundersøkesen er fra 2018, så den kunne blitt påvirket av hollywood o.l.</p>
+                  <hr />
+                  <h2 id="holocaust-1">Holocaust</h2>
+                  <p>Bunnpunktet i moderne sivilisasjon.
+                    Mer enn <mark class="orange">seks millioner jøder</mark> ble drept under Holocaust. 200.000 romanifolk (sigøynere). 200.000 funksjonshemmede mennesker.
+                    Konsentrasjonsleirer med gasskamre hvor jøder ble tvunget inn i — Auswitch (Polen).
+                    Industrialiserte massemord.
+                    Et mindretall av jødene som døde under Holucaust døde i konsentrasjonsleirer.
+                    Ghettoer — fattige strøk hvor jøder ble tvangsflyttet. Dårlig tilgang på ressurser. En avstengt del.
+                    Etisk rensing.
+                    Folkemord.
+                    Flere grupper enn bare jøder — alle de Hitler ikke likte.
+                    Josef Mengele — en av legene i Auswitch som drev med eksperimentere på fangene.
+                    Utnyttet jernbaner for effektivitet.</p>
+                  <p>1933–39 — forfølgelser, andre undertrykkende lover.
+                    1939 — Eutanasiprogrammet. I dag er eutanasi synonymt med aktiv dødshjelp.</p>
+                  <ul>
+                    <li>Folk med lidelser skulle dø, fordi de var en byrde for samfunnet.</li>
+                    <li>Rekker å ta livet av ca. 100.000 før det stoppes, før det igjen begynner på og en nye 100.000 blir drept.
+                      1941 — Hitler hadde tanker om å sende jødene til Madagascar og Sibir. Det flrste man gjør er å plassere de i ghettoer i <em>det okkuperte Polen</em>. Invaderer Sovjetunionen, hvor det bor veldig mange jøder.</li>
+                    <li>Masseskytinger.</li>
+                    <li>Sovjetiske krigsfanger.</li>
+                    <li>Hensyn til de som skjøt, de ville ha avstand mellom seg og ofrene.</li>
+                    <li>Gassvogner, ikke effektivt og sjåførene likte det ikke
+                      1944 — Dødsleirer. Auswitch er den mest kjente.</li>
+                  </ul>
+                  <p>## Japan under andre verdenskrig</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>USAs begrunnelse</th>
+                        <th>Motargumenter</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>USA var klar til å innvadere Japan, og mente det ville redde livene til mange amerikanske soldater om de fikk avsluttet krigen med bombene.</td>
+                        <td>USA holdte Sovjet “skjult”. Passer på at Japan ikke finner ut at Russland vil involvere seg til krigen, da ville de gitt seg mye kjappere.</td>
+                      </tr>
+                      <tr>
+                        <td>Vinne krigen på amerikanske premisser. Japan måtte overgi seg til USA slik at de fikk kontroll, og ikke Russland.</td>
+                        <td>Store konsekvenser om de er de første til å bruke et så farlig våpen. -&gt; Kan fører til våpenkappløp.</td>
+                      </tr>
+                      <tr>
+                        <td>Viser styrke overfor Russland.Truman ville gjøre USA til den ultimate supermakten lsik at de kunne regjere.</td>
+                        <td>En atomkrig kan ødelegge betingelsene for menneskelig liv på jorden.</td>
+                      </tr>
+                      <tr>
+                        <td>USA stiller ett krav til både Tyskland og Japan — betingelsesløs kapitulasjon (unconditional surrender). USA vil ikke diskutere en mellomløsning for Japan og USA, de vil bestemme alt.</td>
+                        <td>Japan var allerede på vei til å overgi seg — så lenge de fikk beholde keiseren.</td>
+                      </tr>
+                      <tr>
+                        <td>De ville ha hevn fra Pearl Harbor.</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>Finn ut hvordan boka dekker det. Dekker boka den mest kritiske siden eller den mer amerikanske.</p>
+                  <p>USA valgte å bombe Japan for å stoppe invasjonen til japan av amerikanske soldater, og mente det ville redde livene til mange amerikanske soldater.
+                    Japan fikk beholde keiseren sin.</p>
+                  <div class="footnotes" role="doc-endnotes">
+                    <ol>
+                      <li id="fn:1" role="doc-endnote">
+                        <p>https://no.wikipedia.org/wiki/Norge_under_andre_verdenskrig#Norsk_personell_i_tysk_tjeneste <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+                      </li>
+                      <li id="fn:2" role="doc-endnote">
+                        <p>https://snl.no/%C3%98stfronten#Krigsforbrytelser <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:2:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+                <!-- Add backlinks to the current page --></div>
+              <div id="copyright">
+                <p id="copyright-notice">Runar Fredagsvik. 2022, powered by <a href="https://github.com/Jekyll-Garden/jekyll-garden.github.io">Jekyll Garden</a></p>
+              </div>
+              <script src="/assets/js/modeswitcher.js"></script></main>
+          </div>
+          <!--- CASE 3 : Static Page --><!--- CASE 4 :  Blog Listing page --><!--- CASE 5 :  Notes Listing page --></div>
+      </section>
+    </body>
+  </html>

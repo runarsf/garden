@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Digital Garden" property="og:site_name" />
+    <meta
+        content="A Jekyll theme for Obsidian users to build digital garden"
+        property="og:description">
+      <meta content="https://publish.runarsf.dev//about/" property="article:author">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet"><meta content="Intro til matematikk" property="og:title">
+      <meta content="article" property="og:type">
+      <meta content="https://publish.runarsf.dev//notes/Intro" property="og:url"><title>My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev//notes/Intro" />
+      <link rel="apple-touch-icon" href="/assets/img/profile.png">
+      <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
+      <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/main.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/Util.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/vendor/Katex.css" rel="stylesheet" media="all" class="default" />
+      <!--[if IE]>
+        <link href="/assets/css/ie-target.css" rel="stylesheet" type="text/css"/>
+      <![endif]-->
+      <!--<link href="/assets/css/prism.css" rel="stylesheet" />-->
+      <link rel="alternate" type="application/rss+xml" href="https://publish.runarsf.dev//feed.xml">
+    </head>
+    <body><nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="../index.html">
+            <!-- <svg width="32" height="32" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M36.9477 13.7742C38.3043 11.4086 41.6957 11.4086 43.0523 13.7742L70.5226 61.6774C71.8791 64.043 70.1834 67 67.4703 67H12.5297C9.81658 67 8.12089 64.043 9.47744 61.6774L36.9477 13.7742ZM40 16.9677L13.7506 62.7419H66.2494L40 16.9677Z" fill="var(--text-main)"/>
+        </svg> -->
+            <h4>📖 My Notebook</h4>
+          </a>
+          <div class="navbar-item navbar-dark-mode__mobile is-hidden-tablet" onclick="modeSwitcher()">
+            <div class="buttons">
+              <a class="button is-text">
+                <span class="icon is-small">
+                  <img src="../assets/img/sun.svg" id="theme-toggle-img--mobile">
+                </span>
+              </a>
+            </div>
+          </div>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="/notes"  class="navbar-item">
+              Notes
+            </a>
+            <a href="/posts"  class="navbar-item">
+              Posts
+            </a>
+            <!-- <a href="https://github.com/runarsf" target="_blank" class="navbar-item">
+          My GitHub
+        </a> -->
+          </div>
+          <div class="navbar-end is-hidden-mobile" onclick="modeSwitcher()" >
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-text">
+                  <span class="icon is-small">
+                    <img src="../assets/img/sun.svg" id="theme-toggle-img">
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script src="/assets/js/Hamburger.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+                displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+                processEscapes: true
+                    }
+                });
+      </script>
+      <section class="section">
+        <div class="columns is-centered">
+          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
+          <div class="column is-three-fifths">
+            <main>
+              <div class="note-page-section">
+                <div class="buttons for-back-home"><a class="button is-text button__page-back" onclick="window.location.assign('/');"><span class="icon is-small">
+                      <svg width="12" height="20" viewBox="0 0 12 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M11.0309 0.468998C11.1007 0.538667 11.1561 0.62143 11.1939 0.712548C11.2318 0.803665 11.2512 0.901347 11.2512 0.999998C11.2512 1.09865 11.2318 1.19633 11.1939 1.28745C11.1561 1.37857 11.1007 1.46133 11.0309 1.531L2.56038 10L11.0309 18.469C11.1717 18.6098 11.2508 18.8008 11.2508 19C11.2508 19.1992 11.1717 19.3902 11.0309 19.531C10.89 19.6718 10.699 19.7509 10.4999 19.7509C10.3007 19.7509 10.1097 19.6718 9.96887 19.531L0.968875 10.531C0.899031 10.4613 0.843616 10.3786 0.805806 10.2874C0.767997 10.1963 0.748535 10.0986 0.748535 10C0.748535 9.90135 0.767997 9.80367 0.805806 9.71255C0.843616 9.62143 0.899031 9.53867 0.968875 9.469L9.96887 0.468998C10.0385 0.399153 10.1213 0.343739 10.2124 0.305929C10.3035 0.26812 10.4012 0.248657 10.4999 0.248657C10.5985 0.248657 10.6962 0.26812 10.7873 0.305929C10.8784 0.343739 10.9612 0.399153 11.0309 0.468998Z"
+                                        fill="var(--text-main)" />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+                <h1>Intro til matematikk</h1>
+                <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
+                <div class="content">
+                  <div class="kdmath">$$
+                    \require{cancel}
+                    $$</div>
+                  <p>Eksponenten forteller hvor mange ganger grunntallet skal ganges med seg selv. Brukes for veldig store og veldig små tall.</p>
+                  <h3 id="regler">Regler</h3>
+                  <p>$\boxed{\left(\dfrac{a}{b}\right)^n = \dfrac{a^n}{b^n}}$</p>
+                  <hr />
+                  <p>$\boxed{\left(\dfrac{a}{b}\right)^{-n} = \left(\dfrac{b}{a}\right)^n}$</p>
+                  <hr />
+                  <p>$\boxed{\left(a \cdot b\right)^n = a^n \cdot b^n}$</p>
+                  <hr />
+                  <p>$\boxed{\left(a^n\right)^m = a^{n \cdot m}}$</p>
+                  <hr />
+                  <ul>
+                    <li><a href="https://campus.inkrement.no/566141/4603399">Inkrement</a></li>
+                  </ul>
+                  <p>n-te rota av x er a hvis a i n-te er z</p>
+                  <ul>
+                    <li>hvis n er et partall må x være større eller lik 0</li>
+                    <li>hvis n er et oddetall kan x være positiv, negativ, eller 0.</li>
+                  </ul>
+                  <p>$\boxed{\sqrt{x} = a \Leftrightarrow a^2 = x \wedge a \ge 0}$</p>
+                  <p>$\boxed{\sqrt[n]{x} = a \Leftrightarrow a^n = x \wedge a \ge 0, dersom a er partall, må a være positiv}$</p>
+                  <div class="kdmath">$$
+                    \sqrt[4]{16} = 2 fordi 2^4 = 16
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt[4]{-16} = umulig, fordi det finnes ikke noe tall opphøyd i 4 som blir ngativt.
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt[3]{8} =
+                    \sqrt[3]{2^3} =
+                    2
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt[3]{-8} =
+                    \sqrt[3]{(-2)^3} =
+                    -2
+                    $$</div>
+                  <hr />
+                  <p>$\boxed{\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}}$
+                    $\boxed{\sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}}$</p>
+                  <div class="kdmath">$$
+                    \sqrt{25} = \underline{\underline{5}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt{9} = \underline{\underline{3}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt[3]{27} = \underline{\underline{3}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt[4]{16} = \underline{\underline{2}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt[3]{125} = \sqrt[3]{5^3} = \underline{\underline{5}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt[5]{-32} = \sqrt[5]{-2^5} = \underline{\underline{-2}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt{18} =
+                    \sqrt{2 \cdot 9} =
+                    \sqrt{2 \cdot 3^2} =
+                    \sqrt{2} \cdot \sqrt{3^2} =
+                    \sqrt{2} \cdot \sqrt{9} =
+                    \sqrt{2} \cdot 3 =
+                    \underline{\underline{3\sqrt{2}}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt[3]{54} =
+                    \sqrt[3]{2 \cdot 27} =
+                    \sqrt[3]{2 \cdot 3^3} =
+                    \sqrt[3]{2} \cdot \sqrt[3]{3^3} =
+                    \sqrt[3]{2} \cdot \sqrt[3]{27} =
+                    \sqrt[3]{2} \cdot 3 =
+                    \underline{\underline{3\sqrt[3]{2}}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt{4a} =
+                    \sqrt{4} \cdot \sqrt{a} =
+                    \underline{\underline{2 \sqrt{a}}}
+                    $$</div>
+                  <blockquote>
+                    <p>Del på kvadrattallene, prøv deg fram: 4 9 16 25 36 49 64 81 100
+                      Prøv å skriv som produkt med størst mulig kvadrattall og trekk ut av rottegnet.</p>
+                  </blockquote>
+                  <div class="kdmath">$$
+                    \sqrt{175} =
+                    \sqrt{25 \cdot 7} =
+                    \sqrt{25} \cdot \sqrt{7} =
+                    \underline{\underline{5 \sqrt{7}}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt{108} =
+                    \sqrt{36 \cdot 3} =
+                    \underline{\underline{6 \sqrt{3}}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt{18} =
+                    \sqrt{9 \cdot 2} =
+                    \underline{\underline{3 \sqrt{2}}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt{54} =
+                    \sqrt{9 \cdot 6} =
+                    \underline{\underline{3 \sqrt{6}}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt{\dfrac{64}{100}} =
+                    \dfrac{\sqrt{64}}{\sqrt{100}} =
+                    \dfrac{8 \div 2}{10 \div 2} =
+                    \underline{\underline{\dfrac{4}{5}}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt{\dfrac{72}{288}} =
+                    \dfrac{\sqrt{36 \cdot 2}}{\sqrt{144 \cdot 2}} =
+                    \dfrac{6 \cdot \cancel{\sqrt{2}}}{12 \cdot \cancel{\sqrt{2}}} =
+                    \underline{\underline{\dfrac{1}{2}}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt[5]{32} = \sqrt[5]{2^5} = 2
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt[3]{54} =
+                    \sqrt[3]{27 \cdot 2} = \sqrt[3]{27} \cdot \sqrt[3]{2} = \sqrt[3]{3^3} \cdot \sqrt[3]{2} = \underline{\underline{3 \cdot \sqrt[3]{2}}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt{27 \cdot 10^3} =
+                    \sqrt[3]{3^3} \cdot \sqrt[3]{10^3} =
+                    3 \cdot 10 =
+                    \underline{\underline{30}}
+                    $$</div>
+                  <hr />
+                  <p>$\boxed{\sqrt{a} + \sqrt{a} = 2\sqrt{a}}$</p>
+                  <div class="kdmath">$$
+                    \sqrt{3} + 2 \sqrt{3} - 4 \sqrt{3} =
+                    \underline{\underline{-\sqrt{3}}}
+                    $$</div>
+                  <blockquote>
+                    <p>Prøv å få samme under rottegnet, faktoriser v.h.a. kvadrattall</p>
+                  </blockquote>
+                  <div class="kdmath">$$
+                    \sqrt{12} - \sqrt{48} + \sqrt{27} =
+                    \sqrt{4 \cdot 3} - \sqrt{16 \cdot 3} + \sqrt{9 \cdot 3} =
+                    2 \sqrt{3} - 4 \sqrt{3} + 3 \sqrt{3} =
+                    \underline{\underline{\sqrt{3}}}
+                    $$</div>
+                  <hr />
+                  <p>$\boxed{\left(\sqrt{a}\right)^2 = a}$
+                    $\boxed{\sqrt[n]{a}^n = a}$</p>
+                  <div class="kdmath">$$
+                    \left.\begin{array}{r}\boxed{a^{\dfrac{1}{n}} = \sqrt[n]{a^1} = \sqrt[n]{a}}
+                    \\
+                    \boxed{\color{gray}\left(a^{m\dfrac{1}{n}}\right) = \color{white} a^{\dfrac{m}{n}} = \sqrt[n]{a^m} = \left(\sqrt[n]{a}\right)^m}\end{array}\right\}a \ge 0, n \in N, m \in Z. Hvis a er negativ, må n være et oddetall.
+                    $$</div>
+                  <div class="kdmath">$$
+                    \left(\sqrt{25}\right)^2 = \underline{\underline{25}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    \left\{\begin{array}{l}
+                    \left(a^{\dfrac{1}{n}}\right)^n =
+                    a^{\dfrac{1}{n} \cdot n} =
+                    a^{\dfrac{1}{\cancel{n}} \cdot \cancel{n}} =
+                    a^1 =
+                    \underline{\underline{a}}
+                    \end{array}\right.
+                    $$</div>
+                  <div class="kdmath">$$
+                    36^{\dfrac{1}{2}} =
+                    \sqrt[2]{36} =
+                    \underline{\underline{6}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    64^{\dfrac{1}{3}} =
+                    \sqrt[3]{64} =
+                    \underline{\underline{4}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    32^{\dfrac{1}{5}} =
+                    \sqrt[5]{32} =
+                    \underline{\underline{2}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    36^{\dfrac{3}{2}} =
+                    \left(\sqrt[2]{36}\right)^3 =
+                    \left(6\right)^3 =
+                    \underline{\underline{216}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    64^{\dfrac{2}{3}} =
+                    \left(\sqrt[3]{64}\right)^2 =
+                    \left(4\right)^2 =
+                    \underline{\underline{16}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    32^{\dfrac{3}{5}} =
+                    \left(\sqrt[5]{32}\right)^3 =
+                    \left(2\right)^3 =
+                    \underline{\underline{8}}
+                    $$</div>
+                  <div class="kdmath">$$
+                    (-4)^{\dfrac{1}{2}} = \sqrt{-4} = Umulig
+                    $$</div>
+                  <div class="kdmath">$$
+                    (-27)^{\dfrac{1}{3}} = \sqrt[3]{-27} = \sqrt[3]{(-3)^3} = -3
+                    $$</div>
+                  <div class="kdmath">$$
+                    (\sqrt[3]{4})^6 = (4^{\dfrac{1}{3}})^6 = 4^{\dfrac{1}{3} \cdot 6} = 4^2 = 16
+                    $$</div>
+                  <div class="kdmath">$$
+                    \sqrt[3]{4^6} = 4^{\dfrac{6}{3}} = 4^2 = 16
+                    $$</div>
+                  <div class="kdmath">$$
+                    32^{-\dfrac{2}{5}} =
+                    32^{\dfrac{-2}{5}} =
+                    (\sqrt[5]{32})^{-2} =
+                    (\sqrt[5]{2^5})^{-2} =
+                    2^{-2} =
+                    \dfrac{1}{2^2} =
+                    \dfrac{1}{4}
+                    $$</div>
+                  <hr />
+                  <h5 id="kvadratsetningene">Kvadratsetningene</h5>
+                  <div class="kdmath">$$
+                    \begin{aligned}
+                    &\text{Første kvadratsetning}\left\{\begin{array}{l}\boxed{(a + b)^2 = a^2 + 2ab + b^2}\end{array}\right.
+                    \\
+                    &\text{Andre kvadratsetning}\left\{\begin{array}{l}\boxed{(a - b)^2 = a^2 - 2ab + b^2}\end{array}\right.
+                    \\
+                    &\text{Tredje kvadratsetning}\left\{\begin{array}{l}\boxed{(a + b) \cdot (a - b) = a^2 - ab + ab - b^2 = \underline{\underline{a^2 - b^2}}}\end{array}\right.
+                    \end{aligned}
+                    $$</div>
+                  <hr />
+                  <h3 id="ulikheter">Ulikheter</h3>
+                  <div class="kdmath">$$
+                    \begin{aligned}
+                    & a \gt b: \in a \gt b \\
+                    & b \lt a: \in b \lt a \\
+                    & a \ge b: \in a ] b \\
+                    & b \le a: \in b [ a \\
+                    \end{aligned}
+                    $$</div>
+                  <p><a href="_periodic/2021-09-13">_periodic/2021-09-13</a></p>
+                  <p>Ulikheter løses som likninger <mark class="blue">unntatt</mark> når vi multipliserer/deler med et negativt tall. Da må vi <mark class="blue">snu</mark> ulikhetstegnet.</p>
+                  <ul>
+                    <li>Vi kan legge til eller trekke fra samme tall på begge sider.</li>
+                    <li>Vi kan gange og dele med samme tall på begge sider.
+                      <ul>
+                        <li>Hvis tallet er negativt, må vi snu fortegnet.</li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <h4 id="eksempler">Eksempler</h4>
+                  <div class="kdmath">$$
+                    \begin{aligned}
+                    & x - 2 \gt 4x + 7 = \\
+                    & x - 4x \gt 7 + 2 = \\
+                    & -3x \gt 9 = \\
+                    & \dfrac{3x}{\color{red}3} \lt \dfrac{9}{\color{red}3} = \\
+                    & \underline{\underline{x \lt 3}}
+                    \end{aligned}
+                    $$</div>
+                  <hr />
+                  <h5 id="likninger">Likninger</h5>
+                  <ul>
+                    <li>Vi kan legge til og trekke fra samme tall på begge sider.</li>
+                    <li>Vi kan gange og dele med samme tall på begge sider.</li>
+                  </ul>
+                  <div class="kdmath">$$
+                    \boxed{
+                    2x + 2 \color{gray} - 2 \color{white} = 4 \color{gray} - 2 \color{white}
+                    }
+                    $$</div>
+                  <hr />
+                  <p>$\triangle ABE ~ \triangle ACD$ (formlik)</p>
+                  <hr />
+                  <h2 id="11-tall-og-tallregning">1.1 Tall og tallregning</h2>
+                  <p>Tallregning eller aritmetikk består av de elementære regneoperasjonene.</p>
+                  <ul>
+                    <li>Addisjon</li>
+                    <li>Subtraksjon</li>
+                    <li>Multiplikasjon</li>
+                    <li>Divisjon</li>
+                    <li>Røtter</li>
+                    <li>Potens ($3^3$)</li>
+                  </ul>
+                  <h2 id="tallgrupper">Tallgrupper</h2>
+                  <p>$\boxed{N}$: Mengden av alle <mark class="orange">naturlige</mark> tall, dvs. alle hele tall over null</p>
+                  <p>$\boxed{Z}$: Mengden av alle <mark class="orange">hele</mark> tall, positive, negative, og 0</p>
+                  <p>$\boxed{Q}$: De <mark class="orange">rasjonale</mark> tallene. Mengden av alle hele tall og brøker. Eks:
+                    $\frac{2\ &lt;- teller}{5\ &lt;- nevner}$
+                    Merk: Hele tall er også en brøk: $\frac{4}{2} = 2$
+                    Desimaltall (med endelig antall siffer)
+                    → $3,467 = \frac{3467}{1000}$</p>
+                  <p>$\boxed{\text{Irrasjonale tall}}$: all som ikke kan skrives som brøk. Eks:
+                    → $\sqrt{2}$, $\pi$, $e$</p>
+                  <p>$\boxed{\text{Reelle tall}}$: Alle rasjonale og irrasjonale tall. Alle tall vi kan merke av på en tallinje.</p>
+                  <h2 id="definisjoner-og-notasjoner">Definisjoner og notasjoner</h2>
+                  <ul>
+                    <li>
+                      <p>$\boxed{\in}$: Leses som “tilhører” (“er element i”)
+                        → $2 \in N$</p>
+                    </li>
+                    <li>
+                      <p>$\boxed{\notin}$: Leses som “tilhører ikke”
+                        → $\frac{3}{4} \notin N$</p>
+                    </li>
+                    <li>$\boxed{\text{Listeform for mengder}}$:
+                      → ${1, 5, 8} = {5, 8, 1}$</li>
+                    <li>$\boxed{\text{Partall}}$: Alle heltall som er delelig med 2
+                      → ${-4, -2, 0, 2, 4, 6}$</li>
+                    <li>$\boxed{\text{Oddetall}}$: Alle heltall som ikke er delelig med 2.
+                      → ${-3, -1, 1, 3, 5}$</li>
+                    <li>$\boxed{\text{Primtall}}$: Alle heltall som er større enn 1, og kun er delelig med 1 og seg selv.
+                      → ${2, 3, 5, 7, 11, 13, 17}$</li>
+                    <li>$\boxed{\text{Potenser}}$:
+                      → ${grunntallet-&gt; 2}^{3 &lt;- eksponent} = 2<em>2</em>2$</li>
+                    <li>$\boxed{\text{Røtter}}$:
+                      → $\sqrt{4} = \sqrt{2*2} = 2$ ←det tallet vi må gange med seg selv for å få 4</li>
+                    <li>$\boxed{\gt}$: Større enn
+                      → $5 \gt 2$</li>
+                    <li>$\boxed{\lt}$: Mindre enn
+                      → $2 \lt 6$</li>
+                    <li>$\boxed{\ge}$: Større eller lik</li>
+                    <li>$\boxed{\le}$: Mindre eller lik</li>
+                    <li>$\boxed{\setminus}$: Mengdedifferanse. “Ikke”/“unntatt”.
+                      →$R \setminus {0, 1}$</li>
+                    <li>$\boxed{\ne}$: Ikke lik
+                      → $2 \ne 3$</li>
+                    <li>$\Leftrightarrow$ / $\Leftrightarrow$: Hvis, og bare hvis</li>
+                  </ul>
+                  <h2 id="regnerekkefølge">Regnerekkefølge</h2>
+                  <ol>
+                    <li>Regn ut paranteser</li>
+                    <li>Regn ut potenser</li>
+                    <li>Utfør multiplikasjon og divisjon</li>
+                    <li>Utfør addisjon og subtraksjon</li>
+                  </ol>
+                  <p>$3<em>2^2 \ne (3</em>2)^2$</p>
+                  <p>Merk:
+                    $5<em>(2-1) = 5(2-1) = (2-1)5$
+                      $-3</em>-3 = -3<em>(-3)$ ← siste er anbefalt
+                      $2^2 = 2</em>2$
+                    $-2^2 = -(2^2) = -2<em>2 = 4$
+                      $(-2)^2 = (-2)</em>(-2) = 4$</p>
+                  <p>Time 2</p>
+                  <p>$4+(3x-2)-(4x-3)+2(9-x)-\dfrac{1}{3}(x+2)(x-5)=$
+                    $4+3x-2-4x+3+18-2x-\dfrac{1}{3}(x^2-5x+2x-10)=$ 
+                    $23-3x-\dfrac{1}{3}(x^2-3x-10) =$ 
+                    $23-3x-\dfrac{1}{3}x^2+\dfrac{~3~x}{~3~}+\dfrac{10}{3}=$ 
+                    $-\dfrac{1}{3}x^2-3x+x+23+\dfrac{10}{3}=$ 
+                    $-\dfrac{1}{3}x^2-2x+\dfrac{23<strong><em>3**}{1</em></strong>3**}+\dfrac{10}{3}=$ 
+                    $-\dfrac{1}{3}x^2-2x+\dfrac{79}{3}$</p>
+                  <p>$2(t+2)(t-2)$</p>
+                  <h2 id="kap-33-ulikheter">Kap 3.3 Ulikheter</h2>
+                  <blockquote>
+                    <p>x &gt; y
+                      “x større enn y”</p>
+                  </blockquote>
+                  <blockquote>
+                    <p>x &lt; y
+                      “x mindre enn y”</p>
+                  </blockquote>
+                  <blockquote>
+                    <p>x $\ge$ y
+                      “x større eller lik y”</p>
+                  </blockquote>
+                  <blockquote>
+                    <p>x $\le$ y
+                      “x mindre eller lik y”</p>
+                  </blockquote>
+                  <p>Ulikheter løses som likninger <mark class="blue">unntatt</mark> når vi multipliserer/deler med et negativt tall. Da må vi <mark class="blue">snu</mark> ulikhetstegnet.</p>
+                  <p>Tallinje $\mathbb{R}$: -8 -7 -6 -5 -4 -3 -2 -1 0 1 2 3 4 5 6 7 8</p>
+                  <p>4 &lt; 7
+                    4 mindre enn 7
+                    4 til venstre på tallinja
+                    Om du legger til “-” foran, må du snu ulikhetstegnet.
+                    -4 !&lt; -7
+                    -4 større enn -7
+                    -4 ligger til høyre for -7</p>
+                  <ul>
+                    <li>Mult. up paranteser</li>
+                    <li>Samle x-ledd og konstanter</li>
+                    <li>IKKE del på -4, men snu tegnet og del på -4</li>
+                  </ul>
+                  <div class="kdmath">$$
+                    2 - 2x \le 2 ( x - 5 )
+                    2 - 2x \le 2x - 10
+                    -2x - 2x \le -10 - 2
+                    -4x \le -12
+                    \dfrac{-4x}{-4} \ge \dfrac{-12}{-4}
+                    x \ge 3
+                    $$</div>
+                  <ul>
+                    <li>Mult. med FN = 6 i alle ledd</li>
+                    <li>Dele på -5 $\implies$ snu tegnet.</li>
+                  </ul>
+                  <div class="kdmath">$$
+                    -\dfrac{2}{3}x - \dfrac{1}{2}(x-4) \ge \dfrac{1}{2} - \dfrac{x}{3}
+                    \left.-\dfrac{2}{3}x - \dfrac{1}{2}x + 2 \ge \dfrac{1}{2} - \dfrac{x}{3} \right| \times 6
+                    -4x -3x + 12 \ge 3 - 2x
+                    -7x + 2x \ge 3 - 12
+                    -5x \ge -9
+                    \dfrac{-5x}{-5} \le \dfrac{-9}{-5}
+                    $$</div>
+                  <blockquote>
+                    <p>En studentergildet (fleksibelt månedskort) hos transportselskapet Ruter i Oslo koster kr. 380. En enkeltbillet koster kr.30. Hvor mange ganger i løpet av en måned må du reise kollektivt for at studentbilletten skal lønne seg?</p>
+                  </blockquote>
+                  <p>Sett x = antall enkeltturer
+                    Bruker da 30x kr. per mnd.</p>
+                  <div class="kdmath">$$
+                    30 \times x \lt 380
+                    $$</div>
+                  <p><img src="https://i.runarsf.dev/runar/WoNOXEvI04.png/raw" alt="" /></p>
+                </div>
+                <!-- Add backlinks to the current page --></div>
+              <div id="copyright">
+                <p id="copyright-notice">Runar Fredagsvik. 2022, powered by <a href="https://github.com/Jekyll-Garden/jekyll-garden.github.io">Jekyll Garden</a></p>
+              </div>
+              <script src="/assets/js/modeswitcher.js"></script></main>
+          </div>
+          <!--- CASE 3 : Static Page --><!--- CASE 4 :  Blog Listing page --><!--- CASE 5 :  Notes Listing page --></div>
+      </section>
+    </body>
+  </html>

@@ -1,0 +1,113 @@
+\documentclass[12pt, a4paper, oneside, openany]{article}
+
+% Must come in the beginning. Changes the spacing in the table of contents to look more pleasing
+%\usepackage{tocloft}
+%\setlength{\cftbeforepartskip}{5.0mm}
+%\setlength{\cftbeforechapskip}{2.0mm}
+%\setlength{\cftbeforesecskip}{0.0mm}
+
+%% Nice looking tables with correct spacings 
+%\usepackage{booktabs}
+%% Tables spanning more than one page
+%\usepackage{longtable}
+%% For tables spanning the full text width
+%\usepackage{tabularx}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[backend=biber, style=authoryear-icomp]{biblatex}
+\addbibresource{../citations.bib}
+
+% Use linux libertine font
+\usepackage{libertine}
+\usepackage{libertinust1math}
+\usepackage[T1]{fontenc} % Font encoding (not input encoding) https://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc
+% Use Times font
+%\usepackage{mathptmx}
+
+% Equivalent of 1.5 line spacing in MS Word
+\setlength{\parindent}{3.5ex} % 4em
+\setlength{\parskip}{1ex}
+%\renewcommand{\baselinestretch}{2.0}
+
+%\linespread{1.25} % Set linespace
+%\frenchspacing % No double spacing between sentences, all spaces are treated the same
+%%\usepackage{parskip} % Put whitespace between paragraphs
+\usepackage[all]{nowidow} % Tries to remove widows
+%\usepackage[protrusion=true, expansion=true]{microtype} % Improves typography, load after fontpackage is selected
+
+\usepackage[norsk,english]{babel} % Norwegian translations
+\usepackage[pdftex, linkcolor=black, pdfborder={0 0 0}]{hyperref} % Format links for pdf
+\usepackage{calc} % To reset the counter in the document after title page
+\usepackage{enumitem} % Includes lists
+
+\usepackage[pdftex]{graphicx} % Image support
+\graphicspath{ {images/} } % Image path
+\usepackage[export]{adjustbox} % Image aligning, [valign=c/t/b]
+
+% Document geometry / margins
+%\setlength{\headheight}{15pt} % Alternative to headheight=x in the geometry package
+%\usepackage[a4paper, width=150mm, top=25mm, bottom=25mm, bindingoffset=6mm]{geometry}
+\usepackage[a4paper, headheight=15pt, lmargin=0.1666\paperwidth, rmargin=0.1666\paperwidth, tmargin=0.1111\paperheight, bmargin=0.1111\paperheight]{geometry}
+
+% geometry has to be loaded before loading/setting fancyhdr
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % Remove headings and footers
+\fancyhead[L]{Runar Fredagsvik} % Left   Heading
+\fancyhead[C]{Norsk hovedmål}   % Center Heading
+\fancyhead[R]{\today}           % Right  Heading
+\fancyfoot[C]{\thepage}         % Center Footer
+\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\footrulewidth}{0pt}
+%\renewcommand{\chaptermark}[1]{ \markboth{\thechapter\ #1}{} }
+%\renewcommand{\sectionmark}[1]{ \markright{\thesection\ #1}{} }
+%\fancyhead[LE,RO]{\thepage}
+%\fancyhead[RE]{\textit{ \nouppercase{\leftmark}} }
+%\fancyhead[LO]{\textit{ \nouppercase{\rightmark}} }
+
+\title{
+    {Skrivedag}\\
+    {\Large Norsk sidemål — Nynorsk}\\
+    {\hspace{1ex}}\\
+    %{\includegraphics[width=50mm,scale=0.5,valign=c]{hellemyrsfolket.jpg}}
+    %{\includegraphics[width=50mm,scale=0.5,valign=c]{postgirobygget.jpg}}\\
+    {\hspace{5ex}}
+}
+\author{Runar Fredagsvik}
+\date{08.04.2021}
+
+% PDF information
+\hypersetup{
+    pdfsubject = {Nynorsk},
+    pdftitle = {Skrivedag 08.04.2021},
+    pdfauthor = {Runar Fredagsvik}
+}
+
+\begin{document}
+
+\begin{titlepage}
+
+\maketitle
+
+\end{titlepage}
+
+\section*{Skrivedag 08.04.2021}
+
+\noindent Novella \textit{Tiger i hagen} av Ari Behn er ein del av ei samling på 11 forteljingar, den blei utgitt av Kolon forlag i 2015. Samlinga tar for seg sterke tema som vald, livet og død og beskrivingar av folk som er kritiske til og står mot samfunnet, som journalistar og TV-team.
+
+Motivet i novella er ein mann som er heime i London med barna sine mens kona er reist bort på seminar i New York. Når han sitter i hagen og nyter eit glas med vin høyrde han eit brøl frå ein tiger like bak seg. Alle han fortel om dette brølet ler av det som ein spøk, for det er bere mannen som kan høyre det. Kona kjem heim nokon dagar seinare og sei at hun vil flytta heim til Noreg, men det vil ikkje mannen – han foreslår at han kan pendle mellom London og Oslo, men det synast ikkje kona noko om.
+
+Sjølv om motivet i teksten er openlyst, er det underliggande temaet i novella veldig abstrakt, men tema som respekt og forhold ligger sentralt. Tigeren treffer vi allereie i tittelen til novella, og kan tolkast på fleire måtar. Eg tenkje at tigeren er ein metafor for forholdet mellom mannen og kona, eller kanskje tankane og bekymringane til mannen, sida den berre brøle når mannen er aleine.
+
+Synsvinkelen i novella har ein personal vinkling ved at handlinga blir formidla gjennom ein av personane, nemleg mannen. Når synsvinkelen er personal ligger synsvinkelen fast hos ein person, og vi får berre vite kva han sjå, opplever og tenkjer. Dette gjer det lettare for lesaren å leve seg inn i handlinga, og ein kan få ein slags nærheit til personane i teksten. Følgande er eit døme frå teksten som viser kva for ein vinkling som er brukt: "Han synes han hører tigeren brøle og snur seg, men det er tomt i hagen." \parencite{behn15}. Her får vi vite både kva han høyrer, ser og gjer, vi ser også at det er brukt han/hun-forteljar i teksten.
+
+Novella startar in medias res, som betyr at den startar rett inn i handlinga "En kveld han satt i hagen med et glass vin, hørte han en dyp knurring." \parencite{behn15}. Her har vi ikkje blitt introdusert for nokon av personane i novella eller deira situasjon enda. Handlinga går føre seg ved huset deira i London kor det elles er vanlig å få besøk av dyr. Vi kan anta at den er over to til tre dagar, fordi teksten les "I to dager og to netter har tigeren luntet omkring utenfor huset deres og brølt." \parencite{behn15} og "I kveldingen kommer kona hans hjem." \parencite{behn15}. Tigeren kom først etter at kona hadde reiste bort, og handlinga avsluttast dagen etter at kona kjem heim. Det blir ikkje fortelt noko om deira klasse eller samfunnsgruppe, men sida dei har ein barnepassar og eit hus med minst to etasjar og ein hage kan vi anta at dei ikkje har det vanskeleg økonomisk sett. Det dei seier er også skrive på bokmål og ikkje dialekt, noko som før i tida antyda at dei ikkje var frå ein underklasse – dette sto ikkje like sterkt når denne teksten blei skrive, da mange prøver å fremme dialekten sin på offentlege kanalar, men heng kanskje igjen i litteraturen.
+
+Vi får ingen ytre skildring av personane i novella, men Behn antydar at mannen er uryddig og kanskje litt sløv, sida han ikkje har rydda ut av oppvaskmaskina på dei dagane kona var borte. I motsetning til mannen er kona opptatt av å halde det ryddig, og finner kjærleik i praktiske gjeremål som at mannen tar ut av oppvaskmaskinen. Kona ønskjer å flytta tilbakast til Noreg, men det vil ikkje mannen og foreslår at han kan pendle mellom London og Oslo i helgane. Kona meiner dette er tull, og virke som om hun har eit større behov for å oppretthalde forholdet.
+
+Novella tar for seg fleire viktige tema på ein måte som gjer det mogeleg for lesaren å tolke den på fleire måtar. Dette forsterkast av den personale synsvinkelen som får lesaren til å leve seg inn i handlinga, og kanskje føle med karakterane.
+
+%\printbibliography
+
+\end{document}

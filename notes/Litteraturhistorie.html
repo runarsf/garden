@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Digital Garden" property="og:site_name" />
+    <meta
+        content="A Jekyll theme for Obsidian users to build digital garden"
+        property="og:description">
+      <meta content="https://publish.runarsf.dev//about/" property="article:author">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet"><meta content="Norsk litteraturhistorie — form, innhold, forfattere & verk" property="og:title">
+      <meta content="article" property="og:type">
+      <meta content="https://publish.runarsf.dev//notes/Litteraturhistorie" property="og:url"><title>My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev//notes/Litteraturhistorie" />
+      <link rel="apple-touch-icon" href="/assets/img/profile.png">
+      <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
+      <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/main.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/Util.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/vendor/Katex.css" rel="stylesheet" media="all" class="default" />
+      <!--[if IE]>
+        <link href="/assets/css/ie-target.css" rel="stylesheet" type="text/css"/>
+      <![endif]-->
+      <!--<link href="/assets/css/prism.css" rel="stylesheet" />-->
+      <link rel="alternate" type="application/rss+xml" href="https://publish.runarsf.dev//feed.xml">
+    </head>
+    <body><nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="../index.html">
+            <!-- <svg width="32" height="32" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M36.9477 13.7742C38.3043 11.4086 41.6957 11.4086 43.0523 13.7742L70.5226 61.6774C71.8791 64.043 70.1834 67 67.4703 67H12.5297C9.81658 67 8.12089 64.043 9.47744 61.6774L36.9477 13.7742ZM40 16.9677L13.7506 62.7419H66.2494L40 16.9677Z" fill="var(--text-main)"/>
+        </svg> -->
+            <h4>📖 My Notebook</h4>
+          </a>
+          <div class="navbar-item navbar-dark-mode__mobile is-hidden-tablet" onclick="modeSwitcher()">
+            <div class="buttons">
+              <a class="button is-text">
+                <span class="icon is-small">
+                  <img src="../assets/img/sun.svg" id="theme-toggle-img--mobile">
+                </span>
+              </a>
+            </div>
+          </div>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="/notes"  class="navbar-item">
+              Notes
+            </a>
+            <a href="/posts"  class="navbar-item">
+              Posts
+            </a>
+            <!-- <a href="https://github.com/runarsf" target="_blank" class="navbar-item">
+          My GitHub
+        </a> -->
+          </div>
+          <div class="navbar-end is-hidden-mobile" onclick="modeSwitcher()" >
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-text">
+                  <span class="icon is-small">
+                    <img src="../assets/img/sun.svg" id="theme-toggle-img">
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script src="/assets/js/Hamburger.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+                displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+                processEscapes: true
+                    }
+                });
+      </script>
+      <section class="section">
+        <div class="columns is-centered">
+          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
+          <div class="column is-three-fifths">
+            <main>
+              <div class="note-page-section">
+                <div class="buttons for-back-home"><a class="button is-text button__page-back" onclick="window.location.assign('/');"><span class="icon is-small">
+                      <svg width="12" height="20" viewBox="0 0 12 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M11.0309 0.468998C11.1007 0.538667 11.1561 0.62143 11.1939 0.712548C11.2318 0.803665 11.2512 0.901347 11.2512 0.999998C11.2512 1.09865 11.2318 1.19633 11.1939 1.28745C11.1561 1.37857 11.1007 1.46133 11.0309 1.531L2.56038 10L11.0309 18.469C11.1717 18.6098 11.2508 18.8008 11.2508 19C11.2508 19.1992 11.1717 19.3902 11.0309 19.531C10.89 19.6718 10.699 19.7509 10.4999 19.7509C10.3007 19.7509 10.1097 19.6718 9.96887 19.531L0.968875 10.531C0.899031 10.4613 0.843616 10.3786 0.805806 10.2874C0.767997 10.1963 0.748535 10.0986 0.748535 10C0.748535 9.90135 0.767997 9.80367 0.805806 9.71255C0.843616 9.62143 0.899031 9.53867 0.968875 9.469L9.96887 0.468998C10.0385 0.399153 10.1213 0.343739 10.2124 0.305929C10.3035 0.26812 10.4012 0.248657 10.4999 0.248657C10.5985 0.248657 10.6962 0.26812 10.7873 0.305929C10.8784 0.343739 10.9612 0.399153 11.0309 0.468998Z"
+                                        fill="var(--text-main)" />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+                <h1>Norsk litteraturhistorie — form, innhold, forfattere & verk</h1>
+                <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
+                <div class="content">
+                  <p><a href="800–1350::rmn">800–1350::rmn</a></p>
+                  <h2 id="norrøn-tid-8001350">Norrøn tid (800–1350)</h2>
+                  <details><summary><b>Lesemateriale</b></summary>
+                    <ul>
+                      <li>Side 193 i *Signatur* studiebok</li>
+                      <li><a href="https://signaturbm.portfolio.no/read/5665f3ce-9c08-42e8-8797-588b4eb60c68">Kjennetegn ved norrøn litteratur</a></li>
+                      <li><a href="https://snl.no/norr%C3%B8nt">norrønt – Store norske leksikon</a></li>
+                    </ul>
+                  </details>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Innhold</th>
+                        <th>Form</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Ættessamfunn:</strong></td>
+                        <td><strong>Sagalitteraturen:</strong></td>
+                      </tr>
+                      <tr>
+                        <td>- Dyrking av de norrøne gudene</td>
+                        <td>- Autoral og refererende synsvinkel</td>
+                      </tr>
+                      <tr>
+                        <td>- Kvinnene enten gode eller onde</td>
+                        <td>- Knapt og konsist språk</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Bare de dramatiske høydepunktene er med</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Underdrivelser</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td><strong>Kvadene (diktene):</strong></td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Alliterasjon (bokstavrim)</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Metaforbruk som kenninger (metaforer) og heiti (omskrivninger)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h4 id="historisk-forankring">Historisk forankring</h4>
+                  <ul>
+                    <li>Ættesamfunn</li>
+                    <li><mark class="green">Tro</mark> på <mark class="red">skjebne</mark></li>
+                    <li>Mannssamfunn med krigerideal</li>
+                    <li>Skjebnetro</li>
+                    <li>Ære og hevn</li>
+                  </ul>
+                  <h4 id="viktige-forfattere">Viktige forfattere</h4>
+                  <ul>
+                    <li>Snorre Sturlason (1179–1241)</li>
+                  </ul>
+                  <h4 id="viktige-verk">Viktige verk</h4>
+                  <ul>
+                    <li>“Den eldre Edda”: Gude- og heltedikt, skaldekvad, islendingesagaer</li>
+                    <li>“Heimskringla” (kongesagaene) — Snorre Sturlason</li>
+                    <li>“Den yngre Edda” (skalde- og gudelære) — Snorre Sturlason</li>
+                    <li>“Saga om Gunnlaug Ormstunge”</li>
+                  </ul>
+                  <hr />
+                  <p><a href="1350–1600::rmn">1350–1600::rmn</a></p>
+                  <h2 id="renessanse-13501600">Renessanse (1350–1600)</h2>
+                  <details><summary><b>Lesemateriale</b></summary>
+                    <ul>
+                      <li>Side 214 i *Signatur* studiebok</li>
+                      <li><a href="https://signaturbm.portfolio.no/read/8217f828-109d-443d-9f13-35b4c2e36dd4">Kjennetegn ved diktning fra renessansen</a></li>
+                    </ul>
+                  </details>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Innhold</th>
+                        <th>Form</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Inspirasjon fra antikken</td>
+                        <td>Realistiske framstillinger</td>
+                      </tr>
+                      <tr>
+                        <td>Mennesket og enkeltindividet i sentrum</td>
+                        <td>Nasjonalspråk erstattet latin</td>
+                      </tr>
+                      <tr>
+                        <td>Svekking av pavekirken</td>
+                        <td>Mange nye sjangere, som essay, noveller og romaner</td>
+                      </tr>
+                      <tr>
+                        <td>Kritisk tenkning</td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Pengeøkonomi</td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Nye kontinenter oppdages</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h4 id="viktige-forfattere-1">Viktige forfattere</h4>
+                  <ul>
+                    <li>Dante (Italia)</li>
+                    <li>Boccaccio (Italia)</li>
+                    <li>Michel de Montaigne (Frankrike)</li>
+                    <li>Absalon Pedersson Beyer (Norge)</li>
+                  </ul>
+                  <hr />
+                  <p><a href="1600-tallet::rmn">1600-tallet::rmn</a> <a href="Alternativ%20tidsberegning:%201595–1750::rmn">Alternativ tidsberegning: 1595–1750::rmn</a></p>
+                  <h2 id="barokken-1600-tallet">Barokken (1600-tallet)</h2>
+                  <details><summary><b>Lesemateriale</b></summary>
+                    <ul>
+                      <li>Side 224 i *Signatur* studiebok</li>
+                      <li><a href="https://signaturbm.portfolio.no/read/a5f08aab-3555-4569-91f2-c3fc1f08140c">Kjennetegn ved barokk litteratur</a></li>
+                    </ul>
+                  </details>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Innhold</th>
+                        <th>Form</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Sterk gudstro</td>
+                        <td>Kontraster</td>
+                      </tr>
+                      <tr>
+                        <td>Lengsel etter det evige livet hos Gud, og bort fra det kaotiske og forgjengelige i det jordiske livet</td>
+                        <td>Sterke følelser</td>
+                      </tr>
+                      <tr>
+                        <td>Unngå synd og oppnå frelse</td>
+                        <td>Utbroderinger og ornamenter</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>Overdådighet og overdrivelser</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>Bibelske motiver</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <ol>
+                    <li>Tidlig barokk — 1580–1630</li>
+                    <li>Høybarokk — 1630–1980</li>
+                    <li>Senbarokk — 1680–1750</li>
+                  </ol>
+                  <h4 id="viktige-forfattere-2">Viktige forfattere</h4>
+                  <ul>
+                    <li>John Milton (England)</li>
+                    <li>Dorothe Engelbretsdotter (Norge)</li>
+                    <li>Petter Dass (Norge)</li>
+                  </ul>
+                  <hr />
+                  <p><a href="1700-tallet::rmn">1700-tallet::rmn</a></p>
+                  <h2 id="opplysningstiden-1700-tallet">Opplysningstiden (1700-tallet)</h2>
+                  <details><summary><b>Lesemateriale</b></summary>
+                    <ul>
+                      <li>Side 236 i *Signatur* studiebok</li>
+                      <li><a href="https://signaturbm.portfolio.no/read/bcbd7f2f-73e6-47cd-8164-6cc0336673f2">Kjennetegn på litteratur fra opplysningstiden</a></li>
+                    </ul>
+                  </details>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Innhold</th>
+                        <th>Form</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Frihet, fornuft, framskritt</td>
+                        <td>Enkel, avbalansert form</td>
+                      </tr>
+                      <tr>
+                        <td>Spredning av kunnskap til folket</td>
+                        <td>Klarhet og orden</td>
+                      </tr>
+                      <tr>
+                        <td>Tro på at mennesket kan endre samfunnet</td>
+                        <td>Strenge regler for komposisjon i mange kunstformer</td>
+                      </tr>
+                      <tr>
+                        <td>Politisk revolusjonære tanker</td>
+                        <td>I dramaene: loven om handlingens, stedets og tidens enhet</td>
+                      </tr>
+                      <tr>
+                        <td>Kritisk tenkning</td>
+                        <td>I romanene og essayene: fascinasjon for det fantastiske og eksotiske</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h4 id="viktige-forfattere-3">Viktige forfattere</h4>
+                  <ul>
+                    <li>Voltaire (Frankrike)</li>
+                    <li>Diderot (Frankrike)</li>
+                    <li>Jonathan Swift (England/Irland)</li>
+                    <li>Ludvig Holberg (Danmark/Norge)</li>
+                  </ul>
+                  <hr />
+                  <p><a href="1780–1850::rmn">1780–1850::rmn</a> <a href="Alternativ%20tidsberegning:%201800–1830::rmn">Alternativ tidsberegning: 1800–1830::rmn</a></p>
+                  <h2 id="romantikken-17801850">Romantikken (1780–1850)</h2>
+                  <details><summary><b>Lesemateriale</b></summary>
+                    <ul>
+                      <li>Side 251 i *Signatur* studiebok</li>
+                      <li><a href="https://signaturbm.portfolio.no/read/9a52706d-23db-4774-9ffd-001ad044142b">Kjennetegn på romantisk diktning</a></li>
+                    </ul>
+                  </details>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Innhold</th>
+                        <th>Form</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Dyrking av den guddommelige naturen</td>
+                        <td>Mange språklie bilder, særlig besjeling</td>
+                      </tr>
+                      <tr>
+                        <td>Følelser og fantasier</td>
+                        <td>Lyrikken sentral sjanger med både bundne og frie vers</td>
+                      </tr>
+                      <tr>
+                        <td>Den geniale kunstner</td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Venstre- og høyreromantikk</td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Nasjonale impulser</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h4 id="historisk-forankring-1">Historisk forankring</h4>
+                  <ul>
+                    <li>Oppstod som en reaksjon mot opplysningstiden.</li>
+                  </ul>
+                  <h4 id="viktige-forfattere-4">Viktige forfattere</h4>
+                  <ul>
+                    <li>Jean-Jacques Rousseau (Frankrike)</li>
+                    <li>J.W. von Goethe (Tyskland)</li>
+                    <li>Henrik Wergeland</li>
+                    <li>Johan Sebastian Welhaven</li>
+                  </ul>
+                  <hr />
+                  <p><a href="1840–1855/60::rmn">1840–1855/60::rmn</a></p>
+                  <h2 id="nasjonalromantikken-1840185560">Nasjonalromantikken (1840–1855/60)</h2>
+                  <details><summary><b>Lesemateriale</b></summary>
+                    <ul>
+                      <li>Side 263 i *Signatur* studiebok</li>
+                      <li><a href="https://signaturbm.portfolio.no/read/1f69b07a-4217-468f-9e46-cea368030252">Kjennetegn på nasjonalromantisk diktning</a></li>
+                    </ul>
+                  </details>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Innhold</th>
+                        <th>Form</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Forestilling om at “folkesjelen” kom til uttrykk i språk og diktning</td>
+                        <td><strong>Bondefortellinger:</strong></td>
+                      </tr>
+                      <tr>
+                        <td>Fedrelandskjærlighet</td>
+                        <td>- Allvitende synsvinkel</td>
+                      </tr>
+                      <tr>
+                        <td>Beskrivelser av norsk folkekultur</td>
+                        <td><strong>Eventyr og sagn:</strong></td>
+                      </tr>
+                      <tr>
+                        <td>Beskrivelser av norsk natur</td>
+                        <td>- Talemålsnære replikker og delvis fornorsking av det danske skriftspråket i setningsbygning, norske ord og uttrykk (“eventyrstilen”)</td>
+                      </tr>
+                      <tr>
+                        <td>Norsk historie, vikingtid, 1200-tallet</td>
+                        <td><strong>Lyrikk:</strong></td>
+                      </tr>
+                      <tr>
+                        <td>Framheving av det typisk norske</td>
+                        <td>- Tradisjonell form med fast rytme og enderim</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Norske ord og uttrykk</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Både bokmål og nynorsk</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>Unionsoppløsningen med Danmark.
+                    En reaksjon…</p>
+                  <h4 id="viktige-forfattere-5">Viktige forfattere</h4>
+                  <ul>
+                    <li>Johan Herman Wessel</li>
+                    <li>Johan Nordahl Brun</li>
+                    <li>Henrik Wergeland</li>
+                    <li>Asbjørnsen og Moe</li>
+                    <li>Jørgen Moe</li>
+                    <li>Aasmund Olavson Vinje</li>
+                    <li>Maurits Hansen</li>
+                    <li>Bjørnstjerne Bjørson</li>
+                    <li>Henrik Ibsen</li>
+                  </ul>
+                  <h4 id="kunstnere">Kunstnere</h4>
+                  <ul>
+                    <li>Tidemand og Gude</li>
+                    <li>Ole Bull</li>
+                    <li>Edvard Grieg</li>
+                  </ul>
+                  <h4 id="vitenskapsmenn">Vitenskapsmenn</h4>
+                  <ul>
+                    <li>P.A. Munch</li>
+                    <li>Ivar Aasen</li>
+                    <li>Knud Knudsen</li>
+                  </ul>
+                  <hr />
+                  <p><a href="1870–1890::rmn">1870–1890::rmn</a></p>
+                  <h2 id="poetisk-realisme-18701890">Poetisk realisme (1870–1890)</h2>
+                  <details><summary><b>Lesemateriale</b></summary>
+                    <ul>
+                      <li><a href="https://ndla.no/subject:1:cddc3895-a19b-4e30-bd27-2f91b4a02894/topic:4:186579/topic:3:195781/resource:1:126130">Norsk - SF Vg3 - Poetisk realisme - NDLA</a></li>
+                    </ul>
+                  </details>
+                  <ul>
+                    <li>Reaksjon på industrialisering av jordbruk i Norge (Hamskifte)</li>
+                  </ul>
+                  <hr />
+                  <p><a href="1870–1890::rmn">1870–1890::rmn</a></p>
+                  <h2 id="realisme-18701890">Realisme (1870–1890)</h2>
+                  <details><summary><b>Lesemateriale</b></summary>
+                    <ul>
+                      <li><a href="https://signaturbm.portfolio.no/read/c5cac76b-1da3-436c-bba7-eb0beb542110">Kjennetegn på realisme</a></li>
+                    </ul>
+                  </details>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Innhold</th>
+                        <th>Form</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Sannhet, åpenhet, ærlighet</td>
+                        <td>Indirekte personskildring</td>
+                      </tr>
+                      <tr>
+                        <td>Individualisme</td>
+                        <td>Indirekte tankereferat</td>
+                      </tr>
+                      <tr>
+                        <td>Demokrati og kvinnekamp</td>
+                        <td>Personer kobles til rekvisitter</td>
+                      </tr>
+                      <tr>
+                        <td>Kritikk av kirke og prester</td>
+                        <td>Karakteriserende talemåter</td>
+                      </tr>
+                      <tr>
+                        <td>Kritikk av konvensjoner og vaner</td>
+                        <td>Personene er karakterer med noen dominerende egenskaper</td>
+                      </tr>
+                      <tr>
+                        <td>Kritikk av borgerskap og embetsstand</td>
+                        <td>Sterke kontraster</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>Talerør</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td><strong>Romaner/noveller:</strong></td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Allvitende synsvinkel</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Detaljfokus</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Ironi</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td><strong>Skuespill:</strong></td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Stedets, tidens, handlingens enhet</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Retrospeksjon, tilbakeblikk</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Symbolske rekvisitter</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Virkelighetsillusjon</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Titteskapsteater</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>Realisme vs. Realistisk
+                    Realistisk diktning (fortsetter til 2021++) vs. realismen som en epoke
+                    Det moderne gjennombrudd
+                    Rundt 1870 blir romantikken og den poetiske realismen avølst av en ny type kunst og litteratur.
+                    Den nye kunsten og litteraturen er opptatt av <strong>problemene i samfunnet</strong>.</p>
+                  <p>Hysteria.</p>
+                  <p>Forskjellen på realisme og realistisk
+                    Det er forskjell på begrepene realisme og realistisk.
+                    Realismen er en litterær periode. Realistisk er et språklig virkemiddel.</p>
+                  <p>Kjennetegn på realistisk skriving
+                    Litteraturen framstiller seg som om den er virkelig selv om den er [skjønnlitterær]
+                    Litteraturen handler om individ, men er mest opptatt av de ytre omgivelsene til individet.
+                    Det er ofte mye dialog, og dialogen er skrevet slik at den ska passe til karakterens klasse og personlighet.</p>
+                  <p>Realistisk srivestil:
+                    Flammer over lava vs. rødmer.</p>
+                  <p>Realismen var samfunnsorientert. Forfattere ville endre samfunnet ved å vise fram problemer i samfunnet.</p>
+                  <p>Tar heller bare å nevne naturalismen som et pessimistsik tilbakeslag mot realismen
+                    Og determinismen demmes som en realterbar måte for å snakk om probleman de går gjennom , sia teksten dem snakke om e så jævli kjedelig</p>
+                  <h4 id="viktige-forfattere-6">Viktige forfattere</h4>
+                  <ul>
+                    <li>Georg Brandes</li>
+                    <li>Camilla Collett — kvinnesaksforkjemper</li>
+                  </ul>
+                  <p><a href="notes/_archive/4PBA/Norsk/notes/Archive/4PBA/Norsk/Realismen%20vs.%20naturalismen.png">notes/_archive/4PBA/Norsk/notes/Archive/4PBA/Norsk/Realismen vs. naturalismen.png</a></p>
+                  <p>Realismen og naturalismen er grei å sammenligne</p>
+                  <p>Fokus: Enkeltmennesket
+                    Påvirket av: Kierkegaard — eksistensialisme
+                    Budskap: Mennesket kan endre sine kår, fri vilje
+                    Ønsket å: Forandre samfunnet, Vil "renske kloakken", ifølge Ibsen</p>
+                  <p>Innhold:
+                    Temaer:</p>
+                  <ul>
+                    <li>Gapet mellom Ideal og virkelighet — feighet og dobbeltmoral</li>
+                    <li>Skole, kirkemakt, kvinnens stilling, ekteskap
+                      Hvem er leseren: Øvre middelklasse
+                      Hvem skildres:</li>
+                    <li>Øvre middelklasse</li>
+                    <li>De som har makt til å forandre
+                      Miljø og personer — synsvinkel:</li>
+                    <li>Borgerskapets stuer</li>
+                    <li>Hovedpersonene er fra øvre middelklasse</li>
+                  </ul>
+                  <p>Form:
+                    Typiske sjangre: Novelle, drama, roman
+                    Språklige virkemidler:</p>
+                  <ul>
+                    <li>Talespråket ligger nært skriftspråket, "dannet dagligtale"</li>
+                    <li>Mange realistiske detaljer</li>
+                    <li>Mye mellom linjene — antyder bare</li>
+                  </ul>
+                  <hr />
+                  <p><a href="1830/80–1890::rmn">1830/80–1890::rmn</a></p>
+                  <h2 id="naturalisme-1830801890">Naturalisme (1830/80–1890)</h2>
+                  <details><summary><b>Lesemateriale</b></summary>
+                    <ul>
+                      <li><a href="https://signaturbm.portfolio.no/read/9a75d6b5-add3-4acf-a647-67c8cf5041db">Kjennetegn på naturalisme</a></li>
+                    </ul>
+                  </details>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Innhold</th>
+                        <th>Form</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Fattigdom og pietisme</td>
+                        <td>Objektiv skildring, uten følelser</td>
+                      </tr>
+                      <tr>
+                        <td>Tabuemner (sykdom, seksualitet, død)</td>
+                        <td>Detaljert skildring</td>
+                      </tr>
+                      <tr>
+                        <td>Det hesliges estetikk</td>
+                        <td>Personer plasseres sosialt gjennom sosiolekt</td>
+                      </tr>
+                      <tr>
+                        <td>Determinisme, forutbestemmelse</td>
+                        <td>Miljøskildringer vektlagt</td>
+                      </tr>
+                      <tr>
+                        <td>Arv og miljø</td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Drifter styrer mennesket</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>Romantikken blomstret rundt 1880.
+                    Reaksjon på romantikken.</p>
+                  <p>Amalie Skram</p>
+                  <hr />
+                  <p><a href="1890–1905::rmn">1890–1905::rmn</a></p>
+                  <h2 id="nyromantikken-og-tidlig-modernismen-18901905">Nyromantikken og tidlig modernismen (1890–1905)</h2>
+                  <details><summary><b>Lesemateriale</b></summary>
+                    <ul>
+                      <li><a class="stale-link" href="javascript:void(0)">#Modernisme — 1890–1970</a></li>
+                      <li><a href="https://signaturbm.portfolio.no/read/110e34a8-61e1-432f-b9fa-82e50f7b8552">Kjennetegn på nyromantikken</a></li>
+                    </ul>
+                  </details>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Innhold</th>
+                        <th>Form</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Sannhet, åpenhet, ærlighet</td>
+                        <td>Lyrisk språkbruk</td>
+                      </tr>
+                      <tr>
+                        <td>Fremmedfølelse, angst, ensomhet</td>
+                        <td><em>Ekspresjonisme</em></td>
+                      </tr>
+                      <tr>
+                        <td><em>Outsideren</em></td>
+                        <td>Lyrikk med fri form uten enderim og jevn rytme</td>
+                      </tr>
+                      <tr>
+                        <td>Det irrasjonelle, instinkter</td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Sivilisasjonskritikk</td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Begjær og erotikk</td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Kvinnen: skjøge og madonna</td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Natur</td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Naturreligioner, orientalske religioner, panteisme</td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Myter, folketro</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr />
+                  <p><a href="1900–1980::rmn">1900–1980::rmn</a> <a href="Alternativ%20tidsberegning:%201905–1940::rmn">Alternativ tidsberegning: 1905–1940::rmn</a></p>
+                  <h2 id="nyrealisme-1900194580">Nyrealisme (1900–19[45|80])</h2>
+                  <details><summary><b>Lesemateriale</b></summary>
+                    <ul>
+                      <li>Side 312 i *Signatur* studiebok</li>
+                      <li><a href="https://signaturbm.portfolio.no/read/2a115747-d4b4-40b7-b6b6-d8e2319b3f30">Kjennetegn på nyrealistisk diktning</a></li>
+                    </ul>
+                  </details>
+                  <p><a href="1900–1945::rmn">1900–1945::rmn</a></p>
+                  <h3 id="mellomkrigstiden-1900-1945">Mellomkrigstiden (1900-1945)</h3>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Innhold</th>
+                        <th>Form</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Etiske og eksistensielle spørsmål</td>
+                        <td>Store, realistiske fortellinger: livshistorier og slektskrøniker</td>
+                      </tr>
+                      <tr>
+                        <td>Mennesker i valgsituasjoner</td>
+                        <td>Viderefører naturalismens trekk med virkelighetsnære replikker</td>
+                      </tr>
+                      <tr>
+                        <td>Arbeiderdiktning</td>
+                        <td>Dialekt og muntlig stil</td>
+                      </tr>
+                      <tr>
+                        <td>Skildrer klasseskille og industrisamfunn</td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Solidaritet med de svake</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h4 id="viktige-forfattere-7">Viktige forfattere</h4>
+                  <ul>
+                    <li>Ernest Hemingway (USA)</li>
+                    <li>Sigrid Undset</li>
+                    <li>Olav Duun</li>
+                    <li>Johan Falkberget</li>
+                    <li>Rudolf Nilsen</li>
+                    <li>Oskar Braaten</li>
+                    <li>Cora Sandel — Kvinnesak</li>
+                    <li>Nini Roll Anker</li>
+                    <li>Knut Hamsun</li>
+                    <li>Inger hagerup</li>
+                  </ul>
+                  <p><a href="1945–1980::rmn">1945–1980::rmn</a></p>
+                  <h3 id="etterkrigstid-19451980">Etterkrigstid (1945–1980)</h3>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Innhold</th>
+                        <th>Form</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Gullalder (1950-årene):</strong></td>
+                        <td><strong>Gullalder (1950-årene):</strong></td>
+                      </tr>
+                      <tr>
+                        <td>- Fremmedfølelse og meningsløshet, men også samhørighet med naturen</td>
+                        <td>- Fri, eksperimenterende form</td>
+                      </tr>
+                      <tr>
+                        <td>- Storbyliv, populærkultur</td>
+                        <td>- Kunstferdig språk</td>
+                      </tr>
+                      <tr>
+                        <td>- Myter og religion</td>
+                        <td>- Sterke bilder</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Nyenkelthet (1960-årene):</strong></td>
+                        <td>- Symbolikk</td>
+                      </tr>
+                      <tr>
+                        <td>- Det konkrete og tinglige</td>
+                        <td>- Drama: absurd teater</td>
+                      </tr>
+                      <tr>
+                        <td>- Leserens oplevelse og oppfatning viktig</td>
+                        <td><strong>Nyenkelthet (1960-årene):</strong></td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Direkte språk uten bilder</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Hverdagsspråk</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td>- Figurdikt</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <ul>
+                    <li>Enorm velstandsvekst og store samfunnsendringer</li>
+                    <li>Gjennom annerledes språk kunne man formidle følelsen av angst og kaos</li>
+                    <li>Ungdomsopprør 1968</li>
+                    <li>1963–1971 vietnamkrigen</li>
+                    <li>70-tallet: Politisk radikalisering og kvinekamp</li>
+                    <li>Fra 1980 utdanningseksplosjon</li>
+                  </ul>
+                  <h4 id="kjente-forfattere">Kjente forfattere</h4>
+                  <ul>
+                    <li>Tarjej Vesaas</li>
+                    <li>Dag Solstad</li>
+                    <li>Kjartan Fløgstad</li>
+                    <li>Torborg Nedraas</li>
+                    <li>Alf Prøysen</li>
+                    <li>Knut Faldbakken</li>
+                    <li>Bjørg Vik</li>
+                  </ul>
+                  <h4 id="kjente-verk">Kjente verk</h4>
+                  <ul>
+                    <li>“Det er ingen hverdag mer” — Gunnvor Hofmo</li>
+                    <li>“Kall meg Linemor” — Torborg Needas</li>
+                    <li>“Regn i Hiroshima” — Tarjej Vesaas</li>
+                  </ul>
+                  <hr />
+                  <p><a href="1890–1970::rmn">1890–1970::rmn</a> <a href="Alternativ%20tidsberegning:%201900–1945::rmn">Alternativ tidsberegning: 1900–1945::rmn</a></p>
+                  <h2 id="modernisme-18901970">Modernisme (1890–1970)</h2>
+                  <details><summary><b>Lesemateriale</b></summary>
+                    <ul>
+                      <li><a href="https://signaturbm.portfolio.no/read/df7fc24e-a8b5-41ec-b4be-1b242152d7bb">Kjennetegn på modernisme</a></li>
+                    </ul>
+                  </details>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Innhold</th>
+                        <th>Form</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Sannhet, åpenhet, ærlighet</td>
+                        <td>Eksperimenterende litteratur</td>
+                      </tr>
+                      <tr>
+                        <td>Fremmedfølelse, angst, ensomhet</td>
+                        <td><em>Ekspresjonisme</em></td>
+                      </tr>
+                      <tr>
+                        <td><em>Outsideren</em></td>
+                        <td>Navnløse jeg-fortellere</td>
+                      </tr>
+                      <tr>
+                        <td>Det irrasjonelle, instinkter</td>
+                        <td>Bevissthetsstrøm, <em>stream of consciousness</em></td>
+                      </tr>
+                      <tr>
+                        <td><em>Overmenneske</em>-ideologi og antidemokratisk tankegang</td>
+                        <td>Høyt og lavt blandes</td>
+                      </tr>
+                      <tr>
+                        <td>Sivilisasjonskritikk</td>
+                        <td>Ikke-strofisk lyrikk med fri form uten enderim og jevn rytme</td>
+                      </tr>
+                      <tr>
+                        <td>Storby, det morderne samfunnet</td>
+                        <td>Musikalske elementer: <em>assonans</em>/vokalrim og <em>alliterasjon</em>/bokstavrim</td>
+                      </tr>
+                      <tr>
+                        <td>Meningsløshet</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr />
+                  <p><a href="1980–d.d.::rmn">1980–d.d.::rmn</a></p>
+                  <h2 id="post-modernisme-og-post-realisme-1980dd">Post-modernisme og <sub><i>post-</i></sub>realisme (1980–d.d.)</h2>
+                  <details><summary><b>Lesemateriale</b></summary>
+                    <ul>
+                      <li>Side 368 i *Signatur* studiebok</li>
+                      <li><a href="https://signaturbm.portfolio.no/read/50fa89b7-dcd8-48ea-9e06-4e30308ddd5c?kapittel=8&amp;color=purple">Kjennetegn på postmodernistisk diktning</a></li>
+                    </ul>
+                    <ul><a href="https://intertekst.portfolio.no/read/eebd7f0a-b607-4153-b7b9-a0c10ba9ed7b">Kapittel 9 – Postmodernisme og realisme – 1980 til i dag</a></ul>
+                  </details>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Innhold (motiv og tema)</th>
+                        <th>Form</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Sammenbrudd for de store fortellingene</td>
+                        <td>Stilblanding</td>
+                      </tr>
+                      <tr>
+                        <td>Akseptert kaos</td>
+                        <td>Lek og eksperimenter</td>
+                      </tr>
+                      <tr>
+                        <td>Enkeltmennesket i sentrum</td>
+                        <td>Ironi</td>
+                      </tr>
+                      <tr>
+                        <td>Personene er selvopptatte</td>
+                        <td>Parodi</td>
+                      </tr>
+                      <tr>
+                        <td>Likegyldig holdning</td>
+                        <td>Lån fra andre tekster</td>
+                      </tr>
+                      <tr>
+                        <td>Hva er språk?</td>
+                        <td>Metalitteratur</td>
+                      </tr>
+                      <tr>
+                        <td>Masker og roller</td>
+                        <td>Teksten er åpen — leseren må selv være aktiv</td>
+                      </tr>
+                      <tr>
+                        <td>Kropp</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h4 id="viktige-forfattere-8">Viktige forfattere</h4>
+                  <ul>
+                    <li>Håvard Rem</li>
+                    <li>Cathrine Grøndahl</li>
+                    <li>Eldrid Lunden</li>
+                    <li>Erlend Loe</li>
+                    <li>Jon Fosse</li>
+                  </ul>
+                  <h4 id="realistiske-trender">Realistiske trender</h4>
+                  <ul>
+                    <li>Kjell Askildsen</li>
+                    <li>Lars Saabye Christensen</li>
+                    <li>Frode Grytten</li>
+                    <li>Ingvar Ambjørnsen</li>
+                    <li>Hanne Ørstavik</li>
+                    <li>Karl Ove Knausgård</li>
+                    <li>Bjarte Breiteig</li>
+                    <li>Krim (“Nordic Noir”)</li>
+                  </ul>
+                  <hr />
+                  <h2 id="retorikk--appellformene">Retorikk — Appellformene</h2>
+                  <h3 id="etos--troverdighet">Etos — Troverdighet</h3>
+                  <h3 id="logos--logikk">Logos — Logikk</h3>
+                  <h3 id="pathos--følelser">Pathos — Følelser</h3>
+                  <h3 id="aptum--rett-ord-til-rett-tid-på-rett-sted">Aptum — <em>rett ord, til rett tid, på rett sted</em></h3>
+                  <blockquote>
+                    <p>Aptum er det tredje av de fire klassiske stilidealene i <a href="http://snl.no/retorikk">retorikken</a>. Aptum betyr egnethet eller hensiktsmessighet, og i retorisk sammenheng dreier det seg om at en tale må være egnet eller hensiktsmessig utformet og fremført. Dette representeres ved overordnede krav til taleren og krav om både indre og ytre tilpasning av selve talen.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+                  </blockquote>
+                  <h3 id="kairos--rett-ord-til-rett-tid">Kairos — rett ord til rett tid</h3>
+                  <blockquote>
+                    <p>Kairos er et prinsipp i <a href="https://snl.no/retorikk">retorikken</a> der <em>talesituasjonen</em> bestemmer talerens valg av <a href="https://snl.no/argument">argumenter</a>, retoriske virkemidler, stil og så videre. Kairos handler om det å «gripe øyeblikket» for å komme med rett ord til rett tid. Begrepet er særlig sentralt når det gjelder viktige politiske øyeblikk og taler.<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup></p>
+                  </blockquote>
+                  <hr />
+                  <h2 id="språkhistorie">Språkhistorie</h2>
+                  <h3 id="talemål--målmerker">Talemål — målmerker</h3>
+                  <ul>
+                    <li>Apokope</li>
+                    <li>Palatalisering</li>
+                  </ul>
+                  <p>Dialektutvikling før og no
+                    Firedeling av norge - fått et kart - østnorsk, vestnorsk, trøndsk, nordnorsk</p>
+                  <hr />
+                  <h3 id="språkhistorie-1">Språkhistorie</h3>
+                  <p>Utvikling av skriftlig og muntlig språk fra norrøn tid frem til i dag - husk språkdebatten - nynorsk</p>
+                  <hr />
+                  <div class="footnotes" role="doc-endnotes">
+                    <ol>
+                      <li id="fn:1" role="doc-endnote">
+                        <p><a href="https://snl.no/aptum">aptum – Store norske leksikon</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+                      </li>
+                      <li id="fn:2" role="doc-endnote">
+                        <p><a href="https://snl.no/kairos">kairos – Store norske leksikon</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+                <!-- Add backlinks to the current page --></div>
+              <div id="copyright">
+                <p id="copyright-notice">Runar Fredagsvik. 2022, powered by <a href="https://github.com/Jekyll-Garden/jekyll-garden.github.io">Jekyll Garden</a></p>
+              </div>
+              <script src="/assets/js/modeswitcher.js"></script></main>
+          </div>
+          <!--- CASE 3 : Static Page --><!--- CASE 4 :  Blog Listing page --><!--- CASE 5 :  Notes Listing page --></div>
+      </section>
+    </body>
+  </html>
