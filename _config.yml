@@ -91,7 +91,6 @@ plugins:
   - jekyll-tidy
   - jekyll-toc
 
-# Enable _notes Collection
 collections:
     notes:
       output: true
@@ -108,7 +107,7 @@ markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
-  math_engine: katex
+  math_engine: null # katex
   smart_quotes: ["apos", "apos", "quot", "quot"]
   syntax_highlighter: rouge
 
