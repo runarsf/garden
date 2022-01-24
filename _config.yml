@@ -107,7 +107,7 @@ markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
-  math_engine: null # katex
+  math_engine: katex # null
   smart_quotes: ["apos", "apos", "quot", "quot"]
   syntax_highlighter: rouge
 

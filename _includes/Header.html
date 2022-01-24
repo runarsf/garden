@@ -21,14 +21,23 @@
         <span aria-hidden="true"></span>
       </a>
     </div>
-    
+
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a href="/notes"  class="navbar-item">
+        <a href="/about" class="navbar-item">
+          About
+        </a>
+        <a href="/notes" class="navbar-item">
           Notes
         </a>
-        <a href="/posts"  class="navbar-item">
+        <a href="/posts" class="navbar-item">
           Posts
+        </a>
+        <a href="/tags" class="navbar-item">
+          Tags
+        </a>
+        <a href="/feed.xml" class="navbar-item">
+          RSS
         </a>
         <!-- <a href="https://github.com/runarsf" target="_blank" class="navbar-item">
           My GitHub
@@ -48,8 +57,9 @@
     </div>
   </nav>
   <script src="/assets/js/Hamburger.js"></script>
-      <script type="text/x-mathjax-config">
-   MathJax.Hub.Config({
+  <!-- TODO  Fix inline mathjax styling -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
        tex2jax: {
            inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
            displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
