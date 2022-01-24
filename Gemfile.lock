@@ -38,6 +38,10 @@ GEM
       sassc (> 2.0.1, < 3.0)
     jekyll-sitemap (1.4.0)
       jekyll (>= 3.7, < 5.0)
+    jekyll-tidy (0.2.2)
+      htmlbeautifier
+      htmlcompressor
+      jekyll
     jekyll-toc (0.14.0)
       jekyll (>= 3.8)
       nokogiri (~> 1.10)
@@ -45,6 +49,9 @@ GEM
       listen (~> 3.0)
     kramdown (2.3.0)
       rexml
+    kramdown-math-katex (1.0.1)
+      katex (~> 0.4)
+      kramdown (~> 2.0)
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     kramdown-syntax-coderay (1.0.1)
@@ -82,6 +89,7 @@ GEM
       tzinfo (>= 1.0.0)
     unicode-display_width (1.7.0)
     wdm (0.1.1)
+    webrick (1.7.0)
 
 PLATFORMS
   ruby
@@ -91,13 +99,16 @@ DEPENDENCIES
   jekyll (~> 4.0.0)
   jekyll-feed (~> 0.12)
   jekyll-sitemap
+  jekyll-tidy
   jekyll-toc
   kramdown
   kramdown-syntax-coderay
+  kramdown-math-katex
   rouge
   tzinfo (~> 1.2)
   tzinfo-data
   wdm (~> 0.1.1)
+  webrick (~> 1.7)
 
 BUNDLED WITH
    2.1.4
