@@ -7,8 +7,6 @@ on:
   # schedule:
   #   - cron: "0 0 * * *"
 
-# https://stackoverflow.com/questions/64407333/using-github-actions-to-automatically-update-the-repos-submodules
-
 jobs:
   deploy:
     runs-on: ubuntu-18.04
@@ -24,54 +22,55 @@ jobs:
           git submodule update --remote --init --recursive
           git submodule status
 
-        # include the lines below if you are using jekyll-last-modified-at
-        # or if you would otherwise need to fetch the full commit history
-        # however this may be very slow for large repositories!
-        # with:
-        # fetch-depth: '0'
-      - name: 💎 setup ruby
+      # Include the lines below if you are using jekyll-last-modified-at
+      # or if you would otherwise need to fetch the full commit history
+      # however this may be very slow for large repositories!
+      # with:
+      # fetch-depth: '0'
+
+      - name: Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6 # can change this to 2.7 or whatever version you prefer
 
-      - name: 🔨 install dependencies & build site
+      - name: Install dependencies and build
         uses: limjh16/jekyll-action-ts@v2
         with:
+          ## Enable caching, similar to https://github.com/actions/cache
           enable_cache: true
-          ### Enables caching. Similar to https://github.com/actions/cache.
           #
+          ## Use prettier to format jekyll output HTML.
           # format_output: true
-          ### Uses prettier https://prettier.io to format jekyll output HTML.
           #
+          ## Set prettier options (in JSON) to format output HTML. For example, output tabs over spaces.
+          ## Possible options are outlined in https://prettier.io/docs/en/options.html
           # prettier_opts: '{ "useTabs": true }'
-          ### Sets prettier options (in JSON) to format output HTML. For example, output tabs over spaces.
-          ### Possible options are outlined in https://prettier.io/docs/en/options.html
           #
-          # prettier_ignore: 'about/*'
           ### Ignore paths for prettier to not format those html files.
           ### Useful if the file is exceptionally large, so formatting it takes a while.
           ### Also useful if HTML compression is enabled for that file / formatting messes it up.
+          # prettier_ignore: 'about/*'
           #
-          # jekyll_src: sample_site
           ### If the jekyll website source is not in root, specify the directory. (in this case, sample_site)
           ### By default, this is not required as the action searches for a _config.yml automatically.
+          # jekyll_src: sample_site
           #
-          # gem_src: sample_site
           ### By default, this is not required as the action searches for a _config.yml automatically.
           ### However, if there are multiple Gemfiles, the action may not be able to determine which to use.
           ### In that case, specify the directory. (in this case, sample_site)
           ###
           ### If jekyll_src is set, the action would automatically choose the Gemfile in jekyll_src.
           ### In that case this input may not be needed as well.
+          # gem_src: sample_site
           #
-          # key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          # restore-keys: ${{ runner.os }}-gems-
           ### In cases where you want to specify the cache key, enable the above 2 inputs
           ### Follows the format here https://github.com/actions/cache
+          # key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          # restore-keys: ${{ runner.os }}-gems-
           #
-          # custom_opts: '--drafts --future'
           ### If you need to specify any Jekyll build options, enable the above input
           ### Flags accepted can be found here https://jekyllrb.com/docs/configuration/options/#build-command-options
+          # custom_opts: '--drafts --future'
 
       - name: 🚀 Deploy
         uses: peaceiris/actions-gh-pages@v3

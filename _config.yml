@@ -43,11 +43,11 @@ copyright:
 preferences:
   search:
     enabled: true
-    shortcut_hint: 
+    shortcut_hint:
         enabled: true
   wiki_style_link: # This property handles wiki style links '[['
     enabled: true
-  sidenotes: 
+  sidenotes:
     enabled: true
   transclusion:
     enabled: true
@@ -67,40 +67,41 @@ preferences:
   wrapping:
     enabled: true
   contextmenu:
-    enabled: false #Not supported in NotesGadern theme
-    copylink: 
+    enabled: false # Not supported in this theme
+    copylink:
       enabled: false
-    newtab: 
+    newtab:
       enabled: false
-    backlinks: 
+    backlinks:
       enabled: false
-    related: 
+    related:
       enabled: false
   flashcards:
-    enabled: false #Not supported in NotesGadern theme
-  homepage: 
-    enabled: true ##If you need a homepage, change this to true and edit _includes/Homepage.html
+    enabled: false # Not supported in this theme
+  homepage:
+    enabled: false # _includes/Homepage.html
 
 encoding: utf-8
 
 # Build settings
 theme: null
 plugins:
-  - jekyll-feed 
-  - jekyll-sitemap 
+  - jekyll-feed
+  - jekyll-sitemap
   - jekyll-tidy
+  - jekyll-toc
 
-## Enable _notes Collection 
+# Enable _notes Collection
 collections:
     notes:
       output: true
-      permalink: /notes/:title      
+      permalink: /notes/:title
 # Disqus Comments
 disqus:
     # Leave shortname blank to disable comments site-wide.
     # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
-    ## Disabled for NotesGarden Theme. 
-    shortname: 
+    ## Disabled for NotesGarden Theme.
+    shortname:
 
 markdown: kramdown
 
@@ -110,7 +111,7 @@ kramdown:
   math_engine: katex
   smart_quotes: ["apos", "apos", "quot", "quot"]
   syntax_highlighter: rouge
-  
+
 sass:
   style: compressed
 
