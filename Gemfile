@@ -30,10 +30,7 @@ end
 gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 
 gem 'jekyll-sitemap'
-gem 'kramdown'
-gem 'jekyll-toc'
-gem 'rouge'
-gem 'kramdown-syntax-coderay'
 gem 'kramdown-math-katex'
 
 gem "webrick", "~> 1.7"
+
