@@ -24,6 +24,11 @@ jobs:
           git submodule update --remote --init --recursive
           git submodule status
 
+      - name: Install node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 13.x
+
       - name: Jekyll
         uses: helaili/jekyll-action@v2
         with:
