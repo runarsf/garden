@@ -84,7 +84,6 @@
         </div>
       </nav>
       <script src="/assets/js/Hamburger.js"></script>
-      <!-- TODO  Fix inline mathjax styling -->
       <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
            tex2jax: {
@@ -94,14 +93,16 @@
                    }
                });
       </script>
+      <!-- ??? Should this be used with katex -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
       <section class="section">
         <div class="columns is-centered">
-          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page--><!--- CASE 3 : Static Page -->
+          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
+          <!-- TODO Fix horizontal overflow on mobile with long lines (e.g. note: Intro til matermatikk) --><!--- CASE 3 : Static Page -->
           <div class="column is-half">
             <main>
               <h1>About</h1>
               <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
-              <!-- TODO Add 'scroll to top' button -->
               <div class="content">
                 <p>Hallo!</p>
                 <p><a href="https://github.com/runarsf/garden/actions/workflows/deploy.yaml"><img src="https://github.com/runarsf/garden/actions/workflows/deploy.yaml/badge.svg" alt="Build Status" /></a></p>

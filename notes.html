@@ -83,7 +83,6 @@
         </div>
       </nav>
       <script src="/assets/js/Hamburger.js"></script>
-      <!-- TODO  Fix inline mathjax styling -->
       <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
            tex2jax: {
@@ -93,16 +92,18 @@
                    }
                });
       </script>
+      <!-- ??? Should this be used with katex -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
       <section class="section">
         <div class="columns is-centered">
-          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page--><!--- CASE 3 : Static Page --><!--- CASE 4 :  Blog Listing page --><!--- CASE 5 :  Notes Listing page -->
+          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
+          <!-- TODO Fix horizontal overflow on mobile with long lines (e.g. note: Intro til matermatikk) --><!--- CASE 3 : Static Page --><!--- CASE 4 :  Blog Listing page --><!--- CASE 5 :  Notes Listing page -->
           <div class="column is-half">
             <div class="block">
               <h1>Welcome to my digital notebook!</h1>
               If you can't find what you're looking for, perhaps it would help to filter by <a href="../tags" style="color:var(--link);">tags</a>?
             </div>
-            <!-- TODO If multiple notes with same permalink, only show one footer and align them vertically -->
-            <!-- TODO pinned: true instead of notetype: feed? --><!-- search bar -->
+            <!-- TODO If multiple notes with same permalink, only show one footer and align them vertically --><!-- search bar -->
             <div class="block">
               <input class="input is-medium" type="text" placeholder="Search notes.." id="search-input" autocomplete="off">
               <div id="search-results" class="search-results"></div>

@@ -84,7 +84,6 @@
         </div>
       </nav>
       <script src="/assets/js/Hamburger.js"></script>
-      <!-- TODO  Fix inline mathjax styling -->
       <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
            tex2jax: {
@@ -94,9 +93,12 @@
                    }
                });
       </script>
+      <!-- ??? Should this be used with katex -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
       <section class="section">
         <div class="columns is-centered">
-          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page--><!--- CASE 3 : Static Page --><!--- CASE 4 :  Blog Listing page -->
+          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
+          <!-- TODO Fix horizontal overflow on mobile with long lines (e.g. note: Intro til matermatikk) --><!--- CASE 3 : Static Page --><!--- CASE 4 :  Blog Listing page -->
           <div class="column is-half">
             <h1>All Posts</h1>
             <div class="block">
