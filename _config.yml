@@ -64,6 +64,7 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-tidy
+  # - jekyll-katex
   # - jekyll-toc # TODO Can be found in nnl
 
 collections:

@@ -1,7 +1,9 @@
 version: "3"
 
 services:
-  jekyll:
+  garden:
+    hostname: "garden"
+    container_name: "garden"
     build: "."
     ports:
       - "4000:4000"
