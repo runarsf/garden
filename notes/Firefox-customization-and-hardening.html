@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="📖 My Notebook" property="og:site_name" />
+    <meta
+        content="Welcome to my digital notebook!"
+        property="og:description">
+      <meta content="https://publish.runarsf.dev//about/" property="article:author">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet"><meta content="Firefox customization and hardening" property="og:title">
+      <meta content="article" property="og:type">
+      <meta content="https://publish.runarsf.dev//notes/Firefox-customization-and-hardening" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev//notes/Firefox-customization-and-hardening" />
+      <link rel="apple-touch-icon" href="/assets/img/profile.png">
+      <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
+      <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/main.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/Util.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/vendor/Katex.css" rel="stylesheet" media="all" class="default" />
+      <!--[if IE]>
+        <link href="/assets/css/ie-target.css" rel="stylesheet" type="text/css"/>
+      <![endif]-->
+      <!--<link href="/assets/css/prism.css" rel="stylesheet" />-->
+      <link rel="alternate" type="application/rss+xml" href="https://publish.runarsf.dev//feed.xml">
+    </head>
+    <body><nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="../index.html">
+            <!-- <svg width="32" height="32" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M36.9477 13.7742C38.3043 11.4086 41.6957 11.4086 43.0523 13.7742L70.5226 61.6774C71.8791 64.043 70.1834 67 67.4703 67H12.5297C9.81658 67 8.12089 64.043 9.47744 61.6774L36.9477 13.7742ZM40 16.9677L13.7506 62.7419H66.2494L40 16.9677Z" fill="var(--text-main)"/>
+        </svg> -->
+            <h4>📖 My Notebook</h4>
+          </a>
+          <div class="navbar-item navbar-dark-mode__mobile is-hidden-tablet" onclick="modeSwitcher()">
+            <div class="buttons">
+              <a class="button is-text">
+                <span class="icon is-small">
+                  <img src="../assets/img/sun.svg" id="theme-toggle-img--mobile">
+                </span>
+              </a>
+            </div>
+          </div>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="/about" class="navbar-item">
+              About
+            </a>
+            <a href="/notes" class="navbar-item">
+              Notes
+            </a>
+            <!--<a href="/posts" class="navbar-item">
+          Posts
+        </a>-->
+            <a href="/tags" class="navbar-item">
+              Tags
+            </a>
+            <a href="/feed.xml" class="navbar-item">
+              RSS
+            </a>
+            <!-- <a href="https://github.com/runarsf" target="_blank" class="navbar-item">
+          My GitHub
+        </a> -->
+          </div>
+          <div class="navbar-end is-hidden-mobile" onclick="modeSwitcher()" >
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-text">
+                  <span class="icon is-small">
+                    <img src="../assets/img/sun.svg" id="theme-toggle-img">
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script src="/assets/js/Hamburger.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+           tex2jax: {
+               inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+               displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+               processEscapes: true
+                   }
+               });
+      </script>
+      <!-- ??? Should this be used with katex -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+      <section class="section">
+        <div class="columns is-centered">
+          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
+          <!-- TODO Fix horizontal overflow on mobile with long lines (e.g. note: Intro til matermatikk) -->
+          <div class="column is-three-fifths">
+            <main>
+              <div class="note-page-section">
+                <div class="buttons for-back-home"><a class="button is-text button__page-back" onclick="window.history.back();"><span class="icon is-small">
+                      <svg width="12" height="20" viewBox="0 0 12 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M11.0309 0.468998C11.1007 0.538667 11.1561 0.62143 11.1939 0.712548C11.2318 0.803665 11.2512 0.901347 11.2512 0.999998C11.2512 1.09865 11.2318 1.19633 11.1939 1.28745C11.1561 1.37857 11.1007 1.46133 11.0309 1.531L2.56038 10L11.0309 18.469C11.1717 18.6098 11.2508 18.8008 11.2508 19C11.2508 19.1992 11.1717 19.3902 11.0309 19.531C10.89 19.6718 10.699 19.7509 10.4999 19.7509C10.3007 19.7509 10.1097 19.6718 9.96887 19.531L0.968875 10.531C0.899031 10.4613 0.843616 10.3786 0.805806 10.2874C0.767997 10.1963 0.748535 10.0986 0.748535 10C0.748535 9.90135 0.767997 9.80367 0.805806 9.71255C0.843616 9.62143 0.899031 9.53867 0.968875 9.469L9.96887 0.468998C10.0385 0.399153 10.1213 0.343739 10.2124 0.305929C10.3035 0.26812 10.4012 0.248657 10.4999 0.248657C10.5985 0.248657 10.6962 0.26812 10.7873 0.305929C10.8784 0.343739 10.9612 0.399153 11.0309 0.468998Z"
+                                        fill="var(--text-main)" />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+                <h1>Firefox customization and hardening</h1>
+                <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
+                <div class="content">
+                  <h1 id="firefox-customization-and-hardening">Firefox customization and hardening</h1>
+                  <h2 id="customizing">Customizing</h2>
+                  <h3 id="aboutconfig"><code class="highlighter-rouge">about:config</code></h3>
+                  <ul>
+                    <li><code class="highlighter-rouge">toolkit.legacyUserProfileCustomizations.stylesheets</code>: <mark class="blue">true</mark></li>
+                    <li><code class="highlighter-rouge">layers.acceleration.force-enabled</code>: <mark class="blue">true</mark></li>
+                    <li><code class="highlighter-rouge">gfx.webrender.all</code>: <mark class="blue">true</mark></li>
+                    <li>
+                      <p><code class="highlighter-rouge">svg.context-properties.content.enabled</code>: <mark class="blue">true</mark></p>
+                    </li>
+                    <li><a href="https://reddit.com/r/firefoxcss">firefoxcss</a></li>
+                    <li><a href="https://github.com/aminomancer/uc.css.js">uc.css.js</a></li>
+                    <li><a href="https://github.com/MrOtherGuy/fx-autoconfig">fx-autoconfig</a></li>
+                  </ul>
+                  <h2 id="hardening">Hardening</h2>
+                  <h2 id="yet-another-firefox-hardening-guide--chris-xiao"><a href="https://chrisx.xyz/blog/yet-another-firefox-hardening-guide/">Yet Another Firefox Hardening Guide — Chris Xiao</a></h2>
+                  <p>My guide to improving security and privacy in Firefox without sacrificing convenience.</p>
+                  <h2 id="table-of-contents">Table of Contents</h2>
+                  <h2 id="why-not-google-chrome">Why not Google Chrome?</h2>
+                  <p>Statistics clearly show that Google Chrome is the most popular browser, and it’s extremely fast and secure. However, Google collects a large amount of data and wants to know everything about you, which is why they’re dominating online advertising.</p>
+                  <p>Chrome is also not completely open source. Even though Chrome is based on the Chromium open-source project, Google Chrome comes with proprietary components, such as the Chrome Cleanup Tool on Windows and the built-in updater.</p>
+                  <h2 id="why-hardening-firefox">Why hardening Firefox?</h2>
+                  <p>Even though Firefox is much better for your privacy than Google Chrome, it's not great out-of-the-box. By default, Firefox collects data via telemetry and crash reporting, and many privacy-enhancing features aren't enabled. By hardening Firefox, telemetry and crash reporting can be disabled, and online tracking can be mostly prevented. This way, there is much less chance for most websites to track you.</p>
+                  <hr />
+                  <h2 id="before-you-start">Before you start</h2>
+                  <ul>
+                    <li>This guide is written for the latest version of Firefox. It has been tested on Firefox version 78 and later.</li>
+                    <li>Update Firefox to the lastet stable version before you start. If you're using Firefox ESR, update Firefox to the latest ESR release.</li>
+                    <li>If you see an option that doesn't exist in your version of Firefox, just ignore it.</li>
+                  </ul>
+                  <hr />
+                  <h2 id="change-firefox-preferences">Change Firefox Preferences</h2>
+                  <p>To open the Firefox Preferences menu, open menu (top-right of browser window) and click "Preferences." Alternatively, enter <code class="highlighter-rouge">about:preferences</code> into the address bar and hit enter.</p>
+                  <h3 id="remove-pocket-from-your-home-page">Remove Pocket from your home page</h3>
+                  <p>Under <strong>Home</strong> &gt; <strong>Firefox Home Content</strong>, UNCHECK <strong>Recommended by Pocket</strong></p>
+                  <h3 id="change-your-default-search-engine">Change your default search engine</h3>
+                  <p>I recommend <a href="https://www.duckduckgo.com/">DuckDuckGo</a> as an alternative to Google, as it respects your privacy and doesn't track you.</p>
+                  <p>If you'd like to use DuckDuckGo as your primary search engine, simply go to <strong>Search</strong> &gt; <strong>Default search engine</strong> and change it to <strong>DuckDuckGo</strong>.</p>
+                  <h3 id="enable-tracking-protection">Enable Tracking Protection</h3>
+                  <p>Under <strong>Privacy &amp; Security</strong> &gt; <strong>Enhanced Tracking Protection</strong>, select <strong>Custom</strong>. CHECK all options and select <strong>All third-party cookies</strong> under Cookies. This may cause a small number of websites to break, but it's worth it for security and privacy.</p>
+                  <blockquote>
+                    <p>If you encounter a website that doesn't function without third-party cookies (such as Microsoft Teams and Pearson MyLab), you may temporarily disable Firefox's Tracking Protection for that website. To do this, click on the <strong>Shield icon</strong> on the left of the address bar, and toggle off <strong>Enhanced Tracking Protection for this site</strong>.</p>
+                  </blockquote>
+                  <h3 id="disable-password-saving">Disable Password Saving</h3>
+                  <p>On the same page, under <strong>Logins and Passwords</strong>, UNCHECK <strong>Ask to save logins and passwords for websites</strong>. It's usually not a good idea to save passwords in your browser. You should use a password manager instead. For most people, I recommend <a href="https://bitwarden.com/">Bitwarden</a>.</p>
+                  <h3 id="decline-location-access">Decline location access</h3>
+                  <p>On the same page, in <strong>Location</strong> Settings…, CHECK <strong>Block new requests asking to access your location</strong>. This denies geolocation permission prompts by default, but the geolocation capability is retained.</p>
+                  <h3 id="disallow-notifications">Disallow notifications</h3>
+                  <p>On the same page, in <strong>Notification</strong> Settings…, CHECK <strong>Block new requests asking to allow notifications</strong>. This denies notification permission prompts by default, but the web notification capability is retained.</p>
+                  <h3 id="disallow-autoplay">Disallow autoplay</h3>
+                  <p>On the same page, in <strong>Autoplay</strong> Settings…, set "Default for all websites" to <strong>Block Audio and Video</strong> for. This prevents audio/video from automatically playing.</p>
+                  <h3 id="disable-telemetry-and-error-reporting">Disable telemetry and error reporting</h3>
+                  <p>On the same page, UNCHECK EVERYTHING under <strong>Firefox Data Collection and Use</strong>.</p>
+                  <h3 id="enable-https-only-mode">Enable HTTPS-Only Mode</h3>
+                  <p>On the same page, under <strong>HTTPS-Only Mode</strong>, select <strong>Enable HTTPS-Only Mode in all windows</strong>.</p>
+                  <p>HTTPS provides encrypted communication between your browser and websites, and you should always use HTTPS when available. With HTTPS-Only Mode enabled, Firefox will upgrade all connections to HTTPS, and you'll see a warning when a website doesn't support HTTPS.</p>
+                  <hr />
+                  <h2 id="dive-into-advanced-settings">Dive into advanced settings</h2>
+                  <p>To access these advanced settings, enter <code class="highlighter-rouge">about:config</code> into the address bar and hit enter. When you see a warning screen, click <strong>I accept the risk</strong> to continue.</p>
+                  <p>All configuration items are in alphabetical order, and easily searchable using the search bar on the top of the page. In this section, configuration items are <code class="highlighter-rouge">highlighted</code>, and their values are in <strong>bold</strong>.</p>
+                  <p>Double-click on a configuration item to modify it. If the item is a boolean, double-clicking it will change it from <strong>true</strong> to <strong>false</strong>, or vice versa. If the item is an integer or a string, double-clicking it will open a pop-up box to edit the value.</p>
+                  <blockquote>
+                    <p><strong>Note: Many options below should have no impact on Firefox's usability and are recommended for everyone. However, some will break certain functionalities that users depend on.</strong></p>
+                    <p><strong>Each option below is marked with a Level (L1/L2/L3), where L1 items are recommended for everyone, L2 items may cause minor inconveniences, L3 items are intended for advanced users. If you tweak L2/L3 items, I recommend installing the <a href="https://chrisx.xyz/blog/yet-another-firefox-hardening-guide/#privacy-settings">Privacy Settings</a> extension, which allow you to temporarily change certain settings that prevent websites from functioning properly.</strong></p>
+                  </blockquote>
+                  <h3 id="disable-telemetry-l1">Disable telemetry [L1]</h3>
+                  <p>Making these changes disables Firefox telemetry:</p>
+                  <ul>
+                    <li>Change <code class="highlighter-rouge">browser.newtabpage.activity-stream.feeds.telemetry</code> to <strong>false</strong></li>
+                    <li>Change <code class="highlighter-rouge">browser.ping-centre.telemetry</code> to <strong>false</strong></li>
+                    <li>Change <code class="highlighter-rouge">browser.tabs.crashReporting.sendReport</code> to <strong>false</strong></li>
+                    <li>Change <code class="highlighter-rouge">devtools.onboarding.telemetry.logged</code> to <strong>false</strong></li>
+                    <li>Change <code class="highlighter-rouge">toolkit.telemetry.enabled</code> to <strong>false</strong></li>
+                    <li>Delete the URL for <code class="highlighter-rouge">toolkit.telemetry.server</code>, and leave it empty</li>
+                    <li>Change <code class="highlighter-rouge">toolkit.telemetry.unified</code> to <strong>false</strong></li>
+                  </ul>
+                  <h3 id="disable-pocket-l1">Disable Pocket [L1]</h3>
+                  <p>If you don't use Pocket, or you don't want Firefox's Pocket integration, make the following changes:</p>
+                  <ul>
+                    <li>Change <code class="highlighter-rouge">browser.newtabpage.activity-stream.section.highlights.includePocket</code> to <strong>false</strong></li>
+                    <li>Change <code class="highlighter-rouge">extensions.pocket.enabled</code> to <strong>false</strong></li>
+                  </ul>
+                  <h3 id="disable-prefetching-l1">Disable prefetching [L1]</h3>
+                  <p>Even though prefetching may speed things up a bit, it may connect to servers without user intervention (which can be a privacy issue) and its performance benefits are minimal. Making these changes will disable prefetching:</p>
+                  <ul>
+                    <li>Change <code class="highlighter-rouge">network.dns.disablePrefetch</code> to <strong>true</strong></li>
+                    <li>Change <code class="highlighter-rouge">network.prefetch-next</code> to <strong>false</strong></li>
+                  </ul>
+                  <h3 id="disable-javascript-in-pdf-l1">Disable JavaScript in PDF [L1]</h3>
+                  <p>Firefox 88 introduced the ability to execute JavaScript in PDF documents. While there are legitimate uses for JavaScript in PDF (such as form validation), such uses are not very common. In addition, it could be used for malicious purposes, so it's generally a good idea to disable this feature.</p>
+                  <p>To disable JavaScript support in PDF documents, change <code class="highlighter-rouge">pdfjs.enableScripting</code> to <strong>false</strong>.</p>
+                  <h3 id="harden-ssl-preferences-l1">Harden SSL preferences [L1]</h3>
+                  <p>Making these changes will disable insecure SSL ciphers and force safe negotiation:</p>
+                  <ul>
+                    <li>Change <code class="highlighter-rouge">security.ssl3.rsa_des_ede3_sha</code> to <strong>false</strong></li>
+                    <li>Change <code class="highlighter-rouge">security.ssl.require_safe_negotiation</code> to <strong>true</strong></li>
+                  </ul>
+                  <h3 id="disable-firefox-account-features-l1">Disable Firefox account features [L1]</h3>
+                  <p>If you don't want to sync your browser data with a Firefox account, you can simply use Firefox without signing in.</p>
+                  <p>For those who want to completely disable this feature, change <code class="highlighter-rouge">identity.fxaccounts.enabled</code> to <strong>false</strong>.</p>
+                  <h3 id="disable-geolocation-support-l2">Disable geolocation support [L2]</h3>
+                  <p>This prevents websites from accessing your location information. Change <code class="highlighter-rouge">geo.enabled</code> to <strong>false</strong>.</p>
+                  <p>If you do not want to disable geolocation capabilities altogether, you may skip this step.</p>
+                  <h3 id="disable-notification-support-l2">Disable notification support [L2]</h3>
+                  <p>Web notifications are often not useful and many find it annoying. To disable it completely, change <code class="highlighter-rouge">dom.webnotifications.enabled</code> to <strong>false</strong>.</p>
+                  <p>If you do not want to disable notifications capabilities altogether, you may skip this step.</p>
+                  <h3 id="disable-webrtc-l2">Disable WebRTC [L2]</h3>
+                  <p>WebRTC can potentially expose your real IP address, changing the following disables it:</p>
+                  <ul>
+                    <li>Change <code class="highlighter-rouge">media.peerconnection.enabled</code> to <strong>false</strong></li>
+                    <li>Change <code class="highlighter-rouge">media.navigator.enabled</code> to <strong>false</strong></li>
+                  </ul>
+                  <blockquote>
+                    <p>Note: This will break any site that uses real-time audio/video communication, which includes almost all real-time chat and conferencing apps.</p>
+                  </blockquote>
+                  <h3 id="disable-webgl-l2">Disable WebGL [L2]</h3>
+                  <p>WebGL is used for some graphical web apps and online games, but it's also a security risk and can potentially be used for fingerprinting. Disable it by changing <code class="highlighter-rouge">webgl.disabled</code> to <strong>true</strong>.</p>
+                  <blockquote>
+                    <p>Note: This will break any site that uses WebGL for graphics, which includes most modern online games and complex graphical sites.</p>
+                  </blockquote>
+                  <h3 id="resist-browser-fingerprinting-l3">Resist browser fingerprinting [L3]</h3>
+                  <p>This feature can decrease advertisers' and online trackers' ability to identify you. Change <code class="highlighter-rouge">privacy.resistFingerprinting</code> to <strong>true</strong>.</p>
+                  <blockquote>
+                    <p>Note: Based on my experience, enabling this can lead to noticeable performance and stability impacts. Please proceed with caution.</p>
+                  </blockquote>
+                  <p>Referrers tell websites how you came to their sites, which can be used to track you. To prevent referrer headers from being sent, change <code class="highlighter-rouge">network.http.sendRefererHeader</code> to <strong>0</strong>.</p>
+                  <blockquote>
+                    <p>Note: Many websites, especially ones with forms and logins, depend on referrers for security and spam protection. If you don't send the referrer header, these sites will break.</p>
+                  </blockquote>
+                  <h3 id="change-cookie-behaviors-l3">Change cookie behaviors [L3]</h3>
+                  <p>Websites often store a small amount of information, called "cookies," to store information (such as remembering login status and preferences) and track you.</p>
+                  <p>Isolating cookies cookies and other stored information to the first party domain prevents cross-site tracking. To enable this feature, change <code class="highlighter-rouge">privacy.firstparty.isolate</code> to <strong>true</strong>.</p>
+                  <blockquote>
+                    <p>Note: Firefox 86 introduced Total Cookie Protection, which stores each website's cookies in their own "cookie jar." This may conflict with <code class="highlighter-rouge">privacy.firstparty.isolate</code>.</p>
+                  </blockquote>
+                  <p>If you don't want websites to store any cookies at all, change <code class="highlighter-rouge">network.cookie.lifetimePolicy</code> to <strong>2</strong>. Firefox will automatically delete cookies at the end of browsing sessions.</p>
+                  <blockquote>
+                    <p>Note: Doing this will sign you out of many websites when you close Firefox, and websites will not be able to store any data on your device.</p>
+                  </blockquote>
+                  <hr />
+                  <h2 id="install-some-add-ons">Install some add-ons</h2>
+                  <h3 id="must-haves">Must-haves</h3>
+                  <p>These add-ons require minimal configuration and can dramatically improve the security and privacy in Firefox. I recommend everyone install these extensions.</p>
+                  <h4 id="ublock-origin"><a href="https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/">uBlock Origin</a></h4>
+                  <p>The most powerful open-source ad blocker, period. It can block ads, trackers, malwares, annoyances, and more. It also significantly improves page load speed.</p>
+                  <p>If you want to customize it, please refer to <a href="https://github.com/gorhill/uBlock/wiki">the official wiki</a>.</p>
+                  <h4 id="decentraleyes"><a href="https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/">Decentraleyes</a></h4>
+                  <p>Decentraleyes prevents you against tracking though "free" CDN providers by serving common static files (such as the ones from Google Hosted Libraries) from your local device.</p>
+                  <p>After you install it, you can just forget about it.</p>
+                  <h4 id="a-password-manager">A password manager</h4>
+                  <p>If you already have a password manager, just install the add-on for it.</p>
+                  <p>If you don't use a password manager, you really should consider using one. I recommend <a href="https://bitwarden.com/">Bitwarden</a>, which is 100% open source and very easy to use.</p>
+                  <h3 id="recommended">Recommended</h3>
+                  <p>These add-ons are recommended for most users, but they require some configuration and maintenance.</p>
+                  <h4 id="cookie-autodelete"><a href="https://addons.mozilla.org/en-US/firefox/addon/cookie-autodelete/">Cookie AutoDelete</a></h4>
+                  <p>This extension automatically deletes cookies and site data from closed tabs, which prevents most websites from tracking you with cookies. If you set Firefox to delete all cookies and site data on exit, you might not need this.</p>
+                  <p>After installing, open its settings page from its toolbar icon. Once you're in there, check the box for <strong>Enable Automatic Cleaning</strong> and <strong>Enable Cleanup on Domain Change</strong>. Then, go to <strong>List of Expressions</strong>, and whitelist all websites that you wish to keep cookies for, including websites you want to stay logged in to and save preferences. In most cases, whitelisting the websites' domain (without <code class="highlighter-rouge">www</code>) will do, but some websites have cookies associated with multiple domains, including:</p>
+                  <ul>
+                    <li>Microsoft: whitelist <code class="highlighter-rouge">login.live.com</code> for personal accounts; whitelist <code class="highlighter-rouge">login.microsoftonline.com</code> for work/school accounts</li>
+                    <li>Google: whitelist <code class="highlighter-rouge">google.com</code> and <code class="highlighter-rouge">accounts.google.com</code></li>
+                    <li>ProtonMail: whitelist <code class="highlighter-rouge">*.protonmail.com</code> and check "Keep LocalStorage"</li>
+                    <li>Tutanota: whitelist <code class="highlighter-rouge">mail.tutanota.com</code> and check "Keep LocalStorage"</li>
+                  </ul>
+                  <h4 id="privacy-settings"><a href="https://addons.mozilla.org/en-US/firefox/addon/privacy-settings/">Privacy Settings</a></h4>
+                  <p>Privacy Settings creates a toolbar panel to alter Firefox's built-in privacy settings. Sometimes, you may have to disable some privacy protection for websites to function properly. When you finish using those websites, re-enable the privacy settings you just disabled for maximum privacy protection.</p>
+                  <p>After installing, don't change any settings with it yet. Here are a few cases you might want to change your privacy settings:</p>
+                  <ul>
+                    <li>Enable <code class="highlighter-rouge">network.peerConnectionEnabled</code> to use real-time audio/video communication (Zoom, WebEx, Discord, etc.).</li>
+                    <li>Many web forms will not work when the browser isn't sending referrers. Enable <code class="highlighter-rouge">websites.referrersEnabled</code> temporarily to send referrers.</li>
+                  </ul>
+                  <hr />
+                  <h2 id="changelog">Changelog</h2>
+                  <ul>
+                    <li>(11/10/2019) Added more settings and updated options for Firefox 70.</li>
+                    <li>(1/1/2020) Startpage is no longer recommended.</li>
+                    <li>(1/1/2020) Changed <code class="highlighter-rouge">media.autoplay.default</code> to block autoplay for audio and video.</li>
+                    <li>(5/16/2020) Clarify instructions under <a href="https://chrisx.xyz/blog/yet-another-firefox-hardening-guide/#before-you-start">Before you start</a></li>
+                    <li>(5/16/2020) Fixed broken link under <a href="https://chrisx.xyz/blog/yet-another-firefox-hardening-guide/#ublock-origin">uBlock Origin</a></li>
+                    <li>(5/16/2020) Added whitelisting instruction for Microsoft work/school accounts</li>
+                    <li>(12/23/2020) Refine wording throughout the article, and add information about third-party cookies.</li>
+                    <li>(12/23/2020) Added whitelisting instruction for ProtonMail and Tutanota</li>
+                    <li>(12/23/2020) Removed recommendation for HTTPS Everywhere, as Firefox 83 and later has HTTPS-Only Mode.</li>
+                    <li>(3/29/2021) Added info on permission settings.</li>
+                    <li>(3/29/2021) Added level ratings and clarifications for several <code class="highlighter-rouge">about:config</code> options.</li>
+                    <li>(5/5/2021) Added guide to disable JavaScript support in PDF (for Firefox 88 and later).</li>
+                  </ul>
+                  <p><img src="https://chrisx.xyz/static/img/cc-by-sa.png" alt="CC BY-SA 4.0" /></p>
+                  <p><em>This article is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</em></p>
+                </div>
+                <!-- Add backlinks to the current page --></div>
+              <div id="copyright">
+                <!-- TODO Fix link styling like in nnl -->
+                <p>
+                  <a href="https://github.com/runarsf"><b>Runar Fredagsvik</b></a>
+                </p>
+                <p>Except where otherwise <a href="https://creativecommons.org/policies#license">noted</a>, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.</p>
+              </div>
+              <script src="/assets/js/modeswitcher.js"></script></main>
+          </div>
+          <button onclick="scrollToTop()" id="scrollToTop" title="Go to top"></button>
+          <style>
+            /* TODO --text-main doesn't seem to work for the button when in light mode */
+            #scrollToTop {
+                display: none; /* Hidden by default */
+                position: fixed; /* Fixed/sticky position */
+                bottom: 20px; /* Place the button at the bottom of the page */
+                right: 20px; /* Place the button 30px from the right */
+                z-index: 99; /* Make sure it does not overlap */
+                border: none; /* Remove borders */
+                outline: none; /* Remove outline */
+                background-color: var(--bg-main); /* Set a background color */
+                color: var(--text-main); /* Text color */
+                cursor: pointer; /* Add a mouse pointer on hover */
+                padding: 15px; /* Some padding */
+                border-radius: 50%; /* Rounded corners */
+                font-size: 18px; /* Increase font size */
+                position: fixed;
+            
+                width: 40px;
+                height: 40px;
+                background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
+                background-size: 35%;
+                background-repeat: no-repeat;
+                background-position: center;
+                transform: rotate(180deg); /* Hack to flip button upside down */
+            }
+            
+            #scrollToTop:hover {
+                background-color: var(--border);
+            }
+            #scrollToTop:active {
+                filter: brightness(75%);
+            }
+          </style>
+          <script>
+            scrollToTopButton = document.getElementById("scrollToTop");
+            
+            window.onscroll = function () { scrollViewFunction() };
+            
+            function scrollViewFunction() {
+                if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+                    scrollToTopButton.style.display = "block";
+                } else {
+                    scrollToTopButton.style.display = "none";
+                }
+            }
+            
+            function scrollToTop() {
+                document.body.scrollTop = 0; // For Safari
+                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            }
+          </script><!--- CASE 3 : Static Page --><!--- CASE 4 : Blog Listing page --><!--- CASE 5 :  Notes Listing page --></div>
+      </section>
+    </body>
+  </html>
