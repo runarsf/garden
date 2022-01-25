@@ -5,8 +5,7 @@ permalink: /tags/
 content-type: eg
 ---
 
-<!-- TODO Figure out where this file really belongs (posts?) -->
-<!-- TODO Displat nested tags properly -->
+<!-- TODO Display nested tags properly -->
 <!-- TODO Process inline hashtag-tags? -->
 
 <style>

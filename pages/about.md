@@ -2,10 +2,10 @@
 layout: post
 title: About
 permalink: /about/
-content-type: eg
+content-type: static
 ---
 
-Hallo!
+Hallo! 👋
 
 [![Build Status](https://github.com/runarsf/garden/actions/workflows/deploy.yaml/badge.svg)](https://github.com/runarsf/garden/actions/workflows/deploy.yaml)
 
