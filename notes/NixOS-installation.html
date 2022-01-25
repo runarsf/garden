@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="📖 My Notebook" property="og:site_name" />
+    <meta
+        content="Welcome to my digital notebook!"
+        property="og:description">
+      <meta content="https://publish.runarsf.dev//about/" property="article:author">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet"><meta content="Nixos installation" property="og:title">
+      <meta content="article" property="og:type">
+      <meta content="https://publish.runarsf.dev//notes/NixOS-installation" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev//notes/NixOS-installation" />
+      <link rel="apple-touch-icon" href="/assets/img/profile.png">
+      <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
+      <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/main.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/Util.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/vendor/Katex.css" rel="stylesheet" media="all" class="default" />
+      <!--[if IE]>
+        <link href="/assets/css/ie-target.css" rel="stylesheet" type="text/css"/>
+      <![endif]-->
+      <!--<link href="/assets/css/prism.css" rel="stylesheet" />-->
+      <link rel="alternate" type="application/rss+xml" href="https://publish.runarsf.dev//feed.xml">
+    </head>
+    <body><nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="../index.html">
+            <!-- <svg width="32" height="32" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M36.9477 13.7742C38.3043 11.4086 41.6957 11.4086 43.0523 13.7742L70.5226 61.6774C71.8791 64.043 70.1834 67 67.4703 67H12.5297C9.81658 67 8.12089 64.043 9.47744 61.6774L36.9477 13.7742ZM40 16.9677L13.7506 62.7419H66.2494L40 16.9677Z" fill="var(--text-main)"/>
+        </svg> -->
+            <h4>📖 My Notebook</h4>
+          </a>
+          <div class="navbar-item navbar-dark-mode__mobile is-hidden-tablet" onclick="modeSwitcher()">
+            <div class="buttons">
+              <a class="button is-text">
+                <span class="icon is-small">
+                  <img src="../assets/img/sun.svg" id="theme-toggle-img--mobile">
+                </span>
+              </a>
+            </div>
+          </div>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="/about" class="navbar-item">
+              About
+            </a>
+            <a href="/notes" class="navbar-item">
+              Notes
+            </a>
+            <!--<a href="/posts" class="navbar-item">
+          Posts
+        </a>-->
+            <a href="/tags" class="navbar-item">
+              Tags
+            </a>
+            <a href="/feed.xml" class="navbar-item">
+              RSS
+            </a>
+            <!-- <a href="https://github.com/runarsf" target="_blank" class="navbar-item">
+          My GitHub
+        </a> -->
+          </div>
+          <div class="navbar-end is-hidden-mobile" onclick="modeSwitcher()" >
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-text">
+                  <span class="icon is-small">
+                    <img src="../assets/img/sun.svg" id="theme-toggle-img">
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script src="/assets/js/Hamburger.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+           tex2jax: {
+               inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+               displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+               processEscapes: true
+                   }
+               });
+      </script>
+      <!-- ??? Should this be used with katex -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+      <section class="section">
+        <div class="columns is-centered">
+          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
+          <!-- TODO Fix horizontal overflow on mobile with long lines (e.g. note: Intro til matermatikk) -->
+          <div class="column is-three-fifths">
+            <main>
+              <div class="note-page-section">
+                <div class="buttons for-back-home"><a class="button is-text button__page-back" onclick="window.history.back();"><span class="icon is-small">
+                      <svg width="12" height="20" viewBox="0 0 12 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M11.0309 0.468998C11.1007 0.538667 11.1561 0.62143 11.1939 0.712548C11.2318 0.803665 11.2512 0.901347 11.2512 0.999998C11.2512 1.09865 11.2318 1.19633 11.1939 1.28745C11.1561 1.37857 11.1007 1.46133 11.0309 1.531L2.56038 10L11.0309 18.469C11.1717 18.6098 11.2508 18.8008 11.2508 19C11.2508 19.1992 11.1717 19.3902 11.0309 19.531C10.89 19.6718 10.699 19.7509 10.4999 19.7509C10.3007 19.7509 10.1097 19.6718 9.96887 19.531L0.968875 10.531C0.899031 10.4613 0.843616 10.3786 0.805806 10.2874C0.767997 10.1963 0.748535 10.0986 0.748535 10C0.748535 9.90135 0.767997 9.80367 0.805806 9.71255C0.843616 9.62143 0.899031 9.53867 0.968875 9.469L9.96887 0.468998C10.0385 0.399153 10.1213 0.343739 10.2124 0.305929C10.3035 0.26812 10.4012 0.248657 10.4999 0.248657C10.5985 0.248657 10.6962 0.26812 10.7873 0.305929C10.8784 0.343739 10.9612 0.399153 11.0309 0.468998Z"
+                                        fill="var(--text-main)" />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+                <h1>Nixos installation</h1>
+                <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
+                <div class="content">
+                  <h1 id="installing-nixos--a-less-verbose-step-by-step-guide">Installing NixOS — a less verbose step-by-step guide</h1>
+                  <p><a href="https://nixos.org/manual/nixos/stable/#version-21-05"><img src="https://img.shields.io/static/v1?logo=nixos&amp;logoColor=white&amp;label=&amp;message=NixOS%20v21.05%20Okapi&amp;color=41439a" alt="NixOS v21.05 Okapi" /></a></p>
+                  <p>This guide assumes you already have Windows installed on a shrinked partition <em>if</em> you’ll be dual booting.</p>
+                  <p>This guide also assumes you’re running UEFI, but differentiating steps will be noted.</p>
+                  <p>Note that some steps are only required for dual-boot or single-boot, and UEFI or BIOS/MBR (legacy boot).</p>
+                  <hr />
+                  <h2 id="installation">Installation</h2>
+                  <h3 id="before-installing">Before installing</h3>
+                  <blockquote>
+                    <p>⚠ <strong>If you’re dual booting</strong>, consider checking the size of your Windows <em>EFI System Partition</em> (this will be a shared /boot partition in NixOS) before doing anything else. It’ll most likely be about 100mb, which isn’t enough for regular Windows+NixOS use. Sadly, resizing the first sector can be a bit of a (major) hassle (I’m not even sure you can…). The recommended size of your /boot partition is 512mb according to Nix, in order to “resize” it, see <a href="#Resizing%20Windows’%20EFI%20System%20Volume%20boot%20partition">Resizing Windows’ EFI System Volume boot partition</a>.
+                      After you’ve fixed your /boot partition, you should reserve space on the disk for NixOS, this can be done by going into windows &gt; <kbd>Super</kbd> + <kbd>r</kbd> &gt; <em>diskmgmt.msc</em> &gt; right-click on your primary partition (labelled with a drive letter) &gt; <em>Shrink Volume…</em> &gt; and enter the size you want your NixOS installation to be (in mb, e.g. <em>250000</em>) in <em>Enter the amount of space to shrink in MB:</em>. After that, right-click on the new partition &gt; <em>Delete Volume…</em> and <em>Format…</em>.</p>
+                  </blockquote>
+                  <blockquote>
+                    <p>ℹ Before you install Nix, or even boot from the installation media, you should make sure these prerequisites are met.</p>
+                  </blockquote>
+                  <ul class="task-list">
+                    <li>For dual boot
+                      <ul class="task-list">
+                        <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />If you want to replace an already existing linux installation with NixOS
+                          <ol>
+                            <li>Boot into Windows</li>
+                            <li>Open the run prompt (<code class="highlighter-rouge">win+r</code>) and enter <em>diskmgmt.msc</em></li>
+                            <li>Delete the existing linux partitions (make sure you leave Windows’ alone). Windows typically has one main NTFS partition (assigned to a drive letter, e.g. <em>C:</em>), a <em>System Reserved</em> NTFS partition, and a <em>Recovery Partition</em>: <img src="_assets/partitions.png" alt="" /></li>
+                          </ol>
+                        </li>
+                        <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Update Windows :⁾</li>
+                        <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Disable <em>Fast startup</em>
+                          <ul>
+                            <li>Open <em>Control Panel</em> → <em>System &amp; Security</em> → <em>Power Options</em> → <em>Choose what the power buttons do</em> → <em>Change settings that are currently unavailable</em> → Uncheck <em>“Turn on fast startup (recommended)”</em> → <em>Save changes</em></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Disable <em>Secure boot</em> in the BIOS</li>
+                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Create a bootable <a href="https://nixos.org/download.html">NixOS Minimal</a> USB
+                      <ul>
+                        <li>Using <a href="https://rufus.ie/">Rufus</a>:
+                          <ul>
+                            <li>Partition scheme: <code class="highlighter-rouge">GPT</code></li>
+                            <li>Target system: <code class="highlighter-rouge">UEFI (non CSM)</code></li>
+                            <li>File system: <code class="highlighter-rouge">FAT32</code></li>
+                            <li>Cluster size: <code class="highlighter-rouge">8192 bytes</code></li>
+                          </ul>
+                        </li>
+                        <li><a href="https://www.balena.io/etcher/">Balena Etcher</a> is an easy alternative to Rufus</li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <hr />
+                  <h3 id="-installing-nixos-">~ Installing NixOS ~</h3>
+                  <p>Start by booting the computer from the installation media</p>
+                  <hr />
+                  <h4 id="uefibios-and-network">UEFI/BIOS and network</h4>
+                  <p>To test whether you’re running UEFI or BIOS (legacy boot), run the following command:
+                    <code class="highlighter-rouge">test -d /sys/firmware/efi/efivars; echo $?</code>
+                    If it returns <em>0</em>, you’re running UEFI, otherwise you should check your BIOS settings to see if you can enable UEFI mode (or continue the installation in legacy boot mode, could be viable if you’re testing in a virtual machine or just don’t have UEFI mode available.)</p>
+                  <p>If you don’t have an internet connection already, now is a good time to set one up — either by connecting the computer to a wireless network or by configuring wifi.
+                    If you’re running a VM, it might be worth setting the networking mode to bridged for convenience, but NAT also works.
+                    To configure wifi:</p>
+                  <ol>
+                    <li><code class="highlighter-rouge">wpa_passphrase 'WIFI_SSID' 'WIFI_PASSWORD' &gt; /etc/wpa_supplicant.conf</code></li>
+                    <li><code class="highlighter-rouge">sudo systemctl start wpa_supplicant.service</code></li>
+                    <li><code class="highlighter-rouge">sudo systemctl status wpa_supplicant.service</code> — try this command a couple of times until you see that the service has started</li>
+                    <li><code class="highlighter-rouge">ping duckduckgo.com</code> should now show that you have an internet connection. You may have to try this a few times as well</li>
+                  </ol>
+                  <p>This could also be a good time to ssh to your device if the keyboard isn’t behaving as expected.
+                    Simply run <code class="highlighter-rouge">passwd</code> to set a password for the <em>nixos</em> user so you can ssh to it. Running <code class="highlighter-rouge">ip a</code> should display your local IP-address if you’re connected to a network. You can then use this IP-address to ssh to your device (e.g. <code class="highlighter-rouge">ssh nixos@10.0.0.40</code>).</p>
+                  <hr />
+                  <h4 id="partitioning-the-disk">Partitioning the disk</h4>
+                  <blockquote>
+                    <p>ℹ Some commands may have to be run with <code class="highlighter-rouge">sudo</code> if you sshed to your device as the <em>nixos</em>-user.</p>
+                  </blockquote>
+                  <h5 id="with-dual-boot-uefi-lvm-and-luks-disk-encryption">With dual boot, UEFI, LVM, and Luks disk encryption</h5>
+                  <ol>
+                    <li>Run <code class="highlighter-rouge">lsblk</code> to get an overview over your disks and partitions. My disk was called <em>nvme0n1</em>, but the disk names can vary. In my case there were 4 pre-existing partitions created by Windows.
+                      <div class="language-css highlighter-rouge">
+                        <div class="highlight">
+                          <pre class="highlight"><code><span class="err">$</span> <span class="nt">lsblk</span>
+<span class="err">#</span> <span class="nt">NAME</span>        <span class="nt">MAJ</span><span class="nd">:MIN</span> <span class="nt">RM</span>   <span class="nt">SIZE</span> <span class="nt">RO</span> <span class="nt">TYPE</span> <span class="nt">MOUNTPOINT</span>
+<span class="err">#</span> <span class="nt">loop0</span>         <span class="err">7</span><span class="o">:</span><span class="err">0</span>    <span class="err">0</span> <span class="err">631</span><span class="o">.</span><span class="err">3</span><span class="nt">M</span>  <span class="err">0</span> <span class="nt">loop</span> <span class="o">/</span><span class="nt">nix</span><span class="o">/</span><span class="nc">.ro-store</span>
+<span class="err">#</span> <span class="nt">sda</span>           <span class="err">8</span><span class="o">:</span><span class="err">0</span>    <span class="err">1</span>  <span class="err">57</span><span class="o">.</span><span class="err">8</span><span class="nt">G</span>  <span class="err">0</span> <span class="nt">disk</span>
+<span class="err">#</span> <span class="err">└─</span><span class="nt">sda1</span>        <span class="err">8</span><span class="o">:</span><span class="err">1</span>    <span class="err">1</span>  <span class="err">57</span><span class="o">.</span><span class="err">7</span><span class="nt">G</span>  <span class="err">0</span> <span class="nt">part</span> <span class="o">/</span><span class="nt">iso</span>
+<span class="err">#</span> <span class="nt">nvme0n1</span>     <span class="err">259</span><span class="o">:</span><span class="err">0</span>    <span class="err">0</span> <span class="err">476</span><span class="o">.</span><span class="err">9</span><span class="nt">G</span>  <span class="err">0</span> <span class="nt">disk</span>
+<span class="err">#</span> <span class="err">├─</span><span class="nt">nvme0n1p1</span> <span class="err">259</span><span class="o">:</span><span class="err">1</span>    <span class="err">0</span>   <span class="err">100</span><span class="nt">M</span>  <span class="err">0</span> <span class="nt">part</span>
+<span class="err">#</span> <span class="err">├─</span><span class="nt">nvme0n1p2</span> <span class="err">259</span><span class="o">:</span><span class="err">2</span>    <span class="err">0</span>    <span class="err">16</span><span class="nt">M</span>  <span class="err">0</span> <span class="nt">part</span>
+<span class="err">#</span> <span class="err">├─</span><span class="nt">nvme0n1p3</span> <span class="err">259</span><span class="o">:</span><span class="err">3</span>    <span class="err">0</span> <span class="err">200</span><span class="o">.</span><span class="err">7</span><span class="nt">G</span>  <span class="err">0</span> <span class="nt">part</span>
+<span class="err">#</span> <span class="err">└─</span><span class="nt">nvme0n1p4</span> <span class="err">259</span><span class="o">:</span><span class="err">4</span>    <span class="err">0</span>   <span class="err">505</span><span class="nt">M</span>  <span class="err">0</span> <span class="nt">part</span>
+</code></pre>
+                        </div>
+                            </div>
+                    </li>
+                    <li>Partition the disk
+                      <ol>
+                        <li><code class="highlighter-rouge">gdisk /dev/nvme0n1</code></li>
+                        <li>Create a new partition by entering <code class="highlighter-rouge">n</code></li>
+                        <li>Hit <code class="highlighter-rouge">enter</code> to select the suggested partition number (e.g. 5)</li>
+                        <li>Hit <code class="highlighter-rouge">enter</code> to select the default value for the first sector</li>
+                        <li>Hit <code class="highlighter-rouge">enter</code> to select the default value for the last sector</li>
+                        <li>Enter <code class="highlighter-rouge">8e00</code> to select <em>Linux LVM</em> as the partition type</li>
+                        <li>Enter <code class="highlighter-rouge">w</code> to write the changes</li>
+                      </ol>
+                    </li>
+                    <li><code class="highlighter-rouge">lsblk</code> should now show a new child-partition of your disk called something along the lines of <em>nvme0n1p5</em>, it should fill the full size of the disk</li>
+                    <li>Setup encryption
+                      <ol>
+                        <li>Format the partition: <code class="highlighter-rouge">cryptsetup luksFormat /dev/nvme0n1p5</code> and enter a password (this will be prompted at each boot)</li>
+                        <li>Open the formatted partition: <code class="highlighter-rouge">cryptsetup luksOpen /dev/nvme0n1p5 nvme0n1p5-crypt</code> and enter the password that you chose.</li>
+                      </ol>
+                    </li>
+                    <li><code class="highlighter-rouge">lsblk</code> should now show a child-partition under <em>nvme0n1p5</em> called <em>nvme0n1p5-crypt</em></li>
+                    <li>Setup LVM in the encrypted partition
+                      <ol>
+                        <li>Initiate a physical volume to be used by LVM: <code class="highlighter-rouge">pvcreate /dev/mapper/nvme0n1p5-crypt</code></li>
+                        <li>Create a volume group: <code class="highlighter-rouge">vgcreate vgnixos /dev/mapper/nvme0n1p5-crypt</code></li>
+                        <li>Create a swap volume: <code class="highlighter-rouge">lvcreate -C y -L 24G -n swap vgnixos</code>. Note that you may want to use more/less swap than me, in that case change <code class="highlighter-rouge">24G</code> to the appropriate size. A general rule of thumb is that you should have about 1.5x the amount of installed RAM on your computer in swap, have a look at <a href="https://askubuntu.com/a/49138">this StackOverflow answer</a> for more information.</li>
+                        <li>Create a volume for the rest of the space: <code class="highlighter-rouge">lvcreate -l 100%FREE -n nixos vgnixos</code></li>
+                      </ol>
+                    </li>
+                    <li><code class="highlighter-rouge">lsblk</code> should now show the volume group</li>
+                    <li>Create the file systems
+                      <ol>
+                        <li>Make vgnixos-nixos an ext4 filesystem: <code class="highlighter-rouge">mkfs.ext4 /dev/vgnixos/nixos</code></li>
+                        <li>Make swap: <code class="highlighter-rouge">mkswap -L swap /dev/vgnixos/swap</code></li>
+                        <li><code class="highlighter-rouge">mount /dev/vgnixos/nixos /mnt</code></li>
+                        <li><code class="highlighter-rouge">mkdir /mnt/boot</code></li>
+                        <li><code class="highlighter-rouge">mount /dev/nvme0n1p2 /mnt/boot</code> — NOTE which partition to use here! If you’re dual-booting, replace <code class="highlighter-rouge">/dev/nvme0n1p2</code> with your Windows boot VFAT partition (see <code class="highlighter-rouge">lsblk -f</code>).</li>
+                        <li><code class="highlighter-rouge">swapon /dev/vgnixos/swap</code></li>
+                        <li>Check the UUID of the LVM: <code class="highlighter-rouge">lsblk -f</code> and make note of it! (Here it’s important that you node the UUID of the “crypto_LUKS” disk. You will need to tell NixOS to use that disk by specifying the UUID later.)</li>
+                      </ol>
+                    </li>
+                  </ol>
+                  <h5 id="with-single-boot-uefi--biosmbr">With single-boot (UEFI &amp; BIOS/MBR)</h5>
+                  <p>See the installation from the <a href="https://nixos.org/manual/nixos/stable/index.html#sec-installation-summary">NixOS Manual</a>.</p>
+                  <ul>
+                    <li>Create the partitioning scheme (<em>/dev/sda</em>)
+                      <ul>
+                        <li>For BIOS/MBR (legacy boot)
+                          <ul>
+                            <li><code class="highlighter-rouge">parted /dev/sda -- mklabel msdos</code></li>
+                            <li><code class="highlighter-rouge">parted /dev/sda -- mkpart primary 1MiB -8GiB</code></li>
+                            <li><code class="highlighter-rouge">parted /dev/sda -- mkpart primary linux-swap -8GiB 100%</code></li>
+                          </ul>
+                        </li>
+                        <li>For UEFI
+                          <ul>
+                            <li><code class="highlighter-rouge">parted /dev/sda -- mklabel gpt</code></li>
+                            <li><code class="highlighter-rouge">parted /dev/sda -- mkpart primary 512MiB -8GiB</code></li>
+                            <li><code class="highlighter-rouge">parted /dev/sda -- mkpart primary linux-swap -8GiB 100%</code></li>
+                            <li><code class="highlighter-rouge">parted /dev/sda -- mkpart ESP fat32 1MiB 512MiB</code></li>
+                            <li><code class="highlighter-rouge">parted /dev/sda -- set 3 esp on</code></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>Format the partitions
+                      <ul>
+                        <li><code class="highlighter-rouge">mkfs.ext4 -L nixos /dev/sda1</code></li>
+                        <li><code class="highlighter-rouge">mkswap -L swap /dev/sda2</code></li>
+                        <li><code class="highlighter-rouge">mkfs.fat -F 32 -n boot /dev/sda3</code></li>
+                      </ul>
+                    </li>
+                    <li>For creating LVM volumes, the LVM commands, e.g., <strong>pvcreate</strong>, <strong>vgcreate</strong>, and <strong>lvcreate</strong> (not documented for single-boot, see <a href="#With%20dual%20boot%20UEFI%20and%20disk%20encryption">With dual boot UEFI and disk encryption</a>).</li>
+                    <li>For creating software RAID devices, use <strong>mdadm</strong> (not documented).</li>
+                    <li>Mount the target file system on which NixOS should be installed on <em>/mnt</em>: <code class="highlighter-rouge">mount /dev/disk/by-label/nixos /mnt</code></li>
+                    <li>For UEFI
+                      <ul>
+                        <li><code class="highlighter-rouge">mkdir -p /mnt/boot</code></li>
+                        <li><code class="highlighter-rouge">mount /dev/disk/by-label/boot /mnt/boot</code></li>
+                      </ul>
+                    </li>
+                    <li><code class="highlighter-rouge">swapon /dev/sda2</code></li>
+                  </ul>
+                  <h4 id="installing-and-configuring-nixos">Installing and configuring NixOS</h4>
+                  <ol>
+                    <li>Generate nix config: <code class="highlighter-rouge">nixos-generate-config --root /mnt</code></li>
+                    <li>Open the config (<em>nano</em> seems to work better than <em>vi(m)</em> in the installer): <code class="highlighter-rouge">nano /mnt/etc/nixos/configuration.nix</code> and modify the default values to match this (where applicable, see comments):
+                      ```shell
+                      { config, pkgs, … }:</li>
+                  </ol>
+                  <p>{
+                    imports = [
+                    ./hardware-configuration.nix
+                    ];</p>
+                  <p>boot.loader.systemd-boot.enable = true;
+                    boot.loader.efi.canTouchEfiVariables = true; # Skip if BIOS
+                    boot.initrd.luks.devices."nixos" = { # Skip if you're not using luks encryption
+                    device = "/dev/disk/by-uuid/<crypto_LUKS_UUID>"; # This is where you enter the UUID of the crypto_LUKS disk.
+                      preLVM = true;
+                      };</crypto_LUKS_UUID></p>
+                  <p>networking.useDHCP = false;
+                    networking.interfaces.<NETWORK_INTERFACE>.useDHCP = true; # Your network interface</NETWORK_INTERFACE></p>
+                  <p>time.timeZone = "Europe/Oslo"; # Your timezone</p>
+                  <p>environment.systemPackages = with pkgs; [
+                    wget
+                    vim
+                    tmux
+                    ];</p>
+                  <p>services.openssh.enable = true;</p>
+                  <p>sound.enable = true;
+                    hardware.pulseaudio.enable = true;</p>
+                  <p>services.xserver.enable = true;
+                    services.xserver.layout = "no";  # <code class="highlighter-rouge">localectl list-x11-keymap-layouts</code>
+                    services.xserver.xkbOptions = "eurosign:e"; # <code class="highlighter-rouge">localectl list-x11-keymap-options</code>
+                    services.xserver.xkbVariant = "nodeadkeys"; # <code class="highlighter-rouge">localectl list-x11-keymap-variants &lt;layout&gt;</code></p>
+                  <p># Enable touchpad support
+                    services.xserver.libinput.enable = true;</p>
+                  <p># Enable the KDE Desktop Environment.
+                    services.xserver.displayManager.sddm.enable = true;
+                    services.xserver.desktopManager.plasma5.enable = true;</p>
+                  <p>i18n.defaultLocale = "en_US.UTF-8";
+                    console = {
+                    font = "Lat2-Terminus16";
+                    keyMap = "${config.services.xserver.layout}";
+                    };</p>
+                  <p># Define a user account. Don't forget to set a password with <code class="highlighter-rouge">passwd</code>.
+                    users.users.<YOUR_USERNAME> = { # Your username goes here
+                      isNormalUser = true;
+                      extraGroups = [ "wheel" ];
+                      };</YOUR_USERNAME></p>
+                  <p>system.stateVersion = "21.05"; # Don't change this unless you know what you're doing :)
+                    }
+                    ```</p>
+                  <ol>
+                    <li>Finally, install NixOS by executing: <code class="highlighter-rouge">nixos-install</code>.</li>
+                  </ol>
+                  <p>Reboot!
+                    After this you’ll have to sign in as <em>root</em> and set the password for your user account (the user defined in <code class="highlighter-rouge">users.users.&lt;YOUR_USERNAME&gt;</code>): <code class="highlighter-rouge">passwd &lt;user&gt;</code>.</p>
+                  <hr />
+                  <h2 id="other-bits">Other bits</h2>
+                  <h3 id="resizing-windows-efi-system-volume-boot-partition">Resizing Windows’ EFI System Volume (boot) partition</h3>
+                  <blockquote>
+                    <p>ℹ This will only work if you’re willing to sacrifice your Windows installation, as it happens during the installation procedure. You might be able to get around this by cloning the partition and recreating it with a larger size, but I’m unsure.</p>
+                  </blockquote>
+                  <ol>
+                    <li>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>Boot the computer from the Windows installation media, you can get the iso from <a href="https://www.microsoft.com/en-us/software-download/windows10">here</a> (or <a href="https://www.microsoft.com/en-us/software-download/windows11">here</a> for WIndows 11). You can also go to *Settings &gt; Update &amp; Security &gt; Recovery &gt; Reset this PC</td>
+                            <td>Get started*.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                    <li><strong>Before</strong> partitioning the disks, press <code class="highlighter-rouge">Shift</code> + <code class="highlighter-rouge">F10</code> to open the command line.</li>
+                    <li>Enter <code class="highlighter-rouge">diskpart</code>.</li>
+                    <li>Enter <code class="highlighter-rouge">list disk</code> — a list of disks will appear, take note of the number next to your disk (most likely <em>0</em>) and select it with <code class="highlighter-rouge">select disk 0</code>.</li>
+                    <li>Create the partition: <code class="highlighter-rouge">create partition efi size=512</code> (size in MiB)</li>
+                    <li><code class="highlighter-rouge">exit</code></li>
+                  </ol>
+                  <p><em>Steps found here: Windows — <a href="https://itectec.com/superuser/create-efi-partition-before-installing-windows-10/">Creating EFI partition before installing Windows 10</a></em></p>
+                  <hr />
+                  <p><em>Installation procedure heavily inspired by <a href="https://stianlagstad.no/2020/09/dual-booting-nixos-and-windows-10-a-step-by-step-guide/">Stian Lågstad’s guide</a>.</em></p>
+                </div>
+                <!-- Add backlinks to the current page --></div>
+              <div id="copyright">
+                <!-- TODO Fix link styling like in nnl -->
+                <p>
+                  <a href="https://github.com/runarsf"><b>Runar Fredagsvik</b></a>
+                </p>
+                <p>Except where otherwise <a href="https://creativecommons.org/policies#license">noted</a>, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.</p>
+              </div>
+              <script src="/assets/js/modeswitcher.js"></script></main>
+          </div>
+          <button onclick="scrollToTop()" id="scrollToTop" title="Go to top"></button>
+          <style>
+            /* TODO --text-main doesn't seem to work for the button when in light mode */
+            #scrollToTop {
+                display: none; /* Hidden by default */
+                position: fixed; /* Fixed/sticky position */
+                bottom: 20px; /* Place the button at the bottom of the page */
+                right: 20px; /* Place the button 30px from the right */
+                z-index: 99; /* Make sure it does not overlap */
+                border: none; /* Remove borders */
+                outline: none; /* Remove outline */
+                background-color: var(--bg-main); /* Set a background color */
+                color: var(--text-main); /* Text color */
+                cursor: pointer; /* Add a mouse pointer on hover */
+                padding: 15px; /* Some padding */
+                border-radius: 50%; /* Rounded corners */
+                font-size: 18px; /* Increase font size */
+                position: fixed;
+            
+                width: 40px;
+                height: 40px;
+                background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
+                background-size: 35%;
+                background-repeat: no-repeat;
+                background-position: center;
+                transform: rotate(180deg); /* Hack to flip button upside down */
+            }
+            
+            #scrollToTop:hover {
+                background-color: var(--border);
+            }
+            #scrollToTop:active {
+                filter: brightness(75%);
+            }
+          </style>
+          <script>
+            scrollToTopButton = document.getElementById("scrollToTop");
+            
+            window.onscroll = function () { scrollViewFunction() };
+            
+            function scrollViewFunction() {
+                if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+                    scrollToTopButton.style.display = "block";
+                } else {
+                    scrollToTopButton.style.display = "none";
+                }
+            }
+            
+            function scrollToTop() {
+                document.body.scrollTop = 0; // For Safari
+                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            }
+          </script><!--- CASE 3 : Static Page --><!--- CASE 4 : Blog Listing page --><!--- CASE 5 :  Notes Listing page --></div>
+      </section>
+    </body>
+  </html>

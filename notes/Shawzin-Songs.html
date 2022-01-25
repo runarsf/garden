@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="📖 My Notebook" property="og:site_name" />
+    <meta
+        content="Welcome to my digital notebook!"
+        property="og:description">
+      <meta content="https://publish.runarsf.dev//about/" property="article:author">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet"><meta content="Shawzin songs" property="og:title">
+      <meta content="article" property="og:type">
+      <meta content="https://publish.runarsf.dev//notes/Shawzin-Songs" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev//notes/Shawzin-Songs" />
+      <link rel="apple-touch-icon" href="/assets/img/profile.png">
+      <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
+      <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/main.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/Util.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/vendor/Katex.css" rel="stylesheet" media="all" class="default" />
+      <!--[if IE]>
+        <link href="/assets/css/ie-target.css" rel="stylesheet" type="text/css"/>
+      <![endif]-->
+      <!--<link href="/assets/css/prism.css" rel="stylesheet" />-->
+      <link rel="alternate" type="application/rss+xml" href="https://publish.runarsf.dev//feed.xml">
+    </head>
+    <body><nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="../index.html">
+            <!-- <svg width="32" height="32" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M36.9477 13.7742C38.3043 11.4086 41.6957 11.4086 43.0523 13.7742L70.5226 61.6774C71.8791 64.043 70.1834 67 67.4703 67H12.5297C9.81658 67 8.12089 64.043 9.47744 61.6774L36.9477 13.7742ZM40 16.9677L13.7506 62.7419H66.2494L40 16.9677Z" fill="var(--text-main)"/>
+        </svg> -->
+            <h4>📖 My Notebook</h4>
+          </a>
+          <div class="navbar-item navbar-dark-mode__mobile is-hidden-tablet" onclick="modeSwitcher()">
+            <div class="buttons">
+              <a class="button is-text">
+                <span class="icon is-small">
+                  <img src="../assets/img/sun.svg" id="theme-toggle-img--mobile">
+                </span>
+              </a>
+            </div>
+          </div>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="/about" class="navbar-item">
+              About
+            </a>
+            <a href="/notes" class="navbar-item">
+              Notes
+            </a>
+            <!--<a href="/posts" class="navbar-item">
+          Posts
+        </a>-->
+            <a href="/tags" class="navbar-item">
+              Tags
+            </a>
+            <a href="/feed.xml" class="navbar-item">
+              RSS
+            </a>
+            <!-- <a href="https://github.com/runarsf" target="_blank" class="navbar-item">
+          My GitHub
+        </a> -->
+          </div>
+          <div class="navbar-end is-hidden-mobile" onclick="modeSwitcher()" >
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-text">
+                  <span class="icon is-small">
+                    <img src="../assets/img/sun.svg" id="theme-toggle-img">
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script src="/assets/js/Hamburger.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+           tex2jax: {
+               inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+               displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+               processEscapes: true
+                   }
+               });
+      </script>
+      <!-- ??? Should this be used with katex -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+      <section class="section">
+        <div class="columns is-centered">
+          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
+          <!-- TODO Fix horizontal overflow on mobile with long lines (e.g. note: Intro til matermatikk) -->
+          <div class="column is-three-fifths">
+            <main>
+              <div class="note-page-section">
+                <div class="buttons for-back-home"><a class="button is-text button__page-back" onclick="window.history.back();"><span class="icon is-small">
+                      <svg width="12" height="20" viewBox="0 0 12 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M11.0309 0.468998C11.1007 0.538667 11.1561 0.62143 11.1939 0.712548C11.2318 0.803665 11.2512 0.901347 11.2512 0.999998C11.2512 1.09865 11.2318 1.19633 11.1939 1.28745C11.1561 1.37857 11.1007 1.46133 11.0309 1.531L2.56038 10L11.0309 18.469C11.1717 18.6098 11.2508 18.8008 11.2508 19C11.2508 19.1992 11.1717 19.3902 11.0309 19.531C10.89 19.6718 10.699 19.7509 10.4999 19.7509C10.3007 19.7509 10.1097 19.6718 9.96887 19.531L0.968875 10.531C0.899031 10.4613 0.843616 10.3786 0.805806 10.2874C0.767997 10.1963 0.748535 10.0986 0.748535 10C0.748535 9.90135 0.767997 9.80367 0.805806 9.71255C0.843616 9.62143 0.899031 9.53867 0.968875 9.469L9.96887 0.468998C10.0385 0.399153 10.1213 0.343739 10.2124 0.305929C10.3035 0.26812 10.4012 0.248657 10.4999 0.248657C10.5985 0.248657 10.6962 0.26812 10.7873 0.305929C10.8784 0.343739 10.9612 0.399153 11.0309 0.468998Z"
+                                        fill="var(--text-main)" />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+                <h1>Shawzin songs</h1>
+                <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
+                <div class="content">
+                  <h1 id="-катюшаkatyusha">## Катюша(Katyusha)</h1>
+                  <p>https://steamcommunity.com/sharedfiles/filedetails/?id=2089087455</p>
+                  <h3 id="катюшаkatyusha">Катюша(Katyusha)</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>6BAACALEAPBAaEAeEAhCAmBAqCAuCA1CA9EBJJBNCBYJBcJBgEBkCBoBBsKB8SCDRCLSCTRCWMCbMCeKCiJCmKCqBCyMC/JDGKDLEDXCDaJDeEDiCDlBDqBD5CEEEEJBEUEEYEEcCEgBEkCEoCEwCE4EFEJFICFUJFYJFcEFgCFkBFoKF4SGARGISGQRGUMGYMGeKGgJGkKGoBGwMG9JHFKHJEHWCHaJHeEHjCHnBHrKH7SIDRILSITRIXMIcMIhKIjJInKIrBIzMJBJJIKJNEJbCJgJJjEJoCJsBJx
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="калинкаkalinka">Калинка(Kalinka)</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>6KAARALMAVKAcJAhEAnBA6KBMRBVMBfKBoJBsEByBCFBCcBCuCC3JDBEDJCDSBDdRDpMEBMEHREdMEjKEsKFVKFoJGBCGYEGlJGyCHJEHTJHcJHkEHsCHzBH7BIBKIHKINJISJIYEIbCIeEIjJIpJIvCI0EI5JI+JJDEJHCJLBJQBJUKJYKJcJJfJJjCJmEJqJJtJJxCJ0EJ3JJ7JJ+EKCCKGBKJBKNKKQKKTJKXJKaCKdEKgJKkJKnCKrEKtJKxJK1EK6CK/BLJ
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="коробейникиkorobenikitetris-theme">Коробейники(Korobeniki/Tetris theme)</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>6KAACAIEAMJAQJAVEAXCAbBAfEArKAvJA4EA7CA/CBIEBMJBQKBYEBgBBpBBxJCFMCNSCRSCXRCaMCeKCiECuKCyKC3JC6EC9CDBCDJEDNJDRKDZEDiBDqBDzKEDEEUJEkCE1EFFBFWBFlBFtCF1KGFEGVJGmCG3BHHCHPEHXCHoKIKCISEIWJIaJIgEIiCImBIqEI2KI6JJCEJGCJLCJTEJXJJbKJjEJrBJzBJ8JKRMKYSKdSKiRKlMKpKKtEK6KK+KLDJLGELJCLOCLWELZJLeKLmELuBL3BL/
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="ой-цветет-калинаoh-viburnum-blossoms">Ой, цветет калина(Oh, viburnum blossoms)</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>8kAAkALiAQSAWRAikAskA3iA9RBDMBPiBaiBlUBqSBxRB8SCHKCZKCeMCkMCrJC2JC8EDBBDGJDNRDYMDjMDoKDtJDwKDyJD5JEOJEUEEZBEeJEkREvME6ME/KFEJFHKFJMFPSFlSFrSFwSF1UF8SGHRGMMGSJGYMGcRGiSGoBG/SHGSHLRHQMHVMHbKHgJHmBHsBHxBH3BH9JIDJIaiIghIlUIrSIxSI2RI8SJHSJMSJSSJXiJd
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="ussr-anthem">USSR Anthem</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>6RAAhAHRAUSAeUAhKAvKA1SA8RBLMBURBZEBnEBuJB1JCDKCKMCQMCeRClSCsUC5hDEiDHRDdkDjiDwhD6iD+UELREShEZUEnSEyUE2KFFKFMSFTRFiMFrRFwEF+EGFhGMUGbSGlRGpRGwhG3iG+kHFkHUiHjhHqUHyhH5iIARIURIahI3UJTSJaRJhSJnUJvKKEKKLSKmRKzMK8RLBELOELVhLcULqSLzRL3RMMhMTUMgSMmRMuEM8ENGRNLSNmUN2hOI
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="hes-a-pirate">He's a Pirate</h3>
+                  <h4 id="version-1">Version 1</h4>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5EAAKAHMAOMAcRAjSAqSA4UBARBIMBWKBdKBlMBtECEKCLMCSMCfSCmUCtUC7hDCiDKhDYUDghDnMDvMEEREPSEZSEnUEuhE2ME/MFHSFPRFYSFqMFzRF8EGMKGVMGdMGrSGxUG5UHHhHOiHXhHlUHshHzMH7MIGRIOSIXSInUIvhI3MJAMJISJPRJYSJnRJuMJ3SKKUKQhKWhKdhKkiKrhKvULBULIULPULVhLahLthL1hL9iMEhMIUMbSMiRMpMMxhNaiNuhODhOJhORhOYUOcUOtSPCRPWSPdRPkMPr
+</code></pre>
+                    </div>
+                  </div>
+                  <h4 id="version-2">Version 2</h4>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5MAARAESAJUAUhAZUAhSApRAxSA5UBAhBIUBQSBfUBjhBnUBySB2RB9SCFRCMMCUMCfKCiMCqMC3RC7SC/RDJSDOUDVSDcUDjhDrUDySD5MEBMEQREUSEYUEfhEmiEuME2UE9SFFUFQSFURFcSFnRFs
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="davy-jones-theme">Davy Jones Theme</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>6BAACASEAcJAwKA6MBMKBWKBwMCDRCMSCfMCkKCpJC8KDFMDhRD0KD+EERJEcMEwKE0EE6BFOUFYRFsKF2UGKSGTSGxBHcBHmCHvEH5BIDJINKIWBIgRIpMIuKIzBI9KJRBJbMJlRJvBJ5SKDMKIKKNBKWJKgKKpBK0MLPBLYRLhKLrBL1EL+JMIBMSMMbKMgEMmBMwUNJBNTRNdKNnBNxUN7SOFBOPSOkBOw
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="ievan-polkka">Ievan Polkka</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>6BAAJAGJALJARKAUMAXJAdJAjMApKAvKA1KA4EA7KBBMBHJBNJBUBBfJBlJBrJBxKB0MB3JB9JCDMCISCPSCVRCXMCbKChMCnJCtJC0SDASDGSDIRDLMDRKDXEDeEDjKDpRDvRD1RD4MD7KEBMEHJENJETSEfSEmSEoRErMExKE3EE9EFDKFJRFPRFVMFbKFhMFnJFtJF0
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="pumped-up-kicks">Pumped up kicks</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>6BAABANBAUCAZEAhEAsEAwJA0KA5RBBRBNRBVKBZJBhJBtJBxJB1CB4EB8KCYJCcJCgCCkJCoKCxKDNKDUJDZJDcJDgJDlCDtJD1KD5JD9JEBJEJKEYJEdJEgCEkJEoREsKE0KFNKFUJFZJFcJFgJFkCFsJF0KF4JF8JGAJGIUGYSGcSGgRGkRGoKGxJG0RG5RHARHIJHMKHRJHURHYRHgRHoSH0SH8UIESIIUIVSIdSIhRIlRIpKIxJI0RI5RJARJJJJNKJRJJURJYRJgRJoSJ0SJ8UKESKIRKR
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="never-gonna-give-you-up">Never gonna give you up</h3>
+                  <h4 id="prelusion">Prelusion</h4>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5SAAUAPKAdUAmhA0kBCiBFhBHUBKSBMUBaKBnKBwKB+SCMSCWUCkKCyUC7hDJkDXiDahDcUDeSDhUDuKD7KEDKERSEXSEZSEeSEg
+</code></pre>
+                    </div>
+                  </div>
+                  <h4 id="start">Start</h4>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5SAAMAFSAKSAOSATUAZRAjRAoMAtKA2MBORBTSBXMBdKBikBxkB6UB/SCYSCdMChSCmSCrSCwUC2RC/RDFMDKKDUMDsRDySD3MD7KEBUEKUEPUEUhEZUEeSEyUFLhFPSFWUFbUFgUFkhFpUFuKF5MGMRGQSGVMGbKGgUGwhG5UG+
+</code></pre>
+                    </div>
+                  </div>
+                  <h4 id="main">Main</h4>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5MAARADSAFUAHhAKhASUAZMAnRAqSAsRAuUAyUA5SBBMBQRBTSBURBXSBaUBkRBpMBzKB4KB8UCDSCQMCfRCjSCkUCmhCphCwUC4RDFSDIUDKUDNkDQRDaSDfMDuRDxSDyRD1SD5UECREHMERKEWKEbUEiSEw
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="red-river-valley">Red River Valley</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5KAASAGhAMhAWhAbhAhUArhAwUA2SA8KBXSBdhBjSBthBykB4iCChCHUCNkCsiCxhC3hDBUDHSDNUDYhDekDjiDpMECMEHKENREYSEdUEihEtUEySE4
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="ode-to-joysymphony-no9">Ode to Joy/Symphony No.9</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5hAAhAGiANkATkAaiAhhAoUAvSA2SA9UBDhBKhBRUBbUBfhBshByiB5kB/kCGiCNhCUUCbSCiSCpUCvhC2UC9SDHSDLUDZUDfhDmSDtUDzhD6iD9hEBSEJUEPhEWiEZhEdUEkSErUEyKE6hFJhFPiFWkFdkFkiFqhFxUF4SF/SGFUGMhGTUGaSGkSGo
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="hänschen-klein">Hänschen klein</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5kAAhAFhALiAWUAcUAiSAtUAyhA4iA9kBCkBIkBOkBZhBehBkiBwUB1UB7SCGhCMkCRkCXSCdUCzUC4UC9UDDUDJhDRiDUhDghDlhDrhDwhD2iD/kECkEMhEShEXiEjUEoUEuSE5hE+kFEkFJSFP
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="silent-night">Silent Night</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5KAAMAMKAREAaKAzMBAKBEEBOUBnUB3RCBRCTSCcSCtKC2MDPMDfSDoRD1MD6KECMEPKETEEcME2MFGSFPRFcMFhKFpMF2KF6EGEUGdUGuiG3UHISHRhHsSIGKIOEIXJIhCIyBI7
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="lullaby">Lullaby</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5EAAEAJKAOEAnEAtKA0EBNKBTSBaRBnMB4MB/KCLCCYECeJCkCCwCC7EDBJDICDfJDlRDsMDyKD4REESEQEEpEEyKE2EFNEFTKFaEFxKF4SF9RGKMGbMGhKGtCG5EG+JHFCHQCHcEHiJHpCH/JIGRINMISKIZRImSIyBJMBJUSJYMJxJJ3KJ9BKVBKbSKhRKuMK/MLFKLRCLcELiJLoCL0CMAEMGJMNCMkJMqRMwMM2KM9RNJSNV
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="london-bridge-is-falling-down">London Bridge Is Falling Down</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5KAAMAIKALJAQEAWJAbKAgCArEAxJA2EBBJBGKBLKBWMBdKBgJBlEBrJBwKB1CCAKCKECVBCaKCtMC0KC3JC8EDCJDHKDMCDXEDcJDhEDsJDxKD2KEBMEIKELJEQEEVJEaKEgCEqKE1EFBBFH
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="old-macdonald-had-a-farm">Old MacDonald Had A Farm</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5SAASAFSALKAQMAVMAbKAghArhAwUA1UA7SBBKBRSBWSBbSBhKBmMBrMBxKB2hCAhCGUCLUCQSCWKCnSCsSCxSC2KC8SDBSDGSDMSDWSDZSDcSDhSDkSDmSDrSDuSDwSDzSD2SD7SEASEGSELKERMEWMEbKEghErhEwUE2UE7SFB
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="if-youre-happy-and-you-know-it">If You're Happy and You Know It</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5KAAKAFSAISANSAQSAVSAXSAcRAfSAlUAoKA/KBEUBHUBMUBPUBUUBXUBcSBfUBkhBnKB/KCDhCHhCLhCOhCThCVUCdhCjiClhCtUCySC1RC8SDCUDEUDMSDRRDUKDZMDcRDiSDkKD8KEBSEESEJSEMSERSETSEZREbSEhUEjKE7KFAUFEUFIUFLUFQUFTUFYSFbUFhhFkKF8KGBhGEhGJhGMhGRhGUUGchGhiGkhGsUGxSG0RG8SHBUHEUHLSHQRHTKHYMHbRHgSHj
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="home-on-the-range">Home On The Range</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5KAAKAKSAUUAehAoSA8RBCMBHiBRiBbiBmiB6iB/kCESCXSCgRCrSC0UC+KDsKD2SD/UEJhETSEmREqMEwiE5iFDiFNiFgiFkhFpUF4SF9RGISGSUGhSGnkHeiH9hIGUIVhIaUJHUJMSJRSJaSJjSJtRJ3SKFUKLKK4KLCSLMULVhLfSLyRL2ML8iMFiMPiMZiMsiMxhM2UNESNJRNSSNcUNmSNx
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="the-more-we-get-together-steam-censor-alert">The More We Get Together (Steam censor alert)</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5KAARAFUAJhAWUAbSAgRAlKAuKA3MBACBJCBSRBcKBlKBvRBzUB4hCFU CKSCPRCTKCdKCmMCvCC4CDBKDKKDcRDhUDmhDyUD3SD8REAKEKKESMEbCEkCEtRE2KFAKFJRFNUFRhFeUFjSFoRFsKF2KF/MGICGRCGbKGk
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="it-aint-gonna-rain-no-more">It Ain't Gonna Rain No More</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5SAASAESAGSAISANSARSAWKAbSAjSAoRAtSAxUA2iBIiBMiBOUBRUBWRBaRBfKBjKBqKBsKBxMB1RB6SB/SCRSCUSCXSCZSCdSCiSCmKCrSC0SC5RC+SDCUDHiDYiDciDfUDiUDmRDrRDvKD0KD7KD9KECMEGREKSEP
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="its-a-small-wolrd-afterall">It's A Small Wolrd Afterall</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5EAAJAEKAIhAQSAYUAhSAlSApRAxRA5CBCEBGJBKUBURBcSBkRBoMBsKB0KB8ECEJCIKCNSCVUCZhCdUClSCpMCuUC2hC6iC/hDGUDLKDQiDZhDhUDpSDySEShEiSEqUEzUFAUFEUFUiFkUFshF0hGBhGFhGVkGkhGsiG1iHAiHFiHIhHMUHRKHWRHmSH2
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="oh-my-darling-clementine">Oh My Darling, Clementine</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5SAASAGSAJKAShAahAghAjSAsSA1hA5kA+kBGiBPhBVUBZUBqhBwiBziB8hCFUCLhCPSCYSChhClUCqKCzRC9UDESDHSDaSDgSDjKDthD1hD7hD+SEHSEQhEUkEZkEiiErhExUE1UFHhFLiFQiFZhFiUFohFsSF1SF+hGCUGHKGRRGaUGgSGk  
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="oh-susanna">Oh Susanna</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5BAACACEAEKAJKAOMAVKAXEAcBAhCAoEAqEAuCAzBA4CA9BBLCBNEBPKBUKBZMBgKBiEBnBBsCBzEB1EB6CB/CCEBCJJCbJClMCuMCzMC8KDCKDGEDLBDQCDWBDjCDmEDoKDsKDyMD4KD7EEABEFCELEEOEESCEXCEcBEhJE0JE9MFGMFLMFUKFZKFeEFkBFoCFuBF8CF/EGBKGGKGLMGRKGUEGYBGfCGmEGoEGtCGyCG3BG8
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="the-itsy-bitsy-spider">The Itsy Bitsy Spider</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5KAASAESAJSAMUARhAThAbUAjSAoUArhAwSAzhBDhBLiBQkBTkBbiBkhBpiBskBxhB0KCBSCESCJSCMUCRhCUhCbUCjSCoUCrhCwSCzKC7SDDSDLUDRhDThDbUDjSDoUDrSD0
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="im-blue-da-ba-dee">I'm Blue (Da Ba Dee)</h3>
+                  <h4 id="easy">Easy</h4>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5RAASAIMAQSAUUAZKAdRAhSAlMAsSAwhA0iA4hBAUBESBJMBQSBUUBYKBdRBhSBlMBsSBwhB0iB4hCAUCESCJMCRSCVUCZKCdRCgSClMCtSCxhC1iC5hDBUDFSDJMDRSDURDYEDcKDhMDlMDtMDvMDxMD1MD5REBSEJMERSEVUEZKEdREhSElMEtSExhE1iE5hFBUFFSFJMFRSFVUFZKFcRFhSFlMFsSFwhF0iF4hGAUGFSGJMGRSGVUGZKGdRGhSGlMGsSGwhG0iG4hHAUHFSHJMHRSHVRHZEHdKHhMHlMHsMHuMHwMH0MH5
+</code></pre>
+                    </div>
+                  </div>
+                  <h4 id="hard">Hard</h4>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5RAASAIJAMMAQSAUUAYKAdRAhSAlMAsSAwhA0iA5hBAUBFSBJJBNMBQSBUUBYKBcRBhSBlMBsSBwhB0iB5hCBUCFSCJJCNMCQSCUUCYKCcRCgSCkMCsSCwhC0iC4hDAUDESDJJDNMDQSDURDYEDdKDgMDkMDsMDvMDxMD1MD5
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="moonlight-shadow">Moonlight Shadow</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5SAAKAESAIUALhAPUAUSAXMAbKAfMAjRAnKArMA3RA7SA/SBDRBHRBLMBPRBTSBXUBbKBjKBnKBwKBzMB4RB8SCASCMSCQUCUSCYRCcMCgMCtRDARDESDIUDMSDYUDchDghDoUDwKD0KD8SEASEISEQUEUSEXREbMEgMEtRFARFESFHUFMSFYUFbhFghFnUFvKFzKF7hF/hGJkGMiGQhGTUGYSGcUGhUGkhGoUGthHAUHMSHRMHZMHcUHhhHkUHsSH4UH8hIAkIIiIQhITUIYUIcRIoKIwMI3RI7SJARJIMJQRJUSJYMJcUJkKJ8KKAhKIUKQKKcKKghKoUKvSK3UK7hK/kLHiLPhLTULfhLoULsKL8KMAhMIUMQKMcKMehMoUMwSM4UM8hNAkNIiNQhNUhNoUNwSOB
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="all-star">All Star</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>6EAARAJKAOKATJAdEAiEAnMAtKA2KA7JBAJBFEBKEBTRBYKBdKBiJBnJBsEBxEB2BB7ECbECgRClKCqKCvJC0JC4EC+MDIKDRKDWJDbJDgEDlRDvKD5KD9JEDEENEESJEXBEhEE4BE+EFBEFFEFKEFNEFPEFREFUEFZEFeEFgEFoEFtEFwEFyEF3EF5EF7EF9JGBKGFEGIKGPRGUMGZKGeKGgJGjJGoJGtEG0KG3EG8EHAEHGBHIEHKEHPBHUKHeRHhKHmSHoKHtRHwKH0SH3KH8RIBMIGKILJIQJIVJIYJIaEIfEIuEIyEI3EI6EI8EJBJJSKJUEJZEJeEJhEJjBJoKJ7EKAEKKBKMEKPEKUEKdBKfEKiEKnEKwKK6KLIELOELXBLaELcELhELrBLtELvEL0EL+KMJKMYRMiMMrKMvJM1JM6ENDENSENXJNbENgKNlJNqJN5EOCJOIKOSBOXEOrBOyEO1EO5EO+EPBEPDEPFEPIEPNEPSEPUEPcEPgEPjEPlEPqEPtEPvEPxJP0KP5EP8KQDRQHMQNKQRJQXJQcJQlEQnJQqKQsEQxEQ3EQ7BQ+ERAERFKRLRRPSRVKReERkERmKRxRR2MR8MSAKSDJSFESLESQSSaRSeRSkKSuESzES2BTFETHJTJKTMETPETRETUETWETbBTgKT0ET5EUEBUGEUIEUNEUWBUYEUaEUgEUqKU0KVDEVIEVSBVUEVXEVcEVmBVoEVrEVwEV6KWEKWTRWdMWmKWqJWwJW1EW/EXOEXTJXYEXcKXhJXnJX1EX+JYEKYNBYSRYvKY5JZCEZIKZRMZbKZgJZqEZuBZzBZ4RZ9KaHJaREaWKagMapKauJa4Ea8BbBBbGRbLKbVJbfEbkKbtMb3Kb8JcFEcKBcPBcURcZKciJcsEcxKc7MdEKdJJdSEdXKdnEdsEd2Bd5Ed7EeAEeJBeMEeOEeUEeeKenKe2Ee6EfEBfGEfJEfOEfXBfaEfcEfhEfrKf1KgERgOMgXKgcJghigmhgwEg/EhEJhIEhNKhSJhXEhlRhvKhzKh4JiCEiHEiMMiRKiaKifJikJipEivJi0Ei5Ri+KjCKjHJjMJjREjWEjbBjgKkCRkHRkMKkVJkaJkdKkoRktMkyMk2Kk5Jk8ElAElFBlLJlQElWRlbKlkKlpJlvElzEl4Jl+KmHSmhRmoRmqRmvRm0Rm2Rm5Rm7Rm+RnCRnHRnKRnRRnWRnZRnbRnfRniRnkRnnRnpSnuRnwKn4Rn8MoBKoGKoJJoLJoQJoVEodKogEolEopEouBoxEo0Eo4BpAKpJRpMKpRSpUKpZRpdKphSpkKppRpuMpzKp4Jp9JqCJqFJqHEqMEqaEqfEqkEqnEqpEqvSrCRrHRrMRrPRrRRrWKrqErvEr4Br7Er9EsDEsMBsOEsREsVEsfKsqKs4Es9EtHBtJEtMEtREtbBtdEtgEtkEtuKt4KuHRuRMuaKufJukiuqhuzEvDEvHJvNEvRKvWJvbJvoEvyJv3KwAEwFKwjRwtMw2Kw7JxAixFhxPExeExjJxoExtKxxJx3JyEEyOJyTKycByh
+</code></pre>
+                    </div>
+                  </div>
+                  <h2 id="star-wars">Star Wars</h2>
+                  <h3 id="binary-sunset-simple-the-force-theme">Binary Sunset (Simple)/ The Force Theme</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>6JAABAaJA3BBSJBtKCFMCYRCcMCfBC3BDLJDSKDlMDtBD2MD7JD/SEERELBExJE9KFQMFYJFhSFlMFuiF0JGPMGbKGgJGkSGpMG7JG/BHEBHU  
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="sith-theme--duel-of-the-fates-whammy-has-been-used">Sith Theme / Duel of the Fates: (whammy has been used)</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>6MAARADMAHKAIJAJMANRAROAVJAXMAbRAeMAiKAjJAkMAoRAsMAvKAwJAxJA8KBAMBDRBKBBQRBXMBdKBgJBkJBxKB0MB3RB+BCFRCLMCSKCVJCYJClJCoKCsMCyBC5SC/RDGMDJKDMJDZJDdKDgMDnBDtRD0MD7KD9JEBMEHRELMEOKEQJERMEVREYMEbKEdJEeMEhRElOEpJErMEvREyME2KE3JE4JFDKFGMFKRFSBFYRFfMFmKFpJFsJF5KF9MGARGHBGNRGUMGbKGeJGhJGvJGyKG1MG8BHDSHJRHPMHTKHWJHkJHnKHrMHxBH4RH+MIFKIIJIMMISRIVMIYKIaJIbMIfRIiOImJIpMItRIxMI0KI2JI3MI7RI+MJCKJDJJEMJIRJMMJPKJQJJSMJVRJZMJdKJeJJfMJjRJnMJqKJrJJtMJxRJ0MJ4KJ5JJ6  
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="the-force-theme--the-throne-room">The Force Theme / The Throne Room</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>6BAABADBAFJAJJAVKAZKAiMAmRApMArMA4BA9BBFBBJJBOKBbMBgBBmMBpJBsSBvRByRB7RB+RCASCEBCMBCSJCUKChMCmJCsSCvMCziC4iDGJDLJDRMDUKDXJDaSDdMDpJDsBDuBD3JEAJEMJEPJERJEXBEbBEhJEkJExKE1KE+MFCRFFMFHMFUBFYBFgBFlJFqKF3MF8BGCMGFJGHSGLRGORGXRGaRGdRGgBGpBGvJGyKG/MHEJHKSHMMHSiHWiHkJHoJHuMHyKH0JH3SH7MIHJIKBIMBIWJIeJIsJIuJIx  
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="across-the-stars">Across the Stars</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>6BAAMAJJAbRAmMApKAsMAwJBBMBLKBOJBRKBVEBfJBoEB5BCDBCYMCiJC2JC+KDBMDERDIMDVKDYMDbJDkRDtKD6SD/REJSEVBEvME6JFORFhMFlKFoMFsJF/MGHKGKJGOKGSEGcJGmEG5BHDBHYMHjJH3JIAKIDMIGRIKMIXKIaMIeJIoRIyKJBSJHRJSSJg
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="bad-apple">Bad apple</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>6BAACAEEAIJAMKAQSAYRAcKAgBApKAwJA0EA4CA8BBBCBEEBIJBMKBQJBYEBcCBgBBkCBoEBrCBvBBzBB3CB7BB/CCCECGJCLKCOSCXRCbKCfBCnKCvJCzEC2CC6BC/CDCEDGJDKKDOJDVEDZCDdEDnJDuKD2
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="vento-doro---jojos-bizarre-adventures-golden-wind">Vento D'oro - Jojo's Bizarre Adventures: Golden Wind</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>6JAAJAEJAIEAKJAOMASJAWBAaEAcJAgJAkJAoEAqJAuSAyRA2MA6EA8JBAJBEJBIEBKJBOMBSJBWBBaEBcJBgJBkJBoEBqJBuSByRB2MB6EB8JCAJCEJCIECKJCOMCSJCWBCaECcJCgJCkJCoECqJCuSCyRC2MC6EC8JDAJDEJDIEDKJDOMDSJDWBDaEDcJDgJDkJDoEDsJDuJD4KD6MD8RD+SEAJEUMEYhEcUEgSE0RE6SFAJF4KF6MF8RF+SGAJGUMGYhGcUGghGsiG4UHASHGJH4KH6MH8RH+SIAJIUMIYhIcUIgSI0RI6SJAJJ4KJ6MJ8RJ+SKAJKUMKYhKciKghKsUK4SLAML4KL6JL8EMAJMGJMMBMUEMYJMcKMgEMmJMsMM4KM6JM8ENAJNGJNMBNUKNYMNcKNgENmRNsMN4KN6JN8EOAJOGJOMBOUEOYJOcKOgEOmJOsMO4KO6JO8EPAJPESPGRPIMPKJPMhPQUPSSPUMPYKPaJPcEPgJPiEPmJPoEPsJPuEPyJP0EP4JP6MP8KQAEQMEQcJQeKQgJQmEQsCQwEQ2JQ8KRASRMBRYCRcERgJRmERsCRwRR2MR8KSAESMEScJSeKSgJSmESsCSwES2JS8KTASTMSTYUTchTgMTmKTsJTwET2JT8KUAEUMEUcJUeKUgJUmEUsCUwEU2JU8KVASVMBVYCVcEVgJVmEVsCVwRV2MV8KWAEWMEWcJWeKWgJWmEWsCWwEW2JW8KXASXMSXYUXchXgMXmKXsJXwhX2RX8SYA
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="dragonforce---through-the-fire-and-the-flames">DragonForce - Through the Fire and the Flames</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>1CAACACBAECAGCAIBAKCAMBAOCAQCASBATCAVCAYBAaCAbBAdJAfJAhCAjJAlJAnCAqJAsCAtJAvJAyCAzJA1JA3CA5JA7KA9EA/EBCBBDEBFEBIBBKEBMBBNEBPEBSBBUEBWEBYBBaEBcBBdCBfCBiBBjCBlCBnBBqCBsBBuCBvBBxCBzJB2KB3JB5KB7MB+
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="blinding-lights">Blinding lights</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>1SAASAMRAXSAaUAeMAkRAqSA0SBBRBLSBNUBRMBXRBchBmUBrSBwRB3hB/UCESCJRCPSCWSCySC+RDISDKUDNMDTRDZSDkSDwRD5SD8UD/MEFREMhEVUEYSEeREkhEtUExSE3RE9SFESFjSFvRF5SF7UF/MGFRGLSGWSGiRGtSGwUGzMG5RHAhHJUHNSHSRHZhHhUHlSHrRHySH4
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="wellerman">Wellerman</h3>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>6KAABAKBAPBARBAUEAZKAeKAjKApKAwMAzJA4JA7JA9JBCMBFBBHBBKKBNKBSKBZBBcBBhBBmEBrKBwKB2KB7KCAJCFJCKECPECSCCUBCaBCuBC4MDARDDRDFKDIKDNKDVBDXJDcJDhKDkMDnKDsKDxKD2EEABEKMEQMESREVREXKEaKEfKEkBEpJEuKE0CE5BE+EFdCFiCFnBFpBFsBFxEF2KF7KGBKGGKGLMGQJGVJGaMGfBGkKGqKGvKG2BG5BG+BHDEHIKHOKHTKHYKHdMHiJHnEHsCHxBH3EILBIVMIdRIgRIiKIlKIqKIyBI0JI5JI+KJBMJEKJJKJOKJTEJdBJoMJtMJvRJyRJ0KJ3KJ8KKBBKGJKLKKRCKWBKb
+</code></pre>
+                    </div>
+                  </div>
+                  <h3 id="never-gonna-give-you-up---rick-astley">Never Gonna Give You Up - Rick Astley</h3>
+                  <p>Group (and solo): Dax's+Tiamat+Nelumbo</p>
+                  <p>The Chorus:</p>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5KAAMACSAEMAGhAIhAOUAUKAgMAiSAkMAmUAoUAuSA0RA4MA6KBAMBCSBEMBGSBIUBQRBUMBaKBcKBkUBoSBwKCAMCCSCEMCGhCIhCOUCUKCgMCiSCkMCmkCoRCuSC0RC4MC6KDAMDCSDEMDGSDIUDQRDUMDaKDcKDkUDoSDw
+</code></pre>
+                    </div>
+                  </div>
+                  <p>Full melody:</p>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5SAAUAMKAYUAghAskA4iA6hA8SA+UBMKBYSCAUCMKCYUCghCskC4iC6hC8SC+UDMKDYMEIREMSEQSEUUEYREcMEiKEkMFEMFIRFMSFQMFUKFckFgkFoUFsMGEMGIRGMSGQMGUSGYUGcRGkMGoMGsKGwMHEMHIRHMSHQMHUKHYUHgUHkUHohHsUHwSIAUIUhIYSIcUIgUIkUIohIsUIwKI4MJQRJUSJYMJcUJkhJoUJsKJ4MJ6SJ8MJ+hKAhKGUKMKKYMKaSKcMKeUKgUKmSKsRKwMKyKK4MK6SK8MK+SLAULIRLMMLSKLUKLcULgSLoKL4ML6SL8ML+hMAhMGUMMKMYMMaSMcMMekMgRMmSMsRMwMMyKM4MM6SM8MM+SNAUNIRNMMNSKNUKNcUNgSNoKN4kOAiOcUOeSOgSOmROsKO4kPAiPcUPeSPgSPmRPsKP4kQAKQEMQGSQIMQKhQMKQQMQSSQUMQWhQYSQgSQmRQsKQ4kRAKREMRGSRIMRKhRMKRQMRSSRUMRWhRYSRgSRmRRs
+</code></pre>
+                    </div>
+                  </div>
+                  <p>Full Bass:</p>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5CAACAECAGMAISAKRAMKAQKAUCAcKAeEAgEAkEAmKAoRAqMAsMA0MA2MA4RA6MA+CBACBECBGMBISBKRBMKBQKBUCBcKBeEBgEBkEBmKBoRBqMBsMB0KB4MB6MB+CCACCECCGMCISCKRCMKCQKCUCCcKCeECgECkECmKCoRCqMCsMC0MC2MC4RC6MC+CDACDECDGMDISDKRDMKDQKDUCDcKDeEDgEDkEDmKDoRDqMDsMD0KD4MD6MD+MEAMEEMEGMEISEKREMKEQMEUEEcMEeKEgKEkMEmREoSEqREsEE8KE+MFAMFEMFGMFISFKRFMKFQMFUMFcMFeCFgCFkCFmCFoCFqKFsKF0KF2EF4EF8KF+MGAMGEMGGMGISGKRGMKGQMGUEGcMGeKGgKGkMGmRGoSGqRGsEG8KG+MHAMHEMHGMHISHKRHMKHQMHUMHcMHeCHgCHkCHmCHoCHqKHsKH0KH2EH4EH8KH+MIAMIEMIGMIISIKRIMKIQMIUEIcMIeKIgKIkMImRIoSIqRIsEI8KI+MJAMJEMJGMJISJKRJMKJQMJUEJcMJeKJgKJkMJmRJoSJqRJsCKAC
+</code></pre>
+                    </div>
+                  </div>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>KECKGMKISKKRKMKKQKKUCKcKKeEKgEKkEKmKKoRKqMKsMK0MK2MK4RK6MK+CLACLECLGMLISLKRLMKLQKLUCLcKLeELgELkELmKLoRLqMLsML0KL4ML6ML+CMACMECMGMMISMKRMMKMQKMUCMcKMeEMgEMkEMmKMoRMqMMsMM0MM2MM4RM6MM+CNACNECNGMNISNKRNMKNQKNUCNcKNeENgENkENmKNoRNqMNsMN0KN4MN6MN+SOASOEUOGhOIiOKhOMSOQUOUEOcKOeMOgKOkMOmROoSOqROsRO8SO+SPEUPGhPIiPKhPMSPQUPUEPcKPeMPgKPkMPmRPoSPqRPsRP8SP+SQEUQGhQIiQKhQMSQQUQUEQcKQeMQgKQkMQmRQoSQqRQsRQ8SQ+SREURGhRIiRKhRMSRQURUERcKReMRgKRkMRmRRoSRqRRs
+</code></pre>
+                    </div>
+                  </div>
+                  <p>Full Chords:</p>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>5xAAyAMcAg0AsxBAyBMcBg0BsKB0KB2MB4SB6xCAyCMcCg0CsxDAyDMcDg0Ds0EAyEg0FAZFgyFs0GAyGg0HAZHgyHsaIAyIgaJAaJgyJsKJ0KJ2MJ4SJ6xKAyKMcKg0KsxLAyLMcLg0LsKL0KL2ML4SL6xMAyMMcMg0MsxNAyNMcNg0NsZOgZOmyOsZPgZPmyPsZQgZQmyQsZRgZRmyRs 
+</code></pre>
+                    </div>
+                  </div>
+                </div>
+                <!-- Add backlinks to the current page --></div>
+              <div id="copyright">
+                <!-- TODO Fix link styling like in nnl -->
+                <p>
+                  <a href="https://github.com/runarsf"><b>Runar Fredagsvik</b></a>
+                </p>
+                <p>Except where otherwise <a href="https://creativecommons.org/policies#license">noted</a>, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.</p>
+              </div>
+              <script src="/assets/js/modeswitcher.js"></script></main>
+          </div>
+          <button onclick="scrollToTop()" id="scrollToTop" title="Go to top"></button>
+          <style>
+            /* TODO --text-main doesn't seem to work for the button when in light mode */
+            #scrollToTop {
+                display: none; /* Hidden by default */
+                position: fixed; /* Fixed/sticky position */
+                bottom: 20px; /* Place the button at the bottom of the page */
+                right: 20px; /* Place the button 30px from the right */
+                z-index: 99; /* Make sure it does not overlap */
+                border: none; /* Remove borders */
+                outline: none; /* Remove outline */
+                background-color: var(--bg-main); /* Set a background color */
+                color: var(--text-main); /* Text color */
+                cursor: pointer; /* Add a mouse pointer on hover */
+                padding: 15px; /* Some padding */
+                border-radius: 50%; /* Rounded corners */
+                font-size: 18px; /* Increase font size */
+                position: fixed;
+            
+                width: 40px;
+                height: 40px;
+                background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
+                background-size: 35%;
+                background-repeat: no-repeat;
+                background-position: center;
+                transform: rotate(180deg); /* Hack to flip button upside down */
+            }
+            
+            #scrollToTop:hover {
+                background-color: var(--border);
+            }
+            #scrollToTop:active {
+                filter: brightness(75%);
+            }
+          </style>
+          <script>
+            scrollToTopButton = document.getElementById("scrollToTop");
+            
+            window.onscroll = function () { scrollViewFunction() };
+            
+            function scrollViewFunction() {
+                if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+                    scrollToTopButton.style.display = "block";
+                } else {
+                    scrollToTopButton.style.display = "none";
+                }
+            }
+            
+            function scrollToTop() {
+                document.body.scrollTop = 0; // For Safari
+                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            }
+          </script><!--- CASE 3 : Static Page --><!--- CASE 4 : Blog Listing page --><!--- CASE 5 :  Notes Listing page --></div>
+      </section>
+    </body>
+  </html>
