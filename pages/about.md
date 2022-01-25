@@ -15,7 +15,7 @@ Hallo! 👋
     Most of the content is provided for free (should you, contrary to expectations, want to use it) under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.
     <br><br>
     <code>
-      {%- include_relative LICENSE -%}
+      {%- include_relative ../LICENSE -%}
     </code>
   </details>
 <script>
