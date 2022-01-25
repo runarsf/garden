@@ -1,3 +1,5 @@
+<!-- TODO If multiple notes with same permalink, only show one footer and align them vertically -->
+<!-- TODO pinned: true instead of notetype: feed? -->
 {%- if site.preferences.search.enabled -%}
 <!-- search bar -->
 <div class="block">
@@ -10,7 +12,7 @@
 <!-- feed with filter-->
 {% assign note_items = site.notes | sort: "date" | reverse %}
 {% for note_items in note_items %}
-{%- if note_items.notetype == "feed" -%}
+{%- if note_items.pinned == "true" -%}
 <div class="block note-cards">
     <div class="box-feed" data-url="{{site.url}}{{note_items.url}}">
         <a href="{{note_items.url}}" style="text-decoration: none;">

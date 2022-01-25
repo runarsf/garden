@@ -1,53 +1,25 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
+# This config file is meant for settings that affect your whole site, values
 # which you are expected to set up once and rarely edit after that. If you find
 # yourself editing this file very often, consider using Jekyll's data files
 # feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
+# https://jekyllrb.com/docs/datafiles/
 
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://publish.runarsf.dev/" # the base hostname & protocol for your site, e.g. http://example.com
 
-#######################################################################
-# Settings related to the Header and your About page go here,such as 
-# your name, site name, profile pic, site tagline, your bio, 
-# your social media links etc
-#######################################################################
-
-heading: My Notebook
+heading: 📖 My Notebook
 copyright:
   owner: Runar Fredagsvik
   url: "https://github.com/runarsf"
   license: "Creative Commons Attribution 4.0 International license"
   license_url: "https://creativecommons.org/licenses/by/4.0/"
 
-
-#####################################################################
-# Settings related to your preferences go here, such as the
-# search results, wiki-style-links, sidenotes, marginnotes, 
-# transclusion, pagepreview, backlinks, related posts, highlighting, 
-# context menu, flashcards, sliding window, wrapping
-#####################################################################
 preferences:
   search:
     enabled: true
     shortcut_hint:
         enabled: true
-  wiki_style_link: # This property handles wiki style links '[['
+  wiki_style_link:
     enabled: true
   sidenotes:
     enabled: true
@@ -65,27 +37,26 @@ preferences:
   backlinks:
     enabled: true
   related:
-    enabled: false # This enables the posts that are related to each other by tags
+    enabled: true # This enables the posts that are related to each other by tags
   wrapping:
     enabled: true
   contextmenu:
-    enabled: false # Not supported in this theme
+    enabled: true # TODO Add contextmenu support
     copylink:
-      enabled: false
+      enabled: true
     newtab:
-      enabled: false
+      enabled: true
     backlinks:
-      enabled: false
+      enabled: true
     related:
-      enabled: false
+      enabled: true
   flashcards:
-    enabled: false # Not supported in this theme
+    enabled: false
   homepage:
-    enabled: false # _includes/Homepage.html
+    enabled: true # _includes/Homepage.html
 
 encoding: utf-8
 
-# Build settings
 theme: null
 plugins:
   - jekyll-feed
@@ -97,11 +68,9 @@ collections:
     notes:
       output: true
       permalink: /notes/:title
-# Disqus Comments
 disqus:
     # Leave shortname blank to disable comments site-wide.
     # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
-    ## Disabled for NotesGarden Theme.
     shortname:
 
 markdown: kramdown

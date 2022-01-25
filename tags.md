@@ -5,6 +5,9 @@ permalink: /tags/
 content-type: eg
 ---
 
+<!-- TODO Figure out where this file really belongs (posts?)-->
+<!-- TODO Add nested tags-->
+
 <style>
 .category-content a {
     text-decoration: none;
