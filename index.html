@@ -100,9 +100,17 @@
             <div class="block homeblock">
               <h1>Welcome to my digital notebook!</h1>
               This page is a collection of my publically available notes written in <a href="https://obsidian.md" style="color:var(--link);">Obsidian</a>.</br>
-            More information can be found in the <a href="../about" style="color:var(--link);">About</a> section of the page</br>.
+            More information can be found in the <a href="../about" style="color:var(--link);">About</a> section of the page.</br>
           You can find an overview over my available notes <a href="../notes" style="color:var(--link);">here</a>, or perhaps browse by <a href="../tags" style="color:var(--link);">tags</a>.
         </div>
+        <!-- TODO If multiple notes with same permalink, only show one footer and align them vertically -->
+        <!-- TODO pinned: true instead of notetype: feed? --><!-- search bar -->
+        <div class="block">
+          <input class="input is-medium" type="text" placeholder="Search notes.." id="search-input" autocomplete="off">
+          <div id="search-results" class="search-results"></div>
+        </div>
+        <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+        <script src="/assets/js/Search.js"></script><!-- feed with filter-->
       </div>
       <script src="/assets/js/modeswitcher.js"></script><!---CASE 2 : Notes & Blog Page--><!--- CASE 3 : Static Page --><!--- CASE 4 :  Blog Listing page --><!--- CASE 5 :  Notes Listing page --></div>
   </section>
