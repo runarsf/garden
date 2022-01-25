@@ -316,9 +316,10 @@ blockquote {
 
 
 summary {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  outline: none;
+  outline: none; */
+  cursor: pointer;
 }
 
 cite {
