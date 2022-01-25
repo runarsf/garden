@@ -11,7 +11,7 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
         rel="stylesheet"><meta content="website" property="og:type">
-      <meta content="https://publish.runarsf.dev//notes" property="og:url"><title>My Notebook</title>
+      <meta content="https://publish.runarsf.dev//notes" property="og:url"><title>📖 My Notebook</title>
       <link rel="canonical" href="https://publish.runarsf.dev//notes" />
       <link rel="apple-touch-icon" href="/assets/img/profile.png">
       <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
@@ -98,47 +98,26 @@
           <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page--><!--- CASE 3 : Static Page --><!--- CASE 4 :  Blog Listing page --><!--- CASE 5 :  Notes Listing page -->
           <div class="column is-half">
             <div class="block">
-              <h1>Welcome to the Garden!</h1>
-              This page is the core feature of this theme, a feed of notes arranged based on the latest date. </br>
-            Check <a href="../posts/features" style="color:var(--link);">Features</a> to know how to hide notes from this feed or make this the homepage.
-          </div>
-          <!-- search bar -->
-          <div class="block">
-            <input class="input is-medium" type="text" placeholder="Search notes.." id="search-input" autocomplete="off">
-            <div id="search-results" class="search-results"></div>
-          </div>
-          <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
-          <script src="/assets/js/Search.js"></script><!-- feed with filter-->
-          <div class="block note-cards">
-            <div class="box-feed" data-url="https://publish.runarsf.dev//notes/Home">
-              <a href="/notes/Home" style="text-decoration: none;">
-                <h4>⌨️ My Notebook</h4>
-                <div class="content">
-                  <p style="margin: 0px;">
-                    Browse notes or tags
-                    Get in touch
-                    GitHub: runarsf
-                    GitLab: runarsf
-                    LastFM: runarsf
-                    Discord: runar#0001
-                    Matrix: @runar:runarsf.dev (@runar:matrix.org)
-                    Guilded: guilded.gg/runar
-                    Steam: runarsf
-                    Telegram: runarsf
-                  </p>
-                </div>
-              </a>
+              <h1>Welcome to my digital notebook!</h1>
+              If you can't find what you're looking for, pethaps it would help to sort by <a href="../tags" style="color:var(--link);">tags</a>?
             </div>
-          </div>
-          <div id="copyright">
-            <!-- TODO Fix link styling like in nnl -->
-            <p>
-              <a href="https://github.com/runarsf"><b>Runar Fredagsvik</b></a>
-            </p>
-            <p>Except where otherwise <a href="https://creativecommons.org/policies#license">noted</a>, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.</p>
-          </div>
-          <script src="/assets/js/modeswitcher.js"></script></div>
-      </div>
-    </section>
-  </body>
-</html>
+            <!-- TODO If multiple notes with same permalink, only show one footer and align them vertically -->
+            <!-- TODO pinned: true instead of notetype: feed? --><!-- search bar -->
+            <div class="block">
+              <input class="input is-medium" type="text" placeholder="Search notes.." id="search-input" autocomplete="off">
+              <div id="search-results" class="search-results"></div>
+            </div>
+            <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+            <script src="/assets/js/Search.js"></script><!-- feed with filter-->
+            <div id="copyright">
+              <!-- TODO Fix link styling like in nnl -->
+              <p>
+                <a href="https://github.com/runarsf"><b>Runar Fredagsvik</b></a>
+              </p>
+              <p>Except where otherwise <a href="https://creativecommons.org/policies#license">noted</a>, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.</p>
+            </div>
+            <script src="/assets/js/modeswitcher.js"></script></div>
+        </div>
+      </section>
+    </body>
+  </html>
