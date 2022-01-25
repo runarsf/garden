@@ -16,24 +16,24 @@ html, html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-    --bg-main: #18181C;
+    --bg-main: #262D3B;
     --bg-sub: #0F111A;
     --color-bis: #E6E6E6;
     --text-main: #FAFAFC;
     --text-sub: #FFFFFF;
     --link: #6D9EFF;
-    --border: #30363D;
+    --border: #1C212B;
 }
 
 
 @media (prefers-color-scheme: dark) {
     html, html[data-theme="dark"] {
-        --bg-main: #18181C;
+        --bg-main: #262D3B;
         --bg-sub: #0F111A;
         --text-main: #FAFAFC;
         --text-sub: #FFFFFF;
         --link: #6D9EFF;
-        --border: #30363D;
+        --border: #1C212B;
     }
 
     html[data-theme="light"] {
