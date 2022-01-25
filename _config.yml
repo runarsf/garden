@@ -7,7 +7,9 @@
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://publish.runarsf.dev/" # the base hostname & protocol for your site, e.g. http://example.com
 
+# meta:
 heading: 📖 My Notebook
+subheading: Welcome to my digital notebook!
 copyright:
   owner: Runar Fredagsvik
   url: "https://github.com/runarsf"

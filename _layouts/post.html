@@ -5,9 +5,9 @@
 
 <head>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="Digital Garden" property="og:site_name" />
+    <meta content="{{ site.heading }}" property="og:site_name" />
     <meta
-        content="A Jekyll theme for Obsidian users to build digital garden"
+        content="{{ site.subheading }}"
         property="og:description">
     <meta content="{{ site.url }}/about/" property="article:author">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
     <meta content="{{ site.url }}{{ page.url }}" property="og:url">
     {%- endif -%}
 
-    <title>{{site.heading}}</title>
+    <title>{{ site.heading }}</title>
 
     <link rel="canonical" href="{{site.url}}{{page.url}}" />
     <link rel="apple-touch-icon" href="/assets/img/profile.png">
@@ -56,14 +56,14 @@
                     <div class="column is-half">
                             {%- include FeedContent.html -%}
                             {%- include Feed.html -%}
-                            {%- include Footer.html -%}             
+                            {%- include Footer.html -%}
                 </div>
                     {%- endif -%}
             {%- endif -%}
 
             <!---CASE 2 : Notes & Blog Page-->
 
-            {%- if page.content-type == "notes" 
+            {%- if page.content-type == "notes"
             or page.content-type == "post"  -%}
                 <div class="column is-three-fifths">
                     <main>
@@ -107,7 +107,7 @@
                 </div>
             {%- endif -%}
 
-            <!--- CASE 4 :  Blog Listing page -->   
+            <!--- CASE 4 :  Blog Listing page -->
 
             {%- if page.permalink == "/posts" -%}
                 <div class="column is-half">
@@ -132,17 +132,17 @@
                 </div>
             {%- endif -%}
 
-            <!--- CASE 5 :  Notes Listing page -->   
+            <!--- CASE 5 :  Notes Listing page -->
 
             {%- if page.permalink == "/notes" -%}
                 <div class="column is-half">
                     {%- include FeedContent.html -%}
                     {%- include Feed.html -%}
-                    {%- include Footer.html -%}             
+                    {%- include Footer.html -%}
                 </div>
             {%- endif -%}
 
         </div>
-    </section>     
+    </section>
 </body>
 </html>
