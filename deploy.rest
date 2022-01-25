@@ -1,0 +1,18 @@
+# https://api.github.com/repos/runarsf/garden/actions/workflows
+# Use this api call to trigger a workflow_dispatch event
+# from outside of the repository. Has to be enabled in the workflow.
+# PAT needs action-level permissions.
+
+@token = "<PAT>"
+@user = "runarsf"
+@repo = "garden"
+@workflow = "18556061"
+@branch = "main"
+
+###
+curl \
+  -X POST \
+  -H "Accept: application/vnd.github.v3+json" \
+  -H "Authorization: token {{token}}" \
+  https://api.github.com/repos/{{user}}/{{repo}}/actions/workflows/{{workflow}}/dispatches \
+  -d '{"ref":"{{branch}}"}'
