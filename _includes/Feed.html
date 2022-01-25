@@ -12,7 +12,7 @@
 <!-- feed with filter-->
 {% assign note_items = site.notes | sort: "date" | reverse %}
 {% for note_items in note_items %}
-{%- if note_items.pinned == "true" -%}
+{%- if note_items.notetype == "feed" -%}
 <div class="block note-cards">
     <div class="box-feed" data-url="{{site.url}}{{note_items.url}}">
         <a href="{{note_items.url}}" style="text-decoration: none;">
