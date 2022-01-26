@@ -9,8 +9,8 @@
 
 # Defaults: https://jekyllrb.com/docs/configuration/default/
 
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://publish.runarsf.dev/" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://publish.runarsf.dev" # the base hostname & protocol for your site, e.g. http://example.com
 
 # meta:
 heading: "📖 My Notebook"
