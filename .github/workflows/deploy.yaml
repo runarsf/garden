@@ -78,6 +78,7 @@ jobs:
       #  among these.
       - name: Remove residual build files (hack)
         run: |
+          find ./_site -type f -name 'notes.*' -not -name 'notes.html' -print0
           find ./_site -type f -name 'notes.*' -not -name 'notes.html' -delete
 
       - name: 🚀 Deploy

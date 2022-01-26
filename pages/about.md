@@ -12,7 +12,7 @@ Hallo! 👋
 <main>
   <details><summary><b>About site</b></summary>
     This site is based on <a href="https://github.com/Jekyll-Garden/jekyll-garden.github.io">Jekyll-Garden</a> and is licensed under the MIT license.<br>
-    Most of the content is provided for free (should you, contrary to expectations, want to use it) under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.
+    Most of the content is provided for free (should you, contrary to expectations, want to use it) under a <a href="{{ site.copyright.license_url }}">{{ site.copyright.license }}</a>.
     <br><br>
     <code>
       {%- include_relative LICENSE -%}
