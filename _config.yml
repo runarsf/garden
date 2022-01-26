@@ -3,18 +3,23 @@
 # yourself editing this file very often, consider using Jekyll's data files
 # feature for the data you need to update frequently.
 # https://jekyllrb.com/docs/datafiles/
+# https://jekyllrb.com/docs/configuration/
+# ---render_with_liquid: false---
+# https://jekyllrb.com/docs/configuration/front-matter-defaults/
 
-baseurl: "/" # the subpath of your site, e.g. /blog
+# Defaults: https://jekyllrb.com/docs/configuration/default/
+
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://publish.runarsf.dev/" # the base hostname & protocol for your site, e.g. http://example.com
 
 # meta:
-heading: 📖 My Notebook
-subheading: Welcome to my digital notebook!
+heading: "📖 My Notebook"
+subheading: "Welcome to my digital notebook!"
 copyright:
-  owner: Runar Fredagsvik
+  owner: "Runar Fredagsvik"
   url: "https://github.com/runarsf"
-  license: "Creative Commons Attribution 4.0 International license"
-  license_url: "https://creativecommons.org/licenses/by/4.0/"
+  license: "Creative Commons Attribution-ShareAlike 4.0 International License"
+  license_url: "https://creativecommons.org/licenses/by-sa/4.0/"
 
 preferences:
   search:
@@ -58,7 +63,17 @@ preferences:
     enabled: true # _includes/Homepage.html
 
 encoding: utf-8
+# quiet: false
+# verbose: true
+# timezone: Europe/Oslo
+# host: 127.0.0.1
+# port: 4000
+# livereload: false
+# strict_front_matter: false
+# markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+# keep_files: [ ".git", ".svn" ]
 
+# whitelist: []
 theme: null
 plugins:
   - jekyll-feed
@@ -66,6 +81,12 @@ plugins:
   - jekyll-tidy
   # - jekyll-katex
   # - jekyll-toc # TODO Can be found in nnl
+
+# Filtering Content
+show_drafts: false
+limit_posts: 0
+future: false
+unpublished: false
 
 collections:
     notes:
@@ -82,8 +103,13 @@ kramdown:
   input: GFM
   hard_wrap: false
   math_engine: katex # null
-  smart_quotes: ["apos", "apos", "quot", "quot"]
+  # smart_quotes: ["apos", "apos", "quot", "quot"]
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  toc_levels: "1,2,3,4,5,6"
   syntax_highlighter: rouge
+
+# liquid:
+#   error_mode: warn
 
 sass:
   style: compressed
@@ -103,23 +129,17 @@ defaults:
       layout: post
       content-type: notes
 
-
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# safe: false
+# include: []
+exclude:
+  - ".sass-cache/"
+  - ".jekyll-cache/"
+  - "gemfiles/"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "node_modules/"
+  - "vendor/bundle/"
+  - "vendor/cache/"
+  - "vendor/gems/"
+  - "vendor/ruby/"
+  - "_notes/notes/Work/"

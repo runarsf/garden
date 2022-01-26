@@ -73,6 +73,13 @@ jobs:
           ### Flags accepted can be found here https://jekyllrb.com/docs/configuration/options/#build-command-options
           # custom_opts: '--drafts --future'
 
+      # HACK I have no clue why, but a large set of notes.* files are created, seemingly
+      #  with every file extension in the vault. Files not exclusively published can also appear
+      #  among these.
+      - name: Remove residual build files (hack)
+        run: |
+          find ./_site -type f -name 'notes.*' -not -name 'notes.html' -delete
+
       - name: 🚀 Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

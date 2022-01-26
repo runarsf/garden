@@ -2,11 +2,12 @@
 layout: post
 title: By Tags
 permalink: /tags/
-content-type: eg
+content-type: static
 ---
 
 <!-- TODO Display nested tags properly -->
 <!-- TODO Process inline hashtag-tags? -->
+<!-- TODO Show page tags as clickable pills on top of note -->
 
 <style>
 .category-content a {

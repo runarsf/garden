@@ -1,13 +1,15 @@
 {%- if site.copyright.owner != nil and site.copyright.owner != empty and site.copyright.owner != null -%}
 <div id="copyright">
   <!-- TODO Fix link styling like in nnl -->
+  <!-- TODO Add license image -->
   <p>
-  <a href="{{ site.copyright.url }}"><b>{{ site.copyright.owner }}</b></a>
+    <a href="{{ site.copyright.url }}"><b>{{ site.copyright.owner }}</b></a>
     {% if page.license %}
       | This page is licensed under <a href="{{ page.license_url }}">{{ page.license }}</a>.
     {% endif %}
   </p>
-  <p>Except where otherwise <a href="https://creativecommons.org/policies#license">noted</a>, content on this site is licensed under a <a href="{{ site.copyright.license_url }}">{{ site.copyright.license }}</a>.</p>
+  </p>
+  <p>Except where otherwise <a class='waves' href="https://creativecommons.org/policies#license">noted</a>, content on this site is licensed under a <a class='waves' href="{{ site.copyright.license_url }}">{{ site.copyright.license }}</a>.</p>
 </div>
 <script src="/assets/js/modeswitcher.js"></script>
 {%- endif -%}

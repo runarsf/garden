@@ -2,48 +2,86 @@
 layout: stylesheet
 ---
 
+/* Dark theme inspiration: https://jira.atlassian.com/secure/attachment/394474/With%20issue%20panel.png */
+
 @import "/assets/css/highlight.css";
 /* Containers: Body, Container, Box, Main, Header, Content */ 
 
+:root {
+    --d--bg-main: #202328;
+    --d--bg-sub: #17191C;
+    --d--bg-select: #262B31;
+    --d--color-bis: #E6E6E6;
+    --d--text-main: #C7CED6;
+    --d--text-sub: #929FB0;
+    --d--link: #6D9EFF;
+    --d--border: #3D4550;
+    --d--border-sub: #4B5769;
+    --d--navbar-bg: #262B31;
+
+    --l--bg-main: #FFFFFF;
+    --l--bg-sub: #FAFAFC;
+    --l--bg-select: #FAFAFC;
+    --l--color-bis: #363636;
+    --l--text-main: #18181C;
+    --l--text-sub: #5D5D67;
+    --l--link: #2380ED;
+    --l--border: #E5E5E5;
+    --l--border-sub: #FAFAFC;
+    --l--navbar-bg: #CDCED9;
+}
+
 html, html[data-theme="light"] {
-    --bg-main: #FFFFFF;
-    --bg-sub: #FAFAFC;
-    --color-bis: #363636;
-    --text-main: #18181C;
-    --text-sub: #5D5D67;
-    --link: #2380ED;
-    --border: #E5E5E5;
+    --bg-main: var(--l--bg-main);
+    --bg-sub: var(--l--bg-sub);
+    --bg-select: var(--l--bg-select);
+    --color-bis: var(--l--color-bis);
+    --text-main: var(--l--text-main);
+    --text-sub: var(--l--text-sub);
+    --link: var(--l--link);
+    --border: var(--l--border);
+    --border-sub: var(--l--border-sub);
+    --navbar-bg: var(--l--navbar-bg);
 }
 
 html[data-theme="dark"] {
-    --bg-main: #262D3B;
-    --bg-sub: #0F111A;
-    --color-bis: #E6E6E6;
-    --text-main: #FAFAFC;
-    --text-sub: #FFFFFF;
-    --link: #6D9EFF;
-    --border: #1C212B;
+    --bg-main: var(--d--bg-main);
+    --bg-sub: var(--d--bg-sub);
+    --bg-select: var(--d--bg-select);
+    --color-bis: var(--d--color-bis);
+    --text-main: var(--d--text-main);
+    --text-sub: var(--d--text-sub);
+    --link: var(--d--link);
+    --border: var(--d--border);
+    --border-sub: var(--d--border-sub);
+    --navbar-bg: var(--d--navbar-bg);
 }
 
 
 @media (prefers-color-scheme: dark) {
     html, html[data-theme="dark"] {
-        --bg-main: #262D3B;
-        --bg-sub: #0F111A;
-        --text-main: #FAFAFC;
-        --text-sub: #FFFFFF;
-        --link: #6D9EFF;
-        --border: #1C212B;
+        --bg-main: var(--d--bg-main);
+        --bg-sub: var(--d--bg-sub);
+        --bg-select: var(--d--bg-select);
+        --text-main: var(--d--text-main);
+        --text-sub: var(--d--text-sub);
+        --link: var(--d--link);
+        --border: var(--d--border);
+        --border-sub: var(--d--border-sub);
+        --navbar-bg: var(--d--navbar-bg);
     }
 
     html[data-theme="light"] {
-	    --bg-main: #FFFFFF;
-        --bg-sub: #FAFAFC;
-        --text-main: #18181C;
-        --text-sub: #5D5D67;
-        --link: #2380ED;
-        --border: #E5E5E5;
-  } 
+        --bg-main: var(--l--bg-main);
+        --bg-sub: var(--l--bg-sub);
+        --bg-select: var(--l--bg-select);
+        --text-main: var(--l--text-main);
+        --text-sub: var(--l--text-sub);
+        --link: var(--l--link);
+        --border: var(--l--border);
+        --border-sub: var(--l--border-sub);
+        --navbar-bg: var(--l--navbar-bg);
+    }
 }
 
 
@@ -92,6 +130,11 @@ main {
 .buttons.for-back-home:not(:last-child) {
     margin-left: 0;
     margin-bottom: 1rem;
+}
+
+.navbar {
+    background: var(--navbar-bg);
+    border-radius: 4px;
 }
 
 .navbar-item.navbar-dark-mode__mobile {
@@ -314,17 +357,19 @@ blockquote {
     padding: 10px;
 }
 
-
 summary {
-  /* display: flex;
-  align-items: center;
-  outline: none; */
-  cursor: pointer;
+    cursor: pointer;
 }
 
-cite {
-    padding-left: 50px;
-    font-style: oblique;
+.noselect,
+summary {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 blockquote p {
@@ -709,6 +754,7 @@ hr {
 }
 
 .search-results { 
+    margin-top: 10px;
     position: inherit; 
     left: 0; 
     display: none; 
@@ -716,8 +762,7 @@ hr {
     max-height: 500px; 
     overflow-y: auto; 
     background-color: var(--bg-main); 
-    border-bottom-right-radius: 4px; 
-    border-bottom-left-radius: 4px; 
+    border-radius: 7px; 
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08); ;
 }
 
@@ -745,12 +790,14 @@ hr {
     padding-right: 0.75rem; 
     padding-bottom: 0.25rem; 
     padding-left: 20px; 
+    margin: 8px;
+    border-radius: 4px;
     text-decoration: none !important;
 }
 
 .search-result:hover, 
 .search-result.active { 
-    background-color: var(--bg-sub); 
+    background-color: var(--bg-select); 
 }
 
 .search-result:hover > .search-result-title,
@@ -858,7 +905,7 @@ hr {
 }
 
 .search-active .search-results { 
-    display: block; 
+    display: block;
 }
 
 .search-active .search-overlay { 
@@ -1341,6 +1388,11 @@ label.srs-toggle {
     font-size: 0.7rem;
     /* font-weight: 700; */
     text-align: center;
+}
+
+#copyright a.waves {
+    text-decoration: 1px var(--text-sub) wavy underline;
+    font-style: italic;
 }
 
 #disqus_thread {

@@ -7,6 +7,13 @@ services:
     build: "."
     ports:
       - "4000:4000"
-    volumes:
-      - "./:/site"
+    # Uncomment this to see changes live
+    # volumes:
+    #   - "./:/site"
+    #   - "garden_exclude_site:/site/_site"
+    #   - "garden_exclude_cache:/site/.jekyll-cache"
     restart: "no"
+
+volumes:
+  garden_exclude_site:
+  garden_exclude_cache:
