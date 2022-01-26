@@ -10,10 +10,10 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-        rel="stylesheet"><meta content="Remarkable" property="og:title">
+        rel="stylesheet"><meta content="Bash Argument Parsing" property="og:title">
       <meta content="article" property="og:type">
-      <meta content="https://publish.runarsf.dev//notes/reMarkable" property="og:url"><title>📖 My Notebook</title>
-      <link rel="canonical" href="https://publish.runarsf.dev//notes/reMarkable" />
+      <meta content="https://publish.runarsf.dev//notes/Bash-Argument-Parsing" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev//notes/Bash-Argument-Parsing" />
       <link rel="apple-touch-icon" href="/assets/img/profile.png">
       <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
       <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
@@ -112,21 +112,65 @@
                     </span>
                   </a>
                 </div>
-                <h1>Remarkable</h1>
+                <h1>Bash Argument Parsing</h1>
                 <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
                 <div class="content">
-                  <h2 id="customization">Customization</h2>
-                  <h3 id="installed-hacks">Installed <em>hacks</em></h3>
-                  <blockquote>
-                    <p>Version:</p>
-                  </blockquote>
-                  <ul>
-                    <li>reMarkable Hacks</li>
-                    <li>Ebook reader</li>
-                    <li>lamy pen</li>
-                    <li>no launcher afair</li>
-                  </ul>
-                  <h2 id="debugging-and-resuscitation">Debugging and resuscitation</h2>
+                  <div class="language-bash highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code><span class="c"># Argument parsing {{{</span>
+<span class="nv">PARAMETER_DEFAULT</span><span class="o">=</span><span class="s2">""</span>
+<span class="nv">positional</span><span class="o">=()</span>
+<span class="k">while </span><span class="nb">test</span> <span class="s2">"</span><span class="k">${#}</span><span class="s2">"</span> <span class="nt">-gt</span> <span class="s2">"0"</span><span class="p">;</span> <span class="k">do
+  case</span> <span class="s2">"</span><span class="k">${</span><span class="nv">1</span><span class="k">}</span><span class="s2">"</span> <span class="k">in</span>
+    <span class="nt">-h</span><span class="p">|</span><span class="nt">--help</span><span class="p">)</span> <span class="c"># {{{</span>
+      usage
+      <span class="nb">exit </span>0
+      <span class="nb">shift</span><span class="p">;;</span> <span class="c"># }}}</span>
+    <span class="nt">-a</span><span class="p">|</span><span class="nt">--archive</span><span class="p">)</span> <span class="c"># {{{</span>
+      <span class="nv">ACTION</span><span class="o">=</span><span class="s2">"archive"</span>
+      <span class="nb">shift</span><span class="p">;;</span> <span class="c"># }}}</span>
+    <span class="nt">-u</span><span class="p">|</span><span class="nt">--unarchive</span><span class="p">)</span> <span class="c"># {{{</span>
+      <span class="nv">ACTION</span><span class="o">=</span><span class="s2">"unarchive"</span>
+      <span class="nb">shift</span><span class="p">;;</span> <span class="c"># }}}</span>
+    <span class="nt">-e</span><span class="p">|</span><span class="nt">--encrypt</span><span class="p">)</span> <span class="c"># {{{</span>
+      <span class="nv">ACTION</span><span class="o">=</span><span class="s2">"encrypt"</span>
+      <span class="nb">shift</span><span class="p">;;</span> <span class="c"># }}}</span>
+    <span class="nt">-d</span><span class="p">|</span><span class="nt">--decrypt</span><span class="p">)</span> <span class="c"># {{{</span>
+      <span class="nv">ACTION</span><span class="o">=</span><span class="s2">"decrypt"</span>
+      <span class="nb">shift</span><span class="p">;;</span> <span class="c"># }}}</span>
+    <span class="nt">-y</span><span class="p">|</span><span class="nt">--yes</span><span class="p">)</span> <span class="c"># {{{</span>
+      <span class="nb">shift</span><span class="p">;;</span> <span class="c"># }}}</span>
+    <span class="nt">--</span><span class="k">*</span><span class="p">)</span> <span class="c"># {{{</span>
+      <span class="nb">printf</span> <span class="s2">"Unknown option: </span><span class="k">${</span><span class="nv">1</span><span class="k">}</span><span class="se">\n</span><span class="s2">"</span>
+      <span class="nb">exit </span>1
+      <span class="nb">shift</span><span class="p">;;</span>
+    -<span class="k">*</span><span class="p">)</span>
+      <span class="nv">shopts</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">1</span><span class="k">}</span><span class="s2">"</span>
+      <span class="k">if </span><span class="nb">test</span> <span class="s2">"</span><span class="k">${#</span><span class="nv">shopts</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-le</span> <span class="s2">"2"</span><span class="p">;</span> <span class="k">then
+        </span><span class="nb">printf</span> <span class="s2">"Unknown option: </span><span class="k">${</span><span class="nv">shopts</span><span class="k">}</span><span class="se">\n</span><span class="s2">"</span>
+        <span class="nb">exit </span>2
+      <span class="k">fi
+      </span><span class="nb">shift
+      set</span> <span class="nt">--</span> <span class="s2">"</span><span class="k">${</span><span class="nv">shopts</span>:0:2<span class="k">}</span><span class="s2">"</span> <span class="s2">"-</span><span class="k">${</span><span class="nv">shopts</span>:2<span class="k">}</span><span class="s2">"</span> <span class="s2">"</span><span class="k">${</span><span class="p">@</span><span class="k">}</span><span class="s2">"</span>
+      <span class="p">;;</span>
+    <span class="k">*</span><span class="p">)</span>
+      positional+<span class="o">=(</span><span class="s2">"</span><span class="k">${</span><span class="nv">1</span><span class="k">}</span><span class="s2">"</span><span class="o">)</span>
+      <span class="nb">shift</span><span class="p">;;</span> <span class="c"># }}}</span>
+  <span class="k">esac</span>
+<span class="k">done
+</span><span class="nb">set</span> <span class="nt">--</span> <span class="s2">"</span><span class="k">${</span><span class="nv">positional</span><span class="p">[@]</span><span class="k">}</span><span class="s2">"</span>
+
+<span class="k">if </span><span class="nb">test</span> <span class="s2">"</span><span class="k">${#}</span><span class="s2">"</span> <span class="nt">-lt</span> <span class="s2">"1"</span><span class="p">;</span> <span class="k">then
+  </span><span class="nb">test</span> <span class="nt">-e</span> <span class="s2">"</span><span class="k">${</span><span class="nv">XDG_CONFIG_HOME</span><span class="k">:-${</span><span class="nv">HOME</span><span class="k">:-</span><span class="p">~</span><span class="k">}</span><span class="p">/.config</span><span class="k">}</span><span class="s2">/.vault"</span> <span class="o">&amp;&amp;</span> <span class="nv">VAULT</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">XDG_CONFIG_HOME</span><span class="k">:-${</span><span class="nv">HOME</span><span class="k">:-</span><span class="p">~</span><span class="k">}</span><span class="p">/.config</span><span class="k">}</span><span class="s2">/.vault"</span>
+  <span class="nb">test</span> <span class="nt">-e</span> <span class="s2">"</span><span class="k">${</span><span class="nv">HOME</span><span class="k">:-</span><span class="p">~</span><span class="k">}</span><span class="s2">/.vault"</span> <span class="o">&amp;&amp;</span> <span class="nv">VAULT</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">HOME</span><span class="k">:-</span><span class="p">~</span><span class="k">}</span><span class="s2">/.vault"</span>
+  <span class="nb">test</span> <span class="nt">-e</span> <span class="s2">"./.vault"</span> <span class="o">&amp;&amp;</span> <span class="nv">VAULT</span><span class="o">=</span><span class="s2">"./.vault"</span>
+  <span class="nb">test</span> <span class="nt">-e</span> <span class="s2">"./vault"</span> <span class="o">&amp;&amp;</span> <span class="nv">VAULT</span><span class="o">=</span><span class="s2">"./vault"</span>
+  <span class="nb">set</span> <span class="nt">--</span> <span class="s2">"</span><span class="k">${</span><span class="nv">VAULT</span>:?No<span class="p"> vault found...</span><span class="k">}</span><span class="s2">"</span>
+<span class="k">fi</span>
+<span class="c"># }}}</span>
+</code></pre>
+                    </div>
+                  </div>
                 </div>
                 <!-- Add backlinks to the current page --></div>
               <div id="copyright">
