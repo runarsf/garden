@@ -63,14 +63,14 @@ preferences:
     enabled: true # _includes/Homepage.html
 
 encoding: utf-8
+markdown_ext: "markdown,mkdown,mkdn,mkd,md,bib"
+timezone: Europe/Oslo
 # quiet: false
 # verbose: true
-# timezone: Europe/Oslo
 # host: 127.0.0.1
 # port: 4000
 # livereload: false
 # strict_front_matter: false
-# markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 # keep_files: [ ".git", ".svn" ]
 
 # whitelist: []

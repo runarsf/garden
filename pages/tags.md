@@ -8,6 +8,7 @@ content-type: static
 <!-- TODO Display nested tags properly -->
 <!-- TODO Process inline hashtag-tags? -->
 <!-- TODO Show page tags as clickable pills on top of note -->
+<!-- FIXME 'tags: nix, linux' leads to the tags 'nix,' and 'linux' -->
 
 <style>
 .category-content a {
