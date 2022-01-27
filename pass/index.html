@@ -11,9 +11,10 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-        rel="stylesheet"><meta content="website" property="og:type">
-      <meta content="https://publish.runarsf.dev/404.html" property="og:url"><title>📖 My Notebook</title>
-      <link rel="canonical" href="https://publish.runarsf.dev/404.html" />
+        rel="stylesheet"><meta content="Password Generator" property="og:title">
+      <meta content="article" property="og:type">
+      <meta content="https://publish.runarsf.dev/pass/" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev/pass/" />
       <link rel="apple-touch-icon" href="/assets/img/profile.png">
       <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
       <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
@@ -103,11 +104,82 @@
           <!-- TODO Fix horizontal overflow on mobile with long lines (e.g. note: Intro til matermatikk) --><!--- CASE 3 : Static Page -->
           <div class="column is-half">
             <main>
-              <h1></h1>
+              <h1>Password Generator</h1>
               <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
-              <div class="content"><center>
-                  <h1>404 Page Not Found :<sup>(</sup></h1>
-                </center></div>
+              <div class="content"><main>
+                  Length:&nbsp; <!-- TODO Correctly update slider value -->
+                  <input type="range" id="pwd-length" min="6" max="35" value="8" oninput="this.nextElementSibling.value = this.value" />
+                  <output>8</output>
+                  <br />
+                  <input type="checkbox" id="pwd-numbers" name="pwd-options" value="pwd-numbers" checked="" />
+                  <label for="pwd-numbers">Numbers</label>
+                  <br />
+                  <input type="checkbox" id="pwd-uppercase" name="pwd-options" value="pwd-uppercase" checked="" />
+                  <label for="pwd-uppercase">Uppercase</label>
+                  <br />
+                  <input type="checkbox" id="pwd-special" name="pwd-options" value="pwd-special" />
+                  <label for="pwd-special">Special characters</label>
+                  <br />
+                  <button onclick="generatePassword()">Generate</button>
+                  <button onclick="clearPasswords()">Clear</button>
+                  <br />
+                  <br />
+                  <hr style="background-color:var(--border);" /><br />
+                  <h3>Passwords</h3>
+                  <ul id="passwords"></ul>
+                </main>
+                <script>
+                  function clearPasswords() {
+                      const passwordUl = document.getElementById("passwords");
+                      passwordUl.innerHTML = "";
+                  }
+                  
+                  const randint = (_min=undefined, _max=undefined) => {
+                    const min =  Math.ceil((!_min && !_max) ? 10 : !_max ? 0    : _min);
+                    const max = Math.floor((!_min && !_max) ? 99 : !_max ? _min : _max);
+                  
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                  }
+                  
+                  function generatePassword(_len=undefined, _numbers=undefined, _uppercase=undefined, _special=undefined) {
+                      const length    = _len       !== undefined ? _len       : document.getElementById("pwd-length").value;
+                      const numbers   = _numbers   !== undefined ? _numbers   : document.getElementById("pwd-numbers").checked;
+                      const uppercase = _uppercase !== undefined ? _uppercase : document.getElementById("pwd-uppercase").checked;
+                      const special   = _special   !== undefined ? _special   : document.getElementById("pwd-special").checked;
+                  
+                      const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'v', 'w', 'x', 'z'];
+                      const vowels     = ['a', 'e', 'i', 'o', 'u', 'y']; // y is subjectively objectively a vowel.
+                      const specials   = ['!', '@', '#', '$', '%', '*', '&', '*', '-', '+', '?'];
+                  
+                      let password = "";
+                  
+                      let passwordConsonants = "";
+                      for ( let i = 1; i <= Math.floor(length / 2); i++ ) {
+                          passwordConsonants += consonants[randint(consonants.length - 1)]
+                      }
+                      let passwordVowels = "";
+                      for ( let i = 1; i <= Math.ceil(length / 2); i++ ) {
+                          passwordVowels += vowels[randint(vowels.length - 1)]
+                      }
+                      // Merge every other consonant / vowel (this is a hacky way to do it lol)
+                      const merge = (a, b) => a.length ? [a[0], ...merge(b, a.slice(1))] : b;
+                      password += merge(passwordConsonants, passwordVowels).join('');
+                  
+                      // Prepend
+                      if ( uppercase ) password = password.charAt(0).toUpperCase() + password.slice(1);
+                  
+                      // Append
+                      let append = "";
+                      if ( special ) append += specials[randint(specials.length - 1)];
+                      if ( numbers ) append += randint(10, 99).toString();
+                  
+                      if ( append ) password = password.slice(0, -append.toString().length) + append.toString();
+                  
+                      const passwordUl = document.getElementById("passwords");
+                      passwordUl.innerHTML += "<li>" + password + "</li>";
+                  }
+                </script>
+              </div>
               <div id="copyright">
                 <!-- TODO Fix link styling like in nnl -->
                 <!-- TODO Add license image -->

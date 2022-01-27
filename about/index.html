@@ -27,7 +27,8 @@
       <!--<link href="/assets/css/prism.css" rel="stylesheet" />-->
       <link rel="alternate" type="application/rss+xml" href="https://publish.runarsf.dev/feed.xml">
     </head>
-    <body><nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+    <body><!-- TODO Padding on right is slightly bigger than padding on left -->
+      <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item" href="../index.html">
             <!-- <svg width="32" height="32" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,9 +60,9 @@
             <a href="/notes" class="navbar-item">
               Notes
             </a>
-            <a href="/posts" class="navbar-item">
-              Posts
-            </a>
+            <!-- <a href="/posts" class="navbar-item">
+          Posts
+        </a> -->
             <a href="/tags" class="navbar-item">
               Tags
             </a>
@@ -106,7 +107,12 @@
               <h1>About</h1>
               <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
               <div class="content">
-                <p>Hallo! 👋</p>
+                <p>Hallo! 👋<br />
+                  <br />
+                  These are my notes — a neatly <strike>un-</strike>organized collection of my thoughts and ideas.<br />
+                  Here you can find everything from new-norwegian literature notes to opinionated best practices for writing bash scripts and managing a docker environment.<br />
+                  You can find my notes <a href="../notes" style="color:var(--link);">here</a>, or perhaps filter by <a href="../tags" style="color:var(--link);">tags</a>.<br />
+                </p>
                 <p><a href="https://github.com/runarsf/garden/actions/workflows/deploy.yaml"><img src="https://github.com/runarsf/garden/actions/workflows/deploy.yaml/badge.svg" alt="Build Status" /></a></p>
                 <main>
                   <details><summary><b>About site</b></summary>
