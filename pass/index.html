@@ -108,23 +108,23 @@
               <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
               <div class="content"><main>
                   Length:&nbsp; <!-- TODO Correctly update slider value -->
-                  <input type="range" id="pwd-length" min="6" max="35" value="8" oninput="this.nextElementSibling.value = this.value" />
+                  <input type="range" id="pwd-length" min="6" max="35" value="8" oninput="this.nextElementSibling.value = this.value">
                   <output>8</output>
-                  <br />
-                  <input type="checkbox" id="pwd-numbers" name="pwd-options" value="pwd-numbers" checked="" />
+                  <br/>
+                  <input type="checkbox" id="pwd-numbers" name="pwd-options" value="pwd-numbers" checked>
                   <label for="pwd-numbers">Numbers</label>
-                  <br />
-                  <input type="checkbox" id="pwd-uppercase" name="pwd-options" value="pwd-uppercase" checked="" />
+                  <br/>
+                  <input type="checkbox" id="pwd-uppercase" name="pwd-options" value="pwd-uppercase" checked>
                   <label for="pwd-uppercase">Uppercase</label>
-                  <br />
-                  <input type="checkbox" id="pwd-special" name="pwd-options" value="pwd-special" />
+                  <br/>
+                  <input type="checkbox" id="pwd-special" name="pwd-options" value="pwd-special">
                   <label for="pwd-special">Special characters</label>
-                  <br />
+                  <br/>
                   <button onclick="generatePassword()">Generate</button>
                   <button onclick="clearPasswords()">Clear</button>
-                  <br />
-                  <br />
-                  <hr style="background-color:var(--border);" /><br />
+                  <br/>
+                  <br/>
+                  <hr style="background-color:var(--border);"><br/>
                   <h3>Passwords</h3>
                   <ul id="passwords"></ul>
                 </main>
