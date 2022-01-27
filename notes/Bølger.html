@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="theme-color" content="#2F3136">
+    <meta content="📖 My Notebook" property="og:site_name" />
+    <meta
+        content="Welcome to my digital notebook!"
+        property="og:description">
+      <meta content="https://publish.runarsf.dev/about/" property="article:author">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet"><meta content="Bølger" property="og:title">
+      <meta content="article" property="og:type">
+      <meta content="https://publish.runarsf.dev/notes/B%C3%B8lger" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev/notes/B%C3%B8lger" />
+      <link rel="apple-touch-icon" href="/assets/img/profile.png">
+      <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
+      <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/main.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/Util.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/vendor/Katex.css" rel="stylesheet" media="all" class="default" />
+      <!--[if IE]>
+        <link href="/assets/css/ie-target.css" rel="stylesheet" type="text/css"/>
+      <![endif]-->
+      <!--<link href="/assets/css/prism.css" rel="stylesheet" />-->
+      <link rel="alternate" type="application/rss+xml" href="https://publish.runarsf.dev/feed.xml">
+    </head>
+    <body><nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="../index.html">
+            <!-- <svg width="32" height="32" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M36.9477 13.7742C38.3043 11.4086 41.6957 11.4086 43.0523 13.7742L70.5226 61.6774C71.8791 64.043 70.1834 67 67.4703 67H12.5297C9.81658 67 8.12089 64.043 9.47744 61.6774L36.9477 13.7742ZM40 16.9677L13.7506 62.7419H66.2494L40 16.9677Z" fill="var(--text-main)"/>
+        </svg> -->
+            <!-- TODO Underline active page -->
+            <h4>📖 My Notebook</h4>
+          </a>
+          <div class="navbar-item navbar-dark-mode__mobile is-hidden-tablet" onclick="modeSwitcher()">
+            <div class="buttons">
+              <a class="button is-text">
+                <span class="icon is-small">
+                  <img src="../assets/img/sun.svg" id="theme-toggle-img--mobile">
+                </span>
+              </a>
+            </div>
+          </div>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="/about" class="navbar-item">
+              About
+            </a>
+            <a href="/notes" class="navbar-item">
+              Notes
+            </a>
+            <a href="/posts" class="navbar-item">
+              Posts
+            </a>
+            <a href="/tags" class="navbar-item">
+              Tags
+            </a>
+            <a href="/feed.xml" class="navbar-item">
+              RSS
+            </a>
+            <!-- <a href="https://github.com/runarsf" target="_blank" class="navbar-item">
+          My GitHub
+        </a> -->
+          </div>
+          <div class="navbar-end is-hidden-mobile" onclick="modeSwitcher()" >
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-text">
+                  <span class="icon is-small">
+                    <img src="../assets/img/sun.svg" id="theme-toggle-img">
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script src="/assets/js/Hamburger.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+           tex2jax: {
+               inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+               displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+               processEscapes: true
+                   }
+               });
+      </script>
+      <!-- ??? Should this be used with katex -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+      <section class="section">
+        <div class="columns is-centered">
+          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
+          <!-- TODO Fix horizontal overflow on mobile with long lines (e.g. note: Intro til matermatikk) -->
+          <div class="column is-three-fifths">
+            <main>
+              <div class="note-page-section">
+                <div class="buttons for-back-home"><a class="button is-text button__page-back" onclick="window.history.back();"><span class="icon is-small">
+                      <svg width="12" height="20" viewBox="0 0 12 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M11.0309 0.468998C11.1007 0.538667 11.1561 0.62143 11.1939 0.712548C11.2318 0.803665 11.2512 0.901347 11.2512 0.999998C11.2512 1.09865 11.2318 1.19633 11.1939 1.28745C11.1561 1.37857 11.1007 1.46133 11.0309 1.531L2.56038 10L11.0309 18.469C11.1717 18.6098 11.2508 18.8008 11.2508 19C11.2508 19.1992 11.1717 19.3902 11.0309 19.531C10.89 19.6718 10.699 19.7509 10.4999 19.7509C10.3007 19.7509 10.1097 19.6718 9.96887 19.531L0.968875 10.531C0.899031 10.4613 0.843616 10.3786 0.805806 10.2874C0.767997 10.1963 0.748535 10.0986 0.748535 10C0.748535 9.90135 0.767997 9.80367 0.805806 9.71255C0.843616 9.62143 0.899031 9.53867 0.968875 9.469L9.96887 0.468998C10.0385 0.399153 10.1213 0.343739 10.2124 0.305929C10.3035 0.26812 10.4012 0.248657 10.4999 0.248657C10.5985 0.248657 10.6962 0.26812 10.7873 0.305929C10.8784 0.343739 10.9612 0.399153 11.0309 0.468998Z"
+                                        fill="var(--text-main)" />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+                <h1>Bølger</h1>
+                <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
+                <div class="content">
+                  <h2 id="oppsummert-læremål">Oppsummert, læremål</h2>
+                  <ul class="task-list">
+                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Forstå og kunne bruke begreper knyttet til bølgebevegelse.</li>
+                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Forklare sammenhengen mellom bølgefart, frekvens og bølgelengde, og bruke den i beregninger.
+                      <ul>
+                        <li>$v = f \cdot \lambda$</li>
+                      </ul>
+                    </li>
+                    <li class="task-list-item">Forklare fenomenet overlagring.</li>
+                    <li class="task-list-item">Forklare hvordan interferens oppstår og gjøre beregninger med interferensformelen.</li>
+                    <li class="task-list-item">Kjenne til det elektromagnetiske spekteret og forklare hvordan bølgelengde påvirker brytning og interferensmønster.</li>
+                  </ul>
+                  <h2 id="introduksjon">Introduksjon</h2>
+                  <h3 id="idémyldring">Idémyldring</h3>
+                  <p>Hva er en bølge?</p>
+                  <ul>
+                    <li>Svingning</li>
+                    <li>Kurve</li>
+                    <li>Frekvens</li>
+                    <li>Amplitude, periode</li>
+                    <li>Sinusbølge</li>
+                  </ul>
+                  <p>Ulike bølger</p>
+                  <ul>
+                    <li>Lydbølger</li>
+                    <li>Vannbølger</li>
+                    <li>(Veksel)-strøm</li>
+                    <li>Temperaturbølge</li>
+                    <li>Lysbølger</li>
+                    <li>Alpha-bølge (radioaktivitet)</li>
+                    <li>Mikrobølge</li>
+                    <li>Radiobølge</li>
+                  </ul>
+                  <hr />
+                  <p><strong>Bølge</strong>: En bølge er en svingning som forflytter seg. Stedet med maksimalt utslag forflytter seg.
+                    <strong>Transversal bølge</strong>: En bølge der utslagene skjer på tvers av bevegelsesretningen kalles transversal.
+                    <strong>Bølgelengde</strong>: Minste avstand mellom to punkter som er i same svingetilstand. F.eks. fra bølgetopp til neste bølgetopp
+                    <strong>Symbol</strong>: $\lambda$</p>
+                  <p><img src="_assets/Bølger_2022-01-18%2010.47.04.excalidraw.svg" alt="" />
+                    %%<a href="../../_assets/Bølger_2022-01-18%2010.47.04.excalidraw.md">🖋 Edit in Excalidraw</a>%%</p>
+                  <p><strong>Bølgefart</strong>: Hastigheten til bølgen. Dvs. f.eks. hastigheten en bølgetopp beveger seg med i bølgeretningen.</p>
+                  <p><strong>Eksempel</strong>: Vi måler avstand og tid det tar for en bølgetopp å bevege seg til vinduet og regner ut bølgefarten
+                    Simulasjon: <a href="https://phet.colorado.edu/en/simulations/wave-on-a-string">PHET Wave on a String</a>
+                    Måler en bølgetopp som bruker 5,35s fra begynnelsen til vinduet, en strekning på 6,6cm.
+                    $t = 5,35s$
+                    $s = 6,6cm$
+                    $v = \frac{s}{t} = \frac{6,6cm}{5,35s} = 1,2cm/s$ (Note: bruker ikke SI-enheter)</p>
+                  <h2 id="sammenhengen-mellom-frekvens-bølgelengde-og-bølgefart">Sammenhengen mellom frekvens, bølgelengde og bølgefart</h2>
+                  <p>En periode er tiden det tar for en hel svingning. På en periode beveger bølgen seg en bølgelengde.
+                    I løpet av en periode vil en bølge bevege seg en bølgelengde. Dermed har vi:
+                    $v = \frac{s}{t} = \frac{\lambda}{T} = \lambda \cdot \frac{1}{T} = \lambda f$</p>
+                  <p><strong>Eksempel</strong>:
+                    $\lambda = 3,1cm$
+                    $f = 0,39Hz$ (Note: Hz og 1/s eller s^-1 er det samme)
+                    $v = \lambda f = 3,1cm \cdot 0,39s^{-1} = 1,21cm/s$</p>
+                  <h2 id="svingninger">Svingninger</h2>
+                  <p><strong>Svingning</strong>: En regelmessig bevegelse opp og ned.
+                    For noen bølger skjer svingningene langs samme linje som bølgen beveger seg. Da har vi en longditunal bølge.
+                    Eksempel: lydbølger
+                    Dersom vi ser på trykket (antall partikler) i et punkt vil dette også svinge. En lydbølge kan derfor også beskrives som en svingning i trykk som brer seg utover.</p>
+                  <p><strong>Utslag</strong>: Hvor langt objektet har beveget seg fra likevekstlinja. E.g. $-9cm$.
+                    <strong>Svingetilstand</strong>: Utslag og hvilken retning bevegelsen skjer.</p>
+                  <p><strong>Amplitude</strong>: Største mulige utslag til en svingning. E.g. $21cm$.</p>
+                  <p><strong>Periode</strong>: Tiden det tar på en hel svingning, det vil si fra loddet er i en svingetilstand til det er i samme svingetilstand igjen. F.eks. fra bunnpunkt til bunnpunkt igjen.
+                    <strong>Symbol</strong>: $T$</p>
+                  <p><strong>Frekvens</strong>: Antall svingninger per tidsintervall (sekund). Antall ganger loddet er i samme svingetilstand i løpet av et tidsintervall (sekund).
+                    <strong>Symbol</strong>: $f$
+                    <strong>SI-enhet</strong>: $Hertz (Hz)$
+                    $\text{Frekvens} = \frac{\text{I}}{\text{Periode}}$
+                    $\text{f} = \frac{\text{I}}{\text{T}}$</p>
+                  <h2 id="eksempel-frekvens-og-periode">Eksempel frekvens og periode</h2>
+                  <p>Vi måler perioden til en elastisk pendel og regner ut frekvensen
+                    $T = 1,22s$
+                    $f = \frac{1}{1,22s} = 0,8 Hz$</p>
+                  <p>For mer nøyaktig måleresultat kan vi måle tiden til flere svingninger (10)
+                    $f = 12,67$
+                    Finner periode (tid per svingning)
+                    $T = \dfrac{12,67s}{10} = 1,267s$
+                    Regner ut frekvensen
+                    $f = \dfrac{1}{T} = \dfrac{1}{1,267s} = \underline{\underline{0,789Hz}}$</p>
+                  <h2 id="bølgeenergi">Bølgeenergi</h2>
+                  <p>Alle bølger overfører energi fra der hvor bølger starter til der den ender. I form av overføring/forflytning av bevegelsesenergi.
+                    Bølger har energi. Etterhvert som bølgetoppen flytter seg bortover, flytter energien seg.</p>
+                  <p><strong>Eksempel</strong>: Bølge på en streng.</p>
+                  <p><img src="_assets/Bølger_180122-113111.excalidraw.svg" alt="" />
+                    %%<a href="../../_assets/Bølger_180122-113111.excalidraw.md">🖋 Edit in Excalidraw</a>%%</p>
+                  <p>Større amplitude gir mer energi. Større bølgefart gjør at energien transporteres raskere.</p>
+                  <hr />
+                  <h1 id="time-2--20-01-2022">Time 2 — 20-01-2022</h1>
+                  <iframe src="https://www.youtube.com/embed/Iuv6hY6zsd0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" width="560" height="315">
+                  </iframe>
+                  <p>Dette kalles et interferensmønster</p>
+                  <p>Mål for timen
+                    Kunne forklare begrepene</p>
+                  <h2 id="bøyning-av-bølger">Bøyning av bølger</h2>
+                  <p>Dersom vi sender en bølge gjennom en spalte (trang åpning), vil den bøyes på andre siden av åpningen</p>
+                  <h2 id="fase">Fase</h2>
+                  <p><strong>Fase</strong>: Beskriver hvor i svingebevegelsen bølgen er i et punkt. Nesten det samme som svingetilstand. Angitt gjerne som et tall mellom 0 og $2\pi$.</p>
+                  <p>Svingetilstand: Hvor stort er utslaget og hvilen retning svingebevegelsen skjer.</p>
+                  <p>To bølger er i fase i et punkt hvis de har samme fase i det punktet.</p>
+                  <h2 id="bølgefronter">Bølgefronter</h2>
+                  <p>Simulasjon: PHET Bølger — Introduksjon</p>
+                  <p>For å tegne bølger kan vi bruke farge til å indikere utslaget.</p>
+                  <p>En enda enklere måte å gjøre dette på er å tegne bølgefronter.
+                    <strong>Bølgefront</strong>: Linjer gjennom punkter på bølgen som er i samme fase.
+                    F.eks. linjer som markerer bølgetopp.</p>
+                  <p><img src="_assets/Bølger_200122-083152.excalidraw.svg" alt="" />
+                    %%<a href="../../_assets/Bølger_200122-083152.excalidraw.md">🖋 Edit in Excalidraw</a>%%</p>
+                  <h2 id="overlagring">Overlagring</h2>
+                  <p>Hva skjer når to bølger møtes?</p>
+                  <iframe scrolling="no" src="https://physics.bu.edu/~duffy/HTML5/interference.html" title="" alt="Se kontroller lenger ned på siden" style="width:100%; height:580px; overflow:hidden; border:none;" frameborder="0"></iframe>
+                  <p>Kort forklart, når to små bølger møtes vil vi få en stor bølge. Så fortsetter de som om ingenting skulle ha skjedd.
+                    Lydbølger passerer mer eller mindre rett gjennom hverandre.
+                    Det overføres generelt lite energi til andre energiformer når to bølger kolliderer.</p>
+                  <p>Når bølger møtes kan vi legge sammen utslagene for å finne totalutslaget (resultantutslag).
+                    Bølger kan passere hverandre uten å endre form, amplitude, frekvens, eller bølgelengde.</p>
+                  <h2 id="interferens-forsterkning-og-utlsokning">Interferens: Forsterkning og utlsokning</h2>
+                  <p>Forsterkning — Konstruktiv interferens
+                    Utslokning — Destruktiv interferens</p>
+                  <p>Simulasjon: PHET Bølgeinterferens</p>
+                  <p>Langs interferenslinja møtes bølgetoppene <em>og</em> bølgebunnene.
+                    Der bølgetopper og bølgebunner møtes gis det forsterkning (konstruktiv interferens).</p>
+                  <p><strong>Første/andre/tredje forsterkningslinje</strong> / <strong>Første/andre/tredjeordens maksimum</strong>:</p>
+                  <p>Et punkt P ligger på den n-te forsterkningslinja dersom forskjellen i avstand mellom punktet og de to spaltene  er n bølgelengder.
+                    Annen formulering: Et punkt ligger på forsterkningslinja dersom forskjellen i avstand mellom punktet og de to spaltene er et helt antall bølgelengder.
+                    F.eks. hvis forskjellen i avstand er 1 bølgelengde, så ligger, punktet på den første forsterkningslinja.
+                    <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>S</mi><mo>=</mo><mi mathvariant="normal">∣</mi><msub><mi>S</mi><mn>1</mn></msub><mi>P</mi><mo>−</mo><msub><mi>S</mi><mn>2</mn></msub><mi>P</mi><mi mathvariant="normal">∣</mi><mo>=</mo><mi>n</mi><mi>λ</mi><mo separator="true">,</mo><mi>n</mi><mo>=</mo><mi mathvariant="double-struck">Z</mi></mrow><annotation encoding="application/x-tex">\Delta S = | S_{1} P - S_{2} P | = n \lambda, n = \mathbb{Z}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Δ</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">nλ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord mathbb">Z</span></span></span></span>
+                    Forskjell i avstand = helt antall bølgelengder</p>
+                  <p>Formelen gjelder barre hvis frekvensen til bølgekildene er lik og når bølgekildene er i fase (bølgetopp i begge kildene samtidig).</p>
+                  <p>Dersom forskjellen i avstand mellom punktet og de to spaltene/bølgekildene er et helt antall bølgelengder — en halv bølgelende ligger punkter på utslukningslinja</p>
+                  <p>NB! At det er en bølgebunn betyr ikke at det er <em>lite</em> lyd</p>
+                  <p>(se figur i forelesning)
+                    <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable rowspacing="0.2500em" columnalign="right" columnspacing=""><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi mathvariant="normal">Δ</mi><mi>S</mi><mo>=</mo><mrow><mo fence="true">(</mo><mi>n</mi><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo fence="true">)</mo></mrow><mi>λ</mi><mo separator="true">,</mo><mi>n</mi><mo>=</mo><mi mathvariant="double-struck">Z</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mtext>n = nummeret til utslokningslinja</mtext></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+                              \Delta S = \left(n - \frac{1}{2} \right) \lambda , n = \mathbb{Z} \\
+                              \text{n = nummeret til utslokningslinja}
+                              \end{aligned}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:4.20003em;vertical-align:-1.850015em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.350015em;"><span style="top:-4.350015000000001em;"><span class="pstrut" style="height:3.45em;"></span><span class="mord"><span class="mord">Δ</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">λ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathbb">Z</span></span></span><span style="top:-2.2599850000000004em;"><span class="pstrut" style="height:3.45em;"></span><span class="mord"><span class="mord text"><span class="mord">n = nummeret til utslokningslinja</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.850015em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+                  <blockquote>
+                    <p>Oppgave p.314
+                      <img src="_assets/Bølger_200122-094218.excalidraw.svg" alt="" />
+                      %%<a href="../../_assets/Bølger_200122-094218.excalidraw.md">🖋 Edit in Excalidraw</a>%%</p>
+                  </blockquote>
+                </div>
+                <!-- Add backlinks to the current page --></div>
+              <div id="copyright">
+                <!-- TODO Fix link styling like in nnl -->
+                <!-- TODO Add license image -->
+                <p>
+                  <a href="https://github.com/runarsf"><b>Runar Fredagsvik</b></a>
+                </p>
+              </p>
+              <p>Except where otherwise <a class='waves' href="https://creativecommons.org/policies#license">noted</a>, content on this site is licensed under a <a class='waves' href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+            </div>
+            <script src="/assets/js/modeswitcher.js"></script></main>
+        </div>
+        <button onclick="scrollToTop()" id="scrollToTop" title="Go to top"></button>
+        <style>
+          /* TODO --text-main doesn't seem to work for the button when in light mode */
+          #scrollToTop {
+              display: none; /* Hidden by default */
+              position: fixed; /* Fixed/sticky position */
+              bottom: 20px; /* Place the button at the bottom of the page */
+              right: 20px; /* Place the button 30px from the right */
+              z-index: 99; /* Make sure it does not overlap */
+              border: none; /* Remove borders */
+              outline: none; /* Remove outline */
+              background-color: var(--bg-main); /* Set a background color */
+              color: var(--text-main); /* Text color */
+              cursor: pointer; /* Add a mouse pointer on hover */
+              padding: 15px; /* Some padding */
+              border-radius: 50%; /* Rounded corners */
+              font-size: 18px; /* Increase font size */
+              position: fixed;
+          
+              width: 40px;
+              height: 40px;
+              background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
+              background-size: 35%;
+              background-repeat: no-repeat;
+              background-position: center;
+              transform: rotate(180deg); /* Hack to flip button upside down */
+          }
+          
+          #scrollToTop:hover {
+              background-color: var(--border);
+          }
+          #scrollToTop:active {
+              filter: brightness(75%);
+          }
+        </style>
+        <script>
+          scrollToTopButton = document.getElementById("scrollToTop");
+          
+          window.onscroll = function () { scrollViewFunction() };
+          
+          function scrollViewFunction() {
+              if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+                  scrollToTopButton.style.display = "block";
+              } else {
+                  scrollToTopButton.style.display = "none";
+              }
+          }
+          
+          function scrollToTop() {
+              document.body.scrollTop = 0; // For Safari
+              document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+          }
+        </script><!--- CASE 3 : Static Page --><!--- CASE 4 : Blog Listing page --><!--- CASE 5 :  Notes Listing page --></div>
+    </section>
+  </body>
+</html>

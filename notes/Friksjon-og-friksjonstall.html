@@ -11,10 +11,10 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-        rel="stylesheet"><meta content="Frekvens" property="og:title">
+        rel="stylesheet"><meta content="Friksjon og friksjonstall" property="og:title">
       <meta content="article" property="og:type">
-      <meta content="https://publish.runarsf.dev/notes/Frekvens" property="og:url"><title>📖 My Notebook</title>
-      <link rel="canonical" href="https://publish.runarsf.dev/notes/Frekvens" />
+      <meta content="https://publish.runarsf.dev/notes/Friksjon-og-friksjonstall" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev/notes/Friksjon-og-friksjonstall" />
       <link rel="apple-touch-icon" href="/assets/img/profile.png">
       <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
       <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
@@ -114,32 +114,37 @@
                     </span>
                   </a>
                 </div>
-                <h1>Frekvens</h1>
+                <h1>Friksjon og friksjonstall</h1>
                 <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
                 <div class="content">
-                  <h1 id="frekvens">Frekvens</h1>
-                  <p>Antall bølger som passerer et punkt per tidsenhet. Antall svingninger per tidsenhet.
-                    Måleenhet: $Hz = s^{-1}$
-                    Symbol: $f$</p>
-                  <hr />
+                  <h2 id="glidefriksjon">Glidefriksjon</h2>
+                  <p>Når to flater er i kontakt med hverandre og beveger seg i forhold til hverandre så er friksjonen gitt ved:
+                    Friksjonskraft = Friksjonstall * Normalkraft
+                    $R = \mu \cdot N$
+                    ($\mu$: Gresk “Mu” (uttales my))</p>
+                  <p>Dette innebærer at for å dytte noe lønner det seg å løfte det litt for å avbelaste normalkraften.</p>
+                  <blockquote>
+                    <p>🔖 Friksjon: Mekanikk, side 22 i formelsamlinga.
+                      Friksjonstall: Side 10 i formelsamlinga. (Glidefriksjonstall, for om noe er i bevegelse.)</p>
+                  </blockquote>
+                  <h2 id="hvilefriksjon">Hvilefriksjon</h2>
+                  <p>Dersom et objekt er i ro, er friksjonskraften akkurat så stor at summen av kreftene er null.
+                    Hvilefriksjon gitt av $\sum F = O$ (<a href="Newtons%201.%20lov.md">notes/Fysikk TFOR0102/Newtons 1. lov</a>)
+                    Hvilefriksjonens maksimalverdi er gitt ved: $R = M_H \cdot N$</p>
+                  <p><img src="https://i.runarsf.dev/runar/CunIRulU55.png/raw" alt="" /></p>
+                  <p><img src="https://i.runarsf.dev/runar/JeqUSANU64.png/raw" alt="" /></p>
+                  <blockquote>
+                    <p>Vi dytter en kasse med masse 50kg. Friksjonstallet for vhilefriksjonen mellom kassa og gulvet er 0.80.
+                      a) Hvor stor kraft må vi dytte med for å få kassen til å bevege seg.
+                      Friksjonstallet for glidefriksjonen er 0.75.
+                      b) Hva blir akselerasjonen til kassa dersom vi dytter med kraften vi fant a <em>a)</em>.</p>
+                  </blockquote>
+                  <p>a) Vi må dytte med større kraft enn maksimal hvilefriksjon.
+                    $R = M_H \cdot N$
+                    Newtons 1. lov i y-retning:
+                    $N = G = mg = N = 50kg \cdot 9.81m/s^2$</p>
                 </div>
-                <!-- Add backlinks to the current page -->
-                <div class="related show" id="jekyll-seamless-backlinks">
-                  <h5 class="block-title">Links to this note</h5>
-                  <div class="related-wrapper">
-                    <div class="related-group"><a href="/notes/Interferens">
-                        <h4>Interferens</h4>
-                        <p class="related-excerpt" style="margin: 0px;">Repetisjon
-                          [[Frekvens]]
-                          [[Bølgelengde]]
-                          [[Bølgefart]]
-                          [[Brytning]]
-                          [[Brytningsindeks]...</p>
-                      </a></div>
-                  </div>
-                  <br/>
-                </div>
-              </div>
+                <!-- Add backlinks to the current page --></div>
               <div id="copyright">
                 <!-- TODO Fix link styling like in nnl -->
                 <!-- TODO Add license image -->

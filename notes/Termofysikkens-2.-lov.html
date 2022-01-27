@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="theme-color" content="#2F3136">
+    <meta content="📖 My Notebook" property="og:site_name" />
+    <meta
+        content="Welcome to my digital notebook!"
+        property="og:description">
+      <meta content="https://publish.runarsf.dev/about/" property="article:author">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet"><meta content="Termofysikkens 2. lov" property="og:title">
+      <meta content="article" property="og:type">
+      <meta content="https://publish.runarsf.dev/notes/Termofysikkens-2.-lov" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev/notes/Termofysikkens-2.-lov" />
+      <link rel="apple-touch-icon" href="/assets/img/profile.png">
+      <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
+      <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/main.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/Util.css" rel="stylesheet" media="all" class="default" />
+      <link href="/assets/css/vendor/Katex.css" rel="stylesheet" media="all" class="default" />
+      <!--[if IE]>
+        <link href="/assets/css/ie-target.css" rel="stylesheet" type="text/css"/>
+      <![endif]-->
+      <!--<link href="/assets/css/prism.css" rel="stylesheet" />-->
+      <link rel="alternate" type="application/rss+xml" href="https://publish.runarsf.dev/feed.xml">
+    </head>
+    <body><nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="../index.html">
+            <!-- <svg width="32" height="32" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M36.9477 13.7742C38.3043 11.4086 41.6957 11.4086 43.0523 13.7742L70.5226 61.6774C71.8791 64.043 70.1834 67 67.4703 67H12.5297C9.81658 67 8.12089 64.043 9.47744 61.6774L36.9477 13.7742ZM40 16.9677L13.7506 62.7419H66.2494L40 16.9677Z" fill="var(--text-main)"/>
+        </svg> -->
+            <!-- TODO Underline active page -->
+            <h4>📖 My Notebook</h4>
+          </a>
+          <div class="navbar-item navbar-dark-mode__mobile is-hidden-tablet" onclick="modeSwitcher()">
+            <div class="buttons">
+              <a class="button is-text">
+                <span class="icon is-small">
+                  <img src="../assets/img/sun.svg" id="theme-toggle-img--mobile">
+                </span>
+              </a>
+            </div>
+          </div>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="/about" class="navbar-item">
+              About
+            </a>
+            <a href="/notes" class="navbar-item">
+              Notes
+            </a>
+            <a href="/posts" class="navbar-item">
+              Posts
+            </a>
+            <a href="/tags" class="navbar-item">
+              Tags
+            </a>
+            <a href="/feed.xml" class="navbar-item">
+              RSS
+            </a>
+            <!-- <a href="https://github.com/runarsf" target="_blank" class="navbar-item">
+          My GitHub
+        </a> -->
+          </div>
+          <div class="navbar-end is-hidden-mobile" onclick="modeSwitcher()" >
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-text">
+                  <span class="icon is-small">
+                    <img src="../assets/img/sun.svg" id="theme-toggle-img">
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script src="/assets/js/Hamburger.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+           tex2jax: {
+               inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+               displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+               processEscapes: true
+                   }
+               });
+      </script>
+      <!-- ??? Should this be used with katex -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+      <section class="section">
+        <div class="columns is-centered">
+          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
+          <!-- TODO Fix horizontal overflow on mobile with long lines (e.g. note: Intro til matermatikk) -->
+          <div class="column is-three-fifths">
+            <main>
+              <div class="note-page-section">
+                <div class="buttons for-back-home"><a class="button is-text button__page-back" onclick="window.history.back();"><span class="icon is-small">
+                      <svg width="12" height="20" viewBox="0 0 12 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M11.0309 0.468998C11.1007 0.538667 11.1561 0.62143 11.1939 0.712548C11.2318 0.803665 11.2512 0.901347 11.2512 0.999998C11.2512 1.09865 11.2318 1.19633 11.1939 1.28745C11.1561 1.37857 11.1007 1.46133 11.0309 1.531L2.56038 10L11.0309 18.469C11.1717 18.6098 11.2508 18.8008 11.2508 19C11.2508 19.1992 11.1717 19.3902 11.0309 19.531C10.89 19.6718 10.699 19.7509 10.4999 19.7509C10.3007 19.7509 10.1097 19.6718 9.96887 19.531L0.968875 10.531C0.899031 10.4613 0.843616 10.3786 0.805806 10.2874C0.767997 10.1963 0.748535 10.0986 0.748535 10C0.748535 9.90135 0.767997 9.80367 0.805806 9.71255C0.843616 9.62143 0.899031 9.53867 0.968875 9.469L9.96887 0.468998C10.0385 0.399153 10.1213 0.343739 10.2124 0.305929C10.3035 0.26812 10.4012 0.248657 10.4999 0.248657C10.5985 0.248657 10.6962 0.26812 10.7873 0.305929C10.8784 0.343739 10.9612 0.399153 11.0309 0.468998Z"
+                                        fill="var(--text-main)" />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+                <h1>Termofysikkens 2. lov</h1>
+                <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
+                <div class="content">
+                  <h3 id="repetisjon-varmekapasitet-og-fasevarme">Repetisjon <span class="tooltip"><a href="/notes/Varmekapasitet-og-fasevarme">Varmekapasitet og fasevarme</a><span class="right bottom"><span class="tooltip-title">Varmekapasitet og fasevarme</span><br/>
+                        <span class="tooltip-excerpt">Repetisjon<br />
+                          <br />
+                          Varme (Q):<br />
+                          <br />
+                          Overføring av energi på grunn av temperaturfoskjell. Energien går fra ovjekt med høy temperatur til lav temperatur.<br />
+                          “Hvorfor overføres temperaturen til de med lavere tem...</span><i></i></span></span></h3>
+                  <blockquote>
+                    <p>❓ Hvilke utsagn om varmekapasitet stemmer?
+                      <strong>A)</strong> Sto varmekapasitet betyr at et stoff kan ta til seg og lagre mye energi i forhold til et stoff med liten varmekapasitet. <em>(R)</em>
+                      <strong>B)</strong> Varmekapasitet måles i Kelvin per Joule. <em>(V)</em></p>
+                    <blockquote>
+                      <p>Joule per Kelvin, hvor mange J skal til for å varme opp objektet med 1K)
+                        <strong>C)</strong> Spesifikk varmekapasitet er varmekapasitet per masseenhet <em>(R)</em>
+                        $c = \dfrac{Q}{m \cdot \Delta T} = \dfrac{C}{m}$
+                        $[c] = \dfrac{J/K}{kg} = \dfrac{J}{K \cdot kg}$
+                        <strong>D)</strong> Vann har høy spesifikk varmekapasitet i forhold til andre stoff.
+                        Tabell s.187 i læreboka, varmekapasitet på en del ting.
+                        <strong>E)</strong> Temperaturforskjellen mellom natt og dag er mye større innlands enn ved kysten grunnet havets varmekapasitet.
+                        Vann har høy spesifikk varmekapasitet (D)
+                        → Kan lagre mye energi (A)
+                        Varmere vann enn luft
+                        Vanntemperaturen synker med 1°C tilsvarende de mengde luft øker temperaturen med 4.2°C</p>
+                    </blockquote>
+                  </blockquote>
+                  <blockquote>
+                    <p>❓ <img src="https://i.runarsf.dev/runar/WIv6.png/raw" alt="" /></p>
+                    <blockquote>
+                      <p>D stemmer hvis stoffet er 20°C
+                        $4500-1000kJ = 3500kJ$</p>
+                    </blockquote>
+                  </blockquote>
+                  <p>Energi soml ett kan utnyttes til å utføre et arbeid eller som lett kan omformes til andre energiformer kalles <mark style="background: #ADCCFFA6;">høyverdig energi</mark> .
+                    Vi bruker også begreper høy energikvalitet om slik energi.
+                    Energi som vanskelig kan utnyttes til å utføre et arbeid eller som det er vanskelig å omforme til andre energiformer kalles <mark style="background: #ADCCFFA6;">lavverdig energi</mark> .</p>
+                  <p><strong>Termofysikkens 2. lov:</strong>
+                    I alle prosesser blir den samlede energikvaliteten lavere</p>
+                  <h3 id="energityper">Energityper</h3>
+                  <p>Potensiell energi vil ofte være lettere å utnytte, fordi vi vet <em>hvor</em> den er.</p>
+                  <p><mark style="background: #BBFABBA6;">Elektrisk energi</mark></p>
+                  <p><mark style="background: #BBFABBA6;">Kjemisk energi
+                      Indre potensiell
+                      (Mat, olje, kull, bensin, batterier)</mark></p>
+                  <p><mark style="background: #BBFABBA6;">Mekanisk bevegelsesenergi
+                    </mark>
+                    <mark style="background: #FFB86CA6;">Strålingsenergi</mark>
+                    <mark style="background: #FF5582A6;">Varmeenergi</mark></p>
+                  <p><mark style="background: #BBFABBA6;">Kjerneenergi</mark></p>
+                  <p><mark style="background: #BBFABBA6;">Mekanisk potensiell energi</mark></p>
+                  <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.2500em" columnalign="right" columnspacing=""><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mtext>Kjerneenergi</mtext><mo>⟶</mo><mrow><mtext>Str</mtext><mover accent="true"><mtext>a</mtext><mo>˚</mo></mover><mtext>lingsenergi (radioaktiv str</mtext><mover accent="true"><mtext>a</mtext><mo>˚</mo></mover><mtext>ling)</mtext></mrow><mo>⟶</mo><mtext>Varmeenergi</mtext><mo>⟶</mo><mtext>Bevegelsesenergi + varme</mtext><mo>⟶</mo><mtext>Strøm + varme</mtext></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+                              \text{Kjerneenergi} \longrightarrow \text{Strålingsenergi (radioaktiv stråling)} \longrightarrow \text{Varmeenergi} \longrightarrow \text{Bevegelsesenergi + varme} \longrightarrow \text{Strøm + varme}
+                              \end{aligned}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.5000000000000002em;vertical-align:-0.5000000000000002em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1em;"><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Kjerneenergi</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⟶</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord text"><span class="mord">Str</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">a</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.375em;"><span class="mord">˚</span></span></span></span></span></span></span><span class="mord">lingsenergi (radioaktiv str</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">a</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.375em;"><span class="mord">˚</span></span></span></span></span></span></span><span class="mord">ling)</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⟶</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord text"><span class="mord">Varmeenergi</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⟶</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord text"><span class="mord">Bevegelsesenergi + varme</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⟶</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord text"><span class="mord">Strøm + varme</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5000000000000002em;"><span></span></span></span></span></span></span></span></span></span></span></span>
+                  <p>Lavverdig energi
+                    → Høyverdig
+                    → Enda lavere</p>
+                  <h2 id="retningen-i-naturprosessene">Retningen i naturprosessene</h2>
+                  <p>Alle prosesser i naturen går fra høyere orden til mer uorden.
+                    Alle prosesser går fra høyere energikvalitet til lavere energikvalitet.</p>
+                  <h3 id="termofysikkens-2-lov-varmeoverføring">Termofysikkens 2. lov (varmeoverføring)</h3>
+                  <p>Varme går alltid fra et objekt med høy temperatur til et med lav temperatur.</p>
+                  <p><img src="https://i.runarsf.dev/runar/GAM5.png/raw" alt="" /></p>
+                  <h3 id="effektfaktor">Effektfaktor</h3>
+                  <p>Hvor mye varme vi får overført i forhold til hvor mye energi vi bruker
+                    <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable rowspacing="0.2500em" columnalign="right" columnspacing=""><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>f</mi><mo>=</mo><mfrac><msub><mi>P</mi><mrow><mi>v</mi><mi>a</mi><mi>r</mi><mi>m</mi><mi>e</mi></mrow></msub><msub><mi>P</mi><mrow><mi>e</mi><mi>k</mi><mi>e</mi><mi>k</mi><mi>t</mi><mi>r</mi><mi>i</mi><mi>s</mi><mi>k</mi></mrow></msub></mfrac><mo>=</mo><mfrac><mi>Q</mi><msub><mi>E</mi><mrow><mi>e</mi><mi>l</mi><mi>e</mi><mi>k</mi><mi>t</mi><mi>r</mi><mi>i</mi><mi>s</mi><mi>k</mi></mrow></msub></mfrac></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+                              f = \dfrac{P_{varme}}{P_{ekektrisk}} = \dfrac{Q}{E_{elektrisk}}
+                              \end{aligned}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.4963300000000004em;vertical-align:-0.998165em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4981650000000004em;"><span style="top:-3.498165em;"><span class="pstrut" style="height:3.3603300000000003em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.3139999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">m</span><span class="mord mathnormal mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8360000000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603299999999998em;"><span style="top:-2.3139999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">Q</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8360000000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.998165em;"><span></span></span></span></span></span></span></span></span></span></span>
+                    Effektfaktor 4 betyr 4 deler varme $f = \dfrac{4}{1}$
+                    Hvorav 1 del kommer fra elektrisk energi.</p>
+                  <p><span class="tooltip"><a href="/notes/Bevegelseslikningene">Bevegelseslikningene</a><span class="right bottom"><span class="tooltip-title">Bevegelseslikningene</span><br/>
+                        <span class="tooltip-excerpt">Kan bare brukes når akselerasjonen er konstant.<br />
+                          <br />
+                          For bevegelse med konstant akselerasjon, har du et sett av bevegelseslikninger til disposisjon. Ved hjelp av de fire bevegelseslikningene<br />
+                          <br />
+                          4. Bevege...</span><i></i></span></span></p>
+                  <p>#todo</p>
+                  <ul class="task-list">
+                    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />noter <img src="https://i.runarsf.dev/runar/Xam4.png/raw" alt="" /></li>
+                  </ul>
+                </div>
+                <!-- Add backlinks to the current page --></div>
+              <div id="copyright">
+                <!-- TODO Fix link styling like in nnl -->
+                <!-- TODO Add license image -->
+                <p>
+                  <a href="https://github.com/runarsf"><b>Runar Fredagsvik</b></a>
+                </p>
+              </p>
+              <p>Except where otherwise <a class='waves' href="https://creativecommons.org/policies#license">noted</a>, content on this site is licensed under a <a class='waves' href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+            </div>
+            <script src="/assets/js/modeswitcher.js"></script></main>
+        </div>
+        <button onclick="scrollToTop()" id="scrollToTop" title="Go to top"></button>
+        <style>
+          /* TODO --text-main doesn't seem to work for the button when in light mode */
+          #scrollToTop {
+              display: none; /* Hidden by default */
+              position: fixed; /* Fixed/sticky position */
+              bottom: 20px; /* Place the button at the bottom of the page */
+              right: 20px; /* Place the button 30px from the right */
+              z-index: 99; /* Make sure it does not overlap */
+              border: none; /* Remove borders */
+              outline: none; /* Remove outline */
+              background-color: var(--bg-main); /* Set a background color */
+              color: var(--text-main); /* Text color */
+              cursor: pointer; /* Add a mouse pointer on hover */
+              padding: 15px; /* Some padding */
+              border-radius: 50%; /* Rounded corners */
+              font-size: 18px; /* Increase font size */
+              position: fixed;
+          
+              width: 40px;
+              height: 40px;
+              background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
+              background-size: 35%;
+              background-repeat: no-repeat;
+              background-position: center;
+              transform: rotate(180deg); /* Hack to flip button upside down */
+          }
+          
+          #scrollToTop:hover {
+              background-color: var(--border);
+          }
+          #scrollToTop:active {
+              filter: brightness(75%);
+          }
+        </style>
+        <script>
+          scrollToTopButton = document.getElementById("scrollToTop");
+          
+          window.onscroll = function () { scrollViewFunction() };
+          
+          function scrollViewFunction() {
+              if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+                  scrollToTopButton.style.display = "block";
+              } else {
+                  scrollToTopButton.style.display = "none";
+              }
+          }
+          
+          function scrollToTop() {
+              document.body.scrollTop = 0; // For Safari
+              document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+          }
+        </script><!--- CASE 3 : Static Page --><!--- CASE 4 : Blog Listing page --><!--- CASE 5 :  Notes Listing page --></div>
+    </section>
+  </body>
+</html>

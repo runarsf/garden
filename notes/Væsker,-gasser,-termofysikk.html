@@ -11,10 +11,10 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-        rel="stylesheet"><meta content="Frekvens" property="og:title">
+        rel="stylesheet"><meta content="Væsker, gasser, termofysikk" property="og:title">
       <meta content="article" property="og:type">
-      <meta content="https://publish.runarsf.dev/notes/Frekvens" property="og:url"><title>📖 My Notebook</title>
-      <link rel="canonical" href="https://publish.runarsf.dev/notes/Frekvens" />
+      <meta content="https://publish.runarsf.dev/notes/V%C3%A6sker,-gasser,-termofysikk" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev/notes/V%C3%A6sker,-gasser,-termofysikk" />
       <link rel="apple-touch-icon" href="/assets/img/profile.png">
       <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
       <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
@@ -114,32 +114,85 @@
                     </span>
                   </a>
                 </div>
-                <h1>Frekvens</h1>
+                <h1>Væsker, gasser, termofysikk</h1>
                 <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
                 <div class="content">
-                  <h1 id="frekvens">Frekvens</h1>
-                  <p>Antall bølger som passerer et punkt per tidsenhet. Antall svingninger per tidsenhet.
-                    Måleenhet: $Hz = s^{-1}$
-                    Symbol: $f$</p>
-                  <hr />
+                  <h2 id="6-viktige-størrelser">6 viktige størrelser</h2>
+                  <ul>
+                    <li><strong>Massetetthet</strong>
+                      <ul>
+                        <li>$\rho = \frac{m}{v}$</li>
+                      </ul>
+                    </li>
+                    <li><strong>Trykk</strong>
+                      <ul>
+                        <li>Måleenhet: Pascal (Pa)</li>
+                        <li>$p = \frac{F}{A}$ (Pressure = Force / Area)</li>
+                      </ul>
+                    </li>
+                    <li><strong>Varme</strong>: Mengden energi som overføres mellom to objekter på grunn av temperaturforskjell</li>
+                    <li><strong>Varmekapasitet</strong>: Varme som må tilføres for å øke temperaturen 1°C
+                      <ul>
+                        <li>$C = \frac{Q}{\Delta T}$</li>
+                      </ul>
+                    </li>
+                    <li><strong>Spesifikk varmekapasitet</strong>: Varme som må tilføres for å øke temperaturen til 1kg med 1°C
+                      <ul>
+                        <li>$c = \frac{Q}{m \cdot \Delta T}$</li>
+                      </ul>
+                    </li>
+                    <li><strong>Spesifikk fasevarme</strong>: Varme som må tilføres for å smelte eller fordampe 1kg av et stoff
+                      <ul>
+                        <li>$l = \frac{Q}{m}$ (bok)</li>
+                        <li>$q = \frac{Q}{m}$ (formelsamling)</li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <p>5 viktige likninger</p>
+                  <ul>
+                    <li><strong>Hydrostatisk trykk</strong>: Trykk i dybde <em>h</em>
+                      <ul>
+                        <li>$p = p_{o} + \rho_{v} q h$</li>
+                        <li>$p_{o} = \text{Standard lufttrykk (101kPa)}$</li>
+                        <li>$\rho_{V} = \text{Tettheten til væsken}$</li>
+                        <li>$g = \text{Tyngdeakselerasjon} = 9.81m/s^{2}$</li>
+                      </ul>
+                    </li>
+                    <li><strong>Oppdrift</strong>
+                      <ul>
+                        <li>$F_{o} = \rho_{V} V g$</li>
+                        <li>Oppdrift er en kraft, husk newtons lover</li>
+                      </ul>
+                    </li>
+                    <li><strong>Tilstandslikningen</strong> for ideelle gasser
+                      <ul>
+                        <li>For konstant antall molekyler ved tidspunkt 1 og 2</li>
+                        <li>$p V = N k_{B} T$</li>
+                        <li>$N = \text{Antall molekyler}$</li>
+                        <li>$k_{B} = \text{Boltzmann’s konstant}$ (læreboka og formelsamlinga oppgir den bare som $k$)</li>
+                        <li>$\frac{p_{1} V_{1}}{T_{1}} = \frac{p_{2} V_{2}}{T_{2}}$</li>
+                      </ul>
+                    </li>
+                    <li><strong>Termofysikkens 1. lov</strong>: Endring i indre energi U er arbeidet gjort på systemet pluss varmen overført til systemet
+                      <ul>
+                        <li>$\Delta U = W + Q$</li>
+                        <li>Husk effekt
+                          <ul>
+                            <li>$P = \frac{\Delta E}{t}$</li>
+                            <li>$P = \frac{Q}{t}$</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><strong>Indre translatorisk kinetisk energi</strong>
+                      <ul>
+                        <li>$E_{k} = \frac{3}{2} N k T$ (Gjelder for hele gassen med N molekyler)</li>
+                        <li>$\overline{E}_{k} = \frac{3}{2} k T$: Gjennomsnittlig translatorisk kinetisk energi per molekyl i gassen</li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
-                <!-- Add backlinks to the current page -->
-                <div class="related show" id="jekyll-seamless-backlinks">
-                  <h5 class="block-title">Links to this note</h5>
-                  <div class="related-wrapper">
-                    <div class="related-group"><a href="/notes/Interferens">
-                        <h4>Interferens</h4>
-                        <p class="related-excerpt" style="margin: 0px;">Repetisjon
-                          [[Frekvens]]
-                          [[Bølgelengde]]
-                          [[Bølgefart]]
-                          [[Brytning]]
-                          [[Brytningsindeks]...</p>
-                      </a></div>
-                  </div>
-                  <br/>
-                </div>
-              </div>
+                <!-- Add backlinks to the current page --></div>
               <div id="copyright">
                 <!-- TODO Fix link styling like in nnl -->
                 <!-- TODO Add license image -->

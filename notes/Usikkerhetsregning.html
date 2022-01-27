@@ -11,10 +11,10 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-        rel="stylesheet"><meta content="Frekvens" property="og:title">
+        rel="stylesheet"><meta content="Usikkerhetsregning" property="og:title">
       <meta content="article" property="og:type">
-      <meta content="https://publish.runarsf.dev/notes/Frekvens" property="og:url"><title>📖 My Notebook</title>
-      <link rel="canonical" href="https://publish.runarsf.dev/notes/Frekvens" />
+      <meta content="https://publish.runarsf.dev/notes/Usikkerhetsregning" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev/notes/Usikkerhetsregning" />
       <link rel="apple-touch-icon" href="/assets/img/profile.png">
       <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
       <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
@@ -114,32 +114,29 @@
                     </span>
                   </a>
                 </div>
-                <h1>Frekvens</h1>
+                <h1>Usikkerhetsregning</h1>
                 <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
                 <div class="content">
-                  <h1 id="frekvens">Frekvens</h1>
-                  <p>Antall bølger som passerer et punkt per tidsenhet. Antall svingninger per tidsenhet.
-                    Måleenhet: $Hz = s^{-1}$
-                    Symbol: $f$</p>
-                  <hr />
+                  <ul>
+                    <li>Absolutt usikkerhet (Usikkerhet ved måling)
+                      <ul>
+                        <li>$\Delta X = \text{største verdi} - \text{minste verdi}$</li>
+                        <li>Kan/bør deles på 2 om det er flere enn 10 målinger, men det er ikke galt uansett
+                          <ul>
+                            <li>$\Delta X = \left(\text{største verdi} - \text{minste verdi}\right) / 2$</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>Relativ usikkerhet
+                      <ul>
+                        <li>$\frac{\Delta X}{\overline{X}}$</li>
+                        <li>$\overline{X} = Gjennomsnitts-verdi$</li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
-                <!-- Add backlinks to the current page -->
-                <div class="related show" id="jekyll-seamless-backlinks">
-                  <h5 class="block-title">Links to this note</h5>
-                  <div class="related-wrapper">
-                    <div class="related-group"><a href="/notes/Interferens">
-                        <h4>Interferens</h4>
-                        <p class="related-excerpt" style="margin: 0px;">Repetisjon
-                          [[Frekvens]]
-                          [[Bølgelengde]]
-                          [[Bølgefart]]
-                          [[Brytning]]
-                          [[Brytningsindeks]...</p>
-                      </a></div>
-                  </div>
-                  <br/>
-                </div>
-              </div>
+                <!-- Add backlinks to the current page --></div>
               <div id="copyright">
                 <!-- TODO Fix link styling like in nnl -->
                 <!-- TODO Add license image -->
