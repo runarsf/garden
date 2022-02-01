@@ -104,156 +104,169 @@
       <section class="section">
         <div class="columns is-centered">
           <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
-          <!-- TODO Fix horizontal overflow on mobile with long lines (e.g. note: Intro til matermatikk) --><!--- CASE 3 : Static Page -->
-          <div class="column is-half">
+          <!-- TODO Fix horizontal overflow on mobile with long lines (e.g. note: Intro til matermatikk) -->
+          <div class="column is-three-fifths">
             <main>
-              <h1>Password Generator</h1>
-              <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
-              <div class="content"><!-- TODO Passphrase -->
-                <main>
-                  <!-- TODO Cookies -->
-                  <!-- TODO Correctly update slider value -->
-                  <label for="pwd-length">Length</label>
-                  <input type="range" id="pwd-length" min="6" max="35" value="8" oninput="this.nextElementSibling.value = this.value">
-                  <output>8</output>
-                  <br/>
-                  <input type="checkbox" id="pwd-numbers" name="pwd-options" value="pwd-numbers" checked>
-                  <label for="pwd-numbers">Numbers</label>
-                  <span class="noselect">&mdash;</span>
-                  <label for="pwd-numbers-pos">Position:</label>
-                  <select name="pwd-numbers-pos" id="pwd-numbers-pos">
-                    <option value="end">End</option>
-                    <option value="random">Random</option>
-                  </select>
-                  <!-- TODO Multiple numbers randomly placed -->
-                  <br/>
-                  <input type="checkbox" id="pwd-uppercase" name="pwd-options" value="pwd-uppercase" checked>
-                  <label for="pwd-uppercase">Uppercase</label>
-                  <span class="noselect">&mdash;</span>
-                  <label for="pwd-uppercase-pos">Position:</label>
-                  <select name="pwd-uppercase-pos" id="pwd-uppercase-pos">
-                    <option value="beginning">Beginning</option>
-                    <option value="random">Random</option>
-                  </select>
-                  <!-- TODO Amount -->
-                  <br/>
-                  <input type="checkbox" id="pwd-special" name="pwd-options" value="pwd-special">
-                  <label for="pwd-special">Special characters</label>
-                  <span class="noselect">&mdash;</span>
-                  <label for="pwd-special-pos">Position:</label>
-                  <select name="pwd-special-pos" id="pwd-special-pos">
-                    <option value="end-pre">End, before numbers</option>
-                    <option value="end-post">End, after numbers</option>
-                    <option value="random">Random</option>
-                  </select>
-                  <!-- TODO Amount -->
-                  <br/>
-                  <input type="checkbox" id="pwd-readable" name="pwd-options" value="pwd-readable" checked>
-                  <label for="pwd-readable">Human readable</label>
-                  <br/>
-                  <button onclick="generatePassword()">Generate</button>
-                  <button onclick="clearPasswords()">Clear</button>
-                  <br/>
-                  <br/>
-                  <!--<hr style="background-color:var(--border);"><br/>-->
-                  <u style="color:var(--border);">
-                    <h3 style="color:var(--text-main);">Passwords</h3>
-                  </u>
-                  <ul id="passwords"></ul>
-                  <!-- TODO Wrap -->
-                </main>
-                <script>
-                  function clearPasswords() {
-                    const passwordUl = document.getElementById("passwords");
-                    passwordUl.innerHTML = "";
-                  }
-                  
-                  const randint = (_min=undefined, _max=undefined) => {
-                    const min =  Math.ceil((!_min && !_max) ? 10 : !_max ? 0    : _min);
-                    const max = Math.floor((!_min && !_max) ? 99 : !_max ? _min : _max);
-                  
-                    return Math.floor(Math.random() * (max - min + 1)) + min;
-                  }
-                  
-                  // const replaceAt = function(_string, index, replacement) {
-                  //   return _string.substr(0, index) + replacement + _string.substr(index + replacement.length);
-                  // }
-                  String.prototype.replaceAt = function(index, replacement) {
-                      return this.substr(0, index) + replacement + this.substr(index + replacement.length);
-                  }
-                  
-                  function generatePassword(
-                      _len          = null,
-                      _numbers      = null,
-                      _numbersPos   = null,
-                      _uppercase    = null,
-                      _uppercasePos = null,
-                      _special      = null,
-                      _specialPos   = null,
-                      _readable     = null,
-                    ) {
-                    const options = {
-                      length       : _len          ?? document.getElementById("pwd-length").value,
-                      numbers      : _numbers      ?? document.getElementById("pwd-numbers").checked,
-                      numbersPos   : _numbersPos   ?? document.getElementById("pwd-numbers-pos").value,
-                      uppercase    : _uppercase    ?? document.getElementById("pwd-uppercase").checked,
-                      uppercasePos : _uppercasePos ?? document.getElementById("pwd-uppercase-pos").value,
-                      special      : _special      ?? document.getElementById("pwd-special").checked,
-                      specialPos   : _specialPos   ?? document.getElementById("pwd-special-pos").value,
-                      readable     : _readable     ?? document.getElementById("pwd-readable").checked,
+              <div class="note-page-section">
+                <a href="/tags/#privacy" class="tag noselect">#privacy</a>
+                <div class="buttons for-back-home"><a class="button is-text button__page-back" onclick="window.history.back();"><span class="icon is-small">
+                      <svg width="12" height="20" viewBox="0 0 12 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M11.0309 0.468998C11.1007 0.538667 11.1561 0.62143 11.1939 0.712548C11.2318 0.803665 11.2512 0.901347 11.2512 0.999998C11.2512 1.09865 11.2318 1.19633 11.1939 1.28745C11.1561 1.37857 11.1007 1.46133 11.0309 1.531L2.56038 10L11.0309 18.469C11.1717 18.6098 11.2508 18.8008 11.2508 19C11.2508 19.1992 11.1717 19.3902 11.0309 19.531C10.89 19.6718 10.699 19.7509 10.4999 19.7509C10.3007 19.7509 10.1097 19.6718 9.96887 19.531L0.968875 10.531C0.899031 10.4613 0.843616 10.3786 0.805806 10.2874C0.767997 10.1963 0.748535 10.0986 0.748535 10C0.748535 9.90135 0.767997 9.80367 0.805806 9.71255C0.843616 9.62143 0.899031 9.53867 0.968875 9.469L9.96887 0.468998C10.0385 0.399153 10.1213 0.343739 10.2124 0.305929C10.3035 0.26812 10.4012 0.248657 10.4999 0.248657C10.5985 0.248657 10.6962 0.26812 10.7873 0.305929C10.8784 0.343739 10.9612 0.399153 11.0309 0.468998Z"
+                                        fill="var(--text-main)" />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+                <h1>Password Generator</h1>
+                <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
+                <div class="content"><!-- TODO Passphrase -->
+                  <main>
+                    <!-- TODO Cookies -->
+                    <!-- TODO Correctly update slider value -->
+                    <label for="pwd-length">Length</label>
+                    <input type="range" id="pwd-length" min="6" max="35" value="8" oninput="this.nextElementSibling.value = this.value" />
+                    <output>8</output>
+                    <br />
+                    <input type="checkbox" id="pwd-numbers" name="pwd-options" value="pwd-numbers" checked="" />
+                    <label for="pwd-numbers">Numbers</label>
+                    <span class="noselect">&mdash;</span>
+                    <label for="pwd-numbers-pos">Position:</label>
+                    <select name="pwd-numbers-pos" id="pwd-numbers-pos">
+                      <option value="end">End</option>
+                      <option value="random">Random</option>
+                    </select>
+                    <!-- TODO Multiple numbers randomly placed -->
+                    <br />
+                    <input type="checkbox" id="pwd-uppercase" name="pwd-options" value="pwd-uppercase" checked="" />
+                    <label for="pwd-uppercase">Uppercase</label>
+                    <span class="noselect">&mdash;</span>
+                    <label for="pwd-uppercase-pos">Position:</label>
+                    <select name="pwd-uppercase-pos" id="pwd-uppercase-pos">
+                      <option value="beginning">Beginning</option>
+                      <option value="random">Random</option>
+                    </select>
+                    <!-- TODO Amount -->
+                    <br />
+                    <input type="checkbox" id="pwd-special" name="pwd-options" value="pwd-special" />
+                    <label for="pwd-special">Special characters</label>
+                    <span class="noselect">&mdash;</span>
+                    <label for="pwd-special-pos">Position:</label>
+                    <select name="pwd-special-pos" id="pwd-special-pos">
+                      <option value="end-pre">End, before numbers</option>
+                      <option value="end-post">End, after numbers</option>
+                      <option value="random">Random</option>
+                    </select>
+                    <!-- TODO Amount -->
+                    <br />
+                    <input type="checkbox" id="pwd-readable" name="pwd-options" value="pwd-readable" checked="" />
+                    <label for="pwd-readable">Human readable</label>
+                    <br />
+                    <button onclick="generatePassword()">Generate</button>
+                    <button onclick="clearPasswords()">Clear</button>
+                    <br />
+                    <br />
+                    <!--<hr style="background-color:var(--border);"><br/>-->
+                    <u style="color:var(--border);">
+                      <h3 style="color:var(--text-main);">Passwords</h3>
+                    </u>
+                    <ul id="passwords"></ul>
+                    <!-- TODO Wrap -->
+                  </main>
+                  <script>
+                    function clearPasswords() {
+                      const passwordUl = document.getElementById("passwords");
+                      passwordUl.innerHTML = "";
                     }
-                  
-                    const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'v', 'w', 'x', 'z'];
-                    const vowels     = ['a', 'e', 'i', 'o', 'u', 'y']; // y is subjectively objectively a vowel.
-                    const specials   = ['!', '@', '#', '$', '%', '*', '&', '*', '-', '+', '?'];
-                  
-                    let password = "";
-                  
-                    if ( options.readable ) {
-                      let passwordConsonants = "";
-                      for ( let i = 1; i <= Math.ceil(options.length / 2); i++ ) {
-                        passwordConsonants += consonants[randint(consonants.length - 1)];
+                    
+                    const randint = (_min=undefined, _max=undefined) => {
+                      const min =  Math.ceil((!_min && !_max) ? 10 : !_max ? 0    : _min);
+                      const max = Math.floor((!_min && !_max) ? 99 : !_max ? _min : _max);
+                    
+                      return Math.floor(Math.random() * (max - min + 1)) + min;
+                    }
+                    
+                    // const replaceAt = function(_string, index, replacement) {
+                    //   return _string.substr(0, index) + replacement + _string.substr(index + replacement.length);
+                    // }
+                    String.prototype.replaceAt = function(index, replacement) {
+                        return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+                    }
+                    
+                    function generatePassword(
+                        _len          = null,
+                        _numbers      = null,
+                        _numbersPos   = null,
+                        _uppercase    = null,
+                        _uppercasePos = null,
+                        _special      = null,
+                        _specialPos   = null,
+                        _readable     = null,
+                      ) {
+                      const options = {
+                        length       : _len          ?? document.getElementById("pwd-length").value,
+                        numbers      : _numbers      ?? document.getElementById("pwd-numbers").checked,
+                        numbersPos   : _numbersPos   ?? document.getElementById("pwd-numbers-pos").value,
+                        uppercase    : _uppercase    ?? document.getElementById("pwd-uppercase").checked,
+                        uppercasePos : _uppercasePos ?? document.getElementById("pwd-uppercase-pos").value,
+                        special      : _special      ?? document.getElementById("pwd-special").checked,
+                        specialPos   : _specialPos   ?? document.getElementById("pwd-special-pos").value,
+                        readable     : _readable     ?? document.getElementById("pwd-readable").checked,
                       }
-                      let passwordVowels = "";
-                      for ( let i = 1; i <= Math.floor(options.length / 2); i++ ) {
-                        passwordVowels += vowels[randint(vowels.length - 1)];
+                    
+                      const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'v', 'w', 'x', 'z'];
+                      const vowels     = ['a', 'e', 'i', 'o', 'u', 'y']; // y is subjectively objectively a vowel.
+                      const specials   = ['!', '@', '#', '$', '%', '*', '&', '*', '-', '+', '?'];
+                    
+                      let password = "";
+                    
+                      if ( options.readable ) {
+                        let passwordConsonants = "";
+                        for ( let i = 1; i <= Math.ceil(options.length / 2); i++ ) {
+                          passwordConsonants += consonants[randint(consonants.length - 1)];
+                        }
+                        let passwordVowels = "";
+                        for ( let i = 1; i <= Math.floor(options.length / 2); i++ ) {
+                          passwordVowels += vowels[randint(vowels.length - 1)];
+                        }
+                        // Merge every other consonant / vowel (this is a hacky way to do it lol)
+                        const merge = (a, b) => a.length ? [a[0], ...merge(b, a.slice(1))] : b;
+                        password += merge(passwordConsonants, passwordVowels).join('');
+                      } else {
+                        const letters = consonants.concat(vowels);
+                        for ( let i = 1; i <= options.length; i++ ) {
+                          password += letters[randint(letters.length - 1)];
+                        }
                       }
-                      // Merge every other consonant / vowel (this is a hacky way to do it lol)
-                      const merge = (a, b) => a.length ? [a[0], ...merge(b, a.slice(1))] : b;
-                      password += merge(passwordConsonants, passwordVowels).join('');
-                    } else {
-                      const letters = consonants.concat(vowels);
-                      for ( let i = 1; i <= options.length; i++ ) {
-                        password += letters[randint(letters.length - 1)];
+                    
+                      let append = "";
+                      if ( options.numbers ) {
+                        const _number = randint(0, 99).toString()
+                        if ( options.numbersPos === "random" ) password = password.replaceAt(randint(password.length-1-append.length), _number)
+                        else                                    append += _number;
                       }
+                      if ( options.special ) {
+                        const _special = specials[randint(specials.length - 1)].toString();
+                        if      ( options.specialPos === "end-pre" ) append   = _special + append;
+                        else if ( options.specialPos === "random"  ) password = password.replaceAt(randint(password.length-1-append.length), _special)
+                        else                                         append  += _special;
+                      }
+                    
+                      if ( options.uppercase ) {
+                        const _upperize = randint(password.length-1-append.length)
+                        if ( options.uppercasePos === "random" ) password = password.replaceAt(_upperize, password.charAt(_upperize).toUpperCase())
+                        else                                     password = password.replaceAt(0, password.charAt(0).toUpperCase())
+                      }
+                    
+                      if ( append ) password = password.slice(0, -append.toString().length) + append.toString();
+                    
+                      const passwordUl = document.getElementById("passwords");
+                      if ( password ) passwordUl.innerHTML += "<li>" + password + "</li>";
                     }
-                  
-                    let append = "";
-                    if ( options.numbers ) {
-                      const _number = randint(0, 99).toString()
-                      if ( options.numbersPos === "random" ) password = password.replaceAt(randint(password.length-1-append.length), _number)
-                      else                                    append += _number;
-                    }
-                    if ( options.special ) {
-                      const _special = specials[randint(specials.length - 1)].toString();
-                      if      ( options.specialPos === "end-pre" ) append   = _special + append;
-                      else if ( options.specialPos === "random"  ) password = password.replaceAt(randint(password.length-1-append.length), _special)
-                      else                                         append  += _special;
-                    }
-                  
-                    if ( options.uppercase ) {
-                      const _upperize = randint(password.length-1-append.length)
-                      if ( options.uppercasePos === "random" ) password = password.replaceAt(_upperize, password.charAt(_upperize).toUpperCase())
-                      else                                     password = password.replaceAt(0, password.charAt(0).toUpperCase())
-                    }
-                  
-                    if ( append ) password = password.slice(0, -append.toString().length) + append.toString();
-                  
-                    const passwordUl = document.getElementById("passwords");
-                    if ( password ) passwordUl.innerHTML += "<li>" + password + "</li>";
-                  }
-                </script>
-              </div>
+                  </script>
+                </div>
+                <!-- Add backlinks to the current page --></div>
               <div id="copyright">
                 <!-- TODO Fix link styling like in nnl -->
                 <!-- TODO Add license image -->
@@ -265,7 +278,59 @@
             </div>
             <script src="/assets/js/modeswitcher.js"></script></main>
         </div>
-        <!--- CASE 4 : Blog Listing page --><!--- CASE 5 :  Notes Listing page --></div>
+        <button onclick="scrollToTop()" id="scrollToTop" title="Go to top"></button>
+        <style>
+          /* TODO --text-main doesn't seem to work for the button when in light mode */
+          #scrollToTop {
+              display: none; /* Hidden by default */
+              position: fixed; /* Fixed/sticky position */
+              bottom: 20px; /* Place the button at the bottom of the page */
+              right: 20px; /* Place the button 30px from the right */
+              z-index: 99; /* Make sure it does not overlap */
+              border: none; /* Remove borders */
+              outline: none; /* Remove outline */
+              background-color: var(--bg-main); /* Set a background color */
+              color: var(--text-main); /* Text color */
+              cursor: pointer; /* Add a mouse pointer on hover */
+              padding: 15px; /* Some padding */
+              border-radius: 50%; /* Rounded corners */
+              font-size: 18px; /* Increase font size */
+              position: fixed;
+          
+              width: 40px;
+              height: 40px;
+              background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
+              background-size: 35%;
+              background-repeat: no-repeat;
+              background-position: center;
+              transform: rotate(180deg); /* Hack to flip button upside down */
+          }
+          
+          #scrollToTop:hover {
+              background-color: var(--border);
+          }
+          #scrollToTop:active {
+              filter: brightness(75%);
+          }
+        </style>
+        <script>
+          scrollToTopButton = document.getElementById("scrollToTop");
+          
+          window.onscroll = function () { scrollViewFunction() };
+          
+          function scrollViewFunction() {
+              if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+                  scrollToTopButton.style.display = "block";
+              } else {
+                  scrollToTopButton.style.display = "none";
+              }
+          }
+          
+          function scrollToTop() {
+              document.body.scrollTop = 0; // For Safari
+              document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+          }
+        </script><!--- CASE 3 : Static Page --><!--- CASE 4 : Blog Listing page --><!--- CASE 5 :  Notes Listing page --></div>
     </section>
   </body>
 </html>

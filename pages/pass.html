@@ -11,10 +11,10 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-        rel="stylesheet"><meta content="Friksjon og friksjonstall" property="og:title">
+        rel="stylesheet"><meta content="Password Generator" property="og:title">
       <meta content="article" property="og:type">
-      <meta content="https://publish.runarsf.dev/notes/Friksjon-og-friksjonstall" property="og:url"><title>📖 My Notebook</title>
-      <link rel="canonical" href="https://publish.runarsf.dev/notes/Friksjon-og-friksjonstall" />
+      <meta content="https://publish.runarsf.dev/pages/pass.html" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev/pages/pass.html" />
       <link rel="apple-touch-icon" href="/assets/img/profile.png">
       <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
       <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
@@ -108,7 +108,6 @@
           <div class="column is-three-fifths">
             <main>
               <div class="note-page-section">
-                <a href="/tags/#physics" class="tag noselect">#physics</a>
                 <div class="buttons for-back-home"><a class="button is-text button__page-back" onclick="window.history.back();"><span class="icon is-small">
                       <svg width="12" height="20" viewBox="0 0 12 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -119,35 +118,152 @@
                     </span>
                   </a>
                 </div>
-                <h1>Friksjon og friksjonstall</h1>
+                <h1>Password Generator</h1>
                 <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
-                <div class="content">
-                  <h2 id="glidefriksjon">Glidefriksjon</h2>
-                  <p>Når to flater er i kontakt med hverandre og beveger seg i forhold til hverandre så er friksjonen gitt ved:
-                    Friksjonskraft = Friksjonstall * Normalkraft
-                    $R = \mu \cdot N$
-                    ($\mu$: Gresk “Mu” (uttales my))</p>
-                  <p>Dette innebærer at for å dytte noe lønner det seg å løfte det litt for å avbelaste normalkraften.</p>
-                  <blockquote>
-                    <p>🔖 Friksjon: Mekanikk, side 22 i formelsamlinga.
-                      Friksjonstall: Side 10 i formelsamlinga. (Glidefriksjonstall, for om noe er i bevegelse.)</p>
-                  </blockquote>
-                  <h2 id="hvilefriksjon">Hvilefriksjon</h2>
-                  <p>Dersom et objekt er i ro, er friksjonskraften akkurat så stor at summen av kreftene er null.
-                    Hvilefriksjon gitt av $\sum F = O$ (<a href="Newtons%201.%20lov.md">notes/Fysikk TFOR0102/Newtons 1. lov</a>)
-                    Hvilefriksjonens maksimalverdi er gitt ved: $R = M_H \cdot N$</p>
-                  <p><img src="https://i.runarsf.dev/runar/CunIRulU55.png/raw" alt="" /></p>
-                  <p><img src="https://i.runarsf.dev/runar/JeqUSANU64.png/raw" alt="" /></p>
-                  <blockquote>
-                    <p>Vi dytter en kasse med masse 50kg. Friksjonstallet for vhilefriksjonen mellom kassa og gulvet er 0.80.
-                      a) Hvor stor kraft må vi dytte med for å få kassen til å bevege seg.
-                      Friksjonstallet for glidefriksjonen er 0.75.
-                      b) Hva blir akselerasjonen til kassa dersom vi dytter med kraften vi fant a <em>a)</em>.</p>
-                  </blockquote>
-                  <p>a) Vi må dytte med større kraft enn maksimal hvilefriksjon.
-                    $R = M_H \cdot N$
-                    Newtons 1. lov i y-retning:
-                    $N = G = mg = N = 50kg \cdot 9.81m/s^2$</p>
+                <div class="content"><!-- TODO Passphrase -->
+                  <main>
+                    <!-- TODO Cookies -->
+                    <!-- TODO Correctly update slider value -->
+                    <label for="pwd-length">Length</label>
+                    <input type="range" id="pwd-length" min="6" max="35" value="8" oninput="this.nextElementSibling.value = this.value" />
+                    <output>8</output>
+                    <br />
+                    <input type="checkbox" id="pwd-numbers" name="pwd-options" value="pwd-numbers" checked="" />
+                    <label for="pwd-numbers">Numbers</label>
+                    <span class="noselect">&mdash;</span>
+                    <label for="pwd-numbers-pos">Position:</label>
+                    <select name="pwd-numbers-pos" id="pwd-numbers-pos">
+                      <option value="end">End</option>
+                      <option value="random">Random</option>
+                    </select>
+                    <!-- TODO Multiple numbers randomly placed -->
+                    <br />
+                    <input type="checkbox" id="pwd-uppercase" name="pwd-options" value="pwd-uppercase" checked="" />
+                    <label for="pwd-uppercase">Uppercase</label>
+                    <span class="noselect">&mdash;</span>
+                    <label for="pwd-uppercase-pos">Position:</label>
+                    <select name="pwd-uppercase-pos" id="pwd-uppercase-pos">
+                      <option value="beginning">Beginning</option>
+                      <option value="random">Random</option>
+                    </select>
+                    <!-- TODO Amount -->
+                    <br />
+                    <input type="checkbox" id="pwd-special" name="pwd-options" value="pwd-special" />
+                    <label for="pwd-special">Special characters</label>
+                    <span class="noselect">&mdash;</span>
+                    <label for="pwd-special-pos">Position:</label>
+                    <select name="pwd-special-pos" id="pwd-special-pos">
+                      <option value="end-pre">End, before numbers</option>
+                      <option value="end-post">End, after numbers</option>
+                      <option value="random">Random</option>
+                    </select>
+                    <!-- TODO Amount -->
+                    <br />
+                    <input type="checkbox" id="pwd-readable" name="pwd-options" value="pwd-readable" checked="" />
+                    <label for="pwd-readable">Human readable</label>
+                    <br />
+                    <button onclick="generatePassword()">Generate</button>
+                    <button onclick="clearPasswords()">Clear</button>
+                    <br />
+                    <br />
+                    <!--<hr style="background-color:var(--border);"><br/>-->
+                    <u style="color:var(--border);">
+                      <h3 style="color:var(--text-main);">Passwords</h3>
+                    </u>
+                    <ul id="passwords"></ul>
+                    <!-- TODO Wrap -->
+                  </main>
+                  <script>
+                    function clearPasswords() {
+                      const passwordUl = document.getElementById("passwords");
+                      passwordUl.innerHTML = "";
+                    }
+                    
+                    const randint = (_min=undefined, _max=undefined) => {
+                      const min =  Math.ceil((!_min && !_max) ? 10 : !_max ? 0    : _min);
+                      const max = Math.floor((!_min && !_max) ? 99 : !_max ? _min : _max);
+                    
+                      return Math.floor(Math.random() * (max - min + 1)) + min;
+                    }
+                    
+                    // const replaceAt = function(_string, index, replacement) {
+                    //   return _string.substr(0, index) + replacement + _string.substr(index + replacement.length);
+                    // }
+                    String.prototype.replaceAt = function(index, replacement) {
+                        return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+                    }
+                    
+                    function generatePassword(
+                        _len          = null,
+                        _numbers      = null,
+                        _numbersPos   = null,
+                        _uppercase    = null,
+                        _uppercasePos = null,
+                        _special      = null,
+                        _specialPos   = null,
+                        _readable     = null,
+                      ) {
+                      const options = {
+                        length       : _len          ?? document.getElementById("pwd-length").value,
+                        numbers      : _numbers      ?? document.getElementById("pwd-numbers").checked,
+                        numbersPos   : _numbersPos   ?? document.getElementById("pwd-numbers-pos").value,
+                        uppercase    : _uppercase    ?? document.getElementById("pwd-uppercase").checked,
+                        uppercasePos : _uppercasePos ?? document.getElementById("pwd-uppercase-pos").value,
+                        special      : _special      ?? document.getElementById("pwd-special").checked,
+                        specialPos   : _specialPos   ?? document.getElementById("pwd-special-pos").value,
+                        readable     : _readable     ?? document.getElementById("pwd-readable").checked,
+                      }
+                    
+                      const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'v', 'w', 'x', 'z'];
+                      const vowels     = ['a', 'e', 'i', 'o', 'u', 'y']; // y is subjectively objectively a vowel.
+                      const specials   = ['!', '@', '#', '$', '%', '*', '&', '*', '-', '+', '?'];
+                    
+                      let password = "";
+                    
+                      if ( options.readable ) {
+                        let passwordConsonants = "";
+                        for ( let i = 1; i <= Math.ceil(options.length / 2); i++ ) {
+                          passwordConsonants += consonants[randint(consonants.length - 1)];
+                        }
+                        let passwordVowels = "";
+                        for ( let i = 1; i <= Math.floor(options.length / 2); i++ ) {
+                          passwordVowels += vowels[randint(vowels.length - 1)];
+                        }
+                        // Merge every other consonant / vowel (this is a hacky way to do it lol)
+                        const merge = (a, b) => a.length ? [a[0], ...merge(b, a.slice(1))] : b;
+                        password += merge(passwordConsonants, passwordVowels).join('');
+                      } else {
+                        const letters = consonants.concat(vowels);
+                        for ( let i = 1; i <= options.length; i++ ) {
+                          password += letters[randint(letters.length - 1)];
+                        }
+                      }
+                    
+                      let append = "";
+                      if ( options.numbers ) {
+                        const _number = randint(0, 99).toString()
+                        if ( options.numbersPos === "random" ) password = password.replaceAt(randint(password.length-1-append.length), _number)
+                        else                                    append += _number;
+                      }
+                      if ( options.special ) {
+                        const _special = specials[randint(specials.length - 1)].toString();
+                        if      ( options.specialPos === "end-pre" ) append   = _special + append;
+                        else if ( options.specialPos === "random"  ) password = password.replaceAt(randint(password.length-1-append.length), _special)
+                        else                                         append  += _special;
+                      }
+                    
+                      if ( options.uppercase ) {
+                        const _upperize = randint(password.length-1-append.length)
+                        if ( options.uppercasePos === "random" ) password = password.replaceAt(_upperize, password.charAt(_upperize).toUpperCase())
+                        else                                     password = password.replaceAt(0, password.charAt(0).toUpperCase())
+                      }
+                    
+                      if ( append ) password = password.slice(0, -append.toString().length) + append.toString();
+                    
+                      const passwordUl = document.getElementById("passwords");
+                      if ( password ) passwordUl.innerHTML += "<li>" + password + "</li>";
+                    }
+                  </script>
                 </div>
                 <!-- Add backlinks to the current page --></div>
               <div id="copyright">
