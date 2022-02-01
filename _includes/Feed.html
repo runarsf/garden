@@ -9,6 +9,8 @@
 <script src="/assets/js/Search.js"></script>
 {%- endif -%}
 <!-- feed with filter-->
+<!-- TODO Sort posts by priority (password generator after home) -->
+<!-- TODO Description-frontmatter-variable to manually replace note content preview -->
 {% assign note_items = site.notes | sort: "date" | reverse %}
 {% for note_items in note_items %}
 {%- if note_items.pinned == "true" or note_items.pinned == true -%}
