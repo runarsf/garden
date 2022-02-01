@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Password Generator
-permalink: /pass/
-content-type: static
+content-type: post
 ---
 <!-- TODO Passphrase -->
 

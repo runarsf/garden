@@ -119,12 +119,6 @@ defaults:
     values:
       layout: post
       content-type: notes
-  - scope:
-      path: ""
-      type: tags
-    values:
-      layout: static
-      permalink: /tags/:tag/
 
 safe: false
 # whitelist: []
