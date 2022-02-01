@@ -10,6 +10,7 @@ services:
     # Uncomment this to see changes live
     volumes:
       - "./:/site"
+      # - "./_notes-test:/site/_notes"
       - "garden_exclude_site:/site/_site"
       - "garden_exclude_cache:/site/.jekyll-cache"
     restart: "no"
