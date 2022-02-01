@@ -73,15 +73,6 @@ timezone: Europe/Oslo
 # strict_front_matter: false
 # keep_files: [ ".git", ".svn" ]
 
-# whitelist: []
-theme: null
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-tidy
-  # - jekyll-katex
-  # - jekyll-toc # TODO Can be found in nnl
-
 # Filtering Content
 show_drafts: false
 limit_posts: 0
@@ -89,9 +80,9 @@ future: false
 unpublished: false
 
 collections:
-    notes:
-      output: true
-      permalink: /notes/:title
+  notes:
+    output: true
+    permalink: /notes/:title
 disqus:
     # Leave shortname blank to disable comments site-wide.
     # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
@@ -128,8 +119,23 @@ defaults:
     values:
       layout: post
       content-type: notes
+  - scope:
+      path: ""
+      type: tags
+    values:
+      layout: static
+      permalink: /tags/:tag/
 
-# safe: false
+safe: false
+# whitelist: []
+theme: null
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-tidy
+  # - jekyll-katex
+  # - jekyll-toc # TODO Can be found in nnl
+
 # include: []
 exclude:
   - ".sass-cache/"

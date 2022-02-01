@@ -66,10 +66,15 @@
             <!-- TODO Fix horizontal overflow on mobile with long lines (e.g. note: Intro til matermatikk) -->
 
             {%- if page.content-type == "notes"
-            or page.content-type == "post"  -%}
+            or page.content-type == "post" -%}
                 <div class="column is-three-fifths">
                     <main>
                         <div class="note-page-section">
+                            <!-- TODO Splitting tags by comma or space -->
+                            {% assign tags = page.tags | join: ' ' | split: ' ' | uniq %}
+                            {% for tag in tags %}
+                                <h6 id="{{ tag }}" class="tag noselect">#{{ tag | remove: ',' | downcase }}</h6>
+                            {%- endfor -%}
                             <div class="buttons for-back-home">
                                 {%- if site.preferences.homepage.enabled -%}
                                 <a class="button is-text button__page-back" onclick="window.history.back();">

@@ -26,23 +26,22 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a href="/about" class="navbar-item">
+        {% for page in site.data.navbar %}
+          <a href="{{ page.url }}" title="{{ page.title }}" class="navbar-item">
+            {{ page.name }}
+          </a>
+        {% endfor %}
+        <!-- <a href="/about" class="navbar-item">
           About
         </a>
         <a href="/notes" class="navbar-item">
           Notes
         </a>
-        <!-- <a href="/posts" class="navbar-item">
-          Posts
-        </a> -->
         <a href="/tags" class="navbar-item">
           Tags
         </a>
         <a href="/feed.xml" class="navbar-item">
           RSS
-        </a>
-        <!-- <a href="https://github.com/runarsf" target="_blank" class="navbar-item">
-          My GitHub
         </a> -->
       </div>
       <div class="navbar-end is-hidden-mobile" onclick="modeSwitcher()" >
