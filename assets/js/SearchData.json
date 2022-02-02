@@ -186,7 +186,7 @@
 },"37": {
 "doc":  "Skalarprodukt",
 "title": "Skalarprodukt",
-"content": "[[Skalarer]] er et matematisk objekt som kun er definert med en størrelse, mens [[vektorer]] $\\overrightarrow{a}$ har både størrelse og retning. Q: 13.2 Skalarproduktet — Eks 1 . Det gir ikke mening hvis $\\overrightarrow{a} = 5, \\overrightarrow{b} = 7, u = 90 \\degree \\implies 5 \\cdot 7 \\cdot cos ( 90 \\degree ) = \\underline{\\underline{0}}$ …Her er begge vektorene != null, og skalarproduktet er null. Skalarproduktet kan her være null fordi vektorene står vinkelrett $\\bot$ på hverandre. Hva er det jeg misforstår? .",
+"content": "[[Skalarer]] er et matematisk objekt som kun er definert med en størrelse, mens [[vektorer]] $\\overrightarrow{a}$ har både størrelse og retning. Q: 13.2 Skalarproduktet — Eks 1 . Det gir ikke mening hvis $\\overrightarrow{a} = 5, \\overrightarrow{b} = 7, u = 90 ^{\\circ} \\implies 5 \\cdot 7 \\cdot cos ( 90 ^{\\circ} ) = \\underline{\\underline{0}}$ …Her er begge vektorene != null, og skalarproduktet er null. Skalarproduktet kan her være null fordi vektorene står vinkelrett $\\bot$ på hverandre. Hva er det jeg misforstår? .",
 "url": "/notes/Skalarprodukt"
 },"38": {
 "doc":  "Standardform",
