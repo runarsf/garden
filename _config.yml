@@ -48,7 +48,7 @@ preferences:
   wrapping:
     enabled: true
   contextmenu:
-    enabled: true # TODO Add contextmenu support
+    enabled: true
     copylink:
       enabled: true
     newtab:
@@ -128,7 +128,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-tidy
   # - jekyll-katex
-  # - jekyll-toc # TODO Can be found in nnl
+  # - jekyll-toc
 
 # include: []
 exclude:

@@ -1,16 +1,13 @@
-<!-- TODO If multiple notes with same permalink, only show one footer and align them vertically -->
 {%- if site.preferences.search.enabled -%}
 <!-- search bar -->
 <div class="block">
-    <input class="input is-medium" type="text" placeholder="Search notes.." id="search-input" autocomplete="off">
+    <input class="input is-medium" type="text" placeholder="Search notes..." id="search-input" autocomplete="off">
     <div id="search-results" class="search-results"></div>
 </div>
 <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
 <script src="/assets/js/Search.js"></script>
 {%- endif -%}
 <!-- feed with filter-->
-<!-- TODO Sort posts by priority (password generator after home) -->
-<!-- TODO Description-frontmatter-variable to manually replace note content preview -->
 {% assign note_items = site.notes | sort: "date" | reverse %}
 {% for note_items in note_items %}
 {%- if note_items.pinned == "true" or note_items.pinned == true -%}
@@ -20,7 +17,11 @@
             <h4>{{ note_items.title }}</h4>
             <div class="content">
                 <p style="margin: 0px;">
-                    {{ note_items.content | strip_html | strip | remove: "[[" | remove: "]]" | escape | truncate: 260 }}
+                    {%- if note_items.description -%}
+                        {{ note_items.description | strip_html | strip | remove: "[[" | remove: "]]" | escape | truncate: 260 }}
+                    {% else %}
+                        {{ note_items.content | strip_html | strip | remove: "[[" | remove: "]]" | escape | truncate: 260 }}
+                    {%- endif -%}
                 </p>
             </div>
         </a>

@@ -39,6 +39,20 @@
     <![endif]-->
     <!--<link href="/assets/css/prism.css" rel="stylesheet" />-->
     <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml">
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+          displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+          processEscapes: true
+        },
+        "HTML-CSS": {
+          linebreaks: { automatic: true, width: "container" }
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 </head>
 
 <body>
@@ -63,7 +77,6 @@
             {%- endif -%}
 
             <!---CASE 2 : Notes & Blog Page-->
-            <!-- TODO Fix horizontal overflow on mobile with long lines (e.g. note: Intro til matermatikk) -->
 
             {%- if page.content-type == "notes"
             or page.content-type == "post" -%}
@@ -99,7 +112,6 @@
                 </div>
                 <button onclick="scrollToTop()" id="scrollToTop" title="Go to top"></button>
                 <style>
-                    /* TODO --text-main doesn't seem to work for the button when in light mode */
                     #scrollToTop {
                         display: none; /* Hidden by default */
                         position: fixed; /* Fixed/sticky position */

@@ -6,8 +6,6 @@ content-type: static
 ---
 
 {% comment %}
-TODO Display nested tags properly
-TODO Collapse tag headers (replace hashtag with arrow)
 
   - https://talk.jekyllrb.com/t/url-passed-parameter/1599/6
   - https://jekyllrb.com/docs/plugins/generators/
@@ -37,22 +35,23 @@ Tag clouds:
             {% assign tagnotes = tagnotes | push: note.title %}
           {% endif %}
         {% endfor %}
-
-        <a href="#{{ ftag | cgi_escape }}" class="noselect" style="text-decoration: none; color: var(--text-main);">
-          <h3 id="{{ ftag | cgi_escape }}" style="padding-top: 0.6em;">
-            <span style="font-size: 0.6em; color: var(--text-sub); margin-right: 0px;">#</span>
-            {{ ftag | capitalize }}
+      
+      <details style="padding-top: 1em;" open>
+        <summary class="tag-header" id="{{ ftag | cgi_escape }}">
+          <a href="#{{ ftag | cgi_escape }}" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
+          {{ ftag | capitalize }}
           <sup style="font-size: 0.5em; color: var(--text-sub);">{{ tagnotes.size }}</sup>
-          </h3>
-        </a>
+        </summary>
+
         {%- for note in tagnotes -%}
           <li style="list-style: none;">
             [[{{ note }}]]
           </li>
         {%- endfor -%}
+      </details>
     {%- endfor -%}
-    <br/>
-    <br/>
+
+    <br/><br/>
 </main>
 
 {% raw %}

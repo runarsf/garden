@@ -14,7 +14,6 @@ You can find my notes <a href="../notes" style="color:var(--link);">here</a>, or
 
 <main>
   <details><summary><b>About site</b></summary>
-    <!-- TODO Make all links squiggly underlined -->
     This site is based on <a href="https://github.com/Jekyll-Garden/jekyll-garden.github.io">Jekyll-Garden</a> and is licensed under the MIT license.<br>
     Most of the content is provided for free (should you, contrary to expectations, want to use it) under a <a href="{{ site.copyright.license_url }}">{{ site.copyright.license }}</a>.
     <br><br>
