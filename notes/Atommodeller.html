@@ -26,15 +26,26 @@
       <![endif]-->
       <!--<link href="/assets/css/prism.css" rel="stylesheet" />-->
       <link rel="alternate" type="application/rss+xml" href="https://publish.runarsf.dev/feed.xml">
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+            displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+            processEscapes: true
+          },
+          "HTML-CSS": {
+            linebreaks: { automatic: true, width: "container" }
+          }
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     </head>
-    <body><!-- TODO Padding on right is slightly bigger than padding on left -->
-      <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+    <body><nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item" href="../index.html">
             <!-- <svg width="32" height="32" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M36.9477 13.7742C38.3043 11.4086 41.6957 11.4086 43.0523 13.7742L70.5226 61.6774C71.8791 64.043 70.1834 67 67.4703 67H12.5297C9.81658 67 8.12089 64.043 9.47744 61.6774L36.9477 13.7742ZM40 16.9677L13.7506 62.7419H66.2494L40 16.9677Z" fill="var(--text-main)"/>
         </svg> -->
-            <!-- TODO Underline active page -->
             <h4>📖 My Notebook</h4>
           </a>
           <div class="navbar-item navbar-dark-mode__mobile is-hidden-tablet" onclick="modeSwitcher()">
@@ -90,21 +101,9 @@
         </div>
       </nav>
       <script src="/assets/js/Hamburger.js"></script>
-      <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-           tex2jax: {
-               inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
-               displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
-               processEscapes: true
-                   }
-               });
-      </script>
-      <!-- ??? Should this be used with katex -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
       <section class="section">
         <div class="columns is-centered">
           <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
-          <!-- TODO Fix horizontal overflow on mobile with long lines (e.g. note: Intro til matermatikk) -->
           <div class="column is-three-fifths">
             <main>
               <div class="note-page-section">
@@ -134,7 +133,7 @@
                               f &amp;= \frac{c}{\lambda}
                               \end{aligned}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:4.64544em;vertical-align:-2.0727200000000003em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5727199999999995em;"><span style="top:-4.5727199999999995em;"><span class="pstrut" style="height:3.3714399999999998em;"></span><span class="mord"><span class="mord text"><span class="mord">Frekvens</span></span></span></span><span style="top:-2.2847199999999996em;"><span class="pstrut" style="height:3.3714399999999998em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.0727200000000003em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5727199999999995em;"><span style="top:-4.5727199999999995em;"><span class="pstrut" style="height:3.3714399999999998em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714399999999998em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Bølgelengde</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Lyshastighet</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-2.2847199999999996em;"><span class="pstrut" style="height:3.3714399999999998em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10756em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">λ</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.0727200000000003em;"><span></span></span></span></span></span></span></span></span></span></span>
                     $c = 3,00 \cdot 10^{8}m/s$
-                    Forklaring (Albert Einstein): Lys består av små adskilte energimengder (kvanter). Disse energikvantene kalles <a class="stale-link" href="javascript:void(0)">fotoner</a> (lyspartikler). Hvert foton har energi gitt ved formelen $E = h f = \frac{h c}{\lambda}$ (Energi = <a class="stale-link" href="javascript:void(0)">Plancks konstant</a> * Frekvens)</p>
+                    Forklaring (Albert Einstein): Lys består av små adskilte energimengder (kvanter). Disse energikvantene kalles <a class="stale-link" href="javascript:void(0)">Fotoner</a> (lyspartikler). Hvert foton har energi gitt ved formelen $E = h f = \frac{h c}{\lambda}$ (Energi = <a class="stale-link" href="javascript:void(0)">Plancks konstant</a> * Frekvens)</p>
                   <p>Det kreves en gitt mengde energi for å slå løs et elektron.
                     Fotonene kan ikke samarbeide om å slå løs et elektron.
                     Et foton alene må ha høy nok energi (dvs. stor nok frekvens; liten nok bølgelengde) til å slå løs elektronet alene.
@@ -165,10 +164,20 @@
                     k = balmers konstant</p>
                   <p>rydbergs formel</p>
                 </div>
-                <!-- Add backlinks to the current page --></div>
+                <!-- Add backlinks to the current page -->
+                <div class="related show" id="jekyll-seamless-backlinks">
+                  <h5 class="block-title">Links to this note</h5>
+                  <div class="related-wrapper">
+                    <div class="related-group"><a href="/notes/Bohrs-atommodell,-absorpsjon-og-emisjon">
+                        <h4>Bohrs atommodell, absorpsjon og emisjon</h4>
+                        <p class="related-excerpt" style="margin: 0px;">
+                          Gjøre rede for [[Niels Bohrs]] modell for hydrogenatomet og [[postulatene]] som ligger til gru...</p>
+                      </a></div>
+                  </div>
+                  <br/>
+                </div>
+              </div>
               <div id="copyright">
-                <!-- TODO Fix link styling like in nnl -->
-                <!-- TODO Add license image -->
                 <p>
                   <a href="https://github.com/runarsf"><b>Runar Fredagsvik</b></a>
                 </p>
@@ -179,7 +188,6 @@
         </div>
         <button onclick="scrollToTop()" id="scrollToTop" title="Go to top"></button>
         <style>
-          /* TODO --text-main doesn't seem to work for the button when in light mode */
           #scrollToTop {
               display: none; /* Hidden by default */
               position: fixed; /* Fixed/sticky position */

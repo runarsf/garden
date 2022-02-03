@@ -26,15 +26,26 @@
       <![endif]-->
       <!--<link href="/assets/css/prism.css" rel="stylesheet" />-->
       <link rel="alternate" type="application/rss+xml" href="https://publish.runarsf.dev/feed.xml">
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+            displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
+            processEscapes: true
+          },
+          "HTML-CSS": {
+            linebreaks: { automatic: true, width: "container" }
+          }
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
     </head>
-    <body><!-- TODO Padding on right is slightly bigger than padding on left -->
-      <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+    <body><nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item" href="../index.html">
             <!-- <svg width="32" height="32" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M36.9477 13.7742C38.3043 11.4086 41.6957 11.4086 43.0523 13.7742L70.5226 61.6774C71.8791 64.043 70.1834 67 67.4703 67H12.5297C9.81658 67 8.12089 64.043 9.47744 61.6774L36.9477 13.7742ZM40 16.9677L13.7506 62.7419H66.2494L40 16.9677Z" fill="var(--text-main)"/>
         </svg> -->
-            <!-- TODO Underline active page -->
             <h4>📖 My Notebook</h4>
           </a>
           <div class="navbar-item navbar-dark-mode__mobile is-hidden-tablet" onclick="modeSwitcher()">
@@ -90,587 +101,581 @@
         </div>
       </nav>
       <script src="/assets/js/Hamburger.js"></script>
-      <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-           tex2jax: {
-               inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
-               displayMath: [ ['$$','$$'], ['\\[', '\\]'] ],
-               processEscapes: true
-                   }
-               });
-      </script>
-      <!-- ??? Should this be used with katex -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
       <section class="section">
         <div class="columns is-centered">
-          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page-->
-          <!-- TODO Fix horizontal overflow on mobile with long lines (e.g. note: Intro til matermatikk) --><!--- CASE 3 : Static Page -->
+          <!--- CASE 1 : Homepage--><!---CASE 2 : Notes & Blog Page--><!--- CASE 3 : Static Page -->
           <div class="column is-half">
             <main>
               <h1>Tags</h1>
               <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
               <div class="content">
                 <main>
-                  <a href="#history" class="noselect" style="text-decoration: none; color: var(--text-main);">
-                    <h3 id="history" style="padding-top: 0.6em;">
-                      <span style="font-size: 0.6em; color: var(--text-sub); margin-right: 0px;">#</span>
+                  <details style="padding-top: 1em;" open="">
+                    <summary class="tag-header" id="history">
+                      <a href="#history" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
                       History
                       <sup style="font-size: 0.5em; color: var(--text-sub);">2</sup>
-                    </h3>
-                  </a>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Andre-verdenskrig">Andre verdenskrig</a><span class="right bottom"><span class="tooltip-title">Andre verdenskrig</span><br/>
-                        <span class="tooltip-excerpt">Første del (1939–1942)<br />
-                          <br />
-                          Krigens omfang og betydning<br />
-                          Lære noen forklaringer på hvorfor det ble krig<br />
-                          Kjenne til forløpet<br />
-                          <br />
-                          <br />
-                          Starten på andre verdenskrig: Japan invaderte Kina i 1937, og man kan ...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Mellomkrigstiden">Mellomkrigstiden</a><span class="right bottom"><span class="tooltip-title">Mellomkrigstiden</span><br/>
-                        <span class="tooltip-excerpt">Mellomkrigstiden<br />
-                          <br />
-                          Artikkel 1: https://www.aftenposten.no/meninger/kronikk/i/0Enea2/da-lenin-kapret-revolusjonen-baard-larsen<br />
-                          Artikkel 2: https://radikalportal.no/2018/01/14/bard-larsens-tendensiose...</span><i></i></span></span>
-                  </li>
-                  <a href="#linux" class="noselect" style="text-decoration: none; color: var(--text-main);">
-                    <h3 id="linux" style="padding-top: 0.6em;">
-                      <span style="font-size: 0.6em; color: var(--text-sub); margin-right: 0px;">#</span>
+                    </summary>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Andre-verdenskrig">Andre verdenskrig</a><span class="right bottom"><span class="tooltip-title">Andre verdenskrig</span><br/>
+                          <span class="tooltip-excerpt">Første del (1939–1942)<br />
+                            <br />
+                            Krigens omfang og betydning<br />
+                            Lære noen forklaringer på hvorfor det ble krig<br />
+                            Kjenne til forløpet<br />
+                            <br />
+                            <br />
+                            Starten på andre verdenskrig: Japan invaderte Kina i 1937, og man kan ...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Mellomkrigstiden">Mellomkrigstiden</a><span class="right bottom"><span class="tooltip-title">Mellomkrigstiden</span><br/>
+                          <span class="tooltip-excerpt">Mellomkrigstiden<br />
+                            <br />
+                            Artikkel 1: https://www.aftenposten.no/meninger/kronikk/i/0Enea2/da-lenin-kapret-revolusjonen-baard-larsen<br />
+                            Artikkel 2: https://radikalportal.no/2018/01/14/bard-larsens-tendensiose...</span><i></i></span></span>
+                    </li>
+                  </details>
+                  <details style="padding-top: 1em;" open="">
+                    <summary class="tag-header" id="linux">
+                      <a href="#linux" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
                       Linux
                       <sup style="font-size: 0.5em; color: var(--text-sub);">2</sup>
-                    </h3>
-                  </a>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Linux-Kiosk-Mode">Linux kiosk mode</a><span class="right bottom"><span class="tooltip-title">Linux kiosk mode</span><br/>
-                        <span class="tooltip-excerpt">Denne prosedyren baserer seg på Ubuntu 20.04 LTS med Firefox/Chromium som app for kiosk-mode. <br />
-                          I praksis kjører dette bare en instans av nettleseren i headless/koisk-mode over Gnome og fjerner så m...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/NixOS-installation">Nixos installation</a><span class="right bottom"><span class="tooltip-title">Nixos installation</span><br/>
-                        <span class="tooltip-excerpt">Installing NixOS — a less verbose step-by-step guide<br />
-                          <br />
-                          <br />
-                          <br />
-                          This guide assumes you already have Windows installed on a shrinked partition if you’ll be dual booting.<br />
-                          <br />
-                          This guide also assumes you’re runn...</span><i></i></span></span>
-                  </li>
-                  <a href="#math" class="noselect" style="text-decoration: none; color: var(--text-main);">
-                    <h3 id="math" style="padding-top: 0.6em;">
-                      <span style="font-size: 0.6em; color: var(--text-sub); margin-right: 0px;">#</span>
+                    </summary>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Linux-Kiosk-Mode">Linux kiosk mode</a><span class="right bottom"><span class="tooltip-title">Linux kiosk mode</span><br/>
+                          <span class="tooltip-excerpt">Denne prosedyren baserer seg på Ubuntu 20.04 LTS med Firefox/Chromium som app for kiosk-mode. <br />
+                            I praksis kjører dette bare en instans av nettleseren i headless/koisk-mode over Gnome og fjerner så m...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/NixOS-installation">Nixos installation</a><span class="right bottom"><span class="tooltip-title">Nixos installation</span><br/>
+                          <span class="tooltip-excerpt">Installing NixOS — a less verbose step-by-step guide<br />
+                            <br />
+                            <br />
+                            <br />
+                            This guide assumes you already have Windows installed on a shrinked partition if you’ll be dual booting.<br />
+                            <br />
+                            This guide also assumes you’re runn...</span><i></i></span></span>
+                    </li>
+                  </details>
+                  <details style="padding-top: 1em;" open="">
+                    <summary class="tag-header" id="math">
+                      <a href="#math" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
                       Math
                       <sup style="font-size: 0.5em; color: var(--text-sub);">19</sup>
-                    </h3>
-                  </a>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Andregradsformelen">Andregradsformelen</a><span class="right bottom"><span class="tooltip-title">Andregradsformelen</span><br/>
-                        <span class="tooltip-excerpt">$\boxed{ax^{2} + bx + c = 0 \implies x = \dfrac{-b \pm \sqrt{b^{2} - 4ac}}{2a}}$<br />
-                          <br />
-                          <br />
-                          <br />
-                          <br />
-                          Tungvindt, uten andregradsformelen<br />
-                          <br />
-                          <br />
-                          2x2+10x+12=2(x+2)(x+3)=x=−2∨x=−3‾‾\begin{aligned}<br />
-                          2x^{2} + 10x + 12 &amp;...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Andregradsfunksjoner">Andregradsfunksjoner</a><span class="right bottom"><span class="tooltip-title">Andregradsfunksjoner</span><br/>
-                        <span class="tooltip-excerpt"><br />
-                          Generall 2.gradsfunksjon:<br />
-                          <br />
-                          $f(x) = ax^2 + bx + c$<br />
-                          <br />
-                          <br />
-                          $a &gt; 0$: “Smilende” parabel $\cup$<br />
-                          $a &lt; 0$: “Sur” parabel $\cap$<br />
-                          $c$: Angir vertikal forkyvning av grafen (skjæring med y-akse...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Definisjonsmenger-og-verdimengder">Definisjonsmenger og verdimengder</a><span class="right bottom"><span class="tooltip-title">Definisjonsmenger og verdimengder</span><br/>
-                        <span class="tooltip-excerpt"><br />
-                          📢 Gitt $f(x) = x^2 + 2 , x \in [0, 4]$<br />
-                          Tegn funksjonen og bestem $D_f$ og $V_f$<br />
-                          Når du skal tegne grafer som ikke er rette linjer, bruk mange punkter!<br />
-                          “Hva er funksjonsverdien når x = 3?”<br />
-                          <br />
-                          ...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Enhetssirkelen">Enhetssirkelen</a><span class="right bottom"><span class="tooltip-title">Enhetssirkelen</span><br/>
-                        <span class="tooltip-excerpt"><br />
-                          %%🖋 Edit in Excalidraw%%<br />
-                          <br />
-                          <br />
-                          <br />
-                          Eksempel 1<br />
-                          <br />
-                          $f(x) = 2 \sin (\pi x) + 1$<br />
-                          <br />
-                          a) Finn nullpunktene til f(x)<br />
-                          <br />
-                          Eksempel 2<br />
-                          <br />
-                          $sin(\frac{\pi}{2} + v)$<br />
-                          <br />
-                          A. sin v<br />
-                          B. cos v<br />
-                          C. tan v<br />
-                          D. -sin v<br />
-                          E. -cos v<br />
-                        </span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Ettpunktsformelen">Ettpunktsformelen</a><span class="right bottom"><span class="tooltip-title">Ettpunktsformelen</span><br/>
-                        <span class="tooltip-excerpt"><br />
-                          <br />
-                          Linje I:<br />
-                          <br />
-                          Les av skjæring med y-aksen $\implies b = 1$<br />
-                          Gå en enhet til høyre, må da 0.5 opp for å treffe på linja $\implies a = \dfrac{1}{2}$<br />
-                          <br />
-                          <br />
-                          y=ax+by=12x+1‾‾\begin{aligned}<br />
-                          y = ax + b \<br />
-                          \u...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Faktorisering-av-polynomer">Faktorisering av polynomer</a><span class="right bottom"><span class="tooltip-title">Faktorisering av polynomer</span><br/>
-                        <span class="tooltip-excerpt">2.gradspolynomer (ax^2 + bx + c) ← se kap 2.9<br />
-                          <br />
-                          For å faktorisere polynomer finner vi nullpunktene i uttrykket, dvs. løs likningen $ax^2 + bx + c = 0$<br />
-                          <br />
-                          <br />
-                          vha abc/2.gradsformelen: $x = \dfrac{-b...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Faktorisering-og-nullpunkter">Faktorisering og nullpunkter</a><span class="right bottom"><span class="tooltip-title">Faktorisering og nullpunkter</span><br/>
-                        <span class="tooltip-excerpt">1<br />
-                          <br />
-                          <br />
-                          <br />
-                          <br />
-                          https://campus.inkrement.no/566141/4603475 &#8617;<br />
-                          <br />
-                          <br />
-                          <br />
-                        </span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Faktorisering">Faktorisering</a><span class="right bottom"><span class="tooltip-title">Faktorisering</span><br/>
-                        <span class="tooltip-excerpt"><br />
-                        </span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Grenseverdier">Grenseverdier</a><span class="right bottom"><span class="tooltip-title">Grenseverdier</span><br/>
-                        <span class="tooltip-excerpt">1<br />
-                          <br />
-                          <br />
-                          <br />
-                          <br />
-                          https://campus.inkrement.no/566141/4601738 &#8617;<br />
-                          <br />
-                          <br />
-                          <br />
-                        </span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Kvadratsetningene">Kvadratsetningene</a><span class="right bottom"><span class="tooltip-title">Kvadratsetningene</span><br/>
-                        <span class="tooltip-excerpt">1<br />
-                          <br />
-                          <br />
-                          <br />
-                          <br />
-                           <br />
-                           <br />
-                          <br />
-                          <br />
-                          <br />
-                          <br />
-                          Første kvadratsetning<br />
-                          $(a + b)^{2} = a^{2} + 2ab + b^{2}$<br />
-                          <br />
-                          <br />
-                          Andre kvadratsetning<br />
-                          $(a - b)^{2} = a^{2} - 2ab + b^{2}$<br />
-                          ...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Likninger">Likninger</a><span class="right bottom"><span class="tooltip-title">Likninger</span><br/>
-                        <span class="tooltip-excerpt"><br />
-                        </span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Logaritmer">Logaritmer</a><span class="right bottom"><span class="tooltip-title">Logaritmer</span><br/>
-                        <span class="tooltip-excerpt">Logaritmeregler, b, c &gt; 0<br />
-                          <br />
-                          $\boxed{\ln \left( bc \right) = \ln \left( b \right) + \ln \left( c \right)}$<br />
-                          <br />
-                          $\boxed{\ln \left( \frac{b}{c} \right) = \ln \left( b \right) - \ln \left( c \right)}$<br />
-                          <br />
-                          ...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Polynomdivisjon">Polynomdivisjon</a><span class="right bottom"><span class="tooltip-title">Polynomdivisjon</span><br/>
-                        <span class="tooltip-excerpt">50688undefineddivident:12undefineddivisor=\begin{aligned}<br />
-                          \underbrace{50688}_\text{divident} : \underbrace{12}_\text{divisor} =<br />
-                          \end{aligned}divident50688​​:divisor12​​=​<br />
-                          <br />
-                          <br />
-                          Skriv polynomet med av...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Polynomfunksjoner">Polynomfunksjoner</a><span class="right bottom"><span class="tooltip-title">Polynomfunksjoner</span><br/>
-                        <span class="tooltip-excerpt"><br />
-                        </span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Potenser">Potenser</a><span class="right bottom"><span class="tooltip-title">Potenser</span><br/>
-                        <span class="tooltip-excerpt">\requirecancel∣Potens→( 2←Grunntallet4←Eksponent )=2⋅2⋅2⋅2\require{cancel}<br />
-                          \large\vert{Potens \rightarrow<br />
-                          \LARGE{<br />
-                          \left(\,2_{\leftarrow Grunntallet}^{4 \leftarrow Eksponent}\,\right)<br />
-                          } ...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Skalarprodukt">Skalarprodukt</a><span class="right bottom"><span class="tooltip-title">Skalarprodukt</span><br/>
-                        <span class="tooltip-excerpt">[[Skalarer]] er et matematisk objekt som kun er definert med en størrelse, mens [[vektorer]] $\overrightarrow{a}$ har både størrelse og retning.<br />
-                          <br />
-                          <br />
-                          <br />
-                          Q: 13.2 Skalarproduktet — Eks 1<br />
-                          <br />
-                          <br />
-                          <br />
-                          Det gir ikke m...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Standardform">Standardform</a><span class="right bottom"><span class="tooltip-title">Standardform</span><br/>
-                        <span class="tooltip-excerpt">$\boxed{\pm a \cdot 10^n , 1 \le a \lt 10}$<br />
-                          <br />
-                          34700000=3.47⋅107‾‾34700000 = 3.47 \cdot \underline{\underline{10^7}}34700000=3.47⋅107​​<br />
-                          <br />
-                          0.00000007341=7.341⋅10−8‾‾0.00000007341 = 7.341 \cdot \underli...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Ulikheter">Ulikheter</a><span class="right bottom"><span class="tooltip-title">Ulikheter</span><br/>
-                        <span class="tooltip-excerpt"><br />
-                          ❓ <br />
-                          <br />
-                          <br />
-                          Gange inn parentesen<br />
-                          Har lov til å gange bort nevneren<br />
-                          Ganger med fellesnevneren (*6)<br />
-                          https://i.runarsf.dev/runar/VUxAlaVA68.png/raw<br />
-                          <br />
-                          <br />
-                          <br />
-                          <br />
-                          <br />
-                          ❓ <br />
-                          <br />
-                          <br />
-                          Hva er e...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Vektorer">Vektorer</a><span class="right bottom"><span class="tooltip-title">Vektorer</span><br/>
-                        <span class="tooltip-excerpt"><br />
-                        </span><i></i></span></span>
-                  </li>
-                  <a href="#nix" class="noselect" style="text-decoration: none; color: var(--text-main);">
-                    <h3 id="nix" style="padding-top: 0.6em;">
-                      <span style="font-size: 0.6em; color: var(--text-sub); margin-right: 0px;">#</span>
+                    </summary>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Andregradsformelen">Andregradsformelen</a><span class="right bottom"><span class="tooltip-title">Andregradsformelen</span><br/>
+                          <span class="tooltip-excerpt">$\boxed{ax^{2} + bx + c = 0 \implies x = \dfrac{-b \pm \sqrt{b^{2} - 4ac}}{2a}}$<br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            Tungvindt, uten andregradsformelen<br />
+                            <br />
+                            <br />
+                            2x2+10x+12=2(x+2)(x+3)=x=−2∨x=−3‾‾\begin{aligned}<br />
+                            2x^{2} + 10x + 12 &amp;...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Andregradsfunksjoner">Andregradsfunksjoner</a><span class="right bottom"><span class="tooltip-title">Andregradsfunksjoner</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                            Generall 2.gradsfunksjon:<br />
+                            <br />
+                            $f(x) = ax^2 + bx + c$<br />
+                            <br />
+                            <br />
+                            $a &gt; 0$: “Smilende” parabel $\cup$<br />
+                            $a &lt; 0$: “Sur” parabel $\cap$<br />
+                            $c$: Angir vertikal forkyvning av grafen (skjæring med y-akse...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Definisjonsmenger-og-verdimengder">Definisjonsmenger og verdimengder</a><span class="right bottom"><span class="tooltip-title">Definisjonsmenger og verdimengder</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                            📢 Gitt $f(x) = x^2 + 2 , x \in [0, 4]$<br />
+                            Tegn funksjonen og bestem $D_f$ og $V_f$<br />
+                            Når du skal tegne grafer som ikke er rette linjer, bruk mange punkter!<br />
+                            “Hva er funksjonsverdien når x = 3?”<br />
+                            <br />
+                            ...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Enhetssirkelen">Enhetssirkelen</a><span class="right bottom"><span class="tooltip-title">Enhetssirkelen</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                            %%🖋 Edit in Excalidraw%%<br />
+                            <br />
+                            <br />
+                            <br />
+                            Eksempel 1<br />
+                            <br />
+                            $f(x) = 2 \sin (\pi x) + 1$<br />
+                            <br />
+                            a) Finn nullpunktene til f(x)<br />
+                            <br />
+                            Eksempel 2<br />
+                            <br />
+                            $sin(\frac{\pi}{2} + v)$<br />
+                            <br />
+                            A. sin v<br />
+                            B. cos v<br />
+                            C. tan v<br />
+                            D. -sin v<br />
+                            E. -cos v<br />
+                          </span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Ettpunktsformelen">Ettpunktsformelen</a><span class="right bottom"><span class="tooltip-title">Ettpunktsformelen</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                            <br />
+                            Linje I:<br />
+                            <br />
+                            Les av skjæring med y-aksen $\implies b = 1$<br />
+                            Gå en enhet til høyre, må da 0.5 opp for å treffe på linja $\implies a = \dfrac{1}{2}$<br />
+                            <br />
+                            <br />
+                            y=ax+by=12x+1‾‾\begin{aligned}<br />
+                            y = ax + b \<br />
+                            \u...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Faktorisering-av-polynomer">Faktorisering av polynomer</a><span class="right bottom"><span class="tooltip-title">Faktorisering av polynomer</span><br/>
+                          <span class="tooltip-excerpt">2.gradspolynomer (ax^2 + bx + c) ← se kap 2.9<br />
+                            <br />
+                            For å faktorisere polynomer finner vi nullpunktene i uttrykket, dvs. løs likningen $ax^2 + bx + c = 0$<br />
+                            <br />
+                            <br />
+                            vha abc/2.gradsformelen: $x = \dfrac{-b...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Faktorisering-og-nullpunkter">Faktorisering og nullpunkter</a><span class="right bottom"><span class="tooltip-title">Faktorisering og nullpunkter</span><br/>
+                          <span class="tooltip-excerpt">1<br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            https://campus.inkrement.no/566141/4603475 &#8617;<br />
+                            <br />
+                            <br />
+                            <br />
+                          </span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Faktorisering">Faktorisering</a><span class="right bottom"><span class="tooltip-title">Faktorisering</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                          </span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Grenseverdier">Grenseverdier</a><span class="right bottom"><span class="tooltip-title">Grenseverdier</span><br/>
+                          <span class="tooltip-excerpt">1<br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            https://campus.inkrement.no/566141/4601738 &#8617;<br />
+                            <br />
+                            <br />
+                            <br />
+                          </span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Kvadratsetningene">Kvadratsetningene</a><span class="right bottom"><span class="tooltip-title">Kvadratsetningene</span><br/>
+                          <span class="tooltip-excerpt">1<br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                             <br />
+                             <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            Første kvadratsetning<br />
+                            $(a + b)^{2} = a^{2} + 2ab + b^{2}$<br />
+                            <br />
+                            <br />
+                            Andre kvadratsetning<br />
+                            $(a - b)^{2} = a^{2} - 2ab + b^{2}$<br />
+                            ...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Likninger">Likninger</a><span class="right bottom"><span class="tooltip-title">Likninger</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                          </span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Logaritmer">Logaritmer</a><span class="right bottom"><span class="tooltip-title">Logaritmer</span><br/>
+                          <span class="tooltip-excerpt">Logaritmeregler, b, c &gt; 0<br />
+                            <br />
+                            $\boxed{\ln \left( bc \right) = \ln \left( b \right) + \ln \left( c \right)}$<br />
+                            <br />
+                            $\boxed{\ln \left( \frac{b}{c} \right) = \ln \left( b \right) - \ln \left( c \right)}$<br />
+                            <br />
+                            ...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Polynomdivisjon">Polynomdivisjon</a><span class="right bottom"><span class="tooltip-title">Polynomdivisjon</span><br/>
+                          <span class="tooltip-excerpt">50688undefineddivident:12undefineddivisor=\begin{aligned}<br />
+                            \underbrace{50688}_\text{divident} : \underbrace{12}_\text{divisor} =<br />
+                            \end{aligned}divident50688​​:divisor12​​=​<br />
+                            <br />
+                            <br />
+                            Skriv polynomet med av...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Polynomfunksjoner">Polynomfunksjoner</a><span class="right bottom"><span class="tooltip-title">Polynomfunksjoner</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                          </span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Potenser">Potenser</a><span class="right bottom"><span class="tooltip-title">Potenser</span><br/>
+                          <span class="tooltip-excerpt">\requirecancel∣Potens→( 2←Grunntallet4←Eksponent )=2⋅2⋅2⋅2\require{cancel}<br />
+                            \large\vert{Potens \rightarrow<br />
+                            \LARGE{<br />
+                            \left(\,2_{\leftarrow Grunntallet}^{4 \leftarrow Eksponent}\,\right)<br />
+                            } ...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Skalarprodukt">Skalarprodukt</a><span class="right bottom"><span class="tooltip-title">Skalarprodukt</span><br/>
+                          <span class="tooltip-excerpt">[[Skalarer]] er et matematisk objekt som kun er definert med en størrelse, mens [[vektorer]] $\overrightarrow{a}$ har både størrelse og retning.<br />
+                            <br />
+                            <br />
+                            <br />
+                            Q: 13.2 Skalarproduktet — Eks 1<br />
+                            <br />
+                            <br />
+                            <br />
+                            Det gir ikke m...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Standardform">Standardform</a><span class="right bottom"><span class="tooltip-title">Standardform</span><br/>
+                          <span class="tooltip-excerpt">$\boxed{\pm a \cdot 10^n , 1 \le a \lt 10}$<br />
+                            <br />
+                            34700000=3.47⋅107‾‾34700000 = 3.47 \cdot \underline{\underline{10^7}}34700000=3.47⋅107​​<br />
+                            <br />
+                            0.00000007341=7.341⋅10−8‾‾0.00000007341 = 7.341 \cdot \underli...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Ulikheter">Ulikheter</a><span class="right bottom"><span class="tooltip-title">Ulikheter</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                            ❓ <br />
+                            <br />
+                            <br />
+                            Gange inn parentesen<br />
+                            Har lov til å gange bort nevneren<br />
+                            Ganger med fellesnevneren (*6)<br />
+                            https://i.runarsf.dev/runar/VUxAlaVA68.png/raw<br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            ❓ <br />
+                            <br />
+                            <br />
+                            Hva er e...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Vektorer">Vektorer</a><span class="right bottom"><span class="tooltip-title">Vektorer</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                          </span><i></i></span></span>
+                    </li>
+                  </details>
+                  <details style="padding-top: 1em;" open="">
+                    <summary class="tag-header" id="nix">
+                      <a href="#nix" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
                       Nix
                       <sup style="font-size: 0.5em; color: var(--text-sub);">1</sup>
-                    </h3>
-                  </a>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/NixOS-installation">Nixos installation</a><span class="right bottom"><span class="tooltip-title">Nixos installation</span><br/>
-                        <span class="tooltip-excerpt">Installing NixOS — a less verbose step-by-step guide<br />
-                          <br />
-                          <br />
-                          <br />
-                          This guide assumes you already have Windows installed on a shrinked partition if you’ll be dual booting.<br />
-                          <br />
-                          This guide also assumes you’re runn...</span><i></i></span></span>
-                  </li>
-                  <a href="#physics" class="noselect" style="text-decoration: none; color: var(--text-main);">
-                    <h3 id="physics" style="padding-top: 0.6em;">
-                      <span style="font-size: 0.6em; color: var(--text-sub); margin-right: 0px;">#</span>
+                    </summary>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/NixOS-installation">Nixos installation</a><span class="right bottom"><span class="tooltip-title">Nixos installation</span><br/>
+                          <span class="tooltip-excerpt">Installing NixOS — a less verbose step-by-step guide<br />
+                            <br />
+                            <br />
+                            <br />
+                            This guide assumes you already have Windows installed on a shrinked partition if you’ll be dual booting.<br />
+                            <br />
+                            This guide also assumes you’re runn...</span><i></i></span></span>
+                    </li>
+                  </details>
+                  <details style="padding-top: 1em;" open="">
+                    <summary class="tag-header" id="physics">
+                      <a href="#physics" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
                       Physics
-                      <sup style="font-size: 0.5em; color: var(--text-sub);">21</sup>
-                    </h3>
-                  </a>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Atommodeller">Atommodeller</a><span class="right bottom"><span class="tooltip-title">Atommodeller</span><br/>
-                        <span class="tooltip-excerpt">Atomets historie<br />
-                          <br />
-                          Greske naturfilosofer (Demokrit med flere): Atomet er udelelig. Atomer er det alt er bygd opp av.<br />
-                          Det finnes en type atom for hvert stoff.<br />
-                          <br />
-                          1600-tallet: Teorien om grunnstoffer sl...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Bevegelseslikningene">Bevegelseslikningene</a><span class="right bottom"><span class="tooltip-title">Bevegelseslikningene</span><br/>
-                        <span class="tooltip-excerpt">Kan bare brukes når akselerasjonen er konstant.<br />
-                          <br />
-                          For bevegelse med konstant akselerasjon, har du et sett av bevegelseslikninger til disposisjon. Ved hjelp av de fire bevegelseslikningene<br />
-                          <br />
-                          4. Bevege...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Brytning">Brytning</a><span class="right bottom"><span class="tooltip-title">Brytning</span><br/>
-                        <span class="tooltip-excerpt">Bølger og stråler (f.eks. lys) skifter retning når den går inn i nytt stoff.<br />
-                          <br />
-                          ![[_assets/Brytning_250122-102722.excalidraw.svg]]<br />
-                          %%[[../../_assets/Brytning_250122-102722.excalidraw.md]]%%<br />
-                          <br />
-                          <br />
-                          <br />
-                        </span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Brytningsindeks">Brytningsindeks</a><span class="right bottom"><span class="tooltip-title">Brytningsindeks</span><br/>
-                        <span class="tooltip-excerpt">Sier noe om hvor mye strålen endrer retning når den brytes.<br />
-                          <br />
-                          <br />
-                          <br />
-                        </span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/B%C3%B8lgefart">Bølgefart</a><span class="right bottom"><span class="tooltip-title">Bølgefart</span><br/>
-                        <span class="tooltip-excerpt">Farten til bølgen bølgen<br />
-                          Symbol: $v \text{ eller } c$<br />
-                          $v = \lambda f$<br />
-                          <br />
-                          <br />
-                          <br />
-                        </span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/B%C3%B8lgelengde">Bølgelengde</a><span class="right bottom"><span class="tooltip-title">Bølgelengde</span><br/>
-                        <span class="tooltip-excerpt">Avstanden mellom to punkt i samme [[fase]]. F.eks. avstand mellom to [[bølgetopper]].<br />
-                          Måleenhet: $m$ (ofte for lysbølger: $nm$)<br />
-                          Symbol: $\lambda$<br />
-                          <br />
-                          <br />
-                          <br />
-                        </span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/B%C3%B8lger">Bølger</a><span class="right bottom"><span class="tooltip-title">Bølger</span><br/>
-                        <span class="tooltip-excerpt">Oppsummert, læremål<br />
-                          <br />
-                          <br />
-                          Forstå og kunne bruke begreper knyttet til bølgebevegelse.<br />
-                          Forklare sammenhengen mellom bølgefart, frekvens og bølgelengde, og bruke den i beregninger.<br />
-                          <br />
-                          $v = f \...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Det-elektromagnetiske-spekteret">Det elektromagnetiske spekteret</a><span class="right bottom"><span class="tooltip-title">Det elektromagnetiske spekteret</span><br/>
-                        <span class="tooltip-excerpt">Ulike typer [[elektromagnetisk stråling]]. Elektromagnetisk stråling er bølger i noe vi kaller [[elektromagnetisk felt]].<br />
-                          Elektromagnetisk stråling dannes av elektriske ladninger i bevegelse.<br />
-                          All e...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Fj%C3%A6rkraft">Fjærkraft</a><span class="right bottom"><span class="tooltip-title">Fjærkraft</span><br/>
-                        <span class="tooltip-excerpt"><br />
-                          Hooke’s law: $\underline{F = k x}$<br />
-                          Binær sammenheng mellom fjær-forlengelsen (x) og kraften vi bruker.<br />
-                          Drar vi med dobbelt så stor kraft, blir fjær-forlengelsen dobbelt så lang.<br />
-                          Det samme gjelde...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Frekvens">Frekvens</a><span class="right bottom"><span class="tooltip-title">Frekvens</span><br/>
-                        <span class="tooltip-excerpt">Frekvens<br />
-                          <br />
-                          Antall bølger som passerer et punkt per tidsenhet. Antall svingninger per tidsenhet.<br />
-                          Måleenhet: $Hz = s^{-1}$<br />
-                          Symbol: $f$<br />
-                          <br />
-                          <br />
-                          <br />
-                        </span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Friksjon-og-friksjonstall">Friksjon og friksjonstall</a><span class="right bottom"><span class="tooltip-title">Friksjon og friksjonstall</span><br/>
-                        <span class="tooltip-excerpt">Glidefriksjon<br />
-                          <br />
-                          Når to flater er i kontakt med hverandre og beveger seg i forhold til hverandre så er friksjonen gitt ved:<br />
-                          Friksjonskraft = Friksjonstall * Normalkraft<br />
-                          $R = \mu \cdot N$<br />
-                          ($\mu$: Gres...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Interferens">Interferens</a><span class="right bottom"><span class="tooltip-title">Interferens</span><br/>
-                        <span class="tooltip-excerpt">Repetisjon<br />
-                          <br />
-                          <br />
-                          [[Frekvens]]<br />
-                          [[Bølgelengde]]<br />
-                          [[Bølgefart]]<br />
-                          [[Brytning]]<br />
-                          [[Brytningsindeks]]<br />
-                          [[Det elektromagnetiske spekteret]]<br />
-                          <br />
-                          <br />
-                          Læringsmål<br />
-                          <br />
-                          <br />
-                          Forstå og bruke begreper og knytte de til b...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Mekanikk">Mekanikk</a><span class="right bottom"><span class="tooltip-title">Mekanikk</span><br/>
-                        <span class="tooltip-excerpt">Enheter, symboler o.l. står på side 6 i formelsamlinga<br />
-                          <br />
-                          5 viktige størrelser<br />
-                          <br />
-                          Kinetisk energi<br />
-                          Enhet: Joule<br />
-                          Bevegelsesenergi<br />
-                          $E_{K}= \frac{1}{2}mv^{2}$<br />
-                          <br />
-                          Potensiell energi<br />
-                          Enhet: Joule<br />
-                          <br />
-                          pga. tyngde...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Newtons-1.-lov">Newtons 1. lov</a><span class="right bottom"><span class="tooltip-title">Newtons 1. lov</span><br/>
-                        <span class="tooltip-excerpt"><br />
-                          Newtons første lov sier at dersom det ikke virker noen krefter på et legeme, eller hvis summen av kreftene på det er lik null, så vil legemet enten forbli i ro eller fortsette å bevege seg med k...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Newtons-2.-lov">Newtons 2. lov</a><span class="right bottom"><span class="tooltip-title">Newtons 2. lov</span><br/>
-                        <span class="tooltip-excerpt"><br />
-                          Newtons andre lov sier at når et legeme blir påvirket av én eller flere krefter, vil det få en akselerasjon i den retningen kreftene virker. Summen av kreftene på legemet er lik legemets masse g...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Newtons-3.-lov">Newtons 3. lov</a><span class="right bottom"><span class="tooltip-title">Newtons 3. lov</span><br/>
-                        <span class="tooltip-excerpt"><br />
-                          Newtons tredje lov sier at når et legeme virker på et annet legeme med en kraft, vil det andre legemet virke tilbake på det første med en like stor kraft i motsatt retning. De to kreftene som om...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Normalkraft">Normalkraft</a><span class="right bottom"><span class="tooltip-title">Normalkraft</span><br/>
-                        <span class="tooltip-excerpt">Ikke alltid det samme som tyngdekraft.<br />
-                          E.g. om noen hopper — hvis det er andre krefter inn i bilde.<br />
-                        </span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Termofysikkens-2.-lov">Termofysikkens 2. lov</a><span class="right bottom"><span class="tooltip-title">Termofysikkens 2. lov</span><br/>
-                        <span class="tooltip-excerpt">Repetisjon <span class="tooltip"><a href="/notes/Varmekapasitet-og-fasevarme">Varmekapasitet og fasevarme</a><span class="right bottom"><span class="tooltip-title">Varmekapasitet og fasevarme</span><br/>
-                              <span class="tooltip-excerpt">Repetisjon<br />
-                                <br />
-                                Varme (Q):<br />
-                                <br />
-                                Overføring av energi på grunn av temperaturfoskjell. Energien går fra ovjekt med høy temperatur til lav temperatur.<br />
-                                “Hvorfor overføres temperaturen til de med lavere tem...</span><i></i></span></span><br />
-                          <br />
-                          <br />
-                          ❓ Hvilke utsagn om varmekapasitet stemmer?<br />
-                          A) Sto varmekapasitet betyr at et stoff kan ta til seg og lagre mye energi i forhold til et stoff med liten...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Usikkerhetsregning">Usikkerhetsregning</a><span class="right bottom"><span class="tooltip-title">Usikkerhetsregning</span><br/>
-                        <span class="tooltip-excerpt"><br />
-                          Absolutt usikkerhet (Usikkerhet ved måling)<br />
-                          <br />
-                          $\Delta X = \text{største verdi} - \text{minste verdi}$<br />
-                          Kan/bør deles på 2 om det er flere enn 10 målinger, men det er ikke galt uans...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Varmekapasitet-og-fasevarme">Varmekapasitet og fasevarme</a><span class="right bottom"><span class="tooltip-title">Varmekapasitet og fasevarme</span><br/>
-                        <span class="tooltip-excerpt">Repetisjon<br />
-                          <br />
-                          Varme (Q):<br />
-                          <br />
-                          Overføring av energi på grunn av temperaturfoskjell. Energien går fra ovjekt med høy temperatur til lav temperatur.<br />
-                          “Hvorfor overføres temperaturen til de med lavere tem...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/V%C3%A6sker,-gasser,-termofysikk">Væsker, gasser, termofysikk</a><span class="right bottom"><span class="tooltip-title">Væsker, gasser, termofysikk</span><br/>
-                        <span class="tooltip-excerpt">6 viktige størrelser<br />
-                          <br />
-                          <br />
-                          Massetetthet<br />
-                          <br />
-                          $\rho = \frac{m}{v}$<br />
-                          <br />
-                          <br />
-                          Trykk<br />
-                          <br />
-                          Måleenhet: Pascal (Pa)<br />
-                          $p = \frac{F}{A}$ (Pressure = Force / Area)<br />
-                          <br />
-                          <br />
-                          Varme: Mengden en...</span><i></i></span></span>
-                  </li>
-                  <a href="#privacy" class="noselect" style="text-decoration: none; color: var(--text-main);">
-                    <h3 id="privacy" style="padding-top: 0.6em;">
-                      <span style="font-size: 0.6em; color: var(--text-sub); margin-right: 0px;">#</span>
+                      <sup style="font-size: 0.5em; color: var(--text-sub);">22</sup>
+                    </summary>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Atommodeller">Atommodeller</a><span class="right bottom"><span class="tooltip-title">Atommodeller</span><br/>
+                          <span class="tooltip-excerpt">Atomets historie<br />
+                            <br />
+                            Greske naturfilosofer (Demokrit med flere): Atomet er udelelig. Atomer er det alt er bygd opp av.<br />
+                            Det finnes en type atom for hvert stoff.<br />
+                            <br />
+                            1600-tallet: Teorien om grunnstoffer sl...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Bevegelseslikningene">Bevegelseslikningene</a><span class="right bottom"><span class="tooltip-title">Bevegelseslikningene</span><br/>
+                          <span class="tooltip-excerpt">Kan bare brukes når akselerasjonen er konstant.<br />
+                            <br />
+                            For bevegelse med konstant akselerasjon, har du et sett av bevegelseslikninger til disposisjon. Ved hjelp av de fire bevegelseslikningene<br />
+                            <br />
+                            4. Bevege...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Bohrs-atommodell,-absorpsjon-og-emisjon">Bohrs atommodell, absorpsjon og emisjon</a><span class="right bottom"><span class="tooltip-title">Bohrs atommodell, absorpsjon og emisjon</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                            Gjøre rede for [[Niels Bohrs]] modell for hydrogenatomet og [[postulatene]] som ligger til grunn for modellen.<br />
+                            Kunne beregne energinivåer i hydrogenatomet.<br />
+                            Forstå emisjon og absorpsjon av [[...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Brytning">Brytning</a><span class="right bottom"><span class="tooltip-title">Brytning</span><br/>
+                          <span class="tooltip-excerpt">Bølger og stråler (f.eks. lys) skifter retning når den går inn i nytt stoff.<br />
+                            <br />
+                            ![[_assets/Brytning_250122-102722.excalidraw.svg]]<br />
+                            %%[[../../_assets/Brytning_250122-102722.excalidraw.md]]%%<br />
+                            <br />
+                            <br />
+                            <br />
+                          </span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Brytningsindeks">Brytningsindeks</a><span class="right bottom"><span class="tooltip-title">Brytningsindeks</span><br/>
+                          <span class="tooltip-excerpt">Sier noe om hvor mye strålen endrer retning når den brytes.<br />
+                            <br />
+                            <br />
+                            <br />
+                          </span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/B%C3%B8lgefart">Bølgefart</a><span class="right bottom"><span class="tooltip-title">Bølgefart</span><br/>
+                          <span class="tooltip-excerpt">Farten til bølgen bølgen<br />
+                            Symbol: $v \text{ eller } c$<br />
+                            $v = \lambda f$<br />
+                            <br />
+                            <br />
+                            <br />
+                          </span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/B%C3%B8lgelengde">Bølgelengde</a><span class="right bottom"><span class="tooltip-title">Bølgelengde</span><br/>
+                          <span class="tooltip-excerpt">Avstanden mellom to punkt i samme [[fase]]. F.eks. avstand mellom to [[bølgetopper]].<br />
+                            Måleenhet: $m$ (ofte for lysbølger: $nm$)<br />
+                            Symbol: $\lambda$<br />
+                            <br />
+                            <br />
+                            <br />
+                          </span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/B%C3%B8lger">Bølger</a><span class="right bottom"><span class="tooltip-title">Bølger</span><br/>
+                          <span class="tooltip-excerpt">Oppsummert, læremål<br />
+                            <br />
+                            <br />
+                            Forstå og kunne bruke begreper knyttet til bølgebevegelse.<br />
+                            Forklare sammenhengen mellom bølgefart, frekvens og bølgelengde, og bruke den i beregninger.<br />
+                            <br />
+                            $v = f \...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Det-elektromagnetiske-spekteret">Det elektromagnetiske spekteret</a><span class="right bottom"><span class="tooltip-title">Det elektromagnetiske spekteret</span><br/>
+                          <span class="tooltip-excerpt">Ulike typer [[elektromagnetisk stråling]]. Elektromagnetisk stråling er bølger i noe vi kaller [[elektromagnetisk felt]].<br />
+                            Elektromagnetisk stråling dannes av elektriske ladninger i bevegelse.<br />
+                            All e...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Fj%C3%A6rkraft">Fjærkraft</a><span class="right bottom"><span class="tooltip-title">Fjærkraft</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                            Hooke’s law: $\underline{F = k x}$<br />
+                            Binær sammenheng mellom fjær-forlengelsen (x) og kraften vi bruker.<br />
+                            Drar vi med dobbelt så stor kraft, blir fjær-forlengelsen dobbelt så lang.<br />
+                            Det samme gjelde...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Frekvens">Frekvens</a><span class="right bottom"><span class="tooltip-title">Frekvens</span><br/>
+                          <span class="tooltip-excerpt">Frekvens<br />
+                            <br />
+                            Antall bølger som passerer et punkt per tidsenhet. Antall svingninger per tidsenhet.<br />
+                            Måleenhet: $Hz = s^{-1}$<br />
+                            Symbol: $f$<br />
+                            <br />
+                            <br />
+                            <br />
+                          </span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Friksjon-og-friksjonstall">Friksjon og friksjonstall</a><span class="right bottom"><span class="tooltip-title">Friksjon og friksjonstall</span><br/>
+                          <span class="tooltip-excerpt">Glidefriksjon<br />
+                            <br />
+                            Når to flater er i kontakt med hverandre og beveger seg i forhold til hverandre så er friksjonen gitt ved:<br />
+                            Friksjonskraft = Friksjonstall * Normalkraft<br />
+                            $R = \mu \cdot N$<br />
+                            ($\mu$: Gres...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Interferens">Interferens</a><span class="right bottom"><span class="tooltip-title">Interferens</span><br/>
+                          <span class="tooltip-excerpt">Repetisjon<br />
+                            <br />
+                            <br />
+                            [[Frekvens]]<br />
+                            [[Bølgelengde]]<br />
+                            [[Bølgefart]]<br />
+                            [[Brytning]]<br />
+                            [[Brytningsindeks]]<br />
+                            [[Det elektromagnetiske spekteret]]<br />
+                            <br />
+                            <br />
+                            Læringsmål<br />
+                            <br />
+                            <br />
+                            Forstå og bruke begreper og knytte de til b...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Mekanikk">Mekanikk</a><span class="right bottom"><span class="tooltip-title">Mekanikk</span><br/>
+                          <span class="tooltip-excerpt">Enheter, symboler o.l. står på side 6 i formelsamlinga<br />
+                            <br />
+                            5 viktige størrelser<br />
+                            <br />
+                            Kinetisk energi<br />
+                            Enhet: Joule<br />
+                            Bevegelsesenergi<br />
+                            $E_{K}= \frac{1}{2}mv^{2}$<br />
+                            <br />
+                            Potensiell energi<br />
+                            Enhet: Joule<br />
+                            <br />
+                            pga. tyngde...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Newtons-1.-lov">Newtons 1. lov</a><span class="right bottom"><span class="tooltip-title">Newtons 1. lov</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                            Newtons første lov sier at dersom det ikke virker noen krefter på et legeme, eller hvis summen av kreftene på det er lik null, så vil legemet enten forbli i ro eller fortsette å bevege seg med k...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Newtons-2.-lov">Newtons 2. lov</a><span class="right bottom"><span class="tooltip-title">Newtons 2. lov</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                            Newtons andre lov sier at når et legeme blir påvirket av én eller flere krefter, vil det få en akselerasjon i den retningen kreftene virker. Summen av kreftene på legemet er lik legemets masse g...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Newtons-3.-lov">Newtons 3. lov</a><span class="right bottom"><span class="tooltip-title">Newtons 3. lov</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                            Newtons tredje lov sier at når et legeme virker på et annet legeme med en kraft, vil det andre legemet virke tilbake på det første med en like stor kraft i motsatt retning. De to kreftene som om...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Normalkraft">Normalkraft</a><span class="right bottom"><span class="tooltip-title">Normalkraft</span><br/>
+                          <span class="tooltip-excerpt">Ikke alltid det samme som tyngdekraft.<br />
+                            E.g. om noen hopper — hvis det er andre krefter inn i bilde.<br />
+                          </span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Termofysikkens-2.-lov">Termofysikkens 2. lov</a><span class="right bottom"><span class="tooltip-title">Termofysikkens 2. lov</span><br/>
+                          <span class="tooltip-excerpt">Repetisjon <span class="tooltip"><a href="/notes/Varmekapasitet-og-fasevarme">Varmekapasitet og fasevarme</a><span class="right bottom"><span class="tooltip-title">Varmekapasitet og fasevarme</span><br/>
+                                <span class="tooltip-excerpt">Repetisjon<br />
+                                  <br />
+                                  Varme (Q):<br />
+                                  <br />
+                                  Overføring av energi på grunn av temperaturfoskjell. Energien går fra ovjekt med høy temperatur til lav temperatur.<br />
+                                  “Hvorfor overføres temperaturen til de med lavere tem...</span><i></i></span></span><br />
+                            <br />
+                            <br />
+                            ❓ Hvilke utsagn om varmekapasitet stemmer?<br />
+                            A) Sto varmekapasitet betyr at et stoff kan ta til seg og lagre mye energi i forhold til et stoff med liten...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Usikkerhetsregning">Usikkerhetsregning</a><span class="right bottom"><span class="tooltip-title">Usikkerhetsregning</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                            Absolutt usikkerhet (Usikkerhet ved måling)<br />
+                            <br />
+                            $\Delta X = \text{største verdi} - \text{minste verdi}$<br />
+                            Kan/bør deles på 2 om det er flere enn 10 målinger, men det er ikke galt uans...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Varmekapasitet-og-fasevarme">Varmekapasitet og fasevarme</a><span class="right bottom"><span class="tooltip-title">Varmekapasitet og fasevarme</span><br/>
+                          <span class="tooltip-excerpt">Repetisjon<br />
+                            <br />
+                            Varme (Q):<br />
+                            <br />
+                            Overføring av energi på grunn av temperaturfoskjell. Energien går fra ovjekt med høy temperatur til lav temperatur.<br />
+                            “Hvorfor overføres temperaturen til de med lavere tem...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/V%C3%A6sker,-gasser,-termofysikk">Væsker, gasser, termofysikk</a><span class="right bottom"><span class="tooltip-title">Væsker, gasser, termofysikk</span><br/>
+                          <span class="tooltip-excerpt">6 viktige størrelser<br />
+                            <br />
+                            <br />
+                            Massetetthet<br />
+                            <br />
+                            $\rho = \frac{m}{v}$<br />
+                            <br />
+                            <br />
+                            Trykk<br />
+                            <br />
+                            Måleenhet: Pascal (Pa)<br />
+                            $p = \frac{F}{A}$ (Pressure = Force / Area)<br />
+                            <br />
+                            <br />
+                            Varme: Mengden en...</span><i></i></span></span>
+                    </li>
+                  </details>
+                  <details style="padding-top: 1em;" open="">
+                    <summary class="tag-header" id="privacy">
+                      <a href="#privacy" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
                       Privacy
                       <sup style="font-size: 0.5em; color: var(--text-sub);">2</sup>
-                    </h3>
-                  </a>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/notes/Firefox-customization-and-hardening">Firefox customization and hardening</a><span class="right bottom"><span class="tooltip-title">Firefox customization and hardening</span><br/>
-                        <span class="tooltip-excerpt">Firefox customization and hardening<br />
-                          <br />
-                          Customizing<br />
-                          <br />
-                          about:config<br />
-                          <br />
-                          <br />
-                          toolkit.legacyUserProfileCustomizations.stylesheets: true<br />
-                          layers.acceleration.force-enabled: true<br />
-                          gfx.webrender.all: true<br />
-                          <br />
-                          ...</span><i></i></span></span>
-                  </li>
-                  <li style="list-style: none;">
-                    <span class="tooltip"><a href="/pass//pages/pass.html">Password Generator</a><span class="right bottom"><span class="tooltip-title">Password Generator</span><br/>
-                        <span class="tooltip-excerpt"><br />
-                          <br />
-                          <br />
-                          <br />
-                          <br />
-                          Length<br />
-                          <br />
-                          8<br />
-                          <br />
-                          <br />
-                          <br />
-                          Numbers<br />
-                          &mdash;<br />
-                          Position:<br />
-                          <br />
-                          End<br />
-                          Random<br />
-                          <br />
-                          <br />
-                          <br />
-                          <br />
-                          <br />
-                          Uppercase<br />
-                          &mdash;<br />
-                          Position:<br />
-                          <br />
-                          Beginning<br />
-                          Random<br />
-                          <br />
-                          <br />
-                          <br />
-                          <br />
-                          <br />
-                          Special characters<br />
-                          ...</span><i></i></span></span>
-                  </li>
-                  <br />
+                    </summary>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Firefox-customization-and-hardening">Firefox customization and hardening</a><span class="right bottom"><span class="tooltip-title">Firefox customization and hardening</span><br/>
+                          <span class="tooltip-excerpt">Firefox customization and hardening<br />
+                            <br />
+                            Customizing<br />
+                            <br />
+                            about:config<br />
+                            <br />
+                            <br />
+                            toolkit.legacyUserProfileCustomizations.stylesheets: true<br />
+                            layers.acceleration.force-enabled: true<br />
+                            gfx.webrender.all: true<br />
+                            <br />
+                            ...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/pass//pages/pass.html">Password Generator</a><span class="right bottom"><span class="tooltip-title">Password Generator</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            Length<br />
+                            <br />
+                            8<br />
+                            <br />
+                            <br />
+                            <br />
+                            Numbers<br />
+                            &mdash;<br />
+                            Position:<br />
+                            <br />
+                            End<br />
+                            Random<br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            Uppercase<br />
+                            &mdash;<br />
+                            Position:<br />
+                            <br />
+                            Beginning<br />
+                            Random<br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            Special characters<br />
+                            ...</span><i></i></span></span>
+                    </li>
+                  </details><br />
                   <br />
                 </main>
                 <style>
@@ -686,8 +691,6 @@
                 </style>
               </div>
               <div id="copyright">
-                <!-- TODO Fix link styling like in nnl -->
-                <!-- TODO Add license image -->
                 <p>
                   <a href="https://github.com/runarsf"><b>Runar Fredagsvik</b></a>
                 </p>
