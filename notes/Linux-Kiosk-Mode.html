@@ -139,36 +139,9 @@
                         <li>Privacy → Screen Lock → <strong>Blank Screen Delay</strong>: <em>Never</em></li>
                         <li>Privacy → Diagnostics → <strong>Send error reports to Canonical</strong>: <em>Never</em></li>
                         <li>Sound → <strong>System Volume</strong>: <em>0</em></li>
-                        <li>
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>Sound → Input</td>
-                                <td><strong>Volume</strong>: <em>0</em></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </li>
-                        <li>
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>Power → Power Saving</td>
-                                <td><strong>Blank Screen</strong>: <em>Never</em></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </li>
-                        <li>
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>Power → Suspend &amp; Power Button</td>
-                                <td><strong>Automatic Suspend</strong>: <em>Off</em></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </li>
+                        <li>Sound → Input | <strong>Volume</strong>: <em>0</em></li>
+                        <li>Power → Power Saving | <strong>Blank Screen</strong>: <em>Never</em></li>
+                        <li>Power → Suspend &amp; Power Button | <strong>Automatic Suspend</strong>: <em>Off</em></li>
                       </ul>
                     </li>
                     <li>Automatisk innlogging: <code class="highlighter-rouge">sudo vim /etc/lightdm/lightdm.conf</code> 
@@ -228,99 +201,18 @@
                           <code class="highlighter-rouge">sudo apt-mark hold firefox</code></li>
                         <li>Settings:
                           <ul>
-                            <li>
-                              <table>
-                                <tbody>
-                                  <tr>
-                                    <td>General &gt; Startup</td>
-                                    <td><em>Make Default…</em></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </li>
-                            <li>
-                              <table>
-                                <tbody>
-                                  <tr>
-                                    <td>General &gt; Language</td>
-                                    <td><strong>Check your spelling as you type</strong>: <em>Uncheck</em></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </li>
-                            <li>
-                              <table>
-                                <tbody>
-                                  <tr>
-                                    <td>General &gt; Browsing</td>
-                                    <td><strong>Enable picture-in-picture video controls</strong>: <em>Uncheck</em></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </li>
-                            <li>
-                              <table>
-                                <tbody>
-                                  <tr>
-                                    <td>General &gt; Browsing</td>
-                                    <td><strong>Recommend extensions as you browse</strong>: <em>Uncheck</em></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </li>
-                            <li>
-                              <table>
-                                <tbody>
-                                  <tr>
-                                    <td>General &gt; Browsing</td>
-                                    <td><strong>Recommend features as you browse</strong>: <em>Uncheck</em></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </li>
-                            <li>
-                              <table>
-                                <tbody>
-                                  <tr>
-                                    <td>Home &gt; New Windows and Tabs</td>
-                                    <td><strong>Homepage and new windows</strong>: <em>Blank Page</em></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </li>
-                            <li>
-                              <table>
-                                <tbody>
-                                  <tr>
-                                    <td>Home &gt; New Windows and Tabs</td>
-                                    <td><strong>New tabs</strong>: <em>Blank Page</em></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </li>
-                            <li>
-                              <table>
-                                <tbody>
-                                  <tr>
-                                    <td>Privacy &amp; Security &gt; Logins and Passwords</td>
-                                    <td><strong>Ask to save logins and passwords for websites</strong>: <em>Uncheck</em></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </li>
-                            <li>
-                              <table>
-                                <tbody>
-                                  <tr>
-                                    <td>Privacy &amp; Security &gt; Logins and Passwords</td>
-                                    <td><strong>Show alerts about passwords for breached websites</strong>: <em>Uncheck</em></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </li>
-                            <li>Privacy &amp; Security &gt; Firefox Data Collection and Use &gt; <strong>Allow Firefox to send technical and interaction data to Mozilla</strong>: <em>Uncheck</em></li>
-                            <li>Privacy &amp; Security &gt; Firefox Data Collection and Use &gt; <strong>Allow Firefox to make personalized extension recommendations</strong>: <em>Uncheck</em></li>
-                            <li>Privacy &amp; Security &gt; Firefox Data Collection and Use &gt; <strong>Allow Firefox to install and run studies</strong>: <em>Uncheck</em></li>
+                            <li>General → Startup | <em>Make Default…</em></li>
+                            <li>General → Language | <strong>Check your spelling as you type</strong>: <em>Uncheck</em></li>
+                            <li>General → Browsing | <strong>Enable picture-in-picture video controls</strong>: <em>Uncheck</em></li>
+                            <li>General → Browsing | <strong>Recommend extensions as you browse</strong>: <em>Uncheck</em></li>
+                            <li>General → Browsing | <strong>Recommend features as you browse</strong>: <em>Uncheck</em></li>
+                            <li>Home → New Windows and Tabs | <strong>Homepage and new windows</strong>: <em>Blank Page</em></li>
+                            <li>Home → New Windows and Tabs | <strong>New tabs</strong>: <em>Blank Page</em></li>
+                            <li>Privacy &amp; Security → Logins and Passwords | <strong>Ask to save logins and passwords for websites</strong>: <em>Uncheck</em></li>
+                            <li>Privacy &amp; Security → Logins and Passwords | <strong>Show alerts about passwords for breached websites</strong>: <em>Uncheck</em></li>
+                            <li>Privacy &amp; Security → Firefox Data Collection and Use → <strong>Allow Firefox to send technical and interaction data to Mozilla</strong>: <em>Uncheck</em></li>
+                            <li>Privacy &amp; Security → Firefox Data Collection and Use → <strong>Allow Firefox to make personalized extension recommendations</strong>: <em>Uncheck</em></li>
+                            <li>Privacy &amp; Security → Firefox Data Collection and Use → <strong>Allow Firefox to install and run studies</strong>: <em>Uncheck</em></li>
                           </ul>
                         </li>
                         <li><code class="highlighter-rouge">about:config</code> 
@@ -383,16 +275,7 @@
                     <li>Fjern Gnome Keyring passord (forskjellig fra login passord)
                       <ol>
                         <li>Åpne <em>Passwords and Keys</em></li>
-                        <li>
-                          <table>
-                            <tbody>
-                              <tr>
-                                <td>Høyreklikk på Passwords → Passwords</td>
-                                <td>Login → <em>Change Password</em> </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </li>
+                        <li>Høyreklikk på Passwords → Passwords | Login → <em>Change Password</em> </li>
                         <li>Skriv inn det eksisterende passordet og sett et nytt blankt passord</li>
                       </ol>
                     </li>
