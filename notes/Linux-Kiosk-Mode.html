@@ -120,36 +120,32 @@
                 </div>
                 <h1>Linux kiosk mode</h1>
                 <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
-                <div class="content">
-                  <p>Denne prosedyren baserer seg på Ubuntu 20.04 LTS med Firefox/Chromium som app for kiosk-mode. 
-                    I praksis kjører dette bare en instans av nettleseren i headless/koisk-mode over Gnome og fjerner så mange distraksjoner som mulig.</p>
-                  <p>VNC-serveren kjører på port 5905 og kan kobles til med IP:PORT.</p>
-                  <ol>
-                    <li>Installer en LTS versjon av Ubuntu (testet på 20.04)
-                      <ol>
-                        <li>Installer i minimal mode, ikke installer ekstra software + oppdateringer under oppsett</li>
-                        <li>Brukernavn: kiosk</li>
-                      </ol>
-                    </li>
-                    <li><code class="highlighter-rouge">sudo apt-get update</code> </li>
-                    <li><code class="highlighter-rouge">sudo apt-get install -y vim openssh-server slick-greeter x11vnc</code> 
-                      <ol>
-                        <li>Bytt til <em>lightdm</em> når du får spørsmål om det</li>
-                      </ol>
-                    </li>
-                    <li>Fjern distraksjoner fra system Settings &gt;
-                      <ol>
-                        <li>Enable <em>Notifications → “Do Not Disturb”</em> </li>
-                        <li><em>Privacy → Screen Lock → “Blank Screen Delay”: “Never”</em> </li>
-                        <li>Disable <em>Privacy → Screen Lock → “Automatic Screen Lock” &amp; “Lock Screen on Suspend” &amp; “Show Notification on Lock Screen”</em></li>
-                        <li>Disable <strong>Privacy → Diagnostics → “Send error reports to Canonical”: “Never”</strong></li>
-                        <li><strong>Sound → “System Volume”: 0</strong></li>
+                <div class="content"><iframe src="https://www.youtube.com/embed/hf96SQqOoRs" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" width="560" height="315">
+                  </iframe>
+                  <p>Denne prosedyren er en skriftlig og mer utbedret versjon av denne <a href="https://youtu.be/hf96SQqOoRs">YouTube Videoen</a>, og baserer seg på Ubuntu 20.04 LTS med Firefox/Chromium som app for kiosk-mode, men bør la seg adaptere til andre system og applikasjoner.
+                    I praksis kjører dette bare en instans av nettleseren i headless/kiosk-modus over desktop environmentet (Gnome) og fjerner så mange distraksjoner som mulig.
+                    VNC-serveren kjører på port 5905 og kan kobles til med IP:PORT, f.eks. med Remmina.</p>
+                  <ul>
+                    <li>Installer en LTS versjon av Ubuntu (testet på 20.04) i minimal mode, ikke installer ekstra software eller
+                      oppdateringer under oppsett. I denne prosedyren er brukernavnet “kiosk” brukt.</li>
+                    <li>Oppdater pakkeinformasjon: <code class="highlighter-rouge">sudo apt-get update</code> </li>
+                    <li>Installer nødvendige pakker: <code class="highlighter-rouge">sudo apt-get install -y vim openssh-server slick-greeter x11vnc</code>
+                      Bytt til <em>lightdm</em> om du får spørsmål om det.</li>
+                    <li>Fjern distraksjoner fra system Settings
+                      <ul>
+                        <li>Notifications → <strong>Do Not Disturb</strong>: <em>Check</em></li>
+                        <li>Privacy → Screen Lock → <strong>Automatic Screen Lock</strong>: <em>Uncheck</em></li>
+                        <li>Privacy → Screen Lock → <strong>Lock Screen on Suspend</strong>: <em>Uncheck</em></li>
+                        <li>Privacy → Screen Lock → <strong>Show Notification on Lock Screen</strong>: <em>Uncheck</em></li>
+                        <li>Privacy → Screen Lock → <strong>Blank Screen Delay</strong>: <em>Never</em></li>
+                        <li>Privacy → Diagnostics → <strong>Send error reports to Canonical</strong>: <em>Never</em></li>
+                        <li>Sound → <strong>System Volume</strong>: <em>0</em></li>
                         <li>
                           <table>
                             <tbody>
                               <tr>
-                                <td>__Sound → Input</td>
-                                <td>“Volume”: 0__</td>
+                                <td>Sound → Input</td>
+                                <td><strong>Volume</strong>: <em>0</em></td>
                               </tr>
                             </tbody>
                           </table>
@@ -158,8 +154,8 @@
                           <table>
                             <tbody>
                               <tr>
-                                <td>__Power → Power Saving</td>
-                                <td>“Blank Screen”: “Never”__</td>
+                                <td>Power → Power Saving</td>
+                                <td><strong>Blank Screen</strong>: <em>Never</em></td>
                               </tr>
                             </tbody>
                           </table>
@@ -168,147 +164,187 @@
                           <table>
                             <tbody>
                               <tr>
-                                <td>__Power → Suspend &amp; Power Button</td>
-                                <td>“Automatic Suspend”: “Off”__</td>
+                                <td>Power → Suspend &amp; Power Button</td>
+                                <td><strong>Automatic Suspend</strong>: <em>Off</em></td>
                               </tr>
                             </tbody>
                           </table>
                         </li>
-                        <li>
-                          <p><code class="highlighter-rouge">sudo vim /etc/lightdm/lightdm.conf</code> </p>
-                          <p>[SeatDefaults]
-                            autologin-user=kiosk
-                            autologin-user-timeout=0
-                            user-session=ubuntu
-                            greeter-session=unity-greeter</p>
-                        </li>
-                      </ol>
+                      </ul>
                     </li>
-                    <li>
-                      <p><code class="highlighter-rouge">sudo vim /etc/lightdm/lightdm.conf.d/50-myconfig.conf</code> </p>
-                      <p>[SeatDefaults]
-                        autologin-user=kiosk</p>
+                    <li>Automatisk innlogging: <code class="highlighter-rouge">sudo vim /etc/lightdm/lightdm.conf</code> 
+                      <div class="language-ini highlighter-rouge">
+                        <div class="highlight">
+                          <pre class="highlight"><code><span class="nn">[SeatDefaults]</span>
+<span class="py">autologin-user</span><span class="p">=</span><span class="s">kiosk</span>
+<span class="py">autologin-user-timeout</span><span class="p">=</span><span class="s">0</span>
+<span class="py">user-session</span><span class="p">=</span><span class="s">ubuntu</span>
+<span class="py">greeter-session</span><span class="p">=</span><span class="s">unity-greeter</span>
+</code></pre>
+                        </div>
+                            </div>
                     </li>
-                    <li><code class="highlighter-rouge">mkdir /home/kiosk/.config/autostart</code> </li>
-                    <li>
-                      <p><code class="highlighter-rouge">vim /home/kiosk/.config/autostart/kiosk.desktop</code> </p>
-                      <p>[Desktop Entry]
-                        Type=Application
-                        Name=Kiosk
-                        Exec=/home/kiosk/kiosk.sh
-                        X-GNOME-Autostart-enabled=true</p>
-                    </li>
-                    <li>
-                      <p><code class="highlighter-rouge">vim /home/kiosk/kiosk.sh</code> </p>
-                      <p>#!/bin/bash
-                        export DISPLAY=:0</p>
-                      <h1 id="hide-the-mouse-from-the-display">Hide the mouse from the display</h1>
-                      <p>unclutter &amp;</p>
-                      <h1 id="start-x11vnc">Start x11vnc</h1>
-                      <p>/usr/bin/x11vnc -create -xkb -noxrecord -noxfixes -display :0 -auth /var/run/lightdm/root/:0 -rfbauth /home/kiosk/.x11vnc.pass -forever -rfbport 5905 &amp;</p>
-                      <ol>
-                        <li><code class="highlighter-rouge">chmod +x /home/kiosk/kiosk.sh</code> </li>
-                      </ol>
-                    </li>
-                    <li>For å bruke Firefox:
-                      <ol>
-                        <li><code class="highlighter-rouge">sudo apt-get install -y firefox</code></li>
-                        <li>
-                          <p>General &gt; Startup | Make Default…<br />
-                            Disable General &gt; Language | Check your spelling as you type<br />
-                            Disable General &gt; Browsing | Enable picture-in-picture video controls<br />
-                            Disable General &gt; Browsing | Recommend extensions as you browse<br />
-                            Disable General &gt; Browsing | Recommend features as you browse<br />
-                            Home &gt; New Windows and Tabs | Homepage and new windows: Blank Page<br />
-                            Home &gt; New Windows and Tabs | New tabs: Blank Page<br />
-                            Disable Privacy &amp; Security &gt; Logins and Passwords | Ask to save logins and passwords for websites<br />
-                            Disable Privacy &amp; Security &gt; Logins and Passwords | Show alerts about passwords for breached websites<br />
-                            Disable Privacy &amp; Security &gt; Firefox Data Collection and Use &gt; Allow firefox to send technical and interaction data to Mozilla<br />
-                            Disable Privacy &amp; Security &gt; Firefox Data Collection and Use &gt; Allow firefox to make personalized extension recommendations<br />
-                            Disable Privacy &amp; Security &gt; Firefox Data Collection and Use &gt; Allow firefox to install and run studies</p>
-                        </li>
-                        <li>I <code class="highlighter-rouge">about:config</code>  endre
-                          <ul>
-                            <li><code class="highlighter-rouge">gfx.webrender.all</code>: <code class="highlighter-rouge">true</code> </li>
-                            <li><code class="highlighter-rouge">layers.acceleration.force-enabled</code>: <code class="highlighter-rouge">true</code> </li>
-                            <li><code class="highlighter-rouge">browser.tabs.warnOnClose</code>: <code class="highlighter-rouge">false</code></li>
-                            <li><code class="highlighter-rouge">browser.tabs.warnOnCloseOtherTabs</code>: <code class="highlighter-rouge">false</code></li>
-                            <li><code class="highlighter-rouge">browser.send_pings</code>: <code class="highlighter-rouge">false</code> </li>
-                            <li><code class="highlighter-rouge">beacon.enabled</code>: <code class="highlighter-rouge">false</code> </li>
-                            <li><code class="highlighter-rouge">alerts.useSystemBackend</code>: <code class="highlighter-rouge">true</code> </li>
-                            <li><code class="highlighter-rouge">extensions.pocket.enabled</code>: <code class="highlighter-rouge">false</code> </li>
-                            <li><code class="highlighter-rouge">browser.sessionstore.resume_from_crash: false</code> </li>
-                            <li><code class="highlighter-rouge">toolkit.startup.max_resumed_crashes: -1</code></li>
-                            <li><code class="highlighter-rouge">browser.disableResetPrompt: true</code> </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <p>Legg til dette nederst i <code class="highlighter-rouge">/home/kiosk/kiosk.sh</code> </p>
-                          <h1 id="run-firefox-in-kiosk-mode">Run Firefox in kiosk-mode</h1>
-                          <p>/usr/bin/firefox –kiosk –private –new-window https://duck.com &amp;</p>
-                        </li>
-                      </ol>
-                    </li>
-                    <li>
-                      <p>For å bruke Chromium:
-                        1.  <code class="highlighter-rouge">sudo apt-get install -y chromium-browser</code>
-                        2.  Disable <em>Autofill → Passwords → “Offer to save passwords” &amp; “Auto Sign-in”</em> 
-                        3.  Disable <em>Autofill → Payment methods → “Save and fill payment methods” &amp; “Allow sites to check if you have payment methods saved”</em> 
-                        4.  Disable <em>Autofill → Addresses and more → “Save and fill addresses”</em>
-                        5.  Disable <strong>Advanced → Languages → “Spell check” &amp; Language → “Offer to translate pages that aren’t in a language you read”</strong>
-                        6.  Gjør Chromium til default nettleser: <em>Default Browser → “Make Default”</em>
-                        7.  Legg til dette nederst i <code class="highlighter-rouge">/home/kiosk/kiosk.sh</code> </p>
-                      <p># Clear crash-flags if Chromium crashed to avoid warning banners
-                        sed -i ‘s/”exited_cleanly”:false/”exited_cleanly”:true/’ /home/kiosk/.config/chromium/Default/Preferences
-                        sed -i ‘s/”exit_type”:”Crashed”/”exit_type”:”Normal”/’ /home/kiosk/.config/chromium/Default/Preferences</p>
-                      <p># Run Chromium in kiosk-mode
-                        /usr/bin/chromium-browser –kiosk https://duck.com &amp;</p>
-                    </li>
-                    <li><code class="highlighter-rouge">⎵x11vnc -storepasswd passwordgoeshere /home/kiosk/.x11vnc.pass</code></li>
-                    <li>Fjern Gnome Keyring passord (forskjellig fra login passord)
-                      1.  Åpne “Passwords and Keys”
-                      2.  Høyreklikk på <em>Passwords → Passwords | Login → “Change Password”</em> 
-                      3.  Skriv inn det eksisterende passordet og sett et nytt blankt passord</li>
-                    <li><code class="highlighter-rouge">reboot</code> 
-                      1.  Når maskinen får startet igjen skal Chromium være den eneste synlige applikasjonen
-                      2.  Om du trenger å gå tilbake til <em>skrivebordet</em> kan klikke <em>windows</em>-knappen eller drepe Chromium fra en terminal på en annen TTY (CTRL+ALT+F&lt;1-12&gt;)/ssh eller ALT+F4.</li>
-                  </ol>
-                  <h2 id="auto-reload-med-cron">Auto-reload med cron</h2>
-                  <ol>
-                    <li><code class="highlighter-rouge">`sudo apt-get install -y xdotool`</code></li>
-                    <li><code class="highlighter-rouge">echo $DISPLAY</code> </li>
-                    <li><code class="highlighter-rouge">crontab -e</code> 
-                      <ol>
-                        <li><code class="highlighter-rouge">0 */2 * * * ( DISPLAY=:0 xdotool search --onlyvisible --class firefox/chromium windowactivate --sync \%@ key ctrl+F5 )</code> </li>
-                      </ol>
-                    </li>
-                  </ol>
-                  <h2 id="auto-update">Auto update</h2>
-                  <h1 id="mulig-du-må-installere-pakken-unattended-upgrades-om-den-ikke-er-installert-allerede">Mulig du må installere pakken unattended-upgrades om den ikke er installert allerede</h1>
-                  <p>sudo apt-get install -y unattended-upgrades</p>
-                  <p>sudo vim /etc/apt/apt.conf.d/50unattended-upgrades</p>
-                  <h1 id="kommenter-inn-og-endre-disse-linjene">Kommenter inn og endre disse linjene</h1>
-                  <p>”${distro_id}:${distro_codename}-updates”;
-                    Unattended-Upgrade::MinimalSteps “true”;
-                    Unattended-Upgrade::Remove-Unused-Kernel-Packages “true”;
-                    Unattended-Upgrade::Remove-Unused-Dependencies “true”;
-                    Unattended-Upgrade::Automatic-Reboot “true”;
-                    Unattended-Upgrade::Automatic-Reboot-Time “02:00”;</p>
-                  <p>sudo vim /etc/apt/apt.conf.d/20auto-upgrades</p>
-                  <h1 id="legg-inn-disse-linjene">Legg inn disse linjene</h1>
-                  <p>APT::Periodic::Update-Package-Lists “1”;
-                    APT::Periodic::Download-Upgradeable-Packages “1”;
-                    APT::Periodic::AutocleanInterval “7”;
-                    APT::Periodic::Unattended-Upgrade “1”;</p>
-                  <h1 id="sjekk-at-det-funker">Sjekk at det funker</h1>
-                  <p>sudo unattended-upgrades –dry-run –debug</p>
-                  <h1 id="eller">eller</h1>
-                  <p>cat /var/log/unattended-upgrades/unattended-upgrades.log</p>
+                    <li><code class="highlighter-rouge">sudo vim /etc/lightdm/lightdm.conf.d/50-myconfig.conf</code> 
+                      ```ini
+                      [SeatDefaults]
+                      autologin-user=kiosk</li>
+                    <li>Opprett desktop-fil for autostart: <code class="highlighter-rouge">mkdir /home/kiosk/.config/autostart</code> </li>
+                    <li><code class="highlighter-rouge">vim /home/kiosk/.config/autostart/kiosk.desktop</code> 
+                      [Desktop Entry]
+                      Type=Application
+                      Name=Kiosk
+                      Exec=/home/kiosk/kiosk.sh
+                      X-GNOME-Autostart-enabled=true
+                      ```</li>
+                    <li><code class="highlighter-rouge">vim /home/kiosk/kiosk.sh</code> 
+                      ```bash
+                      #!/bin/bash
+                      export DISPLAY=:0</li>
+                  </ul>
+                  <h1 id="hide-the-mouse-from-the-display">Hide the mouse from the display</h1>
+                  <p>unclutter &amp;</p>
+                  <h1 id="start-x11vnc">Start x11vnc</h1>
+                  <p>/usr/bin/x11vnc -create -xkb -noxrecord -noxfixes -display :0 -auth /var/run/lightdm/root/:0 -rfbauth /home/kiosk/.x11vnc.pass -forever -rfbport 5905 &amp;</p>
+                  <div class="highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>- `chmod +x /home/kiosk/kiosk.sh`
+- `⎵x11vnc -storepasswd passwordgoeshere /home/kiosk/.x11vnc.pass`
+- For Firefox:
+    - `sudo apt-get install -y firefox`
+        `sudo apt-mark hold firefox`
+    - Settings:
+        - General &gt; Startup | *Make Default...*
+        - General &gt; Language | **Check your spelling as you type**: *Uncheck*
+        - General &gt; Browsing | **Enable picture-in-picture video controls**: *Uncheck*
+        - General &gt; Browsing | **Recommend extensions as you browse**: *Uncheck*
+        - General &gt; Browsing | **Recommend features as you browse**: *Uncheck*
+        - Home &gt; New Windows and Tabs | **Homepage and new windows**: *Blank Page*
+        - Home &gt; New Windows and Tabs | **New tabs**: *Blank Page*
+        - Privacy &amp; Security &gt; Logins and Passwords | **Ask to save logins and passwords for websites**: *Uncheck*
+        - Privacy &amp; Security &gt; Logins and Passwords | **Show alerts about passwords for breached websites**: *Uncheck*
+        - Privacy &amp; Security &gt; Firefox Data Collection and Use &gt; **Allow Firefox to send technical and interaction data to Mozilla**: *Uncheck*
+        - Privacy &amp; Security &gt; Firefox Data Collection and Use &gt; **Allow Firefox to make personalized extension recommendations**: *Uncheck*
+        - Privacy &amp; Security &gt; Firefox Data Collection and Use &gt; **Allow Firefox to install and run studies**: *Uncheck*
+    - `about:config` 
+        -   `gfx.webrender.all`: `true` 
+        -   `layers.acceleration.force-enabled`: `true` 
+        -   `browser.tabs.warnOnClose`: `false`
+        -   `browser.tabs.warnOnCloseOtherTabs`: `false`
+        -   `browser.send_pings`: `false` 
+        -   `beacon.enabled`: `false` 
+        -   `alerts.useSystemBackend`: `true` 
+        -   `extensions.pocket.enabled`: `false` 
+        -   `browser.sessionstore.resume_from_crash: false` 
+        -   `toolkit.startup.max_resumed_crashes: -1`
+        -   `browser.sessionstore.max_resumed_crashes: -1`
+        -   `browser.disableResetPrompt: true` 
+    - Legg til nederst i `/home/kiosk/kiosk.sh`
+        ```bash
+        # Run Firefox in kiosk-mode
+        /usr/bin/firefox --kiosk --private --new-window https://duck.com &amp;
+        ```
+- For Chromium:
+    - `sudo apt-get install -y chromium-browser`
+    - Settings
+        - Autofill → Passwords → **Offer to save passwords**: *Uncheck*
+        - Autofill → Passwords → **Auto Sign-in**: *Uncheck*
+        - Autofill → Payment methods → **Save and fill payment methods**: *Uncheck*
+        - Autofill → Payment methods → **Allow sites to check if you have payment methods saved**: *Uncheck*
+        - Autofill → Addresses and more → **Save and fill addresses**: *Uncheck*
+        - Advanced → Languages → **Spell check**: *Uncheck*
+        - Advanced → Languages → Language → **Offer to translate pages that aren’t in a language you read**: *Unchecked*
+        - Gjør Chromium til default nettleser: Default Browser → *Make Default*
+    - Legg til nederst i `/home/kiosk/kiosk.sh`
+        ```bash
+        # Clear crash-flags if Chromium crashed to avoid warning banners
+        sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' /home/kiosk/.config/chromium/Default/Preferences
+        sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/' /home/kiosk/.config/chromium/Default/Preferences
+
+        # Run Chromium in kiosk-mode
+        /usr/bin/chromium-browser --kiosk https://duck.com &amp;
+        ```
+- Fjern Gnome Keyring passord (forskjellig fra login passord)
+    1. Åpne *Passwords and Keys*
+    2. Høyreklikk på Passwords → Passwords | Login → *Change Password* 
+    3. Skriv inn det eksisterende passordet og sett et nytt blankt passord
+- `reboot` 
+    - Når maskinen får startet igjen skal nettleseren være den eneste synlige applikasjonen.
+    - Om du trenger å gå ut av kiosk-modus kan du klikke super-knappen eller drepe nettleseren fra en terminal fra en annen TTY.
+
+
+## Automatisk reloading av nettside
+
+Det finnes flere extensions på Firefox/Chrome web storene som lar deg automatisk reloade en nettside basert på et gitt intervall, men de ser litt sketchy ut, og det lar seg lett gjøre med `cron` og `xdotool`.
+
+1. `sudo apt-get install -y xdotool` 
+2. Bruk `xprop | grep 'WM_CLASS(STRING)' | awk '{print $3 $4}'` og klikk på et vindu for å finne klassen til det, det som er listet som den andre verdien til `WM_CLASS(STRING)` er som regel den du er ute etter.
+3. `crontab -e` (endre *firefox* til den relevante applikasjonen)
+    ```bash
+    0 */2 * * * ( DISPLAY=:0 xdotool search --onlyvisible --class firefox windowactivate --sync \%@ key ctrl+F5 )
+    ```
+
+
+## Automatisk oppdatering
+
+```bash
+# Mulig du må installere pakken unattended-upgrades om den ikke er installert allerede
+sudo apt-get install -y unattended-upgrades
+
+sudo vim /etc/apt/apt.conf.d/50unattended-upgrades
+
+# Kommenter inn og endre disse linjene
+"${distro_id}:${distro_codename}-updates";
+Unattended-Upgrade::MinimalSteps "true";
+Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";
+Unattended-Upgrade::Remove-Unused-Dependencies "true";
+Unattended-Upgrade::Automatic-Reboot "true";
+Unattended-Upgrade::Automatic-Reboot-Withusers "true";
+Unattended-Upgrade::Automatic-Reboot-Time "02:00";
+
+# Om du bruker Firefox, kommenter også inn disse linjene —
+# Firefox krever en omstart etter oppdatering,
+# antar at cron-jobben som kjører Shift+F5 får dette til å stoppe.
+# Dette blir forsåvidt omgått med å locke firefox-pakken, men...
+Unattended-Upgrade::InstallOnShutdown "true";
+# Og gi den lengere tid på å oppdatere under shutdown
+sudo vim /etc/systemd/logind.conf
+# Kommenter inn / endre
+InhibitDelayMaxSec=1800
+
+# Om det er en laptop, kommenter også inn i logind.conf
+HandleLidSwitch=ignore
+
+sudo vim /etc/apt/apt.conf.d/20auto-upgrades
+
+# Kommenter inn disse linjene
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Download-Upgradeable-Packages "1";
+APT::Periodic::AutocleanInterval "7";
+APT::Periodic::Unattended-Upgrade "1";
+
+# Sjekk at det funker
+sudo unattended-upgrades --dry-run --debug
+# Sjekk om det har kjørt:
+tail -f /var/log/unattended-upgrades/unattended-upgrades.log
+/var/log/dpkg.log
+/var/log/apt/history.log
+/etc/cron.daily/apt
+/etc/cron.daily/*
+/etc/crontab
+</code></pre>
+                    </div>
+                  </div>
                   <h2 id="dim-skjerm-på-tidsintervall">Dim skjerm på tidsintervall</h2>
-                  <p>crontab -e</p>
-                  <h1 id="dim-skjermen-kl-1700-hver-dag-u-dim-den-kl-0700-hver-hverdag">Dim skjermen kl. 17:00 hver dag, u-dim den kl. 07:00 hver hverdag</h1>
-                  <p>0 17 * * * ( DISPLAY=:0 xrandr –output “$(DISPLAY=:0 xrandr -q | grep ‘ connected’ | head -1 | awk ‘{print $1}’)” –brightness 0.2 )
-                    0 7 * * 1-5 ( DISPLAY=:0 xrandr –output “$(DISPLAY=:0 xrandr -q | grep ‘ connected’ | head -1 | awk ‘{print $1}’)” –brightness 1 )</p>
+                  <div class="language-bash highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code>crontab <span class="nt">-e</span>
+
+<span class="c"># Dim skjermen kl. 17:00 hver dag, u-dim den kl. 07:00 hver hverdag</span>
+0 17 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="o">(</span> <span class="nv">DISPLAY</span><span class="o">=</span>:0 xrandr <span class="nt">--output</span> <span class="s2">"</span><span class="si">$(</span><span class="nv">DISPLAY</span><span class="o">=</span>:0 xrandr <span class="nt">-q</span> | <span class="nb">grep</span> <span class="s1">' connected'</span> | <span class="nb">head</span> <span class="nt">-1</span> | <span class="nb">awk</span> <span class="s1">'{print $1}'</span><span class="si">)</span><span class="s2">"</span> <span class="nt">--brightness</span> 0.2 <span class="o">)</span>
+0 7 <span class="k">*</span> <span class="k">*</span> 1-5 <span class="o">(</span> <span class="nv">DISPLAY</span><span class="o">=</span>:0 xrandr <span class="nt">--output</span> <span class="s2">"</span><span class="si">$(</span><span class="nv">DISPLAY</span><span class="o">=</span>:0 xrandr <span class="nt">-q</span> | <span class="nb">grep</span> <span class="s1">' connected'</span> | <span class="nb">head</span> <span class="nt">-1</span> | <span class="nb">awk</span> <span class="s1">'{print $1}'</span><span class="si">)</span><span class="s2">"</span> <span class="nt">--brightness</span> 1 <span class="o">)</span>
+</code></pre>
+                    </div>
+                  </div>
                 </div>
                 <!-- Add backlinks to the current page --></div>
               <div id="copyright">
