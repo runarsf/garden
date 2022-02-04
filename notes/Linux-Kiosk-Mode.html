@@ -122,12 +122,11 @@
                 <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
                 <div class="content"><iframe src="https://www.youtube.com/embed/hf96SQqOoRs" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" width="560" height="315">
                   </iframe>
-                  <p>Denne prosedyren er en skriftlig og mer utbedret versjon av denne <a href="https://youtu.be/hf96SQqOoRs">YouTube Videoen</a>, og baserer seg på Ubuntu 20.04 LTS med Firefox/Chromium som app for kiosk-mode, men bør la seg adaptere til andre system og applikasjoner.
+                  <p>Denne prosedyren er en skriftlig og mer utbredt versjon av denne <a href="https://youtu.be/hf96SQqOoRs">YouTube Videoen</a>, og baserer seg på Ubuntu 20.04 LTS med Firefox/Chromium som app for kiosk-mode, men bør la seg adaptere til andre system og applikasjoner.
                     I praksis kjører dette bare en instans av nettleseren i headless/kiosk-modus over desktop environmentet (Gnome) og fjerner så mange distraksjoner som mulig.
                     VNC-serveren kjører på port 5905 og kan kobles til med IP:PORT, f.eks. med Remmina.</p>
                   <ul>
-                    <li>Installer en LTS versjon av Ubuntu (testet på 20.04) i minimal mode, ikke installer ekstra software eller
-                      oppdateringer under oppsett. I denne prosedyren er brukernavnet “kiosk” brukt.</li>
+                    <li>Installer en LTS versjon av Ubuntu (testet på 20.04) i minimal mode, ikke installer ekstra software eller oppdateringer under oppsett. I denne prosedyren er brukernavnet “kiosk” brukt.</li>
                     <li>Oppdater pakkeinformasjon: <code class="highlighter-rouge">sudo apt-get update</code> </li>
                     <li>Installer nødvendige pakker: <code class="highlighter-rouge">sudo apt-get install -y vim openssh-server slick-greeter x11vnc</code>
                       Bytt til <em>lightdm</em> om du får spørsmål om det.</li>
@@ -173,163 +172,297 @@
                       </ul>
                     </li>
                     <li>Automatisk innlogging: <code class="highlighter-rouge">sudo vim /etc/lightdm/lightdm.conf</code> 
-                      <div class="language-ini highlighter-rouge">
+                      <div class="language-bash highlighter-rouge">
                         <div class="highlight">
-                          <pre class="highlight"><code><span class="nn">[SeatDefaults]</span>
-<span class="py">autologin-user</span><span class="p">=</span><span class="s">kiosk</span>
-<span class="py">autologin-user-timeout</span><span class="p">=</span><span class="s">0</span>
-<span class="py">user-session</span><span class="p">=</span><span class="s">ubuntu</span>
-<span class="py">greeter-session</span><span class="p">=</span><span class="s">unity-greeter</span>
+                          <pre class="highlight"><code>  <span class="o">[</span>SeatDefaults]
+  autologin-user<span class="o">=</span>kiosk
+  autologin-user-timeout<span class="o">=</span>0
+  user-session<span class="o">=</span>ubuntu
+  greeter-session<span class="o">=</span>unity-greeter
 </code></pre>
                         </div>
                             </div>
                     </li>
-                    <li><code class="highlighter-rouge">sudo vim /etc/lightdm/lightdm.conf.d/50-myconfig.conf</code> 
-                      ```ini
-                      [SeatDefaults]
-                      autologin-user=kiosk</li>
-                    <li>Opprett desktop-fil for autostart: <code class="highlighter-rouge">mkdir /home/kiosk/.config/autostart</code> </li>
+                    <li><code class="highlighter-rouge">sudo vim /etc/lightdm/lightdm.conf.d/50-myconfig.conf</code>
+                      <div class="language-bash highlighter-rouge">
+                        <div class="highlight">
+                          <pre class="highlight"><code>  <span class="o">[</span>SeatDefaults]
+  autologin-user<span class="o">=</span>kiosk
+</code></pre>
+                        </div>
+                            </div>
+                    </li>
+                    <li>Sett opp autostart av kiosk-script: <code class="highlighter-rouge">mkdir /home/kiosk/.config/autostart</code> </li>
                     <li><code class="highlighter-rouge">vim /home/kiosk/.config/autostart/kiosk.desktop</code> 
-                      [Desktop Entry]
-                      Type=Application
-                      Name=Kiosk
-                      Exec=/home/kiosk/kiosk.sh
-                      X-GNOME-Autostart-enabled=true
-                      ```</li>
+                      <div class="language-bash highlighter-rouge">
+                        <div class="highlight">
+                          <pre class="highlight"><code>  <span class="o">[</span>Desktop Entry]
+  <span class="nv">Type</span><span class="o">=</span>Application
+  <span class="nv">Name</span><span class="o">=</span>Kiosk
+  <span class="nv">Exec</span><span class="o">=</span>/home/kiosk/kiosk.sh
+  X-GNOME-Autostart-enabled<span class="o">=</span><span class="nb">true</span>
+</code></pre>
+                        </div>
+                            </div>
+                    </li>
                     <li><code class="highlighter-rouge">vim /home/kiosk/kiosk.sh</code> 
-                      ```bash
-                      #!/bin/bash
-                      export DISPLAY=:0</li>
+                      <div class="language-bash highlighter-rouge">
+                        <div class="highlight">
+                          <pre class="highlight"><code>  <span class="c">#!/bin/bash</span>
+  <span class="nb">export </span><span class="nv">DISPLAY</span><span class="o">=</span>:0
+    
+  <span class="c"># Hide the mouse from the display</span>
+  unclutter &amp;
+    
+  <span class="c"># Start x11vnc</span>
+  /usr/bin/x11vnc <span class="nt">-create</span> <span class="nt">-xkb</span> <span class="nt">-noxrecord</span> <span class="nt">-noxfixes</span> <span class="nt">-display</span> :0 <span class="nt">-auth</span> /var/run/lightdm/root/:0 <span class="nt">-rfbauth</span> /home/kiosk/.x11vnc.pass <span class="nt">-forever</span> <span class="nt">-rfbport</span> 5905 &amp;
+</code></pre>
+                        </div>
+                            </div>
+                    </li>
+                    <li><code class="highlighter-rouge">chmod +x /home/kiosk/kiosk.sh</code></li>
+                    <li><code class="highlighter-rouge">⎵x11vnc -storepasswd passwordgoeshere /home/kiosk/.x11vnc.pass</code></li>
+                    <li>For Firefox:
+                      <ul>
+                        <li><code class="highlighter-rouge">sudo apt-get install -y firefox</code>
+                          <code class="highlighter-rouge">sudo apt-mark hold firefox</code></li>
+                        <li>Settings:
+                          <ul>
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>General &gt; Startup</td>
+                                    <td><em>Make Default…</em></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </li>
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>General &gt; Language</td>
+                                    <td><strong>Check your spelling as you type</strong>: <em>Uncheck</em></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </li>
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>General &gt; Browsing</td>
+                                    <td><strong>Enable picture-in-picture video controls</strong>: <em>Uncheck</em></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </li>
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>General &gt; Browsing</td>
+                                    <td><strong>Recommend extensions as you browse</strong>: <em>Uncheck</em></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </li>
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>General &gt; Browsing</td>
+                                    <td><strong>Recommend features as you browse</strong>: <em>Uncheck</em></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </li>
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>Home &gt; New Windows and Tabs</td>
+                                    <td><strong>Homepage and new windows</strong>: <em>Blank Page</em></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </li>
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>Home &gt; New Windows and Tabs</td>
+                                    <td><strong>New tabs</strong>: <em>Blank Page</em></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </li>
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>Privacy &amp; Security &gt; Logins and Passwords</td>
+                                    <td><strong>Ask to save logins and passwords for websites</strong>: <em>Uncheck</em></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </li>
+                            <li>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>Privacy &amp; Security &gt; Logins and Passwords</td>
+                                    <td><strong>Show alerts about passwords for breached websites</strong>: <em>Uncheck</em></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </li>
+                            <li>Privacy &amp; Security &gt; Firefox Data Collection and Use &gt; <strong>Allow Firefox to send technical and interaction data to Mozilla</strong>: <em>Uncheck</em></li>
+                            <li>Privacy &amp; Security &gt; Firefox Data Collection and Use &gt; <strong>Allow Firefox to make personalized extension recommendations</strong>: <em>Uncheck</em></li>
+                            <li>Privacy &amp; Security &gt; Firefox Data Collection and Use &gt; <strong>Allow Firefox to install and run studies</strong>: <em>Uncheck</em></li>
+                          </ul>
+                        </li>
+                        <li><code class="highlighter-rouge">about:config</code> 
+                          <ul>
+                            <li><code class="highlighter-rouge">gfx.webrender.all</code>: <code class="highlighter-rouge">true</code> </li>
+                            <li><code class="highlighter-rouge">layers.acceleration.force-enabled</code>: <code class="highlighter-rouge">true</code> </li>
+                            <li><code class="highlighter-rouge">browser.tabs.warnOnClose</code>: <code class="highlighter-rouge">false</code></li>
+                            <li><code class="highlighter-rouge">browser.tabs.warnOnCloseOtherTabs</code>: <code class="highlighter-rouge">false</code></li>
+                            <li><code class="highlighter-rouge">browser.send_pings</code>: <code class="highlighter-rouge">false</code> </li>
+                            <li><code class="highlighter-rouge">beacon.enabled</code>: <code class="highlighter-rouge">false</code> </li>
+                            <li><code class="highlighter-rouge">alerts.useSystemBackend</code>: <code class="highlighter-rouge">true</code> </li>
+                            <li><code class="highlighter-rouge">extensions.pocket.enabled</code>: <code class="highlighter-rouge">false</code> </li>
+                            <li><code class="highlighter-rouge">browser.sessionstore.resume_from_crash: false</code> </li>
+                            <li><code class="highlighter-rouge">toolkit.startup.max_resumed_crashes: -1</code></li>
+                            <li><code class="highlighter-rouge">browser.sessionstore.max_resumed_crashes: -1</code></li>
+                            <li><code class="highlighter-rouge">browser.disableResetPrompt: true</code> </li>
+                          </ul>
+                        </li>
+                        <li>Legg til nederst i <code class="highlighter-rouge">/home/kiosk/kiosk.sh</code>
+                          <div class="language-bash highlighter-rouge">
+                            <div class="highlight">
+                              <pre class="highlight"><code>  <span class="c"># Run Firefox in kiosk-mode</span>
+  /usr/bin/firefox <span class="nt">--kiosk</span> <span class="nt">--private</span> <span class="nt">--new-window</span> https://duck.com &amp;
+</code></pre>
+                            </div>
+                                    </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>For Chromium:
+                      <ul>
+                        <li><code class="highlighter-rouge">sudo apt-get install -y chromium-browser</code></li>
+                        <li>Settings:
+                          <ul>
+                            <li>Autofill → Passwords → <strong>Offer to save passwords</strong>: <em>Uncheck</em></li>
+                            <li>Autofill → Passwords → <strong>Auto Sign-in</strong>: <em>Uncheck</em></li>
+                            <li>Autofill → Payment methods → <strong>Save and fill payment methods</strong>: <em>Uncheck</em></li>
+                            <li>Autofill → Payment methods → <strong>Allow sites to check if you have payment methods saved</strong>: <em>Uncheck</em></li>
+                            <li>Autofill → Addresses and more → <strong>Save and fill addresses</strong>: <em>Uncheck</em></li>
+                            <li>Advanced → Languages → <strong>Spell check</strong>: <em>Uncheck</em></li>
+                            <li>Advanced → Languages → Language → <strong>Offer to translate pages that aren’t in a language you read</strong>: <em>Unchecked</em></li>
+                            <li>Gjør Chromium til default nettleser: Default Browser → <em>Make Default</em></li>
+                          </ul>
+                        </li>
+                        <li>Legg til nederst i <code class="highlighter-rouge">/home/kiosk/kiosk.sh</code>
+                          <div class="language-bash highlighter-rouge">
+                            <div class="highlight">
+                              <pre class="highlight"><code>  <span class="c"># Clear crash-flags if Chromium crashed to avoid warning banners</span>
+  <span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/"exited_cleanly":false/"exited_cleanly":true/'</span> /home/kiosk/.config/chromium/Default/Preferences
+  <span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/"exit_type":"Crashed"/"exit_type":"Normal"/'</span> /home/kiosk/.config/chromium/Default/Preferences
+
+  <span class="c"># Run Chromium in kiosk-mode</span>
+  /usr/bin/chromium-browser <span class="nt">--kiosk</span> https://duck.com &amp;
+</code></pre>
+                            </div>
+                                    </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>Fjern Gnome Keyring passord (forskjellig fra login passord)
+                      <ol>
+                        <li>Åpne <em>Passwords and Keys</em></li>
+                        <li>
+                          <table>
+                            <tbody>
+                              <tr>
+                                <td>Høyreklikk på Passwords → Passwords</td>
+                                <td>Login → <em>Change Password</em> </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </li>
+                        <li>Skriv inn det eksisterende passordet og sett et nytt blankt passord</li>
+                      </ol>
+                    </li>
+                    <li><code class="highlighter-rouge">reboot</code> 
+                      <ul>
+                        <li>Når maskinen får startet igjen skal nettleseren være den eneste synlige applikasjonen.</li>
+                        <li>Om du trenger å gå ut av kiosk-modus kan du klikke super-knappen eller drepe nettleseren fra en terminal fra en annen TTY.</li>
+                      </ul>
+                    </li>
                   </ul>
-                  <h1 id="hide-the-mouse-from-the-display">Hide the mouse from the display</h1>
-                  <p>unclutter &amp;</p>
-                  <h1 id="start-x11vnc">Start x11vnc</h1>
-                  <p>/usr/bin/x11vnc -create -xkb -noxrecord -noxfixes -display :0 -auth /var/run/lightdm/root/:0 -rfbauth /home/kiosk/.x11vnc.pass -forever -rfbport 5905 &amp;</p>
-                  <div class="highlighter-rouge">
+                  <h2 id="automatisk-reloading-av-nettside">Automatisk reloading av nettside</h2>
+                  <p>Det finnes flere extensions på Firefox/Chrome web storene som lar deg automatisk reloade en nettside basert på et gitt intervall, men de ser litt sketchy ut, og det lar seg lett gjøre med <code class="highlighter-rouge">cron</code> og <code class="highlighter-rouge">xdotool</code>.</p>
+                  <ol>
+                    <li><code class="highlighter-rouge">sudo apt-get install -y xdotool</code> </li>
+                    <li>Bruk <code class="highlighter-rouge">xprop | grep 'WM_CLASS(STRING)' | awk '{print $3 $4}'</code> og klikk på et vindu for å finne klassen til det, det som er listet som den andre verdien til <code class="highlighter-rouge">WM_CLASS(STRING)</code> er som regel den du er ute etter.</li>
+                    <li><code class="highlighter-rouge">crontab -e</code> (endre <em>firefox</em> til den relevante applikasjonen)
+                      <div class="language-bash highlighter-rouge">
+                        <div class="highlight">
+                          <pre class="highlight"><code> 0 <span class="k">*</span>/2 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="o">(</span> <span class="nv">DISPLAY</span><span class="o">=</span>:0 xdotool search <span class="nt">--onlyvisible</span> <span class="nt">--class</span> firefox windowactivate <span class="nt">--sync</span> <span class="se">\%</span>@ key ctrl+F5 <span class="o">)</span>
+</code></pre>
+                        </div>
+                            </div>
+                    </li>
+                  </ol>
+                  <h2 id="automatisk-oppdatering">Automatisk oppdatering</h2>
+                  <div class="language-bash highlighter-rouge">
                     <div class="highlight">
-                      <pre class="highlight"><code>- `chmod +x /home/kiosk/kiosk.sh`
-- `⎵x11vnc -storepasswd passwordgoeshere /home/kiosk/.x11vnc.pass`
-- For Firefox:
-    - `sudo apt-get install -y firefox`
-        `sudo apt-mark hold firefox`
-    - Settings:
-        - General &gt; Startup | *Make Default...*
-        - General &gt; Language | **Check your spelling as you type**: *Uncheck*
-        - General &gt; Browsing | **Enable picture-in-picture video controls**: *Uncheck*
-        - General &gt; Browsing | **Recommend extensions as you browse**: *Uncheck*
-        - General &gt; Browsing | **Recommend features as you browse**: *Uncheck*
-        - Home &gt; New Windows and Tabs | **Homepage and new windows**: *Blank Page*
-        - Home &gt; New Windows and Tabs | **New tabs**: *Blank Page*
-        - Privacy &amp; Security &gt; Logins and Passwords | **Ask to save logins and passwords for websites**: *Uncheck*
-        - Privacy &amp; Security &gt; Logins and Passwords | **Show alerts about passwords for breached websites**: *Uncheck*
-        - Privacy &amp; Security &gt; Firefox Data Collection and Use &gt; **Allow Firefox to send technical and interaction data to Mozilla**: *Uncheck*
-        - Privacy &amp; Security &gt; Firefox Data Collection and Use &gt; **Allow Firefox to make personalized extension recommendations**: *Uncheck*
-        - Privacy &amp; Security &gt; Firefox Data Collection and Use &gt; **Allow Firefox to install and run studies**: *Uncheck*
-    - `about:config` 
-        -   `gfx.webrender.all`: `true` 
-        -   `layers.acceleration.force-enabled`: `true` 
-        -   `browser.tabs.warnOnClose`: `false`
-        -   `browser.tabs.warnOnCloseOtherTabs`: `false`
-        -   `browser.send_pings`: `false` 
-        -   `beacon.enabled`: `false` 
-        -   `alerts.useSystemBackend`: `true` 
-        -   `extensions.pocket.enabled`: `false` 
-        -   `browser.sessionstore.resume_from_crash: false` 
-        -   `toolkit.startup.max_resumed_crashes: -1`
-        -   `browser.sessionstore.max_resumed_crashes: -1`
-        -   `browser.disableResetPrompt: true` 
-    - Legg til nederst i `/home/kiosk/kiosk.sh`
-        ```bash
-        # Run Firefox in kiosk-mode
-        /usr/bin/firefox --kiosk --private --new-window https://duck.com &amp;
-        ```
-- For Chromium:
-    - `sudo apt-get install -y chromium-browser`
-    - Settings
-        - Autofill → Passwords → **Offer to save passwords**: *Uncheck*
-        - Autofill → Passwords → **Auto Sign-in**: *Uncheck*
-        - Autofill → Payment methods → **Save and fill payment methods**: *Uncheck*
-        - Autofill → Payment methods → **Allow sites to check if you have payment methods saved**: *Uncheck*
-        - Autofill → Addresses and more → **Save and fill addresses**: *Uncheck*
-        - Advanced → Languages → **Spell check**: *Uncheck*
-        - Advanced → Languages → Language → **Offer to translate pages that aren’t in a language you read**: *Unchecked*
-        - Gjør Chromium til default nettleser: Default Browser → *Make Default*
-    - Legg til nederst i `/home/kiosk/kiosk.sh`
-        ```bash
-        # Clear crash-flags if Chromium crashed to avoid warning banners
-        sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' /home/kiosk/.config/chromium/Default/Preferences
-        sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/' /home/kiosk/.config/chromium/Default/Preferences
+                      <pre class="highlight"><code><span class="c"># Mulig du må installere pakken unattended-upgrades om den ikke er installert allerede</span>
+<span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> unattended-upgrades
 
-        # Run Chromium in kiosk-mode
-        /usr/bin/chromium-browser --kiosk https://duck.com &amp;
-        ```
-- Fjern Gnome Keyring passord (forskjellig fra login passord)
-    1. Åpne *Passwords and Keys*
-    2. Høyreklikk på Passwords → Passwords | Login → *Change Password* 
-    3. Skriv inn det eksisterende passordet og sett et nytt blankt passord
-- `reboot` 
-    - Når maskinen får startet igjen skal nettleseren være den eneste synlige applikasjonen.
-    - Om du trenger å gå ut av kiosk-modus kan du klikke super-knappen eller drepe nettleseren fra en terminal fra en annen TTY.
+<span class="nb">sudo </span>vim /etc/apt/apt.conf.d/50unattended-upgrades
 
+<span class="c"># Kommenter inn og endre disse linjene</span>
+<span class="s2">"</span><span class="k">${</span><span class="nv">distro_id</span><span class="k">}</span><span class="s2">:</span><span class="k">${</span><span class="nv">distro_codename</span><span class="k">}</span><span class="s2">-updates"</span><span class="p">;</span>
+Unattended-Upgrade::MinimalSteps <span class="s2">"true"</span><span class="p">;</span>
+Unattended-Upgrade::Remove-Unused-Kernel-Packages <span class="s2">"true"</span><span class="p">;</span>
+Unattended-Upgrade::Remove-Unused-Dependencies <span class="s2">"true"</span><span class="p">;</span>
+Unattended-Upgrade::Automatic-Reboot <span class="s2">"true"</span><span class="p">;</span>
+Unattended-Upgrade::Automatic-Reboot-Withusers <span class="s2">"true"</span><span class="p">;</span>
+Unattended-Upgrade::Automatic-Reboot-Time <span class="s2">"02:00"</span><span class="p">;</span>
 
-## Automatisk reloading av nettside
+<span class="c"># Om du bruker Firefox, kommenter også inn disse linjene —</span>
+<span class="c"># Firefox krever en omstart etter oppdatering,</span>
+<span class="c"># antar at cron-jobben som kjører Shift+F5 får dette til å stoppe.</span>
+<span class="c"># Dette blir forsåvidt omgått med å locke firefox-pakken, men...</span>
+Unattended-Upgrade::InstallOnShutdown <span class="s2">"true"</span><span class="p">;</span>
+<span class="c"># Og gi den lengere tid på å oppdatere under shutdown</span>
+<span class="nb">sudo </span>vim /etc/systemd/logind.conf
+<span class="c"># Kommenter inn / endre</span>
+<span class="nv">InhibitDelayMaxSec</span><span class="o">=</span>1800
 
-Det finnes flere extensions på Firefox/Chrome web storene som lar deg automatisk reloade en nettside basert på et gitt intervall, men de ser litt sketchy ut, og det lar seg lett gjøre med `cron` og `xdotool`.
+<span class="c"># Om det er en laptop, kommenter også inn i logind.conf</span>
+<span class="nv">HandleLidSwitch</span><span class="o">=</span>ignore
 
-1. `sudo apt-get install -y xdotool` 
-2. Bruk `xprop | grep 'WM_CLASS(STRING)' | awk '{print $3 $4}'` og klikk på et vindu for å finne klassen til det, det som er listet som den andre verdien til `WM_CLASS(STRING)` er som regel den du er ute etter.
-3. `crontab -e` (endre *firefox* til den relevante applikasjonen)
-    ```bash
-    0 */2 * * * ( DISPLAY=:0 xdotool search --onlyvisible --class firefox windowactivate --sync \%@ key ctrl+F5 )
-    ```
+<span class="nb">sudo </span>vim /etc/apt/apt.conf.d/20auto-upgrades
 
+<span class="c"># Kommenter inn disse linjene</span>
+APT::Periodic::Update-Package-Lists <span class="s2">"1"</span><span class="p">;</span>
+APT::Periodic::Download-Upgradeable-Packages <span class="s2">"1"</span><span class="p">;</span>
+APT::Periodic::AutocleanInterval <span class="s2">"7"</span><span class="p">;</span>
+APT::Periodic::Unattended-Upgrade <span class="s2">"1"</span><span class="p">;</span>
 
-## Automatisk oppdatering
-
-```bash
-# Mulig du må installere pakken unattended-upgrades om den ikke er installert allerede
-sudo apt-get install -y unattended-upgrades
-
-sudo vim /etc/apt/apt.conf.d/50unattended-upgrades
-
-# Kommenter inn og endre disse linjene
-"${distro_id}:${distro_codename}-updates";
-Unattended-Upgrade::MinimalSteps "true";
-Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";
-Unattended-Upgrade::Remove-Unused-Dependencies "true";
-Unattended-Upgrade::Automatic-Reboot "true";
-Unattended-Upgrade::Automatic-Reboot-Withusers "true";
-Unattended-Upgrade::Automatic-Reboot-Time "02:00";
-
-# Om du bruker Firefox, kommenter også inn disse linjene —
-# Firefox krever en omstart etter oppdatering,
-# antar at cron-jobben som kjører Shift+F5 får dette til å stoppe.
-# Dette blir forsåvidt omgått med å locke firefox-pakken, men...
-Unattended-Upgrade::InstallOnShutdown "true";
-# Og gi den lengere tid på å oppdatere under shutdown
-sudo vim /etc/systemd/logind.conf
-# Kommenter inn / endre
-InhibitDelayMaxSec=1800
-
-# Om det er en laptop, kommenter også inn i logind.conf
-HandleLidSwitch=ignore
-
-sudo vim /etc/apt/apt.conf.d/20auto-upgrades
-
-# Kommenter inn disse linjene
-APT::Periodic::Update-Package-Lists "1";
-APT::Periodic::Download-Upgradeable-Packages "1";
-APT::Periodic::AutocleanInterval "7";
-APT::Periodic::Unattended-Upgrade "1";
-
-# Sjekk at det funker
-sudo unattended-upgrades --dry-run --debug
-# Sjekk om det har kjørt:
-tail -f /var/log/unattended-upgrades/unattended-upgrades.log
+<span class="c"># Sjekk at det funker</span>
+<span class="nb">sudo </span>unattended-upgrades <span class="nt">--dry-run</span> <span class="nt">--debug</span>
+<span class="c"># Sjekk om det har kjørt:</span>
+<span class="nb">tail</span> <span class="nt">-f</span> /var/log/unattended-upgrades/unattended-upgrades.log
 /var/log/dpkg.log
 /var/log/apt/history.log
 /etc/cron.daily/apt
-/etc/cron.daily/*
+/etc/cron.daily/<span class="k">*</span>
 /etc/crontab
 </code></pre>
                     </div>
