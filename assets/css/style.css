@@ -7,6 +7,10 @@ layout: stylesheet
 @import "/assets/css/highlight.css";
 /* Containers: Body, Container, Box, Main, Header, Content */ 
 
+* {
+  scrollbar-color: #464b4f #212425;
+}
+
 :root {
   --d--bg-main: #202328;
   --d--bg-sub: #17191C;
@@ -18,7 +22,7 @@ layout: stylesheet
   --d--border: #3D4550;
   --d--border-sub: #4B5769;
   --d--navbar-bg: #262B31;
-  
+
   --l--bg-main: #FFFFFF;
   --l--bg-sub: #FAFAFC;
   --l--bg-select: #FAFAFC;
@@ -69,7 +73,7 @@ html[data-theme="dark"] {
     --border-sub: var(--d--border-sub);
     --navbar-bg: var(--d--navbar-bg);
   }
-  
+
   html[data-theme="light"] {
     --bg-main: var(--l--bg-main);
     --bg-sub: var(--l--bg-sub);
@@ -232,27 +236,27 @@ h6 {
     font-size: 2.441rem;
     font-weight: 600;
   }
-  
+
   h2 {
     font-size: 1.953rem;
     font-weight: 600;
   }
-  
+
   h3 {
     font-size: 1.563rem;
     font-weight: 600;
   }
-  
+
   h4 {
     font-size: 1.25rem;
     font-weight: 600;
   }
-  
+
   h5 {
     font-size: 1.25rem;
     font-weight: 400;
   }
-  
+
   h6 {
     font-size: 1rem;
     font-weight: 600;
@@ -1000,34 +1004,29 @@ details summary.tag-header:hover a {
   text-decoration: 1px var(--text-sub) solid underline !important; /* FIXME Remove !important */
 }
 
-.stale-link {
-  background-color: hsla(60, 100%, 88%, 0.384);
+.content a:not(.tag-identifier) {
+  --underline-color: hsla(205, 100%, 31%, 0.38);
+  --underline-color-hover: hsla(205, 100%, 31%, 0.4);
 }
-
+.content a:not(.tag-identifier).stale-link {
+  --underline-color: hsla(60, 100%, 88%, 0.38);
+  --underline-color-hover: hsla(60, 100%, 88%, 0.4);
+}
 .content a:not(.tag-identifier) {
   --bg: var(--bg-main);
   --color: hsl(0, 0%, 100%);
-  --underline-width: 0.6em;
+  --underline-width: 0.7em;
   --underline-block-width: 20px;
-  --underline-color: #1c4f7960;
-  --underline-color-hover: #1c4f79BF;
-  /* --underline-color: hsla(123, 100%, 88%, 0.3);
-  --underline-color-hover: hsla(123, 100%, 88%, 0.5); */
   --underline-transition: 0.5s;
-  
+
+  padding: 0 3px;
+  margin: 0 -3px;
+
   color: var(--color);
   text-decoration: none;
   background-image:
-    linear-gradient(
-      90deg,
-      var(--bg),
-      var(--bg)
-    ),
-    linear-gradient(
-      90deg,
-      var(--underline-color),
-      var(--underline-color)
-    );
+    linear-gradient(90deg, var(--bg),              var(--bg)),
+    linear-gradient(90deg, var(--underline-color), var(--underline-color));
   background-size:
     var(--underline-block-width) var(--underline-width),
     100% var(--underline-width);
@@ -1036,20 +1035,34 @@ details summary.tag-header:hover a {
   background-position-y: 100%;
   transition: background-position-x var(--underline-transition);
 }
-
 .content a:hover {
   background-image:
-    linear-gradient(
-      90deg,
-      var(--bg),
-      var(--bg)),
-    linear-gradient(
-      90deg,
-      var(--underline-color-hover),
-      var(--underline-color-hover)
-    );
+    linear-gradient(90deg, var(--bg),                    var(--bg)),
+    linear-gradient(90deg, var(--underline-color-hover), var(--underline-color-hover));
   background-position-x: calc(100% + var(--underline-block-width)), 0;
 }
+
+/*
+.content a:not(.tag-identifier) {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+.content a:not(.tag-identifier)::after {
+  background-color: hsla(205, 100%, 31%, 0.38);
+  border-radius: 2px;
+  content: "";
+  left: -3px;
+  right: -3px;
+  height: 0.7em;
+  top: 50%;
+  position: absolute;
+  z-index: -1;
+}
+.content a:not(.tag-identifier).stale-link::after {
+  background-color: hsla(60, 100%, 88%, 0.38);
+}
+*/
 
 .sn-right,
 .mn-right {
@@ -1436,37 +1449,37 @@ label.srs-toggle {
     margin-right: -50%;
     width: 30%;
   }
-  
+
   .sn-left,
   .mn-left {
     margin-left: -35%;
     width: 30%;
   }
-  
+
   blockquote .sn-left,
   blockquote .mn-left {
     margin-left: -51% !important;
     width: 30% !important;
   }
-  
+
   li .sn-left,
   li .mn-left {
     margin-left: -43% !important;
     width: 30% !important;
   }
-  
+
   blockquote .sn-right,
   blockquote .mn-right {
     margin-right: -56% !important;
     width: 30% !important;
   }
-  
+
   li .sn-right,
   li .mn-right {
     margin-right: -41% !important;
     width: 30% !important;
   }
-  
+
   .related-group {
     background-color: var(--bg-sub) !important;
     margin-left: 10px;
@@ -1481,7 +1494,7 @@ label.srs-toggle {
   .tooltip .right {
     display: none;
   }
-  
+
   .tooltip .bottom {
     min-width: 300px;
     top: 40px;
@@ -1499,11 +1512,11 @@ label.srs-toggle {
     box-shadow: 0 1px 8px var(--card-drop-shadow);
     display: none;
   }
-  
+
   .tooltip:hover .bottom {
     display: block;
   }
-  
+
   .tooltip .bottom i {
     position: absolute;
     bottom: 100%;
@@ -1513,7 +1526,7 @@ label.srs-toggle {
     height: 12px;
     overflow: hidden;
   }
-  
+
   .tooltip .bottom i::after {
     content: '';
     position: absolute;
@@ -1524,18 +1537,18 @@ label.srs-toggle {
     background-color: var(--bg-main);
     box-shadow: 0 1px 8px var(--card-drop-shadow);
   }
-  
+
   .bottom .tooltip-title {
     font-size: 14px;
     font-weight: 500;
     display: inline-block;
   }
-  
+
   .bottom .tooltip-excerpt {
     font-size: 12px;
     display: inline-block;
   }
-  
+
   .bottom .tooltip-excerpt a {
     font-size: 12px;
   }
@@ -1565,20 +1578,20 @@ label.srs-toggle {
   .box {
     width: 80%;
   }
-  
+
   label {
     cursor: pointer;
   }
-  
+
   label.margin-toggle:not(.sidenote-number) {
     display: inline;
   }
-  
+
   .sn-left, .sn-right,
   .mn-left, .mn-right {
     display: none;
   }
-  
+
   .margin-toggle:checked + .sn-right,
   .margin-toggle:checked + .sn-left,
   .margin-toggle:checked + .mn-left,
@@ -1592,7 +1605,7 @@ label.srs-toggle {
     vertical-align: baseline;
     position: relative;
   }
-  
+
   .sketch-left, .sketch-right {
     display: inline-block !important;
     float: left !important;
