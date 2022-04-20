@@ -111,6 +111,35 @@
               <div class="content">
                 <main>
                   <details style="padding-top: 1em;" open="">
+                    <summary class="tag-header" id="cheat-sheet">
+                      <a href="#cheat-sheet" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
+                      Cheat-sheet
+                      <sup style="font-size: 0.5em; color: var(--text-sub);">1</sup>
+                    </summary>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/MathJax-Cheat-Sheet">Mathjax cheat sheet</a><span class="right bottom"><span class="tooltip-title">Mathjax cheat sheet</span><br/>
+                          <span class="tooltip-excerpt">Resources<br />
+                            <br />
+                            https://jojozhuang.github.io/tutorial/mathjax-cheat-sheet-for-mathematical-notation/<br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            Type<br />
+                            Formula<br />
+                            MathJax / Markdown<br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            Variables<br />
+                            ...</span><i></i></span></span>
+                    </li>
+                  </details>
+                  <details style="padding-top: 1em;" open="">
                     <summary class="tag-header" id="history">
                       <a href="#history" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
                       History
@@ -136,36 +165,11 @@
                     </li>
                   </details>
                   <details style="padding-top: 1em;" open="">
-                    <summary class="tag-header" id="it-support">
-                      <a href="#it-support" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
-                      It-support
-                      <sup style="font-size: 0.5em; color: var(--text-sub);">1</sup>
-                    </summary>
-                    <li style="list-style: none;">
-                      <span class="tooltip"><a href="/notes/Nginx-basic-auth-not-working-with-return-statement">Nginx basic auth not working with return statement</a><span class="right bottom"><span class="tooltip-title">Nginx basic auth not working with return statement</span><br/>
-                          <span class="tooltip-excerpt">As mentioned here1 and here2; this3 is the culprit.<br />
-                            <br />
-                            TL;DR — return kicks in earlier than basic basic auth. See aforementioned pages.<br />
-                            <br />
-                            server {<br />
-                            listen 80;<br />
-                            server_name sub.domain.tld;<br />
-                            return  ...</span><i></i></span></span>
-                    </li>
-                  </details>
-                  <details style="padding-top: 1em;" open="">
                     <summary class="tag-header" id="linux">
                       <a href="#linux" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
                       Linux
-                      <sup style="font-size: 0.5em; color: var(--text-sub);">2</sup>
+                      <sup style="font-size: 0.5em; color: var(--text-sub);">4</sup>
                     </summary>
-                    <li style="list-style: none;">
-                      <span class="tooltip"><a href="/notes/Linux-Kiosk-Mode">Linux kiosk mode</a><span class="right bottom"><span class="tooltip-title">Linux kiosk mode</span><br/>
-                          <span class="tooltip-excerpt"><br />
-                            <br />
-                            <br />
-                            Denne prosedyren er en skriftlig og mer utbredt versjon av denne YouTube Videoen, og baserer seg på Ubuntu 20.04 LTS med Firefox/Chromium som app for kiosk-mode, men bør la seg adaptere til andr...</span><i></i></span></span>
-                    </li>
                     <li style="list-style: none;">
                       <span class="tooltip"><a href="/notes/NixOS-installation">Nixos installation</a><span class="right bottom"><span class="tooltip-title">Nixos installation</span><br/>
                           <span class="tooltip-excerpt">Installing NixOS — a less verbose step-by-step guide<br />
@@ -176,12 +180,46 @@
                             <br />
                             This guide also assumes you’re runn...</span><i></i></span></span>
                     </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Porteus-kiosk-with-Nginx-as-a-configuration-manager">Porteus kiosk with nginx as a configuration manager</a><span class="right bottom"><span class="tooltip-title">Porteus kiosk with nginx as a configuration manager</span><br/>
+                          <span class="tooltip-excerpt">https://porteus-kiosk.org/<br />
+                            <br />
+                            Porteus checks for remote configs on startup, and reimages the OS if a configuration change is detected.<br />
+                            <br />
+                            server {<br />
+                            listen      80;<br />
+                            server_name sub.domain.tld;<br />
+                            retu...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Ubuntu-Kiosk-Mode">Ubuntu kiosk mode</a><span class="right bottom"><span class="tooltip-title">Ubuntu kiosk mode</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                            <br />
+                            <br />
+                            Denne prosedyren er en skriftlig og mer utbredt versjon av denne YouTube Videoen, og baserer seg på Ubuntu 20.04 LTS med Firefox/Chromium som app for kiosk-mode, men bør la seg adaptere til andr...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/XMonad">Xmonad</a><span class="right bottom"><span class="tooltip-title">Xmonad</span><br/>
+                          <span class="tooltip-excerpt">https://xmonad.org/TUTORIAL.html<br />
+                            <br />
+                            TODO<br />
+                            <br />
+                            <br />
+                            Gjør xmonad og xmonad-contrib til submodules<br />
+                            Legg til stack.yaml(.lock) i git<br />
+                            Setup (med ferdig satt opp xmonad config)<br />
+                            <br />
+                            <br />
+                            <br />
+                            sudo pacman -Syu<br />
+                            sudo p...</span><i></i></span></span>
+                    </li>
                   </details>
                   <details style="padding-top: 1em;" open="">
                     <summary class="tag-header" id="math">
                       <a href="#math" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
                       Math
-                      <sup style="font-size: 0.5em; color: var(--text-sub);">21</sup>
+                      <sup style="font-size: 0.5em; color: var(--text-sub);">22</sup>
                     </summary>
                     <li style="list-style: none;">
                       <span class="tooltip"><a href="/notes/Andregradsformelen">Andregradsformelen</a><span class="right bottom"><span class="tooltip-title">Andregradsformelen</span><br/>
@@ -418,6 +456,57 @@
                           <span class="tooltip-excerpt"><br />
                           </span><i></i></span></span>
                     </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/MathJax-Cheat-Sheet">Mathjax cheat sheet</a><span class="right bottom"><span class="tooltip-title">Mathjax cheat sheet</span><br/>
+                          <span class="tooltip-excerpt">Resources<br />
+                            <br />
+                            https://jojozhuang.github.io/tutorial/mathjax-cheat-sheet-for-mathematical-notation/<br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            Type<br />
+                            Formula<br />
+                            MathJax / Markdown<br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            Variables<br />
+                            ...</span><i></i></span></span>
+                    </li>
+                  </details>
+                  <details style="padding-top: 1em;" open="">
+                    <summary class="tag-header" id="mathjax">
+                      <a href="#mathjax" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
+                      Mathjax
+                      <sup style="font-size: 0.5em; color: var(--text-sub);">1</sup>
+                    </summary>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/MathJax-Cheat-Sheet">Mathjax cheat sheet</a><span class="right bottom"><span class="tooltip-title">Mathjax cheat sheet</span><br/>
+                          <span class="tooltip-excerpt">Resources<br />
+                            <br />
+                            https://jojozhuang.github.io/tutorial/mathjax-cheat-sheet-for-mathematical-notation/<br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            Type<br />
+                            Formula<br />
+                            MathJax / Markdown<br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            Variables<br />
+                            ...</span><i></i></span></span>
+                    </li>
                   </details>
                   <details style="padding-top: 1em;" open="">
                     <summary class="tag-header" id="nix">
@@ -440,8 +529,17 @@
                     <summary class="tag-header" id="physics">
                       <a href="#physics" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
                       Physics
-                      <sup style="font-size: 0.5em; color: var(--text-sub);">24</sup>
+                      <sup style="font-size: 0.5em; color: var(--text-sub);">25</sup>
                     </summary>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Aktivitet-og-halveringstid">Aktivitet og halveringstid</a><span class="right bottom"><span class="tooltip-title">Aktivitet og halveringstid</span><br/>
+                          <span class="tooltip-excerpt">Fusjon<br />
+                            <br />
+                            Fusjon er at to atomkjerner smelter sammen til en kjerne med større masse.<br />
+                            Fusjon er solas “energikilde”.<br />
+                            Fusjon krever veldig høye temperaturer.<br />
+                            Energieffektive fusjonsenergiverk er vanske...</span><i></i></span></span>
+                    </li>
                     <li style="list-style: none;">
                       <span class="tooltip"><a href="/notes/Atommodeller">Atommodeller</a><span class="right bottom"><span class="tooltip-title">Atommodeller</span><br/>
                           <span class="tooltip-excerpt">Atomets historie<br />
@@ -696,6 +794,57 @@
                             gfx.webrender.all: true<br />
                             <br />
                             ...</span><i></i></span></span>
+                    </li>
+                  </details>
+                  <details style="padding-top: 1em;" open="">
+                    <summary class="tag-header" id="techsupport">
+                      <a href="#techsupport" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
+                      Techsupport
+                      <sup style="font-size: 0.5em; color: var(--text-sub);">2</sup>
+                    </summary>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Install-TablePlus-on-Arch">Install tableplus on arch</a><span class="right bottom"><span class="tooltip-title">Install tableplus on arch</span><br/>
+                          <span class="tooltip-excerpt"><br />
+                            Related: libldap-2.5.so.0: cannot open shared object file: No such file or directory<br />
+                            <br />
+                            <br />
+                            git clone https://aur.archlinux.org/tableplus.git<br />
+                            cd tableplus<br />
+                            wget https://gist.githubusercontent.com/hpsu...</span><i></i></span></span>
+                    </li>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/Nginx-basic-auth-not-working-with-return-statement">Nginx basic auth not working with return statement</a><span class="right bottom"><span class="tooltip-title">Nginx basic auth not working with return statement</span><br/>
+                          <span class="tooltip-excerpt">As mentioned here1 and here2; this3 is the culprit.<br />
+                            <br />
+                            TL;DR — return kicks in earlier than basic basic auth. See aforementioned pages.<br />
+                            <br />
+                            server {<br />
+                            listen 80;<br />
+                            server_name sub.domain.tld;<br />
+                            return  ...</span><i></i></span></span>
+                    </li>
+                  </details>
+                  <details style="padding-top: 1em;" open="">
+                    <summary class="tag-header" id="xmonad">
+                      <a href="#xmonad" class="noselect tag-identifier" style="text-decoration: none; margin-right: -5px; font-size: 0.6em; color: var(--text-sub);">#</a>
+                      Xmonad
+                      <sup style="font-size: 0.5em; color: var(--text-sub);">1</sup>
+                    </summary>
+                    <li style="list-style: none;">
+                      <span class="tooltip"><a href="/notes/XMonad">Xmonad</a><span class="right bottom"><span class="tooltip-title">Xmonad</span><br/>
+                          <span class="tooltip-excerpt">https://xmonad.org/TUTORIAL.html<br />
+                            <br />
+                            TODO<br />
+                            <br />
+                            <br />
+                            Gjør xmonad og xmonad-contrib til submodules<br />
+                            Legg til stack.yaml(.lock) i git<br />
+                            Setup (med ferdig satt opp xmonad config)<br />
+                            <br />
+                            <br />
+                            <br />
+                            sudo pacman -Syu<br />
+                            sudo p...</span><i></i></span></span>
                     </li>
                   </details><br />
                   <br />

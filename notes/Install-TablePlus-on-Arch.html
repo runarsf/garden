@@ -11,10 +11,10 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-        rel="stylesheet"><meta content="Nginx basic auth not working with return statement" property="og:title">
+        rel="stylesheet"><meta content="Install tableplus on arch" property="og:title">
       <meta content="article" property="og:type">
-      <meta content="https://publish.runarsf.dev/notes/Nginx-basic-auth-not-working-with-return-statement" property="og:url"><title>📖 My Notebook</title>
-      <link rel="canonical" href="https://publish.runarsf.dev/notes/Nginx-basic-auth-not-working-with-return-statement" />
+      <meta content="https://publish.runarsf.dev/notes/Install-TablePlus-on-Arch" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev/notes/Install-TablePlus-on-Arch" />
       <link rel="apple-touch-icon" href="/assets/img/profile.png">
       <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
       <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
@@ -118,60 +118,102 @@
                     </span>
                   </a>
                 </div>
-                <h1>Nginx basic auth not working with return statement</h1>
+                <h1>Install tableplus on arch</h1>
                 <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
                 <div class="content">
-                  <p>As mentioned here<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> and here<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>; this<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> is the culprit.</p>
-                  <p>TL;DR — <code class="highlighter-rouge">return</code> kicks in earlier than basic basic auth. See aforementioned pages.</p>
-                  <div class="language-nginx highlighter-rouge">
+                  <blockquote>
+                    <p>Related: <code class="highlighter-rouge">libldap-2.5.so.0: cannot open shared object file: No such file or directory</code></p>
+                  </blockquote>
+                  <div class="language-bash highlighter-rouge">
                     <div class="highlight">
-                      <pre class="highlight"><code><span class="k">server</span> <span class="p">{</span>
-  <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
-  <span class="kn">server_name</span> <span class="s">sub.domain.tld</span><span class="p">;</span>
-  <span class="kn">return</span>      <span class="mi">302</span> <span class="s">https://</span><span class="nv">$server_name$request_uri</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="k">server</span> <span class="p">{</span>
-  <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
-  <span class="kn">server_name</span> <span class="s">sub.domain.tld</span><span class="p">;</span>
-
-  <span class="c1"># ref. https://stackoverflow.com/a/67981564 - https://nginx.org/en/docs/dev/development_guide.html#http_phases</span>
-  <span class="c1"># `return` (`NGX_HTTP_SERVER_REWRITE_PHASE`) prosesseres før `auth_basic*` (`NGX_HTTP_ACCESS_PHASE`) i nginx,</span>
-  <span class="c1"># og man vil derfor ikke kunne bruke basic auth for å autentisere et `return`-statement direkte i samme location block.</span>
-  <span class="c1"># `proxy_pass` kommer etter `auth_basic*` og vil derfor fungere som en litt hacky workaround.</span>
-  <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="p">{</span>
-    <span class="kn">auth_basic</span>           <span class="s">"Restricted"</span><span class="p">;</span>
-    <span class="kn">auth_basic_user_file</span> <span class="n">/etc/nginx/basic_auth</span><span class="p">;</span>
-    <span class="kn">proxy_pass</span> <span class="s">http://127.0.0.1:1337</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">server</span> <span class="p">{</span>
-  <span class="kn">listen</span> <span class="mi">1337</span><span class="p">;</span>
-
-  <span class="kn">location</span> <span class="p">=</span> <span class="n">/cfg</span> <span class="p">{</span>
-    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">''</span><span class="p">;</span>
-    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">key1=value</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
-    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">key2=value</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
-
-    <span class="kn">return</span> <span class="mi">200</span> <span class="nv">$CFG</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+                      <pre class="highlight"><code>git clone https://aur.archlinux.org/tableplus.git
+<span class="nb">cd </span>tableplus
+wget https://gist.githubusercontent.com/hpsu/49f2162bd9ded9c97e0c201065345189/raw/8ff143c6432c485824196a36c5a329afcbd52089/tableplus-dependencies.patch
+git apply tableplus-dependencies.patch
+makepkg
+makepkg <span class="nt">--install</span>
 </code></pre>
                     </div>
                   </div>
-                  <div class="footnotes" role="doc-endnotes">
-                    <ol>
-                      <li id="fn:1" role="doc-endnote">
-                        <p>https://stackoverflow.com/a/67981564 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-                      </li>
-                      <li id="fn:2" role="doc-endnote">
-                        <p>https://mailman.nginx.org/pipermail/nginx/2016-November/052313.html <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-                      </li>
-                      <li id="fn:3" role="doc-endnote">
-                        <p>https://nginx.org/en/docs/dev/development_guide.html#http_phases <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-                      </li>
-                    </ol>
+                  <p><code class="highlighter-rouge">tableplus-dependencies.patch</code></p>
+                  <div class="language-diff highlighter-rouge">
+                    <div class="highlight">
+                      <pre class="highlight"><code><span class="gh">diff --git a/PKGBUILD b/PKGBUILD
+index 5ffe1e5..a2774b9 100644
+</span><span class="gd">--- a/PKGBUILD
+</span><span class="gi">+++ b/PKGBUILD
+</span><span class="p">@@ -3,19 +3,32 @@</span>
+ 
+ pkgname=tableplus
+ pkgver=0.1.186
+<span class="gd">-pkgrel=1
+</span><span class="gi">+pkgrel=2
+</span> pkgdesc='Modern, native, and friendly GUI tool for relational databases (Alpha)'
+ arch=('x86_64')
+ url='https://tableplus.com/'
+ license=('custom')
+ depends=('gtksourceview3' 'libgee'  'gnome-keyring')
+ source=('LICENSE'
+<span class="gd">-        "tableplus_${pkgver}_${pkgrel}_amd64.deb::https://deb.tableplus.com/debian/21/pool/main/t/tableplus/tableplus_${pkgver}_amd64.deb")
+</span><span class="gi">+        "tableplus_${pkgver}_${pkgrel}_amd64.deb::https://deb.tableplus.com/debian/21/pool/main/t/tableplus/tableplus_${pkgver}_amd64.deb"
++        "http://archive.ubuntu.com/ubuntu/pool/main/o/openldap/libldap-2.5-0_2.5.6+dfsg-1~exp1ubuntu1_amd64.deb"
++        "http://archive.ubuntu.com/ubuntu/pool/main/c/cyrus-sasl2/libsasl2-2_2.1.27+dfsg-2.1build1_amd64.deb"
++        "https://archive.archlinux.org/packages/g/glib2/glib2-2.68.4-1-x86_64.pkg.tar.zst"
++        "preload.patch")
++noextract=("libldap-2.5-0_2.5.6+dfsg-1~exp1ubuntu1_amd64.deb"
++           "libsasl2-2_2.1.27+dfsg-2.1build1_amd64.deb")
+</span> sha256sums=('76f924b1ebad5309ccf0dd7f3fe3d1b57ff3088b208a603900b0e240fdb5debb'
+<span class="gd">-            '11b1ebb30a9fe7ddfd457fb4a9919f46b321606e47bebef39b043c91dd03a1d3')
+</span><span class="gi">+            '11b1ebb30a9fe7ddfd457fb4a9919f46b321606e47bebef39b043c91dd03a1d3'
++            '49f70885e61380eb0aa9bb4809801d97426e208359863000777a192011433e19'
++            '5b5d4bcb955fab25ee118449572f5543a9249de1de9f56658082fc00f650fccb'
++            'e8e759bd9abb58c93067e199088077f3d6fa2c608ebc6f571cb9dd814812bcea'
++            'e3dedf8c93e5a8966eb3d5c1f25071a0e6d049279be0149cfb6280c9674d6f6f')
+</span> 
+ prepare() {
+     tar -xf "${srcdir}/data.tar.zst"
+<span class="gi">+    ar p libldap-2.5-0_2.5.6+dfsg-1~exp1ubuntu1_amd64.deb data.tar.zst | tar x --zst
++    ar p libsasl2-2_2.1.27+dfsg-2.1build1_amd64.deb data.tar.xz | tar x --xz
++    patch -Np1 -i "${srcdir}/preload.patch"
+</span> }
+ 
+ package() {
+<span class="p">@@ -25,6 +38,8 @@</span> package() {
+     install -Dm755 opt/tableplus/tableplus -t "$pkgdir/usr/local/bin/"
+     install -Dm644 opt/tableplus/tableplus.desktop -t "${pkgdir}/usr/share/applications/"
+     install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+<span class="gi">+    install -Dm755 usr/lib/x86_64-linux-gnu/{liblber-2.5.so.0.1.1,libldap-2.5.so.0.1.1,libsasl2.so.2.0.25} -t "$pkgdir/opt/tableplus/lib/"
++    install -Dm755 usr/lib/libgio-2.0.so.0.6800.4 -t "$pkgdir/opt/tableplus/lib/"
+</span>     cp -r opt/tableplus/resource "${pkgdir}/opt/tableplus/"
+ 
+     echo "" &gt;&gt; "${pkgdir}/usr/share/applications/tableplus.desktop"
+<span class="gh">diff --git a/preload.patch b/preload.patch
+</span><span class="p">new file mode 100644
+</span><span class="gh">index 0000000..cd1bf4b
+</span><span class="gd">--- /dev/null
+</span><span class="gi">+++ b/preload.patch
+</span><span class="p">@@ -0,0 +1,19 @@</span>
+<span class="gi">+*** /opt/tableplus/tableplus.desktop	2022-03-12 19:09:51.000000000 +0100
++--- /opt/tableplus/tableplus.desktop	2022-03-12 19:14:19.609139039 +0100
++***************
++*** 1,7 ****
++  [Desktop Entry]
++  Name=TablePlus
++  Type=Application
++! Exec=/usr/local/bin/tableplus
++  Icon=/opt/tableplus/resource/image/logo.png
++  Terminal=false
++  Categories=Utility;Development;
++--- 1,7 ----
++  [Desktop Entry]
++  Name=TablePlus
++  Type=Application
++! Exec=/usr/bin/env LD_PRELOAD=/opt/tableplus/lib/libldap-2.5.so.0.1.1:/opt/tableplus/lib/liblber-2.5.so.0.1.1:/opt/tableplus/lib/libsasl2.so.2.0.25:/opt/tableplus/lib/libgio-2.0.so.0.6800.4 /usr/local/bin/tableplus
++  Icon=/opt/tableplus/resource/image/logo.png
++  Terminal=false
++  Categories=Utility;Development;
+</span></code></pre>
+                    </div>
                   </div>
                 </div>
                 <!-- Add backlinks to the current page --></div>

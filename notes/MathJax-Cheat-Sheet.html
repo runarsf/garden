@@ -11,10 +11,10 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-        rel="stylesheet"><meta content="Nginx basic auth not working with return statement" property="og:title">
+        rel="stylesheet"><meta content="Mathjax cheat sheet" property="og:title">
       <meta content="article" property="og:type">
-      <meta content="https://publish.runarsf.dev/notes/Nginx-basic-auth-not-working-with-return-statement" property="og:url"><title>📖 My Notebook</title>
-      <link rel="canonical" href="https://publish.runarsf.dev/notes/Nginx-basic-auth-not-working-with-return-statement" />
+      <meta content="https://publish.runarsf.dev/notes/MathJax-Cheat-Sheet" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev/notes/MathJax-Cheat-Sheet" />
       <link rel="apple-touch-icon" href="/assets/img/profile.png">
       <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
       <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
@@ -107,7 +107,9 @@
           <div class="column is-three-fifths">
             <main>
               <div class="note-page-section">
-                <a href="/tags/#techsupport" class="tag noselect">#techsupport</a>
+                <a href="/tags/#cheat-sheet" class="tag noselect">#cheat-sheet</a>
+                <a href="/tags/#math" class="tag noselect">#math</a>
+                <a href="/tags/#mathjax" class="tag noselect">#mathjax</a>
                 <div class="buttons for-back-home"><a class="button is-text button__page-back" onclick="window.history.back();"><span class="icon is-small">
                       <svg width="12" height="20" viewBox="0 0 12 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -118,61 +120,160 @@
                     </span>
                   </a>
                 </div>
-                <h1>Nginx basic auth not working with return statement</h1>
+                <h1>Mathjax cheat sheet</h1>
                 <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
                 <div class="content">
-                  <p>As mentioned here<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> and here<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>; this<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> is the culprit.</p>
-                  <p>TL;DR — <code class="highlighter-rouge">return</code> kicks in earlier than basic basic auth. See aforementioned pages.</p>
-                  <div class="language-nginx highlighter-rouge">
-                    <div class="highlight">
-                      <pre class="highlight"><code><span class="k">server</span> <span class="p">{</span>
-  <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
-  <span class="kn">server_name</span> <span class="s">sub.domain.tld</span><span class="p">;</span>
-  <span class="kn">return</span>      <span class="mi">302</span> <span class="s">https://</span><span class="nv">$server_name$request_uri</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="k">server</span> <span class="p">{</span>
-  <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
-  <span class="kn">server_name</span> <span class="s">sub.domain.tld</span><span class="p">;</span>
-
-  <span class="c1"># ref. https://stackoverflow.com/a/67981564 - https://nginx.org/en/docs/dev/development_guide.html#http_phases</span>
-  <span class="c1"># `return` (`NGX_HTTP_SERVER_REWRITE_PHASE`) prosesseres før `auth_basic*` (`NGX_HTTP_ACCESS_PHASE`) i nginx,</span>
-  <span class="c1"># og man vil derfor ikke kunne bruke basic auth for å autentisere et `return`-statement direkte i samme location block.</span>
-  <span class="c1"># `proxy_pass` kommer etter `auth_basic*` og vil derfor fungere som en litt hacky workaround.</span>
-  <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="p">{</span>
-    <span class="kn">auth_basic</span>           <span class="s">"Restricted"</span><span class="p">;</span>
-    <span class="kn">auth_basic_user_file</span> <span class="n">/etc/nginx/basic_auth</span><span class="p">;</span>
-    <span class="kn">proxy_pass</span> <span class="s">http://127.0.0.1:1337</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">server</span> <span class="p">{</span>
-  <span class="kn">listen</span> <span class="mi">1337</span><span class="p">;</span>
-
-  <span class="kn">location</span> <span class="p">=</span> <span class="n">/cfg</span> <span class="p">{</span>
-    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">''</span><span class="p">;</span>
-    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">key1=value</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
-    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">key2=value</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
-
-    <span class="kn">return</span> <span class="mi">200</span> <span class="nv">$CFG</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-                    </div>
-                  </div>
-                  <div class="footnotes" role="doc-endnotes">
-                    <ol>
-                      <li id="fn:1" role="doc-endnote">
-                        <p>https://stackoverflow.com/a/67981564 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-                      </li>
-                      <li id="fn:2" role="doc-endnote">
-                        <p>https://mailman.nginx.org/pipermail/nginx/2016-November/052313.html <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-                      </li>
-                      <li id="fn:3" role="doc-endnote">
-                        <p>https://nginx.org/en/docs/dev/development_guide.html#http_phases <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-                      </li>
-                    </ol>
-                  </div>
+                  <h2 id="resources">Resources</h2>
+                  <ul>
+                    <li>https://jojozhuang.github.io/tutorial/mathjax-cheat-sheet-for-mathematical-notation/</li>
+                  </ul>
+                  <hr />
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Type</th>
+                        <th>Formula</th>
+                        <th>MathJax / Markdown</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Variables</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Square</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Square root</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Logarithm</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Fraction</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Infinity</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Absolute value</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Arithmetic operation</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Factorial</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Trigonometric functions</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Greater / less than</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Equation</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Multiplication / times (dot)</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Division / fraction</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Trinomial equation</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Matrix (Parentheses)</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Matrix (Brackets)</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Matrix (Equation, vert)</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Set</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Subset</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Intersection and union</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Quadratic formula</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Binomial</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Differentiation</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Integral</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Integral large</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                      <tr>
+                        <td>Max sample</td>
+                        <td> </td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
                 <!-- Add backlinks to the current page --></div>
               <div id="copyright">

@@ -11,10 +11,10 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-        rel="stylesheet"><meta content="Nginx basic auth not working with return statement" property="og:title">
+        rel="stylesheet"><meta content="Porteus kiosk with nginx as a configuration manager" property="og:title">
       <meta content="article" property="og:type">
-      <meta content="https://publish.runarsf.dev/notes/Nginx-basic-auth-not-working-with-return-statement" property="og:url"><title>📖 My Notebook</title>
-      <link rel="canonical" href="https://publish.runarsf.dev/notes/Nginx-basic-auth-not-working-with-return-statement" />
+      <meta content="https://publish.runarsf.dev/notes/Porteus-kiosk-with-Nginx-as-a-configuration-manager" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev/notes/Porteus-kiosk-with-Nginx-as-a-configuration-manager" />
       <link rel="apple-touch-icon" href="/assets/img/profile.png">
       <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
       <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
@@ -107,7 +107,7 @@
           <div class="column is-three-fifths">
             <main>
               <div class="note-page-section">
-                <a href="/tags/#techsupport" class="tag noselect">#techsupport</a>
+                <a href="/tags/#linux" class="tag noselect">#linux</a>
                 <div class="buttons for-back-home"><a class="button is-text button__page-back" onclick="window.history.back();"><span class="icon is-small">
                       <svg width="12" height="20" viewBox="0 0 12 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -118,60 +118,96 @@
                     </span>
                   </a>
                 </div>
-                <h1>Nginx basic auth not working with return statement</h1>
+                <h1>Porteus kiosk with nginx as a configuration manager</h1>
                 <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
                 <div class="content">
-                  <p>As mentioned here<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> and here<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>; this<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> is the culprit.</p>
-                  <p>TL;DR — <code class="highlighter-rouge">return</code> kicks in earlier than basic basic auth. See aforementioned pages.</p>
+                  <p>https://porteus-kiosk.org/</p>
+                  <p>Porteus checks for remote configs on startup, and reimages the OS if a configuration change is detected.</p>
                   <div class="language-nginx highlighter-rouge">
                     <div class="highlight">
                       <pre class="highlight"><code><span class="k">server</span> <span class="p">{</span>
-  <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+  <span class="kn">listen</span>      <span class="mi">80</span><span class="p">;</span>
   <span class="kn">server_name</span> <span class="s">sub.domain.tld</span><span class="p">;</span>
   <span class="kn">return</span>      <span class="mi">302</span> <span class="s">https://</span><span class="nv">$server_name$request_uri</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="k">server</span> <span class="p">{</span>
-  <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
+  <span class="kn">listen</span>      <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
   <span class="kn">server_name</span> <span class="s">sub.domain.tld</span><span class="p">;</span>
 
+  <span class="c1"># Porteus supports both application/octet-stream and text/plain,</span>
+  <span class="c1"># but for simplisity's sake we'll use text/plain, so you can see</span>
+  <span class="c1"># the config directly from a browser.</span>
+  <span class="kn">default_type</span>            <span class="nc">text/plain</span><span class="p">;</span> <span class="c1"># text/plain || application/octet-stream;</span>
+  <span class="kn">add_header</span> <span class="s">Content-Type</span> <span class="nc">text/plain</span><span class="p">;</span> <span class="c1"># text/plain || application/octet-stream;</span>
+
+  <span class="c1"># Location(s) that don't require authentication</span>
+  <span class="kn">location</span> <span class="n">/policies/firefox.txt</span> <span class="p">{</span>
+    <span class="c1"># Available parameters can be found in Firefox -&gt; about:config</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">''</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">user_pref("gfx.webrender.all",</span> <span class="s">true)</span><span class="p">;</span><span class="kn">\n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">user_pref("svg.context-properties.content.enabled",</span> <span class="s">true)</span><span class="p">;</span><span class="kn">\n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">user_pref("layers.acceleration.force-enabled",</span> <span class="s">true)</span><span class="p">;</span><span class="kn">\n'</span><span class="p">;</span>
+    <span class="c1"># To set the homepage using Firefox config:</span>
+    <span class="c1"># set $CFG '${CFG}user_pref("browser.startup.homepage", "https://google.com");\n';</span>
+
+    <span class="kn">return</span> <span class="mi">200</span> <span class="nv">$CFG</span><span class="p">;</span>
+  <span class="p">}</span>
+
   <span class="c1"># ref. https://stackoverflow.com/a/67981564 - https://nginx.org/en/docs/dev/development_guide.html#http_phases</span>
-  <span class="c1"># `return` (`NGX_HTTP_SERVER_REWRITE_PHASE`) prosesseres før `auth_basic*` (`NGX_HTTP_ACCESS_PHASE`) i nginx,</span>
-  <span class="c1"># og man vil derfor ikke kunne bruke basic auth for å autentisere et `return`-statement direkte i samme location block.</span>
-  <span class="c1"># `proxy_pass` kommer etter `auth_basic*` og vil derfor fungere som en litt hacky workaround.</span>
-  <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="p">{</span>
-    <span class="kn">auth_basic</span>           <span class="s">"Restricted"</span><span class="p">;</span>
+  <span class="c1"># `return` (`NGX_HTTP_SERVER_REWRITE_PHASE`) is processed before `auth_basic*` (`NGX_HTTP_ACCESS_PHASE`) in nginx,</span>
+  <span class="c1"># meaning you can't use basic auth to directly authenticate a `return`-statement (in the same location-block).</span>
+  <span class="c1"># `auth_basic*` precedes `proxy_pass` and will therefore work as a semi-hacky workaround.</span>
+  <span class="c1"># `sudo htpasswd -c /etc/nginx/basic_auth kiosk`</span>
+  <span class="kn">location</span> <span class="n">/</span> <span class="p">{</span>
+    <span class="kn">auth_basic</span>           <span class="s">"Kiosk</span> <span class="s">Config</span> <span class="s">Authentication"</span><span class="p">;</span>
     <span class="kn">auth_basic_user_file</span> <span class="n">/etc/nginx/basic_auth</span><span class="p">;</span>
-    <span class="kn">proxy_pass</span> <span class="s">http://127.0.0.1:1337</span><span class="p">;</span>
+    <span class="kn">proxy_pass</span>           <span class="s">http://127.0.0.1:1337</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="k">server</span> <span class="p">{</span>
+<span class="kn">server</span> <span class="p">{</span>
   <span class="kn">listen</span> <span class="mi">1337</span><span class="p">;</span>
 
-  <span class="kn">location</span> <span class="p">=</span> <span class="n">/cfg</span> <span class="p">{</span>
+  <span class="c1"># Full list of configuration-parameters: https://porteus-kiosk.org/parameters.html</span>
+  <span class="c1"># Information about remote-management: https://porteus-kiosk.org/remote-management.html</span>
+
+  <span class="kn">location</span> <span class="p">=</span> <span class="n">/kiosks/kiosk-a.txt</span> <span class="p">{</span>
     <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">''</span><span class="p">;</span>
-    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">key1=value</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
-    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">key2=value</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">connection=wifi</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span> <span class="c1"># wifi/wired</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">dhcp=yes</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="c1"># set $CFG '${CFG}network_interface=eth0\n';</span>
+    <span class="c1"># set $CFG '${CFG}dns_server=1.1.1.1 1.0.0.1\n';</span>
+    <span class="c1"># set $CFG '${CFG}default_gateway=172.16.0.1\n';</span>
+    <span class="c1"># set $CFG '${CFG}ip_address=172.16.0.64\n';</span>
+    <span class="c1"># set $CFG '${CFG}netmask=255.255.255.0\n';</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">wifi_encryption=wpa</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">wpa_password=WIFI_PASSWORD</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">ssid_name=WIFI_SSID</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">browser=firefox</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">homepage=https://duck.com</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">hostname=kiosk</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">hardware_video_decode=yes</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">allow_icmp_protocol=yes</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">primary_keyboard_layout=no</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">hide_mouse=5</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">disable_navigation_bar=yes</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">kiosk_config=https://kiosk:pass@kiosk.domain.tld/kiosks/kiosk-a.txt</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">scheduled_action=Monday-03:00</span> <span class="nf">Tuesday-03</span><span class="p">:</span><span class="mi">00</span> <span class="nf">Wednesday-03</span><span class="p">:</span><span class="mi">00</span> <span class="nf">Thursday-03</span><span class="p">:</span><span class="mi">00</span> <span class="nf">Friday-03</span><span class="p">:</span><span class="mi">00</span> <span class="nf">Saturday-03</span><span class="p">:</span><span class="mi">00</span> <span class="nf">Sunday-03</span><span class="p">:</span><span class="mi">00</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">browser_preferences=https://kiosk.domain.tld/policies/firefox.txt</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">refresh_webpage=3600</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">right_mouse_click=yes</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">search_engine=duckduckgo</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">swapfile=1024</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">timezone=Europe/Oslo</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">vnc_password=vncpass</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$CFG</span> <span class="s">'</span>$<span class="p">{</span><span class="kn">CFG</span><span class="err">}</span><span class="s">additional_components=09-x11vnc.xzm</span> <span class="s">uefi.zip</span><span class="err">\</span><span class="s">n'</span><span class="p">;</span>
 
     <span class="kn">return</span> <span class="mi">200</span> <span class="nv">$CFG</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
                     </div>
-                  </div>
-                  <div class="footnotes" role="doc-endnotes">
-                    <ol>
-                      <li id="fn:1" role="doc-endnote">
-                        <p>https://stackoverflow.com/a/67981564 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-                      </li>
-                      <li id="fn:2" role="doc-endnote">
-                        <p>https://mailman.nginx.org/pipermail/nginx/2016-November/052313.html <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-                      </li>
-                      <li id="fn:3" role="doc-endnote">
-                        <p>https://nginx.org/en/docs/dev/development_guide.html#http_phases <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-                      </li>
-                    </ol>
                   </div>
                 </div>
                 <!-- Add backlinks to the current page --></div>
