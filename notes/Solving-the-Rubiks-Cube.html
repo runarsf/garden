@@ -11,10 +11,10 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-        rel="stylesheet"><meta content="Rubiks cube blindfolded" property="og:title">
+        rel="stylesheet"><meta content="Solving the rubiks cube" property="og:title">
       <meta content="article" property="og:type">
-      <meta content="https://publish.runarsf.dev/notes/Rubiks-Cube-Blindfolded" property="og:url"><title>📖 My Notebook</title>
-      <link rel="canonical" href="https://publish.runarsf.dev/notes/Rubiks-Cube-Blindfolded" />
+      <meta content="https://publish.runarsf.dev/notes/Solving-the-Rubiks-Cube" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev/notes/Solving-the-Rubiks-Cube" />
       <link rel="apple-touch-icon" href="/assets/img/profile.png">
       <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
       <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
@@ -117,103 +117,52 @@
                     </span>
                   </a>
                 </div>
-                <h1>Rubiks cube blindfolded</h1>
+                <h1>Solving the rubiks cube</h1>
                 <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
                 <div class="content">
-                  <h1 id="solving-the-rubiks-cube-blindfolded">Solving the Rubik’s cube blindfolded</h1>
-                  <p><img src="_assets/Cube.png" alt="" /> <img src="_assets/CubeMoves.png" alt="" /></p>
-                  <p><mark style="background: #FF5582A6;"><b>Front</b></mark>, <mark style="background: #BBFABBA6;">Right</mark>, <mark style="background: #ADCCFFA6;">Left</mark>, <mark style="background: #FFB86CA6;">Back</mark>, <mark style="background: #FFF3A3A6;"><b>Up</b></mark>, <mark style="background: #CACFD9A6;">Down</mark></p>
-                  <h2 id="resources">Resources</h2>
+                  <p><a class="stale-link" href="javascript:void(0)">Rubiks Cube Blindfolded</a></p>
                   <ul>
                     <li>
-                      <details><summary><a href="https://cstimer.net">csTimer</a></summary><iframe scrolling="no" src="https://cstimer.net/" title="csTimer" style="width: 100%; height: 40rem; overflow: hidden;"></iframe></details>
+                      <p>Common notations</p>
+                      <p>Executing any of these notations means turning the given face once (90°) clockwise. Adding <code class="highlighter-rouge">'</code> (known as “prime”) indicates moving the face counter-clockwise. Adding a number after a notation indicates how many times that move should be executed.</p>
+                      <p><code class="highlighter-rouge">F</code>ront: The face facing the solver.</p>
+                      <p><code class="highlighter-rouge">B</code>ack: The back face.</p>
+                      <p><code class="highlighter-rouge">L</code>eft: The left face.</p>
+                      <p><code class="highlighter-rouge">R</code>ight: The right face.</p>
+                      <p><code class="highlighter-rouge">U</code>p: The upper face.</p>
+                      <p><code class="highlighter-rouge">D</code>own: The downward face.</p>
+                      <p><code class="highlighter-rouge">x</code>: Rotate cube away from you (The front face will be annotated as <em>U</em>)</p>
                     </li>
-                    <li><a href="https://www.youtube.com/watch?v=FK9b3e4LZ-I">Corners</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=HUBollMdR24">Edges</a></li>
-                    <li><a href="https://youtu.be/FK9b3e4LZ-I?t=723">New cycle</a></li>
-                    <li><a href="https://youtu.be/FK9b3e4LZ-I?t=1206">Rotate corner with wrong orientation</a></li>
+                    <li>
+                      <p>Resources</p>
+                      <p><a href="https://cstimer.net/">csTimer</a></p>
+                      <p><a href="https://youtu.be/MaltgJGz-dU">Tutorial</a></p>
+                    </li>
                   </ul>
-                  <h1 id="introduction">Introduction</h1>
-                  <p>Solving the Rubik’s Cube blindfolded isn’t actually as hard as one might think, it all boils down to remembering a sequence of moves that will return the cube to its original state (see <a class="stale-link" href="javascript:void(0)">#Example solves scrambles</a>). The concept is easy to understand and and is relatively simple to get the hang of with a bit of practice and the right mnemonics. To do this, we give each face (sticker) of all corner and edge pieces a name (a letter) — since there are two types of pieces (corners and edges), the same letter can be assigned to both a corner and an edge piece (we don’t need to name the centers, since they’re stationary). The pieces are named in alphabetical order, starting with the top left piece, continuing clockwise on each face starting with the Top &gt; Left &gt; Front &gt; Right &gt; Back &gt; Bottom.</p>
-                  <p>The buffer slot is a place you will temporarily move pieces to, so we can remember algorithms only for that buffer piece, and restore the cube after performing the algorithm.
-                    If you find the buffer piece while figuring out the sequence (before each piece is covered) you start a new cycle, by moving the buffer piece to a different slot and reverting it later on.</p>
-                  <aside> 💡
-                    Use your fingers to keep track of which pieces you've checked!
-                    Remembering the first letter of each face could help: <b><mark style="background: #FFF3A3A6;">A</mark><mark style="background: #ADCCFFA6;">E</mark><mark style="background: #FF5582A6;">I</mark><mark style="background: #BBFABBA6;">M</mark><mark style="background: #FFB86CA6;">Q</mark><mark style="background: #CACFD9A6;">U</mark></b>.
-                  </aside>
-                  <p>Each letter in the sequence will be the name of the piece you want to swap with the buffer, to swap a piece with the buffer you put the piece in the swap slot, do the swapping algorithm, and undo the moves you made to move the piece to the swap slot.</p>
-                  <h1 id="corners">Corners</h1>
-                  <p><code class="highlighter-rouge">A</code> is the buffer piece.
-                    <code class="highlighter-rouge">P</code> is the swap piece.
-                    While setting up you cannot affect <code class="highlighter-rouge">A</code> (Corner and Edge) or <code class="highlighter-rouge">D</code> (Edge) (the pieces touching the buffer).
-                    In order to swap corners on the cube with the buffer piece they have to be set in the <code class="highlighter-rouge">P</code> position.
-                    e.g: To swap <strong>L</strong> with <strong>buffer</strong> you have to do <strong>D</strong> -&gt; <strong>Corner Alg</strong> -&gt; <strong>D’</strong>
-                    To fix twisted corners, pick any color of the twisted corner and place it into the P position, then proceed with the corner alg.
-                    Remember the letters you need to <strong>swap with the buffer</strong>.</p>
-                  <h2 id="algorithms">Algorithms</h2>
-                  <h3 id="swap-buffer-with-p">Swap buffer with P</h3>
-                  <blockquote>
-                    <p>(R U’ R’ U’) (R U R’ F’) (R U R’ U’) (R’ F R)
-                      <em>Note: This is the Y Perm without the 1st and last moves</em></p>
-                  </blockquote>
-                  <h2 id="example-solves--scrambles">Example solves / scrambles</h2>
-                  <p>U’ R2 B’ R2 U F’ U’ F R2 B R2</p>
-                  <blockquote>
-                    <p>[!ANSWER]- Solve
-                      MI V</p>
-                  </blockquote>
-                  <p>B2 L2 D L U’ L2 D2 L D L U L D2 B2 D2</p>
-                  <blockquote>
-                    <p>[!ANSWER]- Solve
-                      UP XB DT</p>
-                  </blockquote>
-                  <p>x’ R U’ R’ D R U R’ D’ R U R’ D R U’ R’ D’ x (E Perm)</p>
-                  <blockquote>
-                    <p>[!ANSWER]- Solve
-                      D BCB
-                      D CBC</p>
-                  </blockquote>
-                  <p>F D2 R2 D U2 F’ L F L’ D B L F’ L U2 B’</p>
-                  <blockquote>
-                    <p>[!ANSWER]- Solve
-                      LKCFW BHN</p>
-                  </blockquote>
-                  <p>F2 L2 D2 L2 R’ U’ R D’ F2 L2 R’ U R’ U L2 R2 D</p>
-                  <blockquote>
-                    <p>[!ANSWER]- Solve
-                      BS OM KI BL U (L U rotates once clockwise)</p>
-                  </blockquote>
-                  <p>B2 F R2 D R2 B F2 U F U’ L2 U L2 U’ B U ★★</p>
-                  <blockquote>
-                    <p>[!ANSWER]- Solve
-                      K C F C S L W (twisted corners) B Q
-                      K C F C O S L W N
-                      kcfc lx g bq</p>
-                  </blockquote>
-                  <h1 id="edges">Edges</h1>
-                  <p>B is the buffer piece
-                    A, C, D are swap pieces
-                    While setting up you cannot affect B (Corner and Edge) or C (Corner)</p>
-                  <h2 id="algorithms-1">Algorithms</h2>
-                  <h3 id="swap-buffer-with-d-t-perm">Swap buffer with D (T Perm)</h3>
-                  <blockquote>
-                    <p>(R U R’ U’) (R’ F) (R2 U’ R’ U’) (R U R’ F’)</p>
-                  </blockquote>
-                  <h3 id="swap-buffer-with-c-j-perm">Swap buffer with C (J Perm)</h3>
-                  <p>T Perm with last moves moved to front.</p>
-                  <blockquote>
-                    <p>(R U R’ F’) (R U R’ U’) (R’ F) (R2 U’ R’ U’)</p>
-                  </blockquote>
-                  <h3 id="swap-buffer-with-a-l-perm">Swap buffer with A (L Perm)</h3>
-                  <p>J Perm mirrored to left side.</p>
-                  <blockquote>
-                    <p>U2 (L’ U’ L F) (L’ U’ L U) (L F’) (L2 U L U’)
-                      <em>For context, this uses the Lefty J Perm algorithm with the upper layer rotated 180deg at the beginning and end (last U of Lefty J Perm turns into U’). This is because Lefty J Perm swaps D and C, but we need to swap A with B.</em></p>
-                  </blockquote>
-                  <h2 id="example-solves--scrambles-1">Example solves / scrambles</h2>
-                  <p>R2 D L’ B F’ D R’ D U2 B’ F L’
-                    D B’ D’ L2 R2 D L B2 F U2 F L’ R D U2 R2’
-                    Rotate two corners: (R U2 R’ U’ R U’ R’) (L’ U2 L U L’ U L)</p>
+                  <h2 id="solve-the-two-bottom-layers">Solve the two bottom layers</h2>
+                  <h2 id="1-solve-the-cross-top-layer">1. Solve the cross (top layer)</h2>
+                  <p>(F R U R’) (U’ F’)</p>
+                  <h3 id="orientations">Orientations</h3>
+                  <ul>
+                    <li><code class="highlighter-rouge">L</code> (small, 3 <em>pixels</em>) should be upside down to the right.</li>
+                    <li><code class="highlighter-rouge">-</code> should be horizontal in the middle.</li>
+                  </ul>
+                  <h2 id="2-solve-top-edges">2. Solve top edges</h2>
+                  <p>(R U2 R’ U’ R U’ R’) (U’)</p>
+                  <p><strong>Incorrect</strong> pointing towards you, and to the right.</p>
+                  <h2 id="solve-the-top-corners">Solve the top corners</h2>
+                  <h3 id="3-place-corners">3. Place corners</h3>
+                  <p>(L’ U R U’) (L U R’ U’)</p>
+                  <ul>
+                    <li>Place <strong>correct</strong> corner bottom right (towards you on top layer)</li>
+                    <li>Repeat until all corners are placed correctly</li>
+                  </ul>
+                  <h3 id="4-orient-corners">4. Orient corners</h3>
+                  <ul>
+                    <li>Place <strong>incorrect</strong> corners on the right side (if only one incorrect, then place towards you).</li>
+                    <li>The color of the top layer should point out to the right if possible.</li>
+                  </ul>
+                  <p>(R U2 R’ U’ R U’ R’) (L’ U2 L U L’ U L)</p>
                 </div>
                 <!-- Add backlinks to the current page --></div>
               <div id="copyright">

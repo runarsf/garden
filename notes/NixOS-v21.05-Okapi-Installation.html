@@ -11,10 +11,10 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-        rel="stylesheet"><meta content="Nixos installation" property="og:title">
+        rel="stylesheet"><meta content="Nixos v21.05 okapi installation" property="og:title">
       <meta content="article" property="og:type">
-      <meta content="https://publish.runarsf.dev/notes/NixOS-installation" property="og:url"><title>📖 My Notebook</title>
-      <link rel="canonical" href="https://publish.runarsf.dev/notes/NixOS-installation" />
+      <meta content="https://publish.runarsf.dev/notes/NixOS-v21.05-Okapi-Installation" property="og:url"><title>📖 My Notebook</title>
+      <link rel="canonical" href="https://publish.runarsf.dev/notes/NixOS-v21.05-Okapi-Installation" />
       <link rel="apple-touch-icon" href="/assets/img/profile.png">
       <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="16x16" />
       <link href="/assets/css/style.css" rel="stylesheet" media="all" class="default" />
@@ -119,10 +119,10 @@
                     </span>
                   </a>
                 </div>
-                <h1>Nixos installation</h1>
+                <h1>Nixos v21.05 okapi installation</h1>
                 <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
                 <div class="content">
-                  <h1 id="installing-nixos--a-less-verbose-step-by-step-guide">Installing NixOS — a less verbose step-by-step guide</h1>
+                  <h1 id="installing-nixos-v2105-okapi--a-less-verbose-step-by-step-guide">Installing NixOS v21.05 Okapi — a less verbose step-by-step guide</h1>
                   <p><a href="https://nixos.org/manual/nixos/stable/#version-21-05"><img src="https://img.shields.io/static/v1?logo=nixos&amp;logoColor=white&amp;label=&amp;message=NixOS%20v21.05%20Okapi&amp;color=41439a" alt="NixOS v21.05 Okapi" /></a></p>
                   <p>This guide assumes you already have Windows installed on a shrinked partition <em>if</em> you’ll be dual booting.</p>
                   <p>This guide also assumes you’re running UEFI, but differentiating steps will be noted.</p>
@@ -131,7 +131,8 @@
                   <h2 id="installation">Installation</h2>
                   <h3 id="before-installing">Before installing</h3>
                   <blockquote>
-                    <p>⚠ <strong>If you’re dual booting</strong>, consider checking the size of your Windows <em>EFI System Partition</em> (this will be a shared /boot partition in NixOS) before doing anything else. It’ll most likely be about 100mb, which isn’t enough for regular Windows+NixOS use. Sadly, resizing the first sector can be a bit of a (major) hassle (I’m not even sure you can…). The recommended size of your /boot partition is 512mb according to Nix, in order to “resize” it, see <a href="#Resizing%20Windows’%20EFI%20System%20Volume%20boot%20partition">Resizing Windows’ EFI System Volume boot partition</a>.
+                    <p>⚠ <strong>If you’re dual booting</strong>, consider checking the size of your Windows <em>EFI System Partition</em> (this will be a shared /boot partition in NixOS) before doing anything else. It’ll most likely be about 100mb, which isn’t enough for regular Windows+NixOS use. Sadly, resizing the first sector can be a bit of a (major) hassle (I’m not even sure you can…).<br />
+                      The recommended size of your <code class="highlighter-rouge">/boot</code> partition is 512mb according to Nix, in order to “resize” it, see <a href="#Resizing%20Windows’%20EFI%20System%20Volume%20boot%20partition">Resizing Windows’ EFI System Volume boot partition</a>.<br />
                       After you’ve fixed your /boot partition, you should reserve space on the disk for NixOS, this can be done by going into windows &gt; <kbd>Super</kbd> + <kbd>r</kbd> &gt; <em>diskmgmt.msc</em> &gt; right-click on your primary partition (labelled with a drive letter) &gt; <em>Shrink Volume…</em> &gt; and enter the size you want your NixOS installation to be (in mb, e.g. <em>250000</em>) in <em>Enter the amount of space to shrink in MB:</em>. After that, right-click on the new partition &gt; <em>Delete Volume…</em> and <em>Format…</em>.</p>
                   </blockquote>
                   <blockquote>
@@ -166,7 +167,7 @@
                             <li>Cluster size: <code class="highlighter-rouge">8192 bytes</code></li>
                           </ul>
                         </li>
-                        <li><a href="https://www.balena.io/etcher/">Balena Etcher</a> is an easy alternative to Rufus</li>
+                        <li><a href="https://www.balena.io/etcher/">Balena Etcher</a> (not recommended for Windows sticks) is an easy alternative to Rufus</li>
                       </ul>
                     </li>
                   </ul>
@@ -304,7 +305,7 @@
                   <p>{
                     imports = [
                     ./hardware-configuration.nix
-                    ];</p>
+                    9416];</p>
                   <p>boot.loader.systemd-boot.enable = true;
                     boot.loader.efi.canTouchEfiVariables = true; # Skip if BIOS
                     boot.initrd.luks.devices.”nixos” = { # Skip if you’re not using luks encryption
